@@ -4,8 +4,13 @@
 #include <stdbool.h>
 #include <string.h>
 #include <strings.h>
+#include <ctype.h>
 
 #define MAXDAYS 10000
+
+int DAYSRECORDED = 0;
+const char* STARTDATE = "01/02/2012";
+const char* ENDDATE = "02/24/2023";
 
 const int MAXLINES = 2800;
 const int TIMEPERIOD = 14;
@@ -62,7 +67,7 @@ void resetBuffer(char *buffer)
 }
 
 
-void parseFile(char *fileDirectory, day_t *dayArray[])
+void parseFile(char *fileDirectory, day_t *dayArray[], const char* startDate, const char* endDate)
 {
 
     day_t *tempArray[MAXDAYS];
@@ -79,6 +84,7 @@ void parseFile(char *fileDirectory, day_t *dayArray[])
     int i;
     int numLine = 0;
     int d = 0;
+    bool record = false;
 
     while (numLine < MAXLINES)
     {
@@ -109,7 +115,21 @@ void parseFile(char *fileDirectory, day_t *dayArray[])
             i++;
         }
 
-        if (numLine != 0)
+        char date[12];
+        int j = 0;
+        char* p = line;
+        while (isspace(*p)) { p++; }
+        while (!isspace(*p)){
+            date[j] = *p;
+            j++;
+            p++; 
+        }
+
+        // Set record to true when we hit the end date:
+        if (strcmp(date, endDate) == 0) { record = true; }
+
+        // Make day struct iff record is on:
+        if (numLine != 0 && record)
         {
             day_t *day = malloc(sizeof(day_t));
             // Initialize standard parameters
@@ -129,6 +149,9 @@ void parseFile(char *fileDirectory, day_t *dayArray[])
             d++;
         }
 
+        // Set record to false when we hit the start date:
+        if (strcmp(date, startDate) == 0) { record = false; }
+
         resetBuffer(line);
         numLine++;
     }
@@ -140,6 +163,10 @@ void parseFile(char *fileDirectory, day_t *dayArray[])
     {
         dayArray[i] = tempArray[d - 1 - i];
     }
+
+    // Record days recorded:
+    DAYSRECORDED = d;
+
 }
 
 
@@ -153,7 +180,7 @@ void printDay(day_t *day)
 void printDays(day_t *dayArray[])
 {
 
-    for (int i = 0; i < MAXLINES - 1; i++)
+    for (int i = 0; i < DAYSRECORDED; i++)
     {
         if (i == 0)
         {
@@ -173,7 +200,7 @@ void computeWilderRSI(day_t *dayArray[])
     float totalUp = 0;
     float totalDown = 0;
 
-    for (int d = 1; d < MAXLINES - 1; d++)
+    for (int d = 1; d < DAYSRECORDED; d++)
     {
 
         day_t *day = dayArray[d];
@@ -222,7 +249,7 @@ void recordEngulfments(day_t *dayArray[])
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 2; i++)
+    for (int i = 0; i < DAYSRECORDED -1; i++)
     {
         day_t *day = dayArray[i];
         day_t *next = dayArray[i + 1];
@@ -281,7 +308,7 @@ void recordStars(day_t *dayArray[])
 {
 
     // Iterate through all days:
-    for (int i = 2; i < MAXLINES - 1; i++)
+    for (int i = 2; i < DAYSRECORDED; i++)
     {
         day_t *d1 = dayArray[i - 2];
         day_t *d2 = dayArray[i - 1];
@@ -323,7 +350,7 @@ void recordHammers(day_t *dayArray[], const int hammerSize)
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 1; i++)
+    for (int i = 0; i < DAYSRECORDED; i++)
     {
 
         day_t *day = dayArray[i];
@@ -362,7 +389,7 @@ void recordDojis(day_t *dayArray[], const int dojiSize, const int dojiExtremes)
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 1; i++)
+    for (int i = 0; i < DAYSRECORDED; i++)
     {
 
         day_t *day = dayArray[i];
@@ -427,12 +454,12 @@ void recordConsDisagreements(day_t *dayArray[])
 {
 
     // Backtrack array keeping track of all previously disagreeing days:
-    int divArray[MAXLINES];
+    int divArray[DAYSRECORDED];
     int p = 0;
     bool isCons;
 
     // Iterate through all days:
-    for (int i = TIMEPERIOD + 1; i < MAXLINES - 1; i++)
+    for (int i = TIMEPERIOD + 1; i < DAYSRECORDED; i++)
     {
         day_t *day = dayArray[i];
         day_t *prev = dayArray[i - disInterval];
@@ -480,7 +507,7 @@ int main()
 
     day_t *dayArray[MAXDAYS];
 
-    parseFile("./data/DAX Historical Data.csv", dayArray);
+    parseFile("./data/DAX Historical Data.csv", dayArray, STARTDATE, ENDDATE);
 
     computeWilderRSI(dayArray);
     recordConsDisagreements(dayArray);
