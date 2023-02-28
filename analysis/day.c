@@ -4,176 +4,22 @@
 #include <stdbool.h>
 #include <string.h>
 #include <strings.h>
+#include <ctype.h>
 
-#define MAXDAYS 10000
-
-const int MAXLINES = 2800;
-const int TIMEPERIOD = 14;
-const int HAMMERSIZE = 3;   // (max(open,close) - low) x times |open - close|
-const int DOJISIZE = 10;    // (high - low) x times |open - close|
-const int DOJIEXTREMES = 3; // top 1/x and bottom 1/x defined as dragon-fly & gravestone respectively
-
-/************************************** DAY FEATURES **********************************************/
-
-typedef struct day
-{
-
-    // Basic day features:
-    char date[12];
-    float open;
-    float close;
-    float high;
-    float low;
-    float vol;
-
-    // RSI indicators:
-    float avgUp;
-    float avgDown;
-    float change;
-    float RSI;
-
-    // Japanese candlesticks indicators:
-    bool bullEngulf;
-    bool bullRelEngulf;
-    bool bearEngulf;
-    bool bearRelEngulf;
-    bool morningStar;
-    bool eveningStar;
-    bool hammer;
-    bool llDoji;
-    bool dfDoji;
-    bool gsDoji;
-
-    // "Consecutive disagreements" indicators:
-    bool disagreement;
-    bool consDisagreement;
-
-} day_t;
+#include "day.h"
 
 
-/************************************** INPUT & OUTPUT PROCESSING **********************************************/
-
-void resetBuffer(char *buffer)
-{
-    for (int i = strlen(buffer); i >= 0; i--)
-    {
-        buffer[i] = '\0';
-    }
-}
-
-
-void parseFile(char *fileDirectory, day_t *dayArray[])
-{
-
-    day_t *tempArray[MAXDAYS];
-
-    FILE *fp = fopen(fileDirectory, "r");
-    if (fp == NULL)
-    {
-        fprintf(stderr, "Error opening %s\n", fileDirectory);
-        return;
-    }
-
-    char c;
-    char line[1024];
-    int i;
-    int numLine = 0;
-    int d = 0;
-
-    while (numLine < MAXLINES)
-    {
-
-        i = 0;
-
-        while ((c = fgetc(fp)) != '\n')
-        {
-            if (c == 'M')
-            {
-                while ((c = fgetc(fp)) != '\n')
-                {
-                }
-                break;
-            }
-            else if (c == ',')
-            {
-                continue;
-            }
-            else if (c == '"')
-            {
-                line[i] = ' ';
-            }
-            else
-            {
-                line[i] = c;
-            }
-            i++;
-        }
-
-        if (numLine != 0)
-        {
-            day_t *day = malloc(sizeof(day_t));
-            // Initialize standard parameters
-            sscanf(line, "%s %f %f %f %f %f", (char *)&day->date, &day->close, &day->open, &day->high, &day->low, &day->vol);
-            // Initialize analysis parameters to false:
-            day->disagreement = false;
-            day->consDisagreement = false;
-            day->bearEngulf = false;
-            day->bullEngulf = false;
-            day->morningStar = false;
-            day->eveningStar = false;
-            day->hammer = false;
-            day->llDoji = false;
-            day->dfDoji = false;
-            day->gsDoji = false;
-            tempArray[d] = day;
-            d++;
-        }
-
-        resetBuffer(line);
-        numLine++;
-    }
-
-    fclose(fp);
-
-    // Construct array containing all days:
-    for (int i = 0; i < d; i++)
-    {
-        dayArray[i] = tempArray[d - 1 - i];
-    }
-}
-
-
-void printDay(day_t *day)
-{
-
-    printf("%s %f %f %f %f %f   %f\n", (char *)day->date, day->close, day->open, day->high, day->low, day->vol, day->RSI);
-}
-
-
-void printDays(day_t *dayArray[])
-{
-
-    for (int i = 0; i < MAXLINES - 1; i++)
-    {
-        if (i == 0)
-        {
-            printf("Date         Close         Open        High         Low          Volume        RSI\n");
-        }
-        day_t *day = dayArray[i];
-        printDay(day);
-    }
-}
-
+/************************ TECHNICAL ANALYSIS TOOLS ***************************/
 
 /************************************** RSI **********************************************/
 
-void computeWilderRSI(day_t *dayArray[])
+void computeWilderRSI(day_t *dayArray[], const int daysRecorded, const int timePeriod)
 {
 
     float totalUp = 0;
     float totalDown = 0;
 
-    for (int d = 1; d < MAXLINES - 1; d++)
+    for (int d = 1; d < daysRecorded; d++)
     {
 
         day_t *day = dayArray[d];
@@ -182,10 +28,9 @@ void computeWilderRSI(day_t *dayArray[])
         day->change = day->close - prev->close;
 
         // Computing RSI starting values:
-        if (d == TIMEPERIOD)
+        if (d == timePeriod)
         {
-
-            for (int i = (d + 1) - TIMEPERIOD; i <= d; i++)
+            for (int i = (d + 1) - timePeriod; i <= d; i++)
             {
                 if (dayArray[i]->change > 0)
                 {
@@ -197,32 +42,33 @@ void computeWilderRSI(day_t *dayArray[])
                 }
             }
 
-            day->avgUp = (float)(totalUp / TIMEPERIOD);
-            day->avgDown = (float)(totalDown / TIMEPERIOD);
+            day->avgUp = (float)(totalUp / timePeriod);
+            day->avgDown = (float)(totalDown / timePeriod);
+
+            day->RSI = 100 - (float)(100 / (1 + (float)(day->avgUp / day->avgDown)));
         }
 
         // Computing RSI for successive values:
-        else if (d > TIMEPERIOD)
+        else if (d > timePeriod)
         {
-
             float change = day->change;
 
-            day->avgUp = (float)(((TIMEPERIOD - 1) * (prev->avgUp) + (change > 0) * (change)) / TIMEPERIOD);
-            day->avgDown = (float)(((TIMEPERIOD - 1) * (prev->avgDown) - (change < 0) * (change)) / TIMEPERIOD);
-        }
+            day->avgUp = (float)(((timePeriod - 1) * (prev->avgUp) + (change > 0) * (change)) / timePeriod);
+            day->avgDown = (float)(((timePeriod - 1) * (prev->avgDown) - (change < 0) * (change)) / timePeriod);
 
-        day->RSI = 100 - (float)(100 / (1 + (float)(day->avgUp / day->avgDown)));
+            day->RSI = 100 - (float)(100 / (1 + (float)(day->avgUp / day->avgDown)));
+        }
     }
 }
 
 
 /************************************** JAPANESE CANDLESTICK INDICATORS **********************************************/
 
-void recordEngulfments(day_t *dayArray[])
+void recordEngulfments(day_t *dayArray[], const int daysRecorded)
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 2; i++)
+    for (int i = 0; i < daysRecorded -1; i++)
     {
         day_t *day = dayArray[i];
         day_t *next = dayArray[i + 1];
@@ -277,11 +123,11 @@ void recordEngulfments(day_t *dayArray[])
 }
 
 
-void recordStars(day_t *dayArray[])
+void recordStars(day_t *dayArray[], const int daysRecorded)
 {
 
     // Iterate through all days:
-    for (int i = 2; i < MAXLINES - 1; i++)
+    for (int i = 2; i < daysRecorded; i++)
     {
         day_t *d1 = dayArray[i - 2];
         day_t *d2 = dayArray[i - 1];
@@ -319,11 +165,11 @@ void recordStars(day_t *dayArray[])
 }
 
 
-void recordHammers(day_t *dayArray[], const int hammerSize)
+void recordHammers(day_t *dayArray[], const int daysRecorded, const int hammerSize)
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 1; i++)
+    for (int i = 0; i < daysRecorded; i++)
     {
 
         day_t *day = dayArray[i];
@@ -358,11 +204,11 @@ void recordHammers(day_t *dayArray[], const int hammerSize)
 }
 
 
-void recordDojis(day_t *dayArray[], const int dojiSize, const int dojiExtremes)
+void recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, const int dojiExtremes)
 {
 
     // Iterate through all days:
-    for (int i = 0; i < MAXLINES - 1; i++)
+    for (int i = 0; i < daysRecorded; i++)
     {
 
         day_t *day = dayArray[i];
@@ -415,7 +261,9 @@ void recordDojis(day_t *dayArray[], const int dojiSize, const int dojiExtremes)
 }
 
 
-/************************************** ALGORITHMS **********************************************/
+
+
+/**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
 /******************* "Consecutive RSI Disagreements" ********************/
 
@@ -423,16 +271,16 @@ const int disInterval = 2; // interval between 2 points over which a disagreemen
 const int consecDis = 3;   // total consecutive disagreements
 const int disDist = 7;     // distance between two divegences to be defined as consecutive
 
-void recordConsDisagreements(day_t *dayArray[])
+void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod)
 {
 
     // Backtrack array keeping track of all previously disagreeing days:
-    int divArray[MAXLINES];
+    int divArray[daysRecorded];
     int p = 0;
     bool isCons;
 
     // Iterate through all days:
-    for (int i = TIMEPERIOD + 1; i < MAXLINES - 1; i++)
+    for (int i = timePeriod + 1; i < daysRecorded; i++)
     {
         day_t *day = dayArray[i];
         day_t *prev = dayArray[i - disInterval];
@@ -470,27 +318,4 @@ void recordConsDisagreements(day_t *dayArray[])
             p++;
         }
     }
-}
-
-
-/************************************** MAIN & TESTING **********************************************/
-
-int main()
-{
-
-    day_t *dayArray[MAXDAYS];
-
-    parseFile("./data/DAX Historical Data.csv", dayArray);
-
-    computeWilderRSI(dayArray);
-    recordConsDisagreements(dayArray);
-
-    recordEngulfments(dayArray);
-    recordStars(dayArray);
-    recordHammers(dayArray, HAMMERSIZE);
-    recordDojis(dayArray, DOJISIZE, DOJIEXTREMES);
-
-    // printDays(dayArray);
-
-    return 0;
 }
