@@ -16,6 +16,7 @@ all: testing
 
 testing: $(OBJS)
 	cd $A && $(MAKE)
+	cd $G && mkdir data
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(LLIBS) -o test
 	
 
@@ -27,8 +28,6 @@ clean:
 	rm -f core
 	rm -f test
 	cd $A && $(MAKE) clean
-	cd $G && rm -f dates.txt
-	cd $G && rm -f closes.txt
-	cd $G && rm -f volumes.txt
-	cd $G && rm -f RSI.txt
+	cd $G && rm -rf data
+	
 	

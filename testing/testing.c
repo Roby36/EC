@@ -16,13 +16,26 @@ const char* STARTDATE = "08/24/2022";
 const char* ENDDATE = "02/24/2023";
 const char* DATA = "../data/DAX Historical Data.csv";
 
-const char* datesFile = "../graphs/dates.txt";
-const char* closesFile = "../graphs/closes.txt";
-const char* volumesFile = "../graphs/volumes.txt";
-const char* RSIFile = "../graphs/RSI.txt";
+const char* datesDirectory = "../graphs/data/dates.txt";
+const char* closesDirectory = "../graphs/data/closes.txt";
+const char* volumesDirectory = "../graphs/data/volumes.txt";
+const char* RSIDirectory = "../graphs/data/RSI.txt";
 
+const char* bullEngulfDirectory = "../graphs/data/bullEngulf.txt";
+const char* bullRelEngulfDirectory = "../graphs/data/bullRelEngulf.txt";
+const char* bearEngulfDirectory = "../graphs/data/bearEngulf.txt";
+const char* bearRelEngulfDirectory = "../graphs/data/bearRelEngulf.txt";
+const char* morningStarDirectory = "../graphs/data/morningStar.txt";
+const char* eveningStarDirectory = "../graphs/data/eveningStar.txt";
+const char* hammerDirectory = "../graphs/data/hammer.txt";
+const char* llDojiDirectory = "../graphs/data/llDoji.txt";
+const char* dfDojiDirectory = "../graphs/data/dfDoji.txt";
+const char* gsDojiDirectory = "../graphs/data/gsDoji.txt";
 
-/************************************** ANALYSIS PARAMETERS (tools) **********************************************/
+const char* disagreementDirectory = "../graphs/data/disagreement.txt";
+const char* consDisagreementDirectory = "../graphs/data/consDisagreement.txt";
+
+/************************************** ANALYSIS PARAMETERS **********************************************/
 
 const int TIMEPERIOD = 14;  // RSI time-period
 const int HAMMERSIZE = 3;   // (max(open,close) - low) x times |open - close|
@@ -52,11 +65,25 @@ int main()
     computeWilderRSI(dayArray, DAYSRECORDED, TIMEPERIOD);
     recordConsDisagreements(dayArray, DAYSRECORDED, TIMEPERIOD);
 
-    printDates(dayArray, DAYSRECORDED, datesFile);
-    printCloses(dayArray, DAYSRECORDED, closesFile);
-    printVolumes(dayArray, DAYSRECORDED, volumesFile);
-    printRSI(dayArray, DAYSRECORDED, RSIFile);
+    printDates(dayArray, DAYSRECORDED, datesDirectory);
 
+    printFloatAttributes(dayArray, DAYSRECORDED, "close", closesDirectory);
+    printFloatAttributes(dayArray, DAYSRECORDED, "vol", volumesDirectory);
+    printFloatAttributes(dayArray, DAYSRECORDED, "RSI", RSIDirectory);
+
+    printBoolAttributes(dayArray, DAYSRECORDED, "bullEngulf", bullEngulfDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "bullRelEngulf", bullRelEngulfDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "bearEngulf", bearEngulfDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "bearRelEngulf", bearRelEngulfDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "morningStar", morningStarDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "eveningStar", eveningStarDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "hammer", hammerDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "llDoji", llDojiDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "dfDoji", dfDojiDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "gsDoji", gsDojiDirectory);
+
+    printBoolAttributes(dayArray, DAYSRECORDED, "disagreement", disagreementDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "consDisagreement", consDisagreementDirectory);
 
 
 

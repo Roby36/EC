@@ -151,74 +151,79 @@ void printDays(day_t *dayArray[], const int daysRecorded)
 
 /************************************** TEXT-FILES FOR GRAPHS **********************************************/
 
-void printDates(day_t *dayArray[], const int daysRecorded, const char* fileDirectory){
+FILE*
+openDirectory(const char* fileDirectory){
 
     FILE* fp = fopen(fileDirectory, "a");
     if (fp == NULL){
         fprintf(stderr, "Error opening %s for appending.\n", fileDirectory);
-        return;
+        return NULL;
     }
+    return fp;
+}
+
+
+void printDates(day_t *dayArray[], const int daysRecorded, const char* fileDirectory){
+
+    FILE* fp = openDirectory(fileDirectory);
+    if (fp == NULL) { return; }
 
     for (int i = 0; i < daysRecorded; i++)
     {
         day_t *day = dayArray[i];
         fprintf(fp, "%s\n", day->date);
     }
-
     fclose(fp);
 }
 
 
-void printCloses(day_t *dayArray[], const int daysRecorded, const char* fileDirectory){
+void printFloatAttributes(day_t *dayArray[], const int daysRecorded, const char* attribute, const char* fileDirectory){
 
-    FILE* fp = fopen(fileDirectory, "a");
-    if (fp == NULL){
-        fprintf(stderr, "Error opening %s for appending.\n", fileDirectory);
-        return;
-    }
+    FILE* fp = openDirectory(fileDirectory);
+    if (fp == NULL) { return; }
+
+    float att = 0;
 
     for (int i = 0; i < daysRecorded; i++)
     {
         day_t *day = dayArray[i];
-        fprintf(fp, "%f\n", day->close);
-    }
 
+        if (strcmp(attribute, "close") == 0) { att = day -> close; }
+        else if (strcmp(attribute, "vol") == 0) { att = day -> vol; }
+        else if (strcmp(attribute, "RSI") == 0) { att = day -> RSI; }
+
+        fprintf(fp, "%f\n", att);
+    }
     fclose(fp);
 }
 
 
-void printVolumes(day_t *dayArray[], const int daysRecorded, const char* fileDirectory){
+void printBoolAttributes(day_t *dayArray[], const int daysRecorded, const char* attribute, const char* fileDirectory){
 
-    FILE* fp = fopen(fileDirectory, "a");
-    if (fp == NULL){
-        fprintf(stderr, "Error opening %s for appending.\n", fileDirectory);
-        return;
-    }
+    FILE* fp = openDirectory(fileDirectory);
+    if (fp == NULL) { return; }
 
-    for (int i = 0; i < daysRecorded; i++)
-    {
-        day_t *day = dayArray[i];
-        fprintf(fp, "%f\n", day->vol);
-    }
-
-    fclose(fp);
-}
-
-
-void printRSI(day_t *dayArray[], const int daysRecorded, const char* fileDirectory){
-
-    FILE* fp = fopen(fileDirectory, "a");
-    if (fp == NULL){
-        fprintf(stderr, "Error opening %s for appending.\n", fileDirectory);
-        return;
-    }
+    int att = 0;
 
     for (int i = 0; i < daysRecorded; i++)
     {
         day_t *day = dayArray[i];
-        fprintf(fp, "%f\n", day->RSI);
-    }
 
+        if (strcmp(attribute, "bullEngulf") == 0) { att = day -> bullEngulf; }
+        else if (strcmp(attribute, "bullRelEngulf") == 0) { att = day -> bullRelEngulf; }
+        else if (strcmp(attribute, "bearEngulf") == 0) { att = day -> bearEngulf; }
+        else if (strcmp(attribute, "bearRelEngulf") == 0) { att = day -> bearRelEngulf; }
+        else if (strcmp(attribute, "morningStar") == 0) { att = day -> morningStar; }
+        else if (strcmp(attribute, "eveningStar") == 0) { att = day -> eveningStar; }
+        else if (strcmp(attribute, "hammer") == 0) { att = day -> hammer; }
+        else if (strcmp(attribute, "llDoji") == 0) { att = day -> llDoji; }
+        else if (strcmp(attribute, "dfDoji") == 0) { att = day -> dfDoji; }
+        else if (strcmp(attribute, "gsDoji") == 0) { att = day -> gsDoji; }
+        else if (strcmp(attribute, "disagreement") == 0) { att = day -> disagreement; }
+        else if (strcmp(attribute, "consDisagreement") == 0) { att = day -> consDisagreement; }
+
+        fprintf(fp, "%d\n", att);
+    }
     fclose(fp);
 }
 
