@@ -93,16 +93,25 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
             sscanf(line, "%s %f %f %f %f %f", (char *)&day->date, &day->close, &day->open, &day->high, &day->low, &day->vol);
             // Initialize analysis parameters to false & RSI to 0:
             day->RSI = (float) 0;
-            day->disagreement = false;
+            day->MACD = (float) 0;
+            day->sigMACD = (float) 0;
+
+            day->buySig = false;
+            day->sellSig = false;
+            day->disagreement = false; 
             day->consDisagreement = false;
+
             day->bearEngulf = false;
+            day->bearRelEngulf = false;
             day->bullEngulf = false;
+            day->bullRelEngulf = false;
             day->morningStar = false;
             day->eveningStar = false;
             day->hammer = false;
             day->llDoji = false;
             day->dfDoji = false;
             day->gsDoji = false;
+
             tempArray[d] = day;
             d++;
         }
@@ -191,6 +200,8 @@ void printFloatAttributes(day_t *dayArray[], const int daysRecorded, const char*
         if (strcmp(attribute, "close") == 0) { att = day -> close; }
         else if (strcmp(attribute, "vol") == 0) { att = day -> vol; }
         else if (strcmp(attribute, "RSI") == 0) { att = day -> RSI; }
+        else if (strcmp(attribute, "MACD") == 0) { att = day -> MACD; }
+        else if (strcmp(attribute, "sigMACD") == 0) { att = day -> sigMACD; }
 
         fprintf(fp, "%f\n", att);
     }
@@ -221,6 +232,8 @@ void printBoolAttributes(day_t *dayArray[], const int daysRecorded, const char* 
         else if (strcmp(attribute, "gsDoji") == 0) { att = day -> gsDoji; }
         else if (strcmp(attribute, "disagreement") == 0) { att = day -> disagreement; }
         else if (strcmp(attribute, "consDisagreement") == 0) { att = day -> consDisagreement; }
+        else if (strcmp(attribute, "buySig") == 0) { att = day -> buySig; }
+        else if (strcmp(attribute, "sellSig") == 0) { att = day -> sellSig; }
 
         fprintf(fp, "%d\n", att);
     }

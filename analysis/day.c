@@ -261,17 +261,67 @@ void recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, 
 }
 
 
+/************************ MACD INDICATORS ***************************/
+
+void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, const int upper)
+{
+    for (int i = upper; i < daysRecorded; i++)
+    {
+        // Computing upper and lower sums:
+        float upperSum = 0;
+        float lowerSum = 0;
+        for (int j = 0; j <= upper; j++){
+
+            if (j <= lower) { lowerSum += dayArray[i-j] -> close; }
+            upperSum += dayArray[i-j] -> close;
+        }
+
+        // Computing MACD:
+        dayArray[i] -> MACD = (float)(lowerSum / (float)lower) - (float)(upperSum / (float)upper);
+    }
+}
+
+
+void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod)
+{
+    for (int i = MACDupper + avgPeriod; i < daysRecorded; i++)
+    {
+        // Computing MACD sums:
+        float MACDSum = 0;
+        for (int j = 0; j <= avgPeriod; j++){
+
+            MACDSum += dayArray[i-j] -> MACD;
+        }
+
+        // Computing MACD signal line:
+        dayArray[i] -> sigMACD = (float) (MACDSum / (float) avgPeriod);
+    }
+}
+
+
+void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod)
+{
+    for (int i = totPeriod + 1; i < daysRecorded; i++)
+    {
+        float currMACD = dayArray[i] -> MACD;
+        float prevMACD = dayArray[i-1] -> MACD;
+        float currSig = dayArray[i] -> sigMACD;
+        float prevSig = dayArray[i-1] -> sigMACD;
+
+        // Buy signal if MACD rises above signal line:
+        if (prevMACD < prevSig && currMACD > currSig) { dayArray[i] -> buySig = true; }
+        
+        // Sell signal if MACD falls below signal line:
+        if (prevMACD > prevSig && currMACD < currSig) { dayArray[i] -> sellSig = true; }
+    }
+}
 
 
 /**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
 /******************* "Consecutive RSI Disagreements" ********************/
 
-const int disInterval = 2; // interval between 2 points over which a disagreement is defined
-const int consecDis = 3;   // total consecutive disagreements
-const int disDist = 7;     // distance between two divegences to be defined as consecutive
-
-void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod)
+void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist)
 {
 
     // Backtrack array keeping track of all previously disagreeing days:
