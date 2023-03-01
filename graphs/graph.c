@@ -12,9 +12,29 @@
 
 /*********************** GRAPH MAIN PARAMETERS ***********************************/
 
-const char* STARTDATE = "08/08/2022";
+const char* STARTDATE = "08/24/2022";
 const char* ENDDATE = "02/24/2023";
 const char* DATA = "../data/DAX Historical Data.csv";
+
+
+/****************** ANALYSIS PARAMETERS ******************************/
+
+const int TIMEPERIOD = 14;  // RSI time-period
+const int HAMMERSIZE = 3;   // (max(open,close) - low) x times |open - close|
+const int DOJISIZE = 10;    // (high - low) x times |open - close|
+const int DOJIEXTREMES = 3; // top 1/x and bottom 1/x defined as dragon-fly & gravestone respectively
+const int UPPERAVG = 26;    // MACD upper moving average
+const int LOWERAVG = 12;    // MACD lower moving average
+const int SIGAVG = 9;       // timeperiod for MACD moving average signal line
+
+
+/**************** ALGORITHMS / COMPOSITE TOOLS *********************/
+
+/******************* "Consecutive RSI Disagreements" ********************/
+
+const int disInterval = 2; // interval between 2 points over which a disagreement is defined
+const int consecDis = 3;   // total consecutive disagreements
+const int disDist = 10;    // distance between two divegences to be defined as consecutive
 
 /*********************** DATA DIRECTORIES ***********************************/
 
@@ -37,14 +57,10 @@ const char* gsDojiDirectory = "../graphs/data/gsDoji.txt";
 const char* disagreementDirectory = "../graphs/data/disagreement.txt";
 const char* consDisagreementDirectory = "../graphs/data/consDisagreement.txt";
 
-/************************************** ANALYSIS PARAMETERS **********************************************/
-
-const int TIMEPERIOD = 14;  // RSI time-period
-const int HAMMERSIZE = 3;   // (max(open,close) - low) x times |open - close|
-const int DOJISIZE = 10;    // (high - low) x times |open - close|
-const int DOJIEXTREMES = 3; // top 1/x and bottom 1/x defined as dragon-fly & gravestone respectively
-
-
+const char* MACDDirectory = "../graphs/data/MACD.txt";
+const char* sigMACDDirectory = "../graphs/data/sigMACD.txt";
+const char* buySigDirectory = "../graphs/data/buySig.txt";
+const char* sellSigDirectory = "../graphs/data/sellSig.txt";
 
 /************************************** MAIN & TESTING **********************************************/
 
@@ -58,6 +74,11 @@ int main()
         exit(1);
     }
 
+    printDates(dayArray, DAYSRECORDED, datesDirectory);
+    printFloatAttributes(dayArray, DAYSRECORDED, "close", closesDirectory);
+    
+    #ifndef MACDG
+
     // Computing analysis tools (tools.c):
     recordEngulfments(dayArray, DAYSRECORDED);
     recordStars(dayArray, DAYSRECORDED);
@@ -65,14 +86,10 @@ int main()
     recordDojis(dayArray, DAYSRECORDED, DOJISIZE, DOJIEXTREMES);
 
     computeWilderRSI(dayArray, DAYSRECORDED, TIMEPERIOD);
-    recordConsDisagreements(dayArray, DAYSRECORDED, TIMEPERIOD);
+    recordConsDisagreements(dayArray, DAYSRECORDED, TIMEPERIOD, disInterval, consecDis, disDist);
 
-    printDates(dayArray, DAYSRECORDED, datesDirectory);
-
-    printFloatAttributes(dayArray, DAYSRECORDED, "close", closesDirectory);
-    printFloatAttributes(dayArray, DAYSRECORDED, "vol", volumesDirectory);
+    printFloatAttributes(dayArray, DAYSRECORDED, "vol", volumesDirectory);  
     printFloatAttributes(dayArray, DAYSRECORDED, "RSI", RSIDirectory);
-
     printBoolAttributes(dayArray, DAYSRECORDED, "bullEngulf", bullEngulfDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bullRelEngulf", bullRelEngulfDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bearEngulf", bearEngulfDirectory);
@@ -87,13 +104,19 @@ int main()
     printBoolAttributes(dayArray, DAYSRECORDED, "disagreement", disagreementDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "consDisagreement", consDisagreementDirectory);
 
+    #endif // MACD
 
 
+    // FOR MACD GRAPH ONLY:
+    recordMACD(dayArray, DAYSRECORDED, LOWERAVG, UPPERAVG);
+    recordSigMACD(dayArray, DAYSRECORDED, UPPERAVG, SIGAVG);
+    recordSigBuySell(dayArray, DAYSRECORDED, UPPERAVG+SIGAVG);
 
+    printFloatAttributes(dayArray, DAYSRECORDED, "MACD", MACDDirectory);
+    printFloatAttributes(dayArray, DAYSRECORDED, "sigMACD", sigMACDDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "sellSig", sellSigDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "buySig", buySigDirectory);
 
-
-    // Printing days (dataProcessing.c):
-    // printDays(dayArray, DAYSRECORDED);
 
     return 0;
 }

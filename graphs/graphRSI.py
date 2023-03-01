@@ -121,7 +121,7 @@ consDisagreement_data = [int(x) for x in getData(consDisagreementDirectory)]
 x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
 
 # Plotting closing price graph:
-fig, ax = plt.subplots()  # gca
+fig, ax = plt.subplots()  
 ax.set_xlabel('Date')
 ax.set_ylabel('Close price', color=CLOSECOLOR)
 ax.plot(x_values, closes_data, color = CLOSECOLOR)

@@ -23,6 +23,12 @@ typedef struct day
     float change;
     float RSI;
 
+    // Moving averages indicators:
+    float MACD;
+    float sigMACD;
+    bool buySig;
+    bool sellSig;
+
     // Japanese candlesticks indicators:
     bool bullEngulf;
     bool bullRelEngulf;
@@ -54,10 +60,15 @@ void recordHammers(day_t *dayArray[], const int daysRecorded, const int hammerSi
 
 void recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, const int dojiExtremes);
 
+void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, const int upper);
+
+void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod);
+
+void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod);
 
 /**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
-void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod);
+void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist);
 
 
 
