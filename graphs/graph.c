@@ -36,7 +36,7 @@ const float BOLLSD = 2;     // Number of standard deviations for Bollinger bands
 
 const int disInterval = 2; // interval between 2 points over which a disagreement is defined
 const int consecDis = 3;   // total consecutive disagreements
-const int disDist = 10;    // distance between two divegences to be defined as consecutive
+const int disDist = 7;    // distance between two divegences to be defined as consecutive
 
 /*********************** DATA DIRECTORIES ***********************************/
 

@@ -8,14 +8,18 @@ MAKE = make
 CFLAGS = -I$A 
 CC = clang
 
-.PHONY: all graphdata graphRSI graphMACD graphBB clean
+.PHONY: all graphdata graphCOMP graphRSI graphMACD graphBB clean
 
-all: graphRSI
+all: graphCOMP
 
 graphdata: $(OBJS)
 	cd $A && $(MAKE)
 	mkdir data
 	$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(LLIBS) -o graphdata
+
+graphCOMP:
+	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphCOMP.py
+	$(MAKE) clean
 
 graphRSI:
 	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphRSI.py

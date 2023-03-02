@@ -310,9 +310,9 @@ recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, const int
         // Computing upper and lower sums:
         float upperSum = 0;
         float lowerSum = 0;
-        for (int j = 0; j <= upper; j++){
-
-            if (j <= lower) { lowerSum += dayArray[i-j] -> close; }
+        for (int j = 0; j < upper; j++)
+        {
+            if (j < lower) { lowerSum += dayArray[i-j] -> close; }
             upperSum += dayArray[i-j] -> close;
         }
 
@@ -329,8 +329,8 @@ recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, co
     {
         // Computing MACD sums:
         float MACDSum = 0;
-        for (int j = 0; j < avgPeriod; j++){
-
+        for (int j = 0; j < avgPeriod; j++)
+        {
             MACDSum += dayArray[i-j] -> MACD;
         }
 
