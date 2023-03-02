@@ -96,8 +96,8 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
             day->MACD = (float) 0;
             day->sigMACD = (float) 0;
 
-            day->buySig = false;
-            day->sellSig = false;
+            day->MACDbuySig = false;
+            day->MACDsellSig = false;
             day->disagreement = false; 
             day->consDisagreement = false;
 
@@ -105,12 +105,22 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
             day->bearRelEngulf = false;
             day->bullEngulf = false;
             day->bullRelEngulf = false;
+            day->bullHarami = false;
+            day->bullRelHarami = false;
+            day->bearHarami = false;
+            day->bearRelHarami = false;
             day->morningStar = false;
             day->eveningStar = false;
             day->hammer = false;
             day->llDoji = false;
             day->dfDoji = false;
             day->gsDoji = false;
+
+            day->bollMiddle = 0;
+            day->bollUpper = 0;
+            day->bollLower = 0;
+            day->bollBuySig = false;
+            day->bollSellSig = false;
 
             tempArray[d] = day;
             d++;
@@ -199,9 +209,15 @@ void printFloatAttributes(day_t *dayArray[], const int daysRecorded, const char*
 
         if (strcmp(attribute, "close") == 0) { att = day -> close; }
         else if (strcmp(attribute, "vol") == 0) { att = day -> vol; }
+
         else if (strcmp(attribute, "RSI") == 0) { att = day -> RSI; }
+
         else if (strcmp(attribute, "MACD") == 0) { att = day -> MACD; }
         else if (strcmp(attribute, "sigMACD") == 0) { att = day -> sigMACD; }
+
+        else if (strcmp(attribute, "bollMiddle") == 0) { att = day -> bollMiddle; }
+        else if (strcmp(attribute, "bollUpper") == 0) { att = day -> bollUpper; }
+        else if (strcmp(attribute, "bollLower") == 0) { att = day -> bollLower; }
 
         fprintf(fp, "%f\n", att);
     }
@@ -224,16 +240,27 @@ void printBoolAttributes(day_t *dayArray[], const int daysRecorded, const char* 
         else if (strcmp(attribute, "bullRelEngulf") == 0) { att = day -> bullRelEngulf; }
         else if (strcmp(attribute, "bearEngulf") == 0) { att = day -> bearEngulf; }
         else if (strcmp(attribute, "bearRelEngulf") == 0) { att = day -> bearRelEngulf; }
+
+        else if (strcmp(attribute, "bullHarami") == 0) { att = day -> bullHarami; }
+        else if (strcmp(attribute, "bullRelHarami") == 0) { att = day -> bullRelHarami; }
+        else if (strcmp(attribute, "bearHarami") == 0) { att = day -> bearHarami; }
+        else if (strcmp(attribute, "bearRelHarami") == 0) { att = day -> bearRelHarami; }
+
         else if (strcmp(attribute, "morningStar") == 0) { att = day -> morningStar; }
         else if (strcmp(attribute, "eveningStar") == 0) { att = day -> eveningStar; }
         else if (strcmp(attribute, "hammer") == 0) { att = day -> hammer; }
         else if (strcmp(attribute, "llDoji") == 0) { att = day -> llDoji; }
         else if (strcmp(attribute, "dfDoji") == 0) { att = day -> dfDoji; }
         else if (strcmp(attribute, "gsDoji") == 0) { att = day -> gsDoji; }
+
         else if (strcmp(attribute, "disagreement") == 0) { att = day -> disagreement; }
         else if (strcmp(attribute, "consDisagreement") == 0) { att = day -> consDisagreement; }
-        else if (strcmp(attribute, "buySig") == 0) { att = day -> buySig; }
-        else if (strcmp(attribute, "sellSig") == 0) { att = day -> sellSig; }
+
+        else if (strcmp(attribute, "MACDbuySig") == 0) { att = day -> MACDbuySig; }
+        else if (strcmp(attribute, "MACDsellSig") == 0) { att = day -> MACDsellSig; }
+
+        else if (strcmp(attribute, "bollBuySig") == 0) { att = day -> bollBuySig; }
+        else if (strcmp(attribute, "bollSellSig") == 0) { att = day -> bollSellSig; }
 
         fprintf(fp, "%d\n", att);
     }
