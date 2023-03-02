@@ -5,11 +5,10 @@ LIBS = -lm
 LLIBS = $A/analysis.a
 MAKE = make
 
-MACD = -DMACDG
-CFLAGS = -I$A $(MACD)
+CFLAGS = -I$A 
 CC = clang
 
-.PHONY: all graphdata graphRSI graphMACD clean
+.PHONY: all graphdata graphRSI graphMACD graphBB clean
 
 all: graphRSI
 
@@ -24,6 +23,14 @@ graphRSI:
 
 graphMACD:
 	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphMACD.py
+	$(MAKE) clean
+
+graphBB:
+	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphBB.py
+	$(MAKE) clean
+
+graphJC:
+	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphJC.py
 	$(MAKE) clean
 
 

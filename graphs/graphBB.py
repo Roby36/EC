@@ -3,7 +3,6 @@ import numpy as np
 from matplotlib import pyplot as plt, dates as mdates
 from datetime import datetime as dt
 
-
 # Main graph options
 TITLE = "DAX"
 AXISROTATION = 45
@@ -12,29 +11,30 @@ DAYINTERVAL = 14   # frequency of date ticks on x-axis
 SCALEFACTOR = 0.25 # bar charts relative sizes
 
 # Color options
-MACDCOLOR = 'tab:blue'
-SIGCOLOR = 'tab:red'
-CLOSECOLOR = 'orange'
+bollUpperCOLOR = 'tab:red'
+bollLowerCOLOR = 'tab:red'
+bollMiddleCOLOR = 'tab:blue'
+CLOSECOLOR = 'black'
 AXISCOLOR = 'black'
 
-MACDbuySigColor = 'blue'
-MACDsellSigColor = 'red'
+bollBuySigColor = 'blue'
+bollSellSigColor = 'red'
 
 # Scatter plot shapes options
-MACDbuySigShape = "^"
-MACDsellSigShape = "v"
+bollBuySigShape = "^"
+bollSellSigShape = "v"
 
 MARKERSIZE = 100
 
-
-# Data directories:
+# Data directories
 datesDirectory = "/Users/roby/Desktop/EC/graphs/data/dates.txt"
 closesDirectory = "/Users/roby/Desktop/EC/graphs/data/closes.txt"
 
-MACDDirectory = "/Users/roby/Desktop/EC/graphs/data/MACD.txt"
-sigMACDDirectory = "/Users/roby/Desktop/EC/graphs/data/sigMACD.txt"
-MACDbuySigDirectory = "/Users/roby/Desktop/EC/graphs/data/MACDbuySig.txt"
-MACDsellSigDirectory = "/Users/roby/Desktop/EC/graphs/data/MACDsellSig.txt"
+bollMiddleDirectory = "/Users/roby/Desktop/EC/graphs/data/bollMiddle.txt"
+bollUpperDirectory = "/Users/roby/Desktop/EC/graphs/data/bollUpper.txt"
+bollLowerDirectory = "/Users/roby/Desktop/EC/graphs/data/bollLower.txt"
+bollBuySigDirectory = "/Users/roby/Desktop/EC/graphs/data/bollBuySig.txt"
+bollSellSigDirectory = "/Users/roby/Desktop/EC/graphs/data/bollSellSig.txt"
 
 
 # Functions:
@@ -71,18 +71,22 @@ def restrictedYvalues(y_values, bool_data):
 dates_data = getData(datesDirectory)
 closes_data = [float(x) for x in getData(closesDirectory)]
 
-MACD_data = [float(x) for x in getData(MACDDirectory)]
-sigMACD_data = [float(x) for x in getData(sigMACDDirectory)]
-MACDbuySig_data = [int(x) for x in getData(MACDbuySigDirectory)]
-MACDsellSig_data = [int(x) for x in getData(MACDsellSigDirectory)]
+bollMiddle_data = [float(x) for x in getData(bollMiddleDirectory)]
+bollUpper_data = [float(x) for x in getData(bollUpperDirectory)]
+bollLower_data = [float(x) for x in getData(bollLowerDirectory)]
+bollBuySig_data = [int(x) for x in getData(bollBuySigDirectory)]
+bollSellSig_data = [int(x) for x in getData(bollSellSigDirectory)]
 
 x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
 
-# Plotting closing price graph:
+# Plotting closing price graph, and bollinger bands all on same axis:
 fig, ax = plt.subplots()  
 ax.set_xlabel('Date')
-ax.set_ylabel('Close price', color=CLOSECOLOR)
-ax.plot(x_values, closes_data, color = CLOSECOLOR)
+ax.set_ylabel('Prices', color=CLOSECOLOR)
+ax.plot(x_values, closes_data, color = CLOSECOLOR, label="Close price")
+ax.plot(x_values, bollLower_data, color = bollLowerCOLOR, label="Lower band")
+ax.plot(x_values, bollMiddle_data, color = bollMiddleCOLOR, label="Middle band")
+ax.plot(x_values, bollUpper_data, color = bollUpperCOLOR, label="Upper band")
 
 # Formatting x-axis labels:
 ax.tick_params(axis='y', labelcolor=AXISCOLOR)
@@ -92,24 +96,16 @@ ax.xaxis.set_major_locator(mdates.DayLocator(interval = DAYINTERVAL))
 plt.xticks(rotation = AXISROTATION)
 plt.xticks(fontsize = AXISFONTSIZE)
 
-# Setting up second y-axis for MACD & sigMACD data:
-ax2 = ax.twinx()
-ax2.set_ylabel('MACD', color=AXISCOLOR)
-ax2.plot(x_values, MACD_data, color = MACDCOLOR, label="MACD")
-ax2.plot(x_values, sigMACD_data, color = SIGCOLOR, label="Signal line")
-ax2.tick_params(axis='y', labelcolor=AXISCOLOR)
-
 # Scatter plots of buy and sell signals:
-plt.scatter(restrictedXvalues(x_values, MACDbuySig_data),
-            restrictedYvalues(MACD_data, MACDbuySig_data), 
-            marker=MACDbuySigShape, label = "MACDbuySig", color = MACDbuySigColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, MACDsellSig_data),
-            restrictedYvalues(MACD_data, MACDsellSig_data), 
-            marker=MACDsellSigShape, label = "MACDsellSig", color = MACDsellSigColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bollBuySig_data),
+            restrictedYvalues(closes_data, bollBuySig_data), 
+            marker=bollBuySigShape, label = "bollBuySig", color = bollBuySigColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bollSellSig_data),
+            restrictedYvalues(closes_data, bollSellSig_data), 
+            marker=bollSellSigShape, label = "bollSellSig", color = bollSellSigColor, s=MARKERSIZE)
 plt.legend()
 
 # Adding title and plotting graph:
 fig.tight_layout()
 plt.title(TITLE, fontsize=14)
 plt.show()
-

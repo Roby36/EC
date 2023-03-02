@@ -5,6 +5,7 @@
 #include <string.h>
 #include <strings.h>
 #include <ctype.h>
+#include <math.h>
 
 #include "day.h"
 
@@ -13,7 +14,8 @@
 
 /************************************** RSI **********************************************/
 
-void computeWilderRSI(day_t *dayArray[], const int daysRecorded, const int timePeriod)
+void 
+computeWilderRSI(day_t *dayArray[], const int daysRecorded, const int timePeriod)
 {
 
     float totalUp = 0;
@@ -64,7 +66,8 @@ void computeWilderRSI(day_t *dayArray[], const int daysRecorded, const int timeP
 
 /************************************** JAPANESE CANDLESTICK INDICATORS **********************************************/
 
-void recordEngulfments(day_t *dayArray[], const int daysRecorded)
+void 
+recordEngulfments(day_t *dayArray[], const int daysRecorded)
 {
 
     // Iterate through all days:
@@ -79,6 +82,8 @@ void recordEngulfments(day_t *dayArray[], const int daysRecorded)
         float currMax = day->high;
         float nextOpen = next->open;
         float nextClose = next->close;
+        float nextMin = next->low;
+        float nextMax = next->high;
 
         // Bullish engulfment selection criteria:
         if (currOpen > currClose     // Bearish candlestick
@@ -98,7 +103,23 @@ void recordEngulfments(day_t *dayArray[], const int daysRecorded)
             { 
                 next->bullRelEngulf = true;
             }
+
+            // Strict harami criteria:
+            if ( nextMax < currOpen
+                && nextMin > currClose)
+            {
+                next->bullHarami = true;
+                next->bullRelHarami = true;
+            }
+
+            // Relaxed harami criteria:
+            else if ( nextClose < currOpen
+                && nextOpen > currClose)
+            {
+                next->bullRelHarami = true;
+            }
         }
+
 
         // Bearish engulfment selection criteria:
         if (currOpen < currClose     // Bullish candlestick
@@ -118,12 +139,28 @@ void recordEngulfments(day_t *dayArray[], const int daysRecorded)
             { 
                 next->bearRelEngulf = true;
             }
+
+            // Strict harami criteria:
+            if ( nextMax < currClose
+                && nextMin > currOpen)
+            {
+                next->bearHarami = true;
+                next->bearRelHarami = true;
+            }
+
+            // Relaxed harami criteria:
+            else if ( nextOpen < currClose
+                && nextClose > currOpen)
+            {
+                next->bearRelHarami = true;
+            }
         }
     }
 }
 
 
-void recordStars(day_t *dayArray[], const int daysRecorded)
+void 
+recordStars(day_t *dayArray[], const int daysRecorded)
 {
 
     // Iterate through all days:
@@ -165,7 +202,8 @@ void recordStars(day_t *dayArray[], const int daysRecorded)
 }
 
 
-void recordHammers(day_t *dayArray[], const int daysRecorded, const int hammerSize)
+void 
+recordHammers(day_t *dayArray[], const int daysRecorded, const int hammerSize)
 {
 
     // Iterate through all days:
@@ -204,7 +242,8 @@ void recordHammers(day_t *dayArray[], const int daysRecorded, const int hammerSi
 }
 
 
-void recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, const int dojiExtremes)
+void 
+recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, const int dojiExtremes)
 {
 
     // Iterate through all days:
@@ -263,7 +302,8 @@ void recordDojis(day_t *dayArray[], const int daysRecorded, const int dojiSize, 
 
 /************************ MACD INDICATORS ***************************/
 
-void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, const int upper)
+void 
+recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, const int upper)
 {
     for (int i = upper; i < daysRecorded; i++)
     {
@@ -282,13 +322,14 @@ void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, cons
 }
 
 
-void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod)
+void 
+recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod)
 {
     for (int i = MACDupper + avgPeriod; i < daysRecorded; i++)
     {
         // Computing MACD sums:
         float MACDSum = 0;
-        for (int j = 0; j <= avgPeriod; j++){
+        for (int j = 0; j < avgPeriod; j++){
 
             MACDSum += dayArray[i-j] -> MACD;
         }
@@ -299,7 +340,8 @@ void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDuppe
 }
 
 
-void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod)
+void 
+recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod)
 {
     for (int i = totPeriod + 1; i < daysRecorded; i++)
     {
@@ -309,19 +351,77 @@ void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPe
         float prevSig = dayArray[i-1] -> sigMACD;
 
         // Buy signal if MACD rises above signal line:
-        if (prevMACD < prevSig && currMACD > currSig) { dayArray[i] -> buySig = true; }
+        if (prevMACD < prevSig && currMACD > currSig) { dayArray[i] -> MACDbuySig = true; }
         
         // Sell signal if MACD falls below signal line:
-        if (prevMACD > prevSig && currMACD < currSig) { dayArray[i] -> sellSig = true; }
+        if (prevMACD > prevSig && currMACD < currSig) { dayArray[i] -> MACDsellSig = true; }
     }
 }
 
+
+/************************************** BOLLINGER BANDS **********************************************/
+
+void 
+recordBollingerBands(day_t *dayArray[], const int daysRecorded, const int timePeriod, float standardDeviations)
+{
+    // Set all bands to closing price by default before timePeriod has elapsed:
+    for (int i = 0; i < timePeriod; i++)
+    {
+        dayArray[i] -> bollMiddle = dayArray[i] -> close;
+        dayArray[i] -> bollUpper = dayArray[i] -> close;
+        dayArray[i] -> bollLower = dayArray[i] -> close;
+    }
+
+    for (int i = timePeriod; i < daysRecorded; i++)
+    {
+        // Compute average, or bollMiddle value:
+        float middleSum = 0;
+        for (int j = 0; j < timePeriod; j++)
+        {
+            middleSum += dayArray[i-j] -> close;
+        }
+        dayArray[i] -> bollMiddle = (float) (middleSum / (float) timePeriod);
+
+        // Compute standard deviation:
+        float SdSum = 0;
+        for (int j = 0; j < timePeriod; j++)
+        {
+            SdSum += powf((dayArray[i-j]->close - dayArray[i]->bollMiddle), (float) 2);
+        }
+        float SD = sqrtf((float) (SdSum / (float) timePeriod));
+
+        // Compute upper & lower bands:
+        dayArray[i] -> bollLower = dayArray[i] -> bollMiddle - standardDeviations * SD;
+        dayArray[i] -> bollUpper = dayArray[i] -> bollMiddle + standardDeviations * SD;
+    }
+}
+
+void
+recordBollingerSignals(day_t *dayArray[], const int daysRecorded, const int timePeriod)
+{
+    for (int i = timePeriod + 1; i < daysRecorded; i++)
+    {
+        float currClose = dayArray[i] -> close;
+        float prevClose = dayArray[i-1] -> close;
+        float currUpper = dayArray[i] -> bollUpper;
+        float prevUpper = dayArray[i-1] -> bollUpper;
+        float currLower = dayArray[i] -> bollLower;
+        float prevLower = dayArray[i-1] -> bollLower;
+
+        // If close cuts above lower band, buy signal:
+        if (prevLower > prevClose && currLower < currClose) { dayArray[i] -> bollBuySig = true; }
+
+        // If close cuts below upper band, sell signal:
+        if (prevUpper < prevClose && currUpper > currClose) { dayArray[i] -> bollSellSig = true; }
+    }
+}
 
 /**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
 /******************* "Consecutive RSI Disagreements" ********************/
 
-void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist)
+void 
+recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist)
 {
 
     // Backtrack array keeping track of all previously disagreeing days:

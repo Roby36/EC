@@ -26,20 +26,35 @@ typedef struct day
     // Moving averages indicators:
     float MACD;
     float sigMACD;
-    bool buySig;
-    bool sellSig;
+    bool MACDbuySig;
+    bool MACDsellSig;
 
     // Japanese candlesticks indicators:
     bool bullEngulf;
     bool bullRelEngulf;
     bool bearEngulf;
     bool bearRelEngulf;
+
+    bool bullHarami;
+    bool bullRelHarami;
+    bool bearHarami;
+    bool bearRelHarami; 
+
     bool morningStar;
     bool eveningStar;
+
     bool hammer;
+
     bool llDoji;
     bool dfDoji;
     bool gsDoji;
+
+    //Bollinger bands:
+    float bollMiddle;
+    float bollUpper;
+    float bollLower;
+    bool bollBuySig;
+    bool bollSellSig;
 
     // "Consecutive disagreements" indicators:
     bool disagreement;
@@ -48,7 +63,7 @@ typedef struct day
 } day_t;
 
 
-/************************ TTECHNICAL ANALYSIS TOOLS ***************************/
+/************************ TECHNICAL ANALYSIS TOOLS ***************************/
 
 void computeWilderRSI(day_t *dayArray[], const int daysRecorded, const int timePeriod);
 
@@ -65,6 +80,11 @@ void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, cons
 void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod);
 
 void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod);
+
+void recordBollingerBands(day_t *dayArray[], const int daysRecorded, const int timePeriod, float standardDeviations);
+
+void recordBollingerSignals(day_t *dayArray[], const int daysRecorded, const int timePeriod);
+
 
 /**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
