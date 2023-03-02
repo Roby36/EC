@@ -22,6 +22,8 @@ bullHaramiColor = 'red'
 bullRelHaramiColor = 'black'
 bearHaramiColor = 'red'
 bearRelHaramiColor = 'black'
+piercingColor = 'gray'
+darkCloudColor = 'gray'
 morningStarColor = 'yellow'
 eveningStarColor = 'black'
 hammerColor = 'gray'
@@ -40,6 +42,9 @@ bullRelHaramiShape = "3"
 bearHaramiShape = "4"
 bearRelHaramiShape = "4"
 
+piercingShape = "2"
+darkCloudShape = "1"
+
 morningStarShape = '*'
 eveningStarShape = '*'
 hammerShape = 'v'
@@ -54,7 +59,6 @@ MARKERSIZE = 100
 datesDirectory = "/Users/roby/Desktop/EC/graphs/data/dates.txt"
 closesDirectory = "/Users/roby/Desktop/EC/graphs/data/closes.txt"
 
-
 bullEngulfDirectory = "/Users/roby/Desktop/EC/graphs/data/bullEngulf.txt"
 bullRelEngulfDirectory = "/Users/roby/Desktop/EC/graphs/data/bullRelEngulf.txt"
 bearEngulfDirectory = "/Users/roby/Desktop/EC/graphs/data/bearEngulf.txt"
@@ -63,6 +67,8 @@ bullHaramiDirectory = "/Users/roby/Desktop/EC/graphs/data/bullHarami.txt"
 bullRelHaramiDirectory = "/Users/roby/Desktop/EC/graphs/data/bullRelHarami.txt"
 bearHaramiDirectory = "/Users/roby/Desktop/EC/graphs/data/bearHarami.txt"
 bearRelHaramiDirectory = "/Users/roby/Desktop/EC/graphs/data/bearRelHarami.txt"
+piercingDirectory = "/Users/roby/Desktop/EC/graphs/data/piercing.txt"
+darkCloudDirectory = "/Users/roby/Desktop/EC/graphs/data/darkCloud.txt"
 morningStarDirectory = "/Users/roby/Desktop/EC/graphs/data/morningStar.txt"
 eveningStarDirectory = "/Users/roby/Desktop/EC/graphs/data/eveningStar.txt"
 hammerDirectory = "/Users/roby/Desktop/EC/graphs/data/hammer.txt"
@@ -113,6 +119,8 @@ bullHarami_data = [int(x) for x in getData(bullHaramiDirectory)]
 bullRelHarami_data = [int(x) for x in getData(bullRelHaramiDirectory)]
 bearHarami_data = [int(x) for x in getData(bearHaramiDirectory)]
 bearRelHarami_data = [int(x) for x in getData(bearRelHaramiDirectory)]
+piercing_data = [int(x) for x in getData(piercingDirectory)]
+darkCloud_data = [int(x) for x in getData(darkCloudDirectory)]
 morningStar_data = [int(x) for x in getData(morningStarDirectory)]
 eveningStar_data = [int(x) for x in getData(eveningStarDirectory)]
 hammer_data = [int(x) for x in getData(hammerDirectory)]
@@ -130,31 +138,38 @@ ax.set_ylabel('Close price', color=CLOSECOLOR)
 ax.plot(x_values, closes_data, color = CLOSECOLOR)
 
 # Scatter plots on closing price graph:
-plt.scatter(restrictedXvalues(x_values, bullEngulf_data),
-            restrictedYvalues(closes_data, bullEngulf_data), 
-            marker=bullEngulfShape, label = "bullEngulf", color = bullEngulfColor, s=MARKERSIZE)
 plt.scatter(restrictedXvalues(x_values, bullRelEngulf_data),
             restrictedYvalues(closes_data, bullRelEngulf_data), 
             marker= bullRelEngulfShape, label = "bullRelEngulf", color = bullRelEngulfColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, bearEngulf_data),
-            restrictedYvalues(closes_data, bearEngulf_data), 
-            marker= bearEngulfShape, label = "bearEngulf", color = bearEngulfColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bullEngulf_data),
+            restrictedYvalues(closes_data, bullEngulf_data), 
+            marker=bullEngulfShape, label = "bullEngulf", color = bullEngulfColor, s=MARKERSIZE)
 plt.scatter(restrictedXvalues(x_values, bearRelEngulf_data),
             restrictedYvalues(closes_data, bearRelEngulf_data), 
             marker= bearRelEngulfShape, label = "bearRelEngulf", color = bearRelEngulfColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bearEngulf_data),
+            restrictedYvalues(closes_data, bearEngulf_data), 
+            marker= bearEngulfShape, label = "bearEngulf", color = bearEngulfColor, s=MARKERSIZE)
 
-plt.scatter(restrictedXvalues(x_values, bullHarami_data),
-            restrictedYvalues(closes_data, bullHarami_data), 
-            marker=bullHaramiShape, label = "bullHarami", color = bullHaramiColor, s=MARKERSIZE)
 plt.scatter(restrictedXvalues(x_values, bullRelHarami_data),
             restrictedYvalues(closes_data, bullRelHarami_data), 
             marker= bullRelHaramiShape, label = "bullRelHarami", color = bullRelHaramiColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, bearHarami_data),
-            restrictedYvalues(closes_data, bearHarami_data), 
-            marker= bearHaramiShape, label = "bearHarami", color = bearHaramiColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bullHarami_data),
+            restrictedYvalues(closes_data, bullHarami_data), 
+            marker=bullHaramiShape, label = "bullHarami", color = bullHaramiColor, s=MARKERSIZE)
 plt.scatter(restrictedXvalues(x_values, bearRelHarami_data),
             restrictedYvalues(closes_data, bearRelHarami_data), 
             marker= bearRelHaramiShape, label = "bearRelHarami", color = bearRelHaramiColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, bearHarami_data),
+            restrictedYvalues(closes_data, bearHarami_data), 
+            marker= bearHaramiShape, label = "bearHarami", color = bearHaramiColor, s=MARKERSIZE)
+
+plt.scatter(restrictedXvalues(x_values, piercing_data),
+            restrictedYvalues(closes_data, piercing_data), 
+            marker= piercingShape, label = "piercing", color = piercingColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, darkCloud_data),
+            restrictedYvalues(closes_data, darkCloud_data), 
+            marker= darkCloudShape, label = "darkCloud", color = darkCloudColor, s=MARKERSIZE)
 
 plt.scatter(restrictedXvalues(x_values, morningStar_data),
             restrictedYvalues(closes_data, morningStar_data), 

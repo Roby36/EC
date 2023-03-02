@@ -12,7 +12,7 @@
 
 /*********************** GRAPH MAIN PARAMETERS ***********************************/
 
-const char* STARTDATE = "08/24/2022";
+const char* STARTDATE = "02/24/2022";
 const char* ENDDATE = "02/24/2023";
 const char* DATA = "../data/DAX Historical Data.csv";
 
@@ -38,6 +38,10 @@ const int disInterval = 2; // interval between 2 points over which a disagreemen
 const int consecDis = 3;   // total consecutive disagreements
 const int disDist = 7;    // distance between two divegences to be defined as consecutive
 
+/******************* "Engulfments near Bollinger Bands" ********************/
+
+const float BANDDISTANCE = 0; // relative distance away from middle Bollinger band allowed for engulfments
+
 /*********************** DATA DIRECTORIES ***********************************/
 
 const char* datesDirectory = "../graphs/data/dates.txt";
@@ -54,15 +58,15 @@ const char* bullRelHaramiDirectory = "../graphs/data/bullRelHarami.txt";
 const char* bearHaramiDirectory = "../graphs/data/bearHarami.txt";
 const char* bearRelHaramiDirectory = "../graphs/data/bearRelHarami.txt";
 
+const char* piercingDirectory = "../graphs/data/piercing.txt";
+const char* darkCloudDirectory = "../graphs/data/darkCloud.txt";
+
 const char* morningStarDirectory = "../graphs/data/morningStar.txt";
 const char* eveningStarDirectory = "../graphs/data/eveningStar.txt";
 const char* hammerDirectory = "../graphs/data/hammer.txt";
 const char* llDojiDirectory = "../graphs/data/llDoji.txt";
 const char* dfDojiDirectory = "../graphs/data/dfDoji.txt";
 const char* gsDojiDirectory = "../graphs/data/gsDoji.txt";
-
-const char* disagreementDirectory = "../graphs/data/disagreement.txt";
-const char* consDisagreementDirectory = "../graphs/data/consDisagreement.txt";
 
 const char* MACDDirectory = "../graphs/data/MACD.txt";
 const char* sigMACDDirectory = "../graphs/data/sigMACD.txt";
@@ -74,6 +78,12 @@ const char* bollUpperDirectory = "../graphs/data/bollUpper.txt";
 const char* bollLowerDirectory = "../graphs/data/bollLower.txt";
 const char* bollBuySigDirectory = "../graphs/data/bollBuySig.txt";
 const char* bollSellSigDirectory = "../graphs/data/bollSellSig.txt";
+
+const char* disagreementDirectory = "../graphs/data/disagreement.txt";
+const char* consDisagreementDirectory = "../graphs/data/consDisagreement.txt";
+
+const char* bearEngUppBBDirectory = "../graphs/data/bearEngUppBB.txt";
+const char* bullEngLowBBDirectory = "../graphs/data/bullEngLowBB.txt";
 
 /************************************** MAIN & TESTING **********************************************/
 
@@ -106,6 +116,9 @@ int main()
     recordBollingerBands(dayArray, DAYSRECORDED, BOLLPERIOD, BOLLSD);
     recordBollingerSignals(dayArray, DAYSRECORDED, BOLLPERIOD);
 
+    recordEngBB(dayArray, DAYSRECORDED, BOLLPERIOD, BANDDISTANCE);
+
+
     // Printing results in /data subdirectory:
 
     printFloatAttributes(dayArray, DAYSRECORDED, "vol", volumesDirectory);  
@@ -120,15 +133,15 @@ int main()
     printBoolAttributes(dayArray, DAYSRECORDED, "bearHarami", bearHaramiDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bearRelHarami", bearRelHaramiDirectory);
 
+    printBoolAttributes(dayArray, DAYSRECORDED, "piercing", piercingDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "darkCloud", darkCloudDirectory);
+
     printBoolAttributes(dayArray, DAYSRECORDED, "morningStar", morningStarDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "eveningStar", eveningStarDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "hammer", hammerDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "llDoji", llDojiDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "dfDoji", dfDojiDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "gsDoji", gsDojiDirectory);
-
-    printBoolAttributes(dayArray, DAYSRECORDED, "disagreement", disagreementDirectory);
-    printBoolAttributes(dayArray, DAYSRECORDED, "consDisagreement", consDisagreementDirectory);
 
     printFloatAttributes(dayArray, DAYSRECORDED, "MACD", MACDDirectory);
     printFloatAttributes(dayArray, DAYSRECORDED, "sigMACD", sigMACDDirectory);
@@ -140,6 +153,12 @@ int main()
     printFloatAttributes(dayArray, DAYSRECORDED, "bollLower", bollLowerDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bollBuySig", bollBuySigDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bollSellSig", bollSellSigDirectory);
+
+    printBoolAttributes(dayArray, DAYSRECORDED, "disagreement", disagreementDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "consDisagreement", consDisagreementDirectory);
+
+    printBoolAttributes(dayArray, DAYSRECORDED, "bearEngUppBB", bearEngUppBBDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "bullEngLowBB", bullEngLowBBDirectory);
 
 
     return 0;

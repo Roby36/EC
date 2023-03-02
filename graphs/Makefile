@@ -8,7 +8,7 @@ MAKE = make
 CFLAGS = -I$A 
 CC = clang
 
-.PHONY: all graphdata graphCOMP graphRSI graphMACD graphBB clean
+.PHONY: all graphdata graphCOMP graphRSI graphMACD graphBB graphJC graphEngBB clean
 
 all: graphCOMP
 
@@ -35,6 +35,10 @@ graphBB:
 
 graphJC:
 	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphJC.py
+	$(MAKE) clean
+
+graphEngBB:
+	$(MAKE) graphdata && ./graphdata && /usr/local/bin/python3 /Users/roby/Desktop/EC/graphs/graphEngBB.py
 	$(MAKE) clean
 
 
