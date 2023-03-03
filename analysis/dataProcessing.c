@@ -98,9 +98,7 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
 
             day->MACDbuySig = false;
             day->MACDsellSig = false;
-            day->disagreement = false; 
-            day->consDisagreement = false;
-
+            
             day->bearEngulf = false;
             day->bearRelEngulf = false;
             day->bullEngulf = false;
@@ -109,6 +107,8 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
             day->bullRelHarami = false;
             day->bearHarami = false;
             day->bearRelHarami = false;
+            day->piercing = false;
+            day->darkCloud = false;
             day->morningStar = false;
             day->eveningStar = false;
             day->hammer = false;
@@ -121,6 +121,11 @@ int parseFile(const char *fileDirectory, day_t *dayArray[], const char* startDat
             day->bollLower = 0;
             day->bollBuySig = false;
             day->bollSellSig = false;
+
+            day->bearEngUppBB = false; 
+            day->bullEngLowBB = false;
+            day->upDisBB = false;
+            day->downDisBB = false;
 
             tempArray[d] = day;
             d++;
@@ -241,6 +246,9 @@ void printBoolAttributes(day_t *dayArray[], const int daysRecorded, const char* 
         else if (strcmp(attribute, "bearEngulf") == 0) { att = day -> bearEngulf; }
         else if (strcmp(attribute, "bearRelEngulf") == 0) { att = day -> bearRelEngulf; }
 
+        else if (strcmp(attribute, "piercing") == 0) { att = day -> piercing; }
+        else if (strcmp(attribute, "darkCloud") == 0) { att = day -> darkCloud; }
+
         else if (strcmp(attribute, "bullHarami") == 0) { att = day -> bullHarami; }
         else if (strcmp(attribute, "bullRelHarami") == 0) { att = day -> bullRelHarami; }
         else if (strcmp(attribute, "bearHarami") == 0) { att = day -> bearHarami; }
@@ -253,14 +261,19 @@ void printBoolAttributes(day_t *dayArray[], const int daysRecorded, const char* 
         else if (strcmp(attribute, "dfDoji") == 0) { att = day -> dfDoji; }
         else if (strcmp(attribute, "gsDoji") == 0) { att = day -> gsDoji; }
 
-        else if (strcmp(attribute, "disagreement") == 0) { att = day -> disagreement; }
-        else if (strcmp(attribute, "consDisagreement") == 0) { att = day -> consDisagreement; }
-
         else if (strcmp(attribute, "MACDbuySig") == 0) { att = day -> MACDbuySig; }
         else if (strcmp(attribute, "MACDsellSig") == 0) { att = day -> MACDsellSig; }
 
         else if (strcmp(attribute, "bollBuySig") == 0) { att = day -> bollBuySig; }
         else if (strcmp(attribute, "bollSellSig") == 0) { att = day -> bollSellSig; }
+
+        else if (strcmp(attribute, "disagreement") == 0) { att = day -> disagreement; }
+        else if (strcmp(attribute, "consDisagreement") == 0) { att = day -> consDisagreement; }
+
+        else if (strcmp(attribute, "bearEngUppBB") == 0) { att = day -> bearEngUppBB; }
+        else if (strcmp(attribute, "bullEngLowBB") == 0) { att = day -> bullEngLowBB; }
+        else if (strcmp(attribute, "upDisBB") == 0) { att = day -> upDisBB; }
+        else if (strcmp(attribute, "downDisBB") == 0) { att = day -> downDisBB; }
 
         fprintf(fp, "%d\n", att);
     }

@@ -9,7 +9,6 @@
 
 #include "day.h"
 
-
 /************************ TECHNICAL ANALYSIS TOOLS ***************************/
 
 /************************************** RSI **********************************************/
@@ -94,11 +93,10 @@ recordEngulfments(day_t *dayArray[], const int daysRecorded)
                 && nextClose > currMax)  // next candlestick closes above current candlestick's MAXIMUM
             { 
                 next->bullEngulf = true;
-                next->bullRelEngulf = true;
             }
 
             // Relaxed engulfment criteria:
-            else if (nextOpen < currClose // next candlestick opens below current candlesticks's CLOSE
+            if (nextOpen < currClose // next candlestick opens below current candlesticks's CLOSE
                 && nextClose > currOpen)  // next candlestick closes above current candlestick's OPEN
             { 
                 next->bullRelEngulf = true;
@@ -109,14 +107,20 @@ recordEngulfments(day_t *dayArray[], const int daysRecorded)
                 && nextMin > currClose)
             {
                 next->bullHarami = true;
-                next->bullRelHarami = true;
             }
 
             // Relaxed harami criteria:
-            else if ( nextClose < currOpen
+            if ( nextClose < currOpen
                 && nextOpen > currClose)
             {
                 next->bullRelHarami = true;
+            }
+
+            // Piercing criteria:
+            if ( nextOpen < currMin
+                && nextClose > (float)((currOpen + currClose)/ (float) 2) )
+            {
+                next->piercing = true;
             }
         }
 
@@ -130,11 +134,10 @@ recordEngulfments(day_t *dayArray[], const int daysRecorded)
                 && nextClose < currMin)  // next candlestick closes below current candlestick's MINIMUM
             { 
                 next->bearEngulf = true;
-                next->bearRelEngulf = true;
             }
 
             // Relaxed engulfment criteria:
-            else if (nextOpen > currClose // next candlestick opens above current candlesticks's CLOSE
+            if (nextOpen > currClose // next candlestick opens above current candlesticks's CLOSE
                 && nextClose < currOpen)  // next candlestick closes below current candlestick's OPEN
             { 
                 next->bearRelEngulf = true;
@@ -145,14 +148,20 @@ recordEngulfments(day_t *dayArray[], const int daysRecorded)
                 && nextMin > currOpen)
             {
                 next->bearHarami = true;
-                next->bearRelHarami = true;
             }
 
             // Relaxed harami criteria:
-            else if ( nextOpen < currClose
+            if ( nextOpen < currClose
                 && nextClose > currOpen)
             {
                 next->bearRelHarami = true;
+            }
+
+            // Dark cloud criteria:
+            if (nextOpen > currMax
+                && nextClose < (float)((currOpen + currClose)/ (float) 2))
+            {
+                next->darkCloud = true;
             }
         }
     }
@@ -340,25 +349,6 @@ recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, co
 }
 
 
-void 
-recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod)
-{
-    for (int i = totPeriod + 1; i < daysRecorded; i++)
-    {
-        float currMACD = dayArray[i] -> MACD;
-        float prevMACD = dayArray[i-1] -> MACD;
-        float currSig = dayArray[i] -> sigMACD;
-        float prevSig = dayArray[i-1] -> sigMACD;
-
-        // Buy signal if MACD rises above signal line:
-        if (prevMACD < prevSig && currMACD > currSig) { dayArray[i] -> MACDbuySig = true; }
-        
-        // Sell signal if MACD falls below signal line:
-        if (prevMACD > prevSig && currMACD < currSig) { dayArray[i] -> MACDsellSig = true; }
-    }
-}
-
-
 /************************************** BOLLINGER BANDS **********************************************/
 
 void 
@@ -421,7 +411,7 @@ recordBollingerSignals(day_t *dayArray[], const int daysRecorded, const int time
 /******************* "Consecutive RSI Disagreements" ********************/
 
 void 
-recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist)
+recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist, const bool increasing)
 {
 
     // Backtrack array keeping track of all previously disagreeing days:
@@ -448,11 +438,14 @@ recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int tim
             {
                 // Consecutive disagreement selection criteria (depends on cosecDiv & disDist):
                 // consecDis total disagreements less than disDist days apart each.
+                // Moreover, ensure disagreements are in the same direction.
                 // Verify distance to previous divergent days:
                 isCons = true;
                 for (int j = 0; j < consecDis - 1; j++)
                 {
-                    if (divArray[p - j] - divArray[p - j - 1] > disDist)
+                    if ( divArray[p - j] - divArray[p - j - 1] > disDist
+                      || (((dayArray[divArray[p - j]]->RSI - dayArray[divArray[p - j] - disInterval]->RSI > 0)
+                        != (dayArray[divArray[p - j - 1]]->RSI - dayArray[divArray[p - j - 1] - disInterval]->RSI > 0))  && increasing) )
                     {
                         isCons = false;
                     }
@@ -469,3 +462,83 @@ recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int tim
         }
     }
 }
+
+
+/******************* "Indicators near Bollinger Bands" ********************/
+
+void
+recordBB(day_t *dayArray[], const int daysRecorded, const int bollTimePeriod, const float EngBandDistance, const float DisBandDistance, const int disInterval)
+{
+    // Iterate through all days with Bollinger bands:
+    for (int i = bollTimePeriod; i < daysRecorded; i++)
+    {
+        day_t* day = dayArray[i];
+
+        if (day->bullRelEngulf)
+        {
+            // If the higher closing price falls below the middle band by the desired amount, mark the event:
+            if ( day->close < day->bollMiddle - EngBandDistance*(day->bollMiddle - day->bollLower) )
+            {
+                day->bullEngLowBB = true;
+            }
+        }
+
+        if (day->bearRelEngulf)
+        {
+            // If the lower closing is still above the middle band by the desired distance, mark the event:
+            if ( day->close > day->bollMiddle + EngBandDistance*(day->bollUpper - day->bollMiddle))
+            {
+                day->bearEngUppBB = true;
+            }
+        }
+
+        if (day->consDisagreement)
+        {
+            // If RSI shows increase, and closing price falls below the middle band by the desired amount,
+            // give buy signal:
+            if (day->RSI - dayArray[i-disInterval]->RSI > 0
+                && (float)((day->close + day->open) /(float)2) < day->bollMiddle - DisBandDistance*(day->bollMiddle - day->bollLower))
+                {
+                    day->upDisBB = true;
+                }
+            
+            // If RSI shows decrease, and closing price stays above the middle band by the desired amount,
+            // give sell signal:
+            if (day->RSI - dayArray[i-disInterval]->RSI < 0
+                && (float)((day->close + day->open)/(float)2) > day->bollMiddle + DisBandDistance*(day->bollUpper - day->bollMiddle) )
+                {
+                    day->downDisBB = true;
+                }
+        }
+    }
+}
+
+
+/******************* "MACD Indicators near Bollinger Bands" ********************/
+void 
+recordSigBuySellBB(day_t *dayArray[], const int daysRecorded, const int totPeriod, const float MACDBandDistance)
+{
+    for (int i = totPeriod + 1; i < daysRecorded; i++)
+    {
+        day_t* day = dayArray[i];
+        float currMACD = dayArray[i] -> MACD;
+        float prevMACD = dayArray[i-1] -> MACD;
+        float currSig = dayArray[i] -> sigMACD;
+        float prevSig = dayArray[i-1] -> sigMACD;
+
+        // Buy signal if MACD rises above signal line, and below middle band:
+        if (prevMACD < prevSig && currMACD > currSig
+            && (float)((day->close + day->open) /(float)2) < day->bollMiddle - MACDBandDistance*(day->bollMiddle - day->bollLower)) 
+        { 
+            day -> MACDbuySig = true; 
+        }
+        
+        // Sell signal if MACD falls below signal line, and above middle band:
+        if (prevMACD > prevSig && currMACD < currSig
+            && (float)((day->close + day->open)/(float)2) > day->bollMiddle + MACDBandDistance*(day->bollUpper - day->bollMiddle)) 
+        { 
+            day -> MACDsellSig = true; 
+        }
+    }
+}
+

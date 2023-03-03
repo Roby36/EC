@@ -40,6 +40,9 @@ typedef struct day
     bool bearHarami;
     bool bearRelHarami; 
 
+    bool piercing;
+    bool darkCloud;
+
     bool morningStar;
     bool eveningStar;
 
@@ -60,6 +63,12 @@ typedef struct day
     bool disagreement;
     bool consDisagreement;
 
+    // "Indicators near bands":
+    bool bearEngUppBB;
+    bool bullEngLowBB;
+    bool upDisBB;
+    bool downDisBB;
+
 } day_t;
 
 
@@ -79,8 +88,6 @@ void recordMACD(day_t *dayArray[], const int daysRecorded, const int lower, cons
 
 void recordSigMACD(day_t *dayArray[], const int daysRecorded, const int MACDupper, const int avgPeriod);
 
-void recordSigBuySell(day_t *dayArray[], const int daysRecorded, const int totPeriod);
-
 void recordBollingerBands(day_t *dayArray[], const int daysRecorded, const int timePeriod, float standardDeviations);
 
 void recordBollingerSignals(day_t *dayArray[], const int daysRecorded, const int timePeriod);
@@ -88,7 +95,11 @@ void recordBollingerSignals(day_t *dayArray[], const int daysRecorded, const int
 
 /**************** ALGORITHMS / COMPOSITE TOOLS *********************/
 
-void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist);
+void recordConsDisagreements(day_t *dayArray[], const int daysRecorded, const int timePeriod, const int disInterval, const int consecDis, const int disDist, const bool increasing);
+
+void recordBB(day_t *dayArray[], const int daysRecorded, const int bollTimePeriod, const float EngBandDistance, const float DisBandDistance, const int disInterval);
+
+void recordSigBuySellBB(day_t *dayArray[], const int daysRecorded, const int totPeriod, const float MACDBandDistance);
 
 
 

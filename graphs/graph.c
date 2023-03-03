@@ -12,7 +12,7 @@
 
 /*********************** GRAPH MAIN PARAMETERS ***********************************/
 
-const char* STARTDATE = "02/24/2022";
+const char* STARTDATE = "02/24/2012";
 const char* ENDDATE = "02/24/2023";
 const char* DATA = "../data/DAX Historical Data.csv";
 
@@ -35,12 +35,15 @@ const float BOLLSD = 2;     // Number of standard deviations for Bollinger bands
 /******************* "Consecutive RSI Disagreements" ********************/
 
 const int disInterval = 2; // interval between 2 points over which a disagreement is defined
-const int consecDis = 3;   // total consecutive disagreements
-const int disDist = 7;    // distance between two divegences to be defined as consecutive
+const int consecDis = 3;  // total consecutive disagreements
+const int disDist = 7;   // distance between two disagreements to be defined as consecutive
+const bool increasing = true; // whether consecutive disagreements are required to move in the same direction
 
 /******************* "Engulfments near Bollinger Bands" ********************/
 
-const float BANDDISTANCE = 0; // relative distance away from middle Bollinger band allowed for engulfments
+const float ENGBANDDISTANCE = 0; // relative distance away from middle Bollinger band allowed for engulfments
+const float DISBANDDISTANCE = 0.5; // relative distance away from middle Bollinger band allowed for disagreements
+const float MACDBANDDISTANCE = 0.7; // // relative distance away from middle Bollinger band allowed for MACD signals
 
 /*********************** DATA DIRECTORIES ***********************************/
 
@@ -84,6 +87,8 @@ const char* consDisagreementDirectory = "../graphs/data/consDisagreement.txt";
 
 const char* bearEngUppBBDirectory = "../graphs/data/bearEngUppBB.txt";
 const char* bullEngLowBBDirectory = "../graphs/data/bullEngLowBB.txt";
+const char* upDisBBDirectory = "../graphs/data/upDisBB.txt";
+const char* downDisBBDirectory = "../graphs/data/downDisBB.txt";
 
 /************************************** MAIN & TESTING **********************************************/
 
@@ -92,7 +97,8 @@ int main()
     // Initializing data from file (dataProcessing.c):
     day_t *dayArray[MAXDAYS];
     const int DAYSRECORDED = parseFile(DATA, dayArray, STARTDATE, ENDDATE);
-    if (DAYSRECORDED == 0){
+    if (DAYSRECORDED == 0)
+    {
         fprintf(stderr, "Error parsing file\n");
         exit(1);
     }
@@ -100,23 +106,21 @@ int main()
     printDates(dayArray, DAYSRECORDED, datesDirectory);
     printFloatAttributes(dayArray, DAYSRECORDED, "close", closesDirectory);
     
-    // Computing analysis tools:
+    // Computing standard analysis tools:
     recordEngulfments(dayArray, DAYSRECORDED);
     recordStars(dayArray, DAYSRECORDED);
     recordHammers(dayArray, DAYSRECORDED, HAMMERSIZE);
     recordDojis(dayArray, DAYSRECORDED, DOJISIZE, DOJIEXTREMES);
-
     computeWilderRSI(dayArray, DAYSRECORDED, TIMEPERIOD);
-    recordConsDisagreements(dayArray, DAYSRECORDED, TIMEPERIOD, disInterval, consecDis, disDist);
-
     recordMACD(dayArray, DAYSRECORDED, LOWERAVG, UPPERAVG);
     recordSigMACD(dayArray, DAYSRECORDED, UPPERAVG, SIGAVG);
-    recordSigBuySell(dayArray, DAYSRECORDED, UPPERAVG+SIGAVG);
-
     recordBollingerBands(dayArray, DAYSRECORDED, BOLLPERIOD, BOLLSD);
     recordBollingerSignals(dayArray, DAYSRECORDED, BOLLPERIOD);
 
-    recordEngBB(dayArray, DAYSRECORDED, BOLLPERIOD, BANDDISTANCE);
+    // Computing composite analysis tools:
+    recordConsDisagreements(dayArray, DAYSRECORDED, TIMEPERIOD, disInterval, consecDis, disDist, increasing);
+    recordSigBuySellBB(dayArray, DAYSRECORDED, UPPERAVG+SIGAVG, MACDBANDDISTANCE);
+    recordBB(dayArray, DAYSRECORDED, BOLLPERIOD, ENGBANDDISTANCE, DISBANDDISTANCE, disInterval);
 
 
     // Printing results in /data subdirectory:
@@ -159,7 +163,10 @@ int main()
 
     printBoolAttributes(dayArray, DAYSRECORDED, "bearEngUppBB", bearEngUppBBDirectory);
     printBoolAttributes(dayArray, DAYSRECORDED, "bullEngLowBB", bullEngLowBBDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "upDisBB", upDisBBDirectory);
+    printBoolAttributes(dayArray, DAYSRECORDED, "downDisBB", downDisBBDirectory);
 
+    // printDays(dayArray, DAYSRECORDED);
 
     return 0;
 }

@@ -84,6 +84,15 @@ ax.set_xlabel('Date')
 ax.set_ylabel('Close price', color=CLOSECOLOR)
 ax.plot(x_values, closes_data, color = CLOSECOLOR)
 
+# Scatter plots of buy and sell signals:
+plt.scatter(restrictedXvalues(x_values, MACDbuySig_data),
+            restrictedYvalues(closes_data, MACDbuySig_data), 
+            marker=MACDbuySigShape, label = "MACDbuySig", color = MACDbuySigColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, MACDsellSig_data),
+            restrictedYvalues(closes_data, MACDsellSig_data), 
+            marker=MACDsellSigShape, label = "MACDsellSig", color = MACDsellSigColor, s=MARKERSIZE)
+plt.legend()
+
 # Formatting x-axis labels:
 ax.tick_params(axis='y', labelcolor=AXISCOLOR)
 formatter = mdates.DateFormatter("%d-%m-%Y")
@@ -98,15 +107,6 @@ ax2.set_ylabel('MACD', color=AXISCOLOR)
 ax2.plot(x_values, MACD_data, color = MACDCOLOR, label="MACD")
 ax2.plot(x_values, sigMACD_data, color = SIGCOLOR, label="Signal line")
 ax2.tick_params(axis='y', labelcolor=AXISCOLOR)
-
-# Scatter plots of buy and sell signals:
-plt.scatter(restrictedXvalues(x_values, MACDbuySig_data),
-            restrictedYvalues(MACD_data, MACDbuySig_data), 
-            marker=MACDbuySigShape, label = "MACDbuySig", color = MACDbuySigColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, MACDsellSig_data),
-            restrictedYvalues(MACD_data, MACDsellSig_data), 
-            marker=MACDsellSigShape, label = "MACDsellSig", color = MACDsellSigColor, s=MARKERSIZE)
-plt.legend()
 
 # Adding title and plotting graph:
 fig.tight_layout()

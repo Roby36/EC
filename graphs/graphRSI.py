@@ -13,11 +13,18 @@ DAYINTERVAL = 14   # frequency of date ticks on x-axis
 CLOSECOLOR = 'tab:blue'
 RSICOLOR = 'tab:orange'
 disagreementColor = 'black'
-consDisagreementColor = 'red'
+consDisagreementColor = 'orange'
+
+upDisBBColor = 'blue'
+downDisBBColor =  'red'
 
 # Scatter plot shapes options
 disagreementShape = 'x'
 consDisagreementShape = 'X'
+
+upDisBBShape = '^'
+downDisBBShape =  'v'
+
 MARKERSIZE = 100
 
 
@@ -27,6 +34,10 @@ closesDirectory = "/Users/roby/Desktop/EC/graphs/data/closes.txt"
 RSIDirectory = "/Users/roby/Desktop/EC/graphs/data/RSI.txt"
 disagreementDirectory = "/Users/roby/Desktop/EC/graphs/data/disagreement.txt"
 consDisagreementDirectory = "/Users/roby/Desktop/EC/graphs/data/consDisagreement.txt"
+
+# Bollinger Bands indicators:
+upDisBBDirectory = "/Users/roby/Desktop/EC/graphs/data/upDisBB.txt"
+downDisBBDirectory = "/Users/roby/Desktop/EC/graphs/data/downDisBB.txt"
 
 # Functions:
 def getData(directory):
@@ -66,6 +77,9 @@ RSI_data = [float(x) for x in getData(RSIDirectory)]
 disagreement_data = [int(x) for x in getData(disagreementDirectory)]
 consDisagreement_data = [int(x) for x in getData(consDisagreementDirectory)]
 
+upDisBB_data = [int(x) for x in getData(upDisBBDirectory)]
+downDisBB_data = [int(x) for x in getData(downDisBBDirectory)]
+
 x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
 
 # Plotting closing price graph:
@@ -81,6 +95,13 @@ plt.scatter(restrictedXvalues(x_values, disagreement_data),
 plt.scatter(restrictedXvalues(x_values, consDisagreement_data),
             restrictedYvalues(closes_data, consDisagreement_data), 
             marker= consDisagreementShape, label = "consDisagreement", color = consDisagreementColor, s=MARKERSIZE)
+
+plt.scatter(restrictedXvalues(x_values, upDisBB_data),
+            restrictedYvalues(closes_data, upDisBB_data), 
+            marker= upDisBBShape, label = "upDisBB", color = upDisBBColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, downDisBB_data),
+            restrictedYvalues(closes_data, downDisBB_data), 
+            marker= downDisBBShape, label = "downDisBB", color = downDisBBColor, s=MARKERSIZE)
 plt.legend()
 
 # Formatting x-axis labels:
