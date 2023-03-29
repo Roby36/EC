@@ -12,32 +12,22 @@ DAYINTERVAL = 14   # frequency of date ticks on x-axis
 # Color options
 CLOSECOLOR = 'tab:blue'
 RSICOLOR = 'tab:orange'
-disagreementColor = 'black'
-consDisagreementColor = 'orange'
-
-upDisBBColor = 'blue'
-downDisBBColor =  'red'
+singleColor = 'black'
+doubleColor = 'orange'
+tripleColor = 'red'
+quadColor = 'red'
 
 # Scatter plot shapes options
-disagreementShape = 'x'
-consDisagreementShape = 'X'
-
-upDisBBShape = '^'
-downDisBBShape =  'v'
+divShape = 'X'
 
 MARKERSIZE = 100
 
-
 # Data directories:
-datesDirectory = "/Users/roby/Desktop/EC/graphs/data/dates.txt"
-closesDirectory = "/Users/roby/Desktop/EC/graphs/data/closes.txt"
+datesDirectory = "/Users/roby/Desktop/EC/graphs/data/dateTime.txt"
+closesDirectory = "/Users/roby/Desktop/EC/graphs/data/close.txt"
 RSIDirectory = "/Users/roby/Desktop/EC/graphs/data/RSI.txt"
-disagreementDirectory = "/Users/roby/Desktop/EC/graphs/data/disagreement.txt"
-consDisagreementDirectory = "/Users/roby/Desktop/EC/graphs/data/consDisagreement.txt"
+divergenceDirectory = "/Users/roby/Desktop/EC/graphs/data/Divergence.txt"
 
-# Bollinger Bands indicators:
-upDisBBDirectory = "/Users/roby/Desktop/EC/graphs/data/upDisBB.txt"
-downDisBBDirectory = "/Users/roby/Desktop/EC/graphs/data/downDisBB.txt"
 
 # Functions:
 def getData(directory):
@@ -53,18 +43,18 @@ def getData(directory):
     return data
 
 
-def restrictedXvalues(x_values, bool_data):
+def restrictedXvalues(x_values, bool_data, num):
     restr_x_values = []
     for i in range(len(bool_data)):
-        if bool_data[i] == 1:
+        if bool_data[i] == num:
             restr_x_values.append(x_values[i])
     return restr_x_values
 
 
-def restrictedYvalues(y_values, bool_data):
+def restrictedYvalues(y_values, bool_data, num):
     restr_y_values = []
     for i in range(len(bool_data)):
-        if bool_data[i] == 1:
+        if bool_data[i] == num:
             restr_y_values.append(y_values[i])
     return restr_y_values
 
@@ -74,11 +64,7 @@ dates_data = getData(datesDirectory)
 closes_data = [float(x) for x in getData(closesDirectory)]
 RSI_data = [float(x) for x in getData(RSIDirectory)]
 
-disagreement_data = [int(x) for x in getData(disagreementDirectory)]
-consDisagreement_data = [int(x) for x in getData(consDisagreementDirectory)]
-
-upDisBB_data = [int(x) for x in getData(upDisBBDirectory)]
-downDisBB_data = [int(x) for x in getData(downDisBBDirectory)]
+divergence_data = [int(x) for x in getData(divergenceDirectory)]
 
 x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
 
@@ -89,19 +75,19 @@ ax.set_ylabel('Close price', color=CLOSECOLOR)
 ax.plot(x_values, closes_data, color = CLOSECOLOR)
 
 # Scatter plots on closing price graph:
-plt.scatter(restrictedXvalues(x_values, disagreement_data),
-            restrictedYvalues(closes_data, disagreement_data), 
-            marker= disagreementShape, label = "disagreement", color = disagreementColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, consDisagreement_data),
-            restrictedYvalues(closes_data, consDisagreement_data), 
-            marker= consDisagreementShape, label = "consDisagreement", color = consDisagreementColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, divergence_data, 2),
+            restrictedYvalues(closes_data, divergence_data, 2), 
+            marker= divShape, label = "Single div", color = singleColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, divergence_data, 3),
+            restrictedYvalues(closes_data, divergence_data, 3), 
+            marker= divShape, label = "Double div", color = doubleColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, divergence_data, 4),
+            restrictedYvalues(closes_data, divergence_data, 4), 
+            marker= divShape, label = "Triple div", color = tripleColor, s=MARKERSIZE)
+plt.scatter(restrictedXvalues(x_values, divergence_data, 5),
+            restrictedYvalues(closes_data, divergence_data, 5), 
+            marker= divShape, label = "Quad div", color = quadColor, s=MARKERSIZE)
 
-plt.scatter(restrictedXvalues(x_values, upDisBB_data),
-            restrictedYvalues(closes_data, upDisBB_data), 
-            marker= upDisBBShape, label = "upDisBB", color = upDisBBColor, s=MARKERSIZE)
-plt.scatter(restrictedXvalues(x_values, downDisBB_data),
-            restrictedYvalues(closes_data, downDisBB_data), 
-            marker= downDisBBShape, label = "downDisBB", color = downDisBBColor, s=MARKERSIZE)
 plt.legend()
 
 # Formatting x-axis labels:
