@@ -2,7 +2,6 @@
 #include "Bars.h"
 
 #include <string>
-#include <map>
 #include <typeinfo>
 
 #include <stdio.h>

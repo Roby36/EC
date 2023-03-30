@@ -33,6 +33,7 @@ class Bars
         float getvol() const { return vol; }
     };
 
+    Bar** barArray;
 
     /****** FILE-PARSING ********/
     const string outputDir = "../graphs/data/";
@@ -43,15 +44,17 @@ class Bars
     public:
 
     Bars(int = 24, int = 2800, const char* = "../data/DAX Historical Data.csv", const char* = "02/24/2022", const char* = "02/24/2023");
-    Bar** barArray; 
     void printBars();
 
 
     /*** GETTERS & SETTERS ***/
+    Bar* getBar(int i) { return this->barArray[i]; }
+
     int gettimePeriod() const { return timePeriod; }
     void settimePeriod(int timePeriod) { this->timePeriod = timePeriod; }
     int getnumBars() const { return numBars; }
     void setnumBars(int numBars) { this->numBars = numBars; }
+
     string getoutputDir() const { return outputDir; }
     string getoutputExt() const { return outputExt; }
 

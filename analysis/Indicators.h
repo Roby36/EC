@@ -13,12 +13,12 @@ template <class T> class Indicator
     protected:
     Bars* dp; // access to Bars data
     string outputDirectory;
+    T** indicatorArray;
      
-
     public:
     Indicator(Bars*, const string);
     
-    T** indicatorArray;
+    T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
     virtual void computeIndicator() = 0;
     void printIndicator(); 
 };
@@ -58,8 +58,9 @@ namespace IndicatorBars
         public:
 
         int divPoints = 1;
-        LocalStat* leftStat = NULL;
-        LocalStat* rightStat = NULL;
+        int leftPos = 0;
+        int rightPos = 0;
+        int m = 0;
 
         string toString() { return to_string(this->divPoints); }
     };

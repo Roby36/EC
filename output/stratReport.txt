@@ -1,0 +1,8 @@
+Net loss/profit: 98.240234 (7 total trades)
+ Trade no: 0; Direction: long; Entry date: 04/14/2022; Entry closing price: 14163.849609; Exit date: 05/09/2022; Exit closing price: 13380.669922; Loss/profit: -783.179688;
+ Trade no: 1; Direction: long; Entry date: 06/24/2022; Entry closing price: 13118.129883; Exit date: 07/05/2022; Exit closing price: 12401.200195; Loss/profit: -716.929688;
+ Trade no: 2; Direction: short; Entry date: 08/09/2022; Entry closing price: 13534.969727; Exit date: 08/26/2022; Exit closing price: 12971.469727; Loss/profit: 563.500000;
+ Trade no: 3; Direction: short; Entry date: 10/21/2022; Entry closing price: 12730.900391; Exit date: 11/01/2022; Exit closing price: 13338.740234; Loss/profit: -607.839844;
+ Trade no: 4; Direction: short; Entry date: 11/21/2022; Entry closing price: 14379.929688; Exit date: 12/21/2022; Exit closing price: 14097.820312; Loss/profit: 282.109375;
+ Trade no: 5; Direction: long; Entry date: 12/21/2022; Entry closing price: 14097.820312; Exit date: 01/09/2023; Exit closing price: 14792.830078; Loss/profit: 695.009766;
+ Trade no: 6; Direction: short; Entry date: 02/10/2023; Entry closing price: 15307.980469; Exit date: 02/10/2023; Exit closing price: 15307.980469; Loss/profit: -0.000000;
