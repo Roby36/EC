@@ -4,6 +4,7 @@
 #include "Bars.cpp"
 
 #include <string>
+#include <math.h>
 
 using namespace std;
 
@@ -57,8 +58,8 @@ class RSI : public Indicator<IndicatorBars::RSI>
 
     public:
 
-    RSI(Bars* dp, const string name = "RSI", const int dayTimePeriod = 14) : Indicator(dp, name)
-    { this->timePeriod = dayTimePeriod * (24 / dp->gettimePeriod()) ; }
+    RSI(Bars* dp, const string name = "RSI", const int TimePeriod = 14) : Indicator(dp, name)
+    { this->timePeriod = TimePeriod; }
     
     void computeIndicator()
     {
@@ -99,7 +100,7 @@ class RSI : public Indicator<IndicatorBars::RSI>
 class LocalMin : public Indicator<IndicatorBars::LocalStat>
 {
     protected:
-    float m = 1.0;
+    int m = 1;
 
     public:
     LocalMin(Bars* dp, const string name = "LocalMin") : Indicator(dp, name)
@@ -124,7 +125,7 @@ class LocalMin : public Indicator<IndicatorBars::LocalStat>
                 this->indicatorArray[d-1]->leftDepth = leftDepth;
                 this->indicatorArray[d-1]->m = (int) this->m;
                 this->indicatorArray[d-1]->leftChange = 
-                    ((float)(-1))*(this->m) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-leftDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
+                    (float)((-1)*(this->m)) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-leftDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
                 rightDepth = 0;
                 while (d < dp->getnumBars() && 
                     (this->m) * dp->getBar(d-1)->getclose() < (this->m) * dp->getBar(d)->getclose()) 
@@ -134,7 +135,7 @@ class LocalMin : public Indicator<IndicatorBars::LocalStat>
                 }
                 this->indicatorArray[d-1-rightDepth]->rightDepth = rightDepth;
                 this->indicatorArray[d-1-rightDepth]->rightChange = 
-                    (this->m) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-rightDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
+                    ((float)(this->m)) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-rightDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
             }
             else { d++; }
         }
@@ -145,17 +146,16 @@ class LocalMax : public LocalMin
 { 
     public:
     LocalMax(Bars* dp, const string name = "LocalMax") : LocalMin(dp, name)
-    { this->m = -1.0; }
+    { this->m = -1; }
 };
 
 
 class Divergence : public Indicator<IndicatorBars::Divergence>
 {
     /*** (Elementary) divergence parameters ***/
-    int minDivPeriod = 2 * (24 / dp->gettimePeriod());
-    int maxDivPeriod = 14 * (24 / dp->gettimePeriod());
+    int minDivPeriod;
+    int maxDivPeriod;
 
-    
     /*** Indicators required ***/
     RSI* RSIindic;
     LocalMax* LocalMaxIndic;
@@ -163,12 +163,16 @@ class Divergence : public Indicator<IndicatorBars::Divergence>
 
     public:
 
-    Divergence(Bars* dp, RSI* RSIindic, LocalMax* LocalMaxIndic, LocalMin* LocalMinIndic, const string name = "Divergence") 
+    Divergence(Bars* dp, 
+        RSI* RSIindic, LocalMax* LocalMaxIndic, LocalMin* LocalMinIndic, int minDivPeriod = 2, int maxDivPeriod = 28,
+        const string name = "Divergence") 
         : Indicator(dp, name)
     {
         this->RSIindic = RSIindic;
         this->LocalMaxIndic = LocalMaxIndic;
         this->LocalMinIndic = LocalMinIndic;
+        this->minDivPeriod = minDivPeriod;
+        this->maxDivPeriod = maxDivPeriod;
     }
 
     void computeIndicator()
@@ -227,10 +231,94 @@ class Divergence : public Indicator<IndicatorBars::Divergence>
     }
 };
 
+
+class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
+{
+    /*** Bollinger Bands parameters ***/
+    float stDevUp, stDevDown;
+    int timePeriod;
+
+    public:
+
+    BollingerBands(Bars* dp, 
+        float stDevUp = 2.0f, float stDevDown = 2.0f, int timePeriod = 20,
+        const string name = "BB") 
+        : Indicator(dp, name)
+    {
+        this->stDevUp = stDevUp;
+        this->stDevDown = stDevDown;
+        this->timePeriod = timePeriod;
+    }
+
+    void computeIndicator()
+    {
+        for (int i = this->timePeriod; i < dp->getnumBars(); i++)
+        {
+            // Compute average, or bollMiddle value:
+            float midSum = 0;
+            for (int j = 0; j < this->timePeriod; j++)
+            {
+                midSum += dp->getBar(i-j)->getclose();
+            }
+            this->indicatorArray[i]->bollMiddle = (float) (midSum / (float) this->timePeriod);
+
+            // Compute standard deviation:
+            float SdSum = 0;
+            for (int j = 0; j < this->timePeriod; j++)
+            {
+                SdSum += powf((dp->getBar(i-j)->getclose() - this->indicatorArray[i]->bollMiddle), (float) 2);
+            }
+            float SD = sqrtf((float) (SdSum / (float) this->timePeriod));
+
+            // Compute upper & lower bands:
+            this->indicatorArray[i]->bollLower = this->indicatorArray[i]->bollMiddle - SD * this->stDevDown;
+            this->indicatorArray[i]->bollUpper = this->indicatorArray[i]->bollMiddle + SD * this->stDevUp;
+        }
+    }
+};
+
+
+
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// TEST ///
+
+
+Indicators::Divergence* initDivergences(Bars* Barsobj)
+{
+    Indicators::RSI* RSIObj = new Indicators::RSI(Barsobj);
+    Indicators::LocalMin* LocalMinObj = new Indicators::LocalMin(Barsobj);
+    Indicators::LocalMax* LocalMaxObj = new Indicators::LocalMax(Barsobj);
+    Indicators::Divergence* DivergenceObj = new Indicators::Divergence(Barsobj, RSIObj, LocalMaxObj, LocalMinObj);
+
+    DivergenceObj->computeIndicator();
+
+    Barsobj->printBars();
+    RSIObj->printIndicator();
+    DivergenceObj->printIndicator();
+
+    return DivergenceObj;
+}
+
+
+/// TEST ///
 
 
 
@@ -268,32 +356,3 @@ namespace TestDivConditions
 };
 
 
-
-
-
-
-
-
-
-
-/// TEST ///
-
-
-Indicators::Divergence* initDivergences(Bars* Barsobj)
-{
-    Indicators::RSI* RSIObj = new Indicators::RSI(Barsobj, "RSI");
-    Indicators::LocalMin* LocalMinObj = new Indicators::LocalMin(Barsobj, "LocalMin");
-    Indicators::LocalMax* LocalMaxObj = new Indicators::LocalMax(Barsobj, "LocalMax");
-    Indicators::Divergence* DivergenceObj = new Indicators::Divergence(Barsobj, RSIObj, LocalMaxObj, LocalMinObj, "Divergence");
-
-    DivergenceObj->computeIndicator();
-
-    Barsobj->printBars();
-    RSIObj->printIndicator();
-    DivergenceObj->printIndicator();
-
-    return DivergenceObj;
-}
-
-
-/// TEST ///

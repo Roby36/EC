@@ -15,6 +15,7 @@ Bars::Bar::Bar(char* dateTime, float open, float close, float high, float low, f
     : dateTime(dateTime), open(open), close(close), high(high), low(low), vol(vol)
 {}
 
+
 Bars::Bar::Bar(char line[])
 {
     dateTime = (char*) malloc(maxDateChar);
@@ -28,20 +29,21 @@ Bars::Bar::Bar(char line[])
     &vol);
 }
 
-Bars::Bars(int timePeriod, int maxBars, const char* inputFileDir, const char* startDate, const char* endDate)
+
+Bars::Bars(int barsPerDay, int maxBars, const char* inputFileDir, const char* startDate, const char* endDate)
 {
-    this->settimePeriod(timePeriod);
+    this->barsPerDay = barsPerDay;
     this->maxBars = maxBars;
 
-    switch (timePeriod)
+    int d = this->parseFile(barsPerDay, inputFileDir, startDate, endDate);
+    if (d == 0)
     {
-    case 24:
-        this->setnumBars(this->parseDaily(inputFileDir, startDate, endDate));
-        break;
-    
-    default:
-        fprintf(stderr, "Error: only daily case is currently defined\n");
+        fprintf(stderr, "Please enter valid barsPerDay\n");
         exit(1);
+    }
+    else
+    {
+        this->numBars = d;
     }
 }
 
@@ -80,7 +82,7 @@ void Bars::printBars()
 }
 
 
-int Bars::parseDaily(const char* inputFileDir, const char* startDate, const char* endDate)
+int Bars::parseFile(int barsPerDay, const char* inputFileDir, const char* startDate, const char* endDate)
 {
     Bar *tempArray[this->maxBars];
 
@@ -98,58 +100,113 @@ int Bars::parseDaily(const char* inputFileDir, const char* startDate, const char
     int d = 0;
     bool record = false;
 
-    while (numLine < this->maxBars)
-    {
-        i = 0;
-        while ((c = fgetc(fp)) != '\n')
+        switch(barsPerDay)
         {
-            if (c == 'M')
+            case 9:
+            case 21:
             {
-                while ((c = fgetc(fp)) != '\n') {}
+                while (numLine < this->maxBars)
+                {
+                    i = 0;
+                    while ((c = fgetc(fp)) != '\n')
+                    {
+                        if (c == ',')
+                        {
+                            line[i] = '.';
+                        }
+                        else
+                        {
+                            line[i] = c;
+                        }
+                        i++;
+                    }
+
+                    char date[10];
+                    char time[9];
+                    char* dateTime = (char*) malloc(20);
+        
+                    float open, high, low, close;
+
+                    sscanf(line, "%s %s %f %f %f %f ",
+                    date, time, &open, &high, &low, &close);
+
+                    sprintf(dateTime, "%s %s", date, time);
+
+                    // Set record to true when we hit the end date:
+                    if (strcmp(dateTime, endDate) == 0) { record = true; }
+
+                    // Make Bar, and insert in tempArray, iff record is on:
+                    if (numLine != 0 && record)
+                    {
+                        Bar *bar = new Bar(dateTime, open, close, high, low, 0.0f);
+                        tempArray[d] = bar;
+                        d++;
+                    }
+
+                    if (strcmp(dateTime, startDate) == 0) { break; }
+
+                    numLine++;
+                }
                 break;
             }
-            else if (c == ',')
+
+            case 1:
             {
-                continue;
+                while (numLine < this->maxBars)
+                {
+                    i = 0;  
+                    while ((c = fgetc(fp)) != '\n')
+                    {
+                        if (c == 'M')
+                        {
+                            while ((c = fgetc(fp)) != '\n') {}
+                            break;
+                        }
+                        else if (c == ',')
+                        {
+                            continue;
+                        }
+                        else if (c == '"')
+                        {
+                            line[i] = ' ';
+                        }
+                        else
+                        {
+                            line[i] = c;
+                        }
+                        i++;
+                    }
+
+                    char dateTime[12];
+                    int j = 0;
+                    char* p = line;
+                    while (isspace(*p)) { p++; }
+                    while (!isspace(*p))
+                    {
+                        dateTime[j] = *p;
+                        j++;
+                        p++; 
+                    }
+
+                    // Set record to true when we hit the end date:
+                    if (strcmp(dateTime, endDate) == 0) { record = true; }
+
+                    // Make Bar, and insert in tempArray, iff record is on:
+                    if (numLine != 0 && record)
+                    {
+                        Bar *bar = new Bar(line);
+                        tempArray[d] = bar;
+                        d++;
+                    }
+
+                    if (strcmp(dateTime, startDate) == 0) { break; }
+
+                    numLine++;
+                }
+                break;  
             }
-            else if (c == '"')
-            {
-                line[i] = ' ';
-            }
-            else
-            {
-                line[i] = c;
-            }
-            i++;
+            default: return 0;
         }
-
-        char date[12];
-        int j = 0;
-        char* p = line;
-        while (isspace(*p)) { p++; }
-        while (!isspace(*p))
-        {
-            date[j] = *p;
-            j++;
-            p++; 
-        }
-
-        // Set record to true when we hit the end date:
-        if (strcmp(date, endDate) == 0) { record = true; }
-
-        // Make Bar, and insert in tempArray, iff record is on:
-        if (numLine != 0 && record)
-        {
-            Bar *bar = new Bar(line);
-            tempArray[d] = bar;
-            d++;
-        }
-
-        // Set record to false when we hit the start date:
-        if (strcmp(date, startDate) == 0) { record = false; }
-
-        numLine++;
-    }
 
     fclose(fp);
 

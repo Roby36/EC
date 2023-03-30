@@ -62,10 +62,18 @@ namespace IndicatorBars
         int rightPos = 0;
         int m = 0;
 
+        bool isPresent() { return (m != 0); }
+
         string toString() { return to_string(this->divPoints); }
     };
 
-    class BollingerBands;
+    class BollingerBands
+    {
+        public:
+
+        float bollMiddle = 0, bollUpper = 0, bollLower = 0;
+    };
+
     class MACD;
 
 };

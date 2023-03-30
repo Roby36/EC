@@ -10,13 +10,13 @@ using namespace std;
 class Bars
 {
     /****** GENERAL BAR STRUCTURE ********/
-    int timePeriod;
+    int barsPerDay;
     int maxBars;
     int numBars;
 
     class Bar
     {
-        const int maxDateChar = 20;
+        const int maxDateChar = 32;
         char* dateTime;
         float open, close, high, low, vol;
 
@@ -38,22 +38,21 @@ class Bars
     /****** FILE-PARSING ********/
     const string outputDir = "../graphs/data/";
     const string outputExt = ".txt";
-    int parseDaily(const char*, const char*, const char*);
 
+    int parseFile(int, const char*, const char*, const char*);
 
     public:
 
-    Bars(int = 24, int = 2800, const char* = "../data/DAX Historical Data.csv", const char* = "02/24/2022", const char* = "02/24/2023");
+    /*** PUBLIC INTERFACE ***/
+    Bars(int = 1, int = 10000, const char* = "../data/DAX Historical Data.csv", const char* = "02/24/2022", const char* = "02/24/2023");
     void printBars();
 
 
     /*** GETTERS & SETTERS ***/
     Bar* getBar(int i) { return this->barArray[i]; }
 
-    int gettimePeriod() const { return timePeriod; }
-    void settimePeriod(int timePeriod) { this->timePeriod = timePeriod; }
+    int getBarsPerDay() const { return this->barsPerDay; }
     int getnumBars() const { return numBars; }
-    void setnumBars(int numBars) { this->numBars = numBars; }
 
     string getoutputDir() const { return outputDir; }
     string getoutputExt() const { return outputExt; }

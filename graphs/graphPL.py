@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt, dates as mdates
 from datetime import datetime as dt
 
 # Main graph options
-TITLE = "DAX"
+TITLE = "P&L"
 AXISROTATION = 45
 AXISFONTSIZE = 10
 DAYINTERVAL = 14   # frequency of date ticks on x-axis
@@ -65,7 +65,11 @@ PL_data = [float(x) for x in getData(PLDirectory)]
 
 divergence_data = [int(x) for x in getData(divergenceDirectory)]
 
-x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
+
+########## DATETIME VALUES ##################
+x_values = [dt.strptime(d, "%Y-%m-%d %H:%M:%S").date() for d in dates_data]
+########## DATETIME VALUES ##################
+
 
 # Plotting closing price graph:
 fig, ax = plt.subplots()  

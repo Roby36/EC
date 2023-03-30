@@ -1,9 +1,9 @@
 
 #include "BackTester.h"
-#include "Bars.h"
 #include "Indicators.cpp"
 
 #include <string>
+#include <stdio.h>
 
 class BackTester::Trade
 {
@@ -29,14 +29,14 @@ class BackTester::Trade
         this->tradeNo = currTradeNo;
     }
 
-    bool close(int exitPos)
+    int close(int exitPos)
     {
         if (this->isActive())
         {
             this->exitPos = exitPos;
-            return true;
+            return this->tradeNo;
         }
-        return false;
+        return -1;
     }
 
     float currBal(int currPos)
@@ -83,6 +83,7 @@ class BackTester::Trade
 
 };
 
+
 BackTester::BackTester(Bars* barsRef, float takeProfThresh, float stopLossThresh)
 {
     this->barsRef = barsRef;
@@ -92,50 +93,110 @@ BackTester::BackTester(Bars* barsRef, float takeProfThresh, float stopLossThresh
     this->stopLossThresh = stopLossThresh;
 }
 
-bool BackTester::openTrade(int direction, int entryPos, float units)
+
+int BackTester::openTrade(int direction, int entryPos, string reason, float units)
 {
     // Verify validity of direction:
-    if (direction != -1 && direction != 1) { return false; }
+    if (direction != -1 && direction != 1) 
+    {
+        /* this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->getdateTime()) + " ", 
+            this->currTradeNo, "invalid direction provided"); */
+        return -1; 
+    }
     // First attempt to close any trades in opposite direction:
     for (int i = 0; i < this->currTradeNo; i++)
     {
         if (this->execTrades[i]->getdir() != direction)
         {
-            this->closeTrade(this->execTrades[i], entryPos);
+            this->closeTrade(this->execTrades[i], entryPos, "Opened trade in opposite direction");
         }
     }
     // Verify that not too many trades are already open:
-    if (this->openTrades == this->maxTrades) { return false; }
+    if (this->openTrades == this->maxTrades) 
+    {
+        this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->getdateTime()) + " ", 
+            this->currTradeNo, "maximum number of trades reached");
+        return -1; 
+    }
     // Open new trade
-    Trade* newTrade = new Trade(/* this,*/ this->barsRef, this->currTradeNo, direction, entryPos, units);
-    this->execTrades[this->currTradeNo++] = newTrade;
+    Trade* newTrade = new Trade(this->barsRef, this->currTradeNo, direction, entryPos, units);
+    this->execTrades[this->currTradeNo] = newTrade;
+    this->logTrade("Opened ", this->currTradeNo, reason);
     this->openTrades++;
-    return true;
+    return this->currTradeNo++;
 }
 
-void BackTester::closeTrade(Trade* trade, int exitPos)
+
+int BackTester::closeTrade(Trade* trade, int exitPos, string reason)
 {
-    if (trade->close(exitPos))
+    int tradeNo;
+    if ((tradeNo = trade->close(exitPos)) != -1)
     {
+        this->logTrade("Closed", tradeNo, reason);
         this->openTrades--;
+    }
+    return tradeNo;
+}
+
+
+void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfits, bool stopLosses)
+{
+    Trade* currTrade;
+    // Iterate through all active and inactive trades 
+    for (int i = 0; i < this->currTradeNo; i++)
+    {
+        currTrade = this->execTrades[i];
+        // If current Trade is in the desired direction attempt to close it at current position:
+        if (currTrade->getdir() == dir)
+        {
+            if (takeProfits) // If taking profits, close ONLY positive trades
+            {
+                if (currTrade->currBal(exitPos) > 0)
+                {
+                    this->closeTrade(currTrade, exitPos, "Taking Profit: " + reason);
+                }
+            }
+            else if (stopLosses)
+            {
+                if (currTrade->currBal(exitPos) < 0)
+                {
+                    this->closeTrade(currTrade, exitPos, "Stopping Loss: " + reason);
+                }
+            }
+            else
+            {
+                this->closeTrade(currTrade,exitPos, reason);
+            }
+        }
     }
 }
 
+
 void BackTester::updateTrades(int currPos)
 {
+    int tradeNo;
+    int currPl = 0;
     for (int i = 0; i < this->currTradeNo; i++)
     {
         // First update total balance with current active or not active trade:
-        this->pl = this->execTrades[i]->currBal(currPos);
+        currPl += this->execTrades[i]->currBal(currPos);
         // Then check if trade needs to be closed
         if (this->takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->takeProfThresh
         ||  this->stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->stopLossThresh)
         {
-            this->closeTrade(this->execTrades[i],currPos);
+            this->closeTrade(this->execTrades[i], currPos, "reached stop loss / take profit point");
         } 
     }
+    this->pl = currPl;
     this->plArray[currPos] = this->pl;
 }
+
+
+void BackTester::logTrade(string action, int tradeNo, string reason)
+{
+    this->tradeLog += action + " " + to_string(tradeNo) + ": " + reason + "\n";
+}
+
 
 void BackTester::printResults()
 {
@@ -163,39 +224,14 @@ void BackTester::printResults()
         fprintf(fp, "%s", (to_string(this->plArray[i]) + "\n").c_str());
     }
     fclose(fp);
-}
 
-
-
-
-//****** TEST STRATEGY ******//
-
-// Parameters: Bars, BackTester and Indicators (Divergence) required for generating signals:
-void basicDivStrategy(Bars* barsRef, BackTester* bt, Indicators::Divergence* DivInd)
-{
-    //Compute (divergence) indicator(s):
-    DivInd->computeIndicator();
-
-    // Iterate through bars:
-    for (int i = 1; i < barsRef->getnumBars(); i++ )
+    fp = fopen(this->tradeLogPath, "a");
+    if (fp == NULL)
     {
-        //*** STRATEGY ENTRY CONDITION(S) ***//
-            // Entry based on PREVIOUS day's divergence:
-        bt->openTrade(DivInd->getIndicatorBar(i-1)->m, i);
-        
-        // After iteration, update all trades (EXIT CONDITION INCLUDED)
-        bt->updateTrades(i);
+        fprintf(stderr, "Error opening tradeLogPath for appending\n");
+        return;
     }
-
-    // Finally, print results
-    bt->printResults();
+    fprintf(fp, "%s", this->tradeLog.c_str());
+    fclose(fp);
 }
 
-
-int main()
-{
-    Bars* Bars = new ::Bars(24, 2800, "../data/DAX Historical Data.csv", "02/24/2022", "02/24/2023");
-    basicDivStrategy(Bars, new BackTester(Bars, 4.0, 4.0), 
-        initDivergences(Bars));
-    return 0;
-}
