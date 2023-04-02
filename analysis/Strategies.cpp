@@ -5,19 +5,13 @@
 #include <stdio.h>
 
 
-//*** Parameters: Bars, BackTester and Indicators (Divergence) required for generating signals: ***//
+//*** Parameters: Bars, BackTester and INITIALIZED & COMPUTED Indicators (Divergence) required for generating signals: ***//
 
 void 
 basicDivStrategy(Bars* barsRef, BackTester* bt, 
     Indicators::Divergence* DivInd, Indicators::LocalMax* LocMax, Indicators::LocalMin* LocMin, Indicators::BollingerBands* BB,
     int maxBarsBack = 14)
 {
-    //*** INITIALIZING STRATEGY INDICATORS ***//
-    DivInd->computeIndicator();
-    LocMax->computeIndicator();
-    LocMin->computeIndicator();
-    BB->computeIndicator();
-
     //*** BAR ITERATION ***//
     for (int i = maxBarsBack; i < barsRef->getnumBars(); i++ )
     {
@@ -79,17 +73,15 @@ basicDivStrategy(Bars* barsRef, BackTester* bt,
             "Opposite (not necessarily denied) divergence on previous bar");
 
         //*** Crossing bollinger bands ***/
-            // Close any long POSITIVE trades when upper bollinger bands crossed
-        if (barsRef->getBar(i)->getclose() > BB->getIndicatorBar(i)->bollUpper
-         && barsRef->getBar(i-1)->getclose() < BB->getIndicatorBar(i-1)->bollUpper)
+            // Close any LONG POSITIVE trades when upper bollinger bands crossed from ABOVE
+        if (BB->getIndicatorBar(i)->crossUpperDown)
         {
-            bt->closeTrades(1, i, "Crossed upper Bollinger Bands", true, false);
+            bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", true, false);
         }
-            // Close any short POSITIVE trades when lower bollinger bands crossed
-        if (barsRef->getBar(i)->getclose() < BB->getIndicatorBar(i)->bollLower
-         && barsRef->getBar(i-1)->getclose() > BB->getIndicatorBar(i-1)->bollLower)
+            // Close any SHORT POSITIVE trades when lower bollinger bands crossed from BELOW
+        if (BB->getIndicatorBar(i)->crossLowerUp)
         {
-            bt->closeTrades(-1, i, "Crossed lower Bollinger Bands", true, false);
+            bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", true, false);
         }
 
 
@@ -107,10 +99,44 @@ basicDivStrategy(Bars* barsRef, BackTester* bt,
 
 ///********* TESTING *********///
 
-int main()
+int main(const int argc, const char* argv[])
 {
-    Bars* Bars = new ::Bars(9, 100000, "../data/dax futures hourly.txt", "2022-04-11 11:00:00", "2023-03-30 17:00:00");
-     basicDivStrategy(Bars, new BackTester(Bars, 5.0, 4.0), 
-        initDivergences(Bars), new Indicators::LocalMax(Bars), new Indicators::LocalMin(Bars), new Indicators::BollingerBands(Bars));
+    //*** VALIDATING ARGUMENTS ***//
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage: %s inputFileDirectory\n", argv[0]);
+        exit(2);
+    }
+
+    //*** INITIALIZING BARS & STRATEGY'S INDICATORS ***//
+    ::Bars* Bars = new ::Bars(9, 10000, argv[1]);
+    Indicators::RSI* RSI = new Indicators::RSI(Bars);
+    Indicators::LocalMax* LocMax = new Indicators::LocalMax(Bars);
+    Indicators::LocalMin* LocMin = new Indicators::LocalMin(Bars);
+    Indicators::Divergence* DivInd = new Indicators::Divergence(Bars,RSI,LocMax,LocMin);
+    Indicators::BollingerBands* BB = new Indicators::BollingerBands(Bars);
+
+    //*** COMPUTING INDICATORS ***//
+    RSI->computeIndicator();
+    LocMax->computeIndicator();
+    LocMin->computeIndicator();
+    DivInd->computeIndicator();
+    BB->computeIndicator();
+
+    //*** INITIALIZING BACKTESTER ***//
+    ::BackTester* bt = new BackTester(Bars, 5.0, 4.0);
+
+    //*** RUNNING STRATEGY ***//
+    basicDivStrategy(Bars, bt, DivInd, LocMax, LocMin, BB);
+    
+    //*** CLEANING UP ***//
+    bt->Delete(); 
+    DivInd->Delete(); delete(DivInd);
+    BB->Delete();     delete(BB);
+    LocMax->Delete(); delete(LocMax);
+    LocMin->Delete(); delete(LocMin);
+    RSI->Delete();    delete(RSI);
+    Bars->Delete(); 
+
     return 0;
 }

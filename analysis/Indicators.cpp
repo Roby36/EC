@@ -1,5 +1,4 @@
 
-
 #include "Indicators.h"
 #include "Bars.cpp"
 
@@ -19,9 +18,18 @@ template <class T> Indicator<T>::Indicator(Bars* dp, const string name)
     // Initialize classes holding indicator data for each point:
     for (int i = 0; i < dp->getnumBars(); i++)
     {
-        T* indicatorData = new T();
-        indicatorArray[i] = indicatorData;
+        indicatorArray[i] = new T();
     }
+}
+
+
+template <class T> void Indicator<T>::Delete()
+{
+    for (int i = 0; i < dp->getnumBars(); i++)
+    {
+        delete(this->indicatorArray[i]);
+    }
+    delete(this->indicatorArray);
 }
 
 
@@ -273,6 +281,183 @@ class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
             // Compute upper & lower bands:
             this->indicatorArray[i]->bollLower = this->indicatorArray[i]->bollMiddle - SD * this->stDevDown;
             this->indicatorArray[i]->bollUpper = this->indicatorArray[i]->bollMiddle + SD * this->stDevUp;
+
+
+            //** CROSSOVERS **//
+
+            if (i > this->timePeriod)
+            {
+                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollUpper
+                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollUpper)
+                {
+                    this->indicatorArray[i]->crossUpperUp = true;
+                }
+                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollUpper
+                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollUpper)
+                {
+                    this->indicatorArray[i]->crossUpperDown = true;
+                }
+
+                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollMiddle
+                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollMiddle)
+                {
+                    this->indicatorArray[i]->crossMiddleUp = true;
+                }
+                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollMiddle
+                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollMiddle)
+                {
+                    this->indicatorArray[i]->crossMiddleDown = true;
+                }
+
+                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollLower
+                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollLower)
+                {
+                    this->indicatorArray[i]->crossLowerUp = true;
+                }
+                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollLower
+                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollLower)
+                {
+                    this->indicatorArray[i]->crossLowerDown = true;
+                }
+            }
+        }
+    }
+};
+
+
+class JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
+{
+    /*** JCandleSticks parameters ***/
+    float hammerSize;
+    float dojiSize;
+    int dojiExtremes;
+
+    public:
+
+    JCandleSticks(Bars* dp, 
+        float hammerSize = 3.0f, float dojiSize = 8.0f, int dojiExtremes = 3,
+        const string name = "JCandleSticks") 
+        : Indicator(dp, name)
+    {
+        this->hammerSize = hammerSize;
+        this->dojiSize = dojiSize;
+        this->dojiExtremes = dojiExtremes;
+    }
+
+    void computeIndicator()
+    {
+        for (int d = 2; d < dp->getnumBars(); d++)
+        {
+            float currOpen = this->dp->getBar(d)->getopen();
+            float currClose = this->dp->getBar(d)->getclose();
+            float currLow = this->dp->getBar(d)->getlow();
+            float currHigh = this->dp->getBar(d)->gethigh();
+
+            float prevOpen = this->dp->getBar(d-1)->getopen();
+            float prevClose = this->dp->getBar(d-1)->getclose();
+            float prevLow = this->dp->getBar(d-1)->getlow();
+            float prevHigh = this->dp->getBar(d-1)->gethigh();
+
+            float prevprevOpen = this->dp->getBar(d-2)->getopen();
+            float prevprevClose = this->dp->getBar(d-2)->getclose();
+
+
+        //** ENGULFMENTS, HARAMI, PIERCING, DARK CLOUD **//
+
+            if (prevOpen > prevClose     // Bearish candlestick
+                && currOpen < currClose) // followed by bullish candlestick
+            {
+                if (currOpen < prevClose 
+                    && currClose > prevOpen) 
+                {    
+                    this->indicatorArray[d]->bullEngulf = true;
+                }
+
+                if (currClose < prevOpen
+                    && currOpen > prevClose)
+                {
+                    this->indicatorArray[d]->bullHarami = true;
+                }
+
+                if (currOpen < prevLow
+                    && currClose > (float)((prevOpen + prevClose)/ (float) 2) )
+                {
+                    this->indicatorArray[d]->piercing = true;
+                }
+            }
+
+            if (prevOpen < prevClose     // Bullish candlestick
+                && currOpen > currClose) // followed by bearish candlestick
+            {
+                if (currOpen > prevClose 
+                    && currClose < prevOpen)  
+                { 
+                    this->indicatorArray[d]->bearEngulf = true;
+                }
+
+                if (currOpen < prevClose
+                 && currClose > prevOpen)
+                {
+                    this->indicatorArray[d]->bearHarami = true;
+                }
+
+                // Dark cloud criteria:
+                if (currOpen > prevHigh
+                    && currClose < (float)((prevOpen + prevClose)/ (float) 2))
+                {
+                    this->indicatorArray[d]->darkCloud = true;
+                }
+            }
+
+        //** MORNING & EVENING STARS **//
+            
+            if (prevprevOpen > prevprevClose                        // first bearish candlestick
+                && currOpen < currClose                             // third bullish candlestick
+                && prevprevClose > prevOpen                         // second day opens and closes below close of first day
+                && prevprevClose > prevClose                        // second day opens and closes below open of third day 
+                && currOpen > prevOpen 
+                && currOpen > prevClose)
+            {
+                this->indicatorArray[d]->morningStar = true;
+            }
+            
+            if (prevprevOpen < prevprevClose                        // first bullish candlestick
+                && currOpen > currClose                             // third bearish candlestick
+                && prevprevClose < prevOpen                         // second day opens and closes above close of first day
+                && prevprevClose < prevClose                        // second day opens and closes above open of third day
+                && currOpen < prevOpen 
+                && currOpen < prevClose)
+            {
+                this->indicatorArray[d]->eveningStar = true;
+            }
+
+        //** HAMMERS **//
+
+            if ((max(currOpen,currClose) - currLow) > this->hammerSize * (max(currOpen,currClose) - min(currOpen,currClose)) 
+                && (max(currOpen,currClose) - min(currOpen,currClose)) > (currHigh - max(currOpen,currClose)))
+            {
+                this->indicatorArray[d]->hammer = true;
+            }
+
+        //** DOJIS **//
+
+            if ((currHigh - currLow) > this->dojiSize * (max(currOpen,currClose) - min(currOpen,currClose)))
+            { 
+                if (min(currOpen,currClose) > currLow + (currHigh - currLow) * ((1 - (float)1 / (float) this->dojiExtremes)))
+                {
+                    this->indicatorArray[d]->dfDoji = true;
+                }
+
+                else if (max(currOpen,currClose) < currLow + (currHigh - currLow) * ((float)1 / (float) this->dojiExtremes))
+                {
+                    this->indicatorArray[d]->gsDoji = true;
+                }
+
+                else
+                {
+                    this->indicatorArray[d]->llDoji = true;
+                }
+            }
         }
     }
 };
@@ -286,36 +471,6 @@ class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-/// TEST ///
-
-
-Indicators::Divergence* initDivergences(Bars* Barsobj)
-{
-    Indicators::RSI* RSIObj = new Indicators::RSI(Barsobj);
-    Indicators::LocalMin* LocalMinObj = new Indicators::LocalMin(Barsobj);
-    Indicators::LocalMax* LocalMaxObj = new Indicators::LocalMax(Barsobj);
-    Indicators::Divergence* DivergenceObj = new Indicators::Divergence(Barsobj, RSIObj, LocalMaxObj, LocalMinObj);
-
-    DivergenceObj->computeIndicator();
-
-    Barsobj->printBars();
-    RSIObj->printIndicator();
-    DivergenceObj->printIndicator();
-
-    return DivergenceObj;
-}
 
 
 /// TEST ///

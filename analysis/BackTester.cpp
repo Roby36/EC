@@ -29,14 +29,14 @@ class BackTester::Trade
         this->tradeNo = currTradeNo;
     }
 
-    int close(int exitPos)
+    bool close(int exitPos)
     {
         if (this->isActive())
         {
             this->exitPos = exitPos;
-            return this->tradeNo;
+            return true;
         }
-        return -1;
+        return false;
     }
 
     float currBal(int currPos)
@@ -84,13 +84,29 @@ class BackTester::Trade
 };
 
 
-BackTester::BackTester(Bars* barsRef, float takeProfThresh, float stopLossThresh)
+BackTester::BackTester(Bars* barsRef, 
+    float takeProfThresh, float stopLossThresh, int maxTrades, char* reportPath, char* logPath)
 {
     this->barsRef = barsRef;
     this->execTrades = new Trade*[barsRef->getnumBars()];
     this->plArray = new float[barsRef->getnumBars()];
     this->takeProfThresh = takeProfThresh;
     this->stopLossThresh = stopLossThresh;
+    this->maxTrades = maxTrades;
+    this->reportPath = reportPath;
+    this->logPath = logPath;
+}
+
+
+void BackTester::Delete()
+{
+    for(int i = 0; i < this->currTradeNo; i++)
+    {
+        delete(this->execTrades[i]);
+    }
+    delete(this->execTrades);
+    delete(this->plArray);
+    delete(this);
 }
 
 
@@ -99,8 +115,6 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     // Verify validity of direction:
     if (direction != -1 && direction != 1) 
     {
-        /* this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->getdateTime()) + " ", 
-            this->currTradeNo, "invalid direction provided"); */
         return -1; 
     }
     // First attempt to close any trades in opposite direction:
@@ -108,7 +122,7 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     {
         if (this->execTrades[i]->getdir() != direction)
         {
-            this->closeTrade(this->execTrades[i], entryPos, "Opened trade in opposite direction");
+            this->closeTrade(i, entryPos, "Opened trade in opposite direction");
         }
     }
     // Verify that not too many trades are already open:
@@ -121,21 +135,27 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     // Open new trade
     Trade* newTrade = new Trade(this->barsRef, this->currTradeNo, direction, entryPos, units);
     this->execTrades[this->currTradeNo] = newTrade;
-    this->logTrade("Opened ", this->currTradeNo, reason);
     this->openTrades++;
+    this->logTrade("Opened ", this->currTradeNo, reason + ". Currently open trades: " + to_string(this->openTrades));
     return this->currTradeNo++;
 }
 
 
-int BackTester::closeTrade(Trade* trade, int exitPos, string reason)
+bool BackTester::closeTrade(int tradeNo, int exitPos, string reason)
 {
-    int tradeNo;
-    if ((tradeNo = trade->close(exitPos)) != -1)
+    if (tradeNo < 0 || tradeNo >= currTradeNo)
     {
-        this->logTrade("Closed", tradeNo, reason);
-        this->openTrades--;
+        this->logTrade("Could not close", tradeNo, "invalid trade number");
     }
-    return tradeNo;
+
+    Trade* trade = this->execTrades[tradeNo];
+    if (trade->close(exitPos))
+    {
+        this->logTrade("Closed", tradeNo, reason /* + ". Current P&L: " + to_string(this->pl) + ";" */);
+        this->openTrades--;
+        return true;
+    }
+    return false;
 }
 
 
@@ -153,19 +173,19 @@ void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfi
             {
                 if (currTrade->currBal(exitPos) > 0)
                 {
-                    this->closeTrade(currTrade, exitPos, "Taking Profit: " + reason);
+                    this->closeTrade(i, exitPos, reason + " (take profit)");
                 }
             }
             else if (stopLosses)
             {
                 if (currTrade->currBal(exitPos) < 0)
                 {
-                    this->closeTrade(currTrade, exitPos, "Stopping Loss: " + reason);
+                    this->closeTrade(i, exitPos, reason + " (stop loss)");
                 }
             }
             else
             {
-                this->closeTrade(currTrade,exitPos, reason);
+                this->closeTrade(i,exitPos, reason);
             }
         }
     }
@@ -184,7 +204,7 @@ void BackTester::updateTrades(int currPos)
         if (this->takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->takeProfThresh
         ||  this->stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->stopLossThresh)
         {
-            this->closeTrade(this->execTrades[i], currPos, "reached stop loss / take profit point");
+            this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 
     }
     this->pl = currPl;
@@ -200,38 +220,89 @@ void BackTester::logTrade(string action, int tradeNo, string reason)
 
 void BackTester::printResults()
 {
-    FILE* fp = fopen(this->outputPath, "a");
-    if (fp == NULL)
+    // First compute positive and negative trades, at LAST BAR:
+    int posTrades = 0; float posBalance = 0.0f;
+    int negTrades = 0; float negBalance = 0.0f;
+    float currBal;
+    for (int i = 0; i < this->currTradeNo; i++)
     {
-        fprintf(stderr, "Error opening outputPath for appending\n");
-        return;
+        currBal = this->execTrades[i]->currBal(this->barsRef->getnumBars()-1);
+        if (currBal > 0)
+        {
+            posTrades++;
+            posBalance += currBal;
+        }
+        else
+        {
+            negTrades++;
+            negBalance += currBal;
+        }
     }
-    fprintf(fp, "Net loss/profit: %f (%d total trades)\n", this->pl, this->currTradeNo);
+
+    FILE* fp;
+
+    // Print strategy report:
+    if (this->reportPath != NULL)
+    {
+        fp = fopen(this->reportPath, "w");
+        if (fp != NULL) { fclose(fp); }
+        fp = fopen(this->reportPath, "a");
+        if (fp == NULL)
+        {
+            fprintf(stderr, "Error opening reportPath for appending\n");
+            return;
+        }
+    }
+    else
+    {
+        fp = stdout;
+    }
+    fprintf(fp, "\n STRATEGY REPORT:\nTotal positive trades: %d (%f points); Total negative trades: %d (%f points);\n Net loss/profit: %f\n\n", 
+        posTrades, posBalance, negTrades, negBalance, this->pl);
     for (int i = 0; i < this->currTradeNo; i++)
     {
         fprintf(fp, "%s", this->execTrades[i]->print().c_str());
     }
-    fclose(fp);
+    if (this->reportPath != NULL) { fclose(fp); }
 
+
+    // Print log:
+    if (this->logPath != NULL)
+    {
+        fp = fopen(this->logPath, "w");
+        if (fp != NULL) { fclose(fp); }
+        fp = fopen(this->logPath, "a");
+        if (fp == NULL)
+        {
+            fprintf(stderr, "Error opening logPath for appending\n");
+            return;
+        }
+    }
+    else
+    {
+        fp = stdout;
+    }
+    fprintf(fp, "\n TRADE LOG:\n%s\n END OF LOG\n\n", this->tradeLog.c_str());
+    if (this->logPath != NULL) { fclose(fp); }
+
+
+    // Finally print P&L data to bar's data output file:
+    #ifndef NOPL
+
+    fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "w");
+    if (fp != NULL) { fclose(fp); }
     fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "a");
     if (fp == NULL)
     {
         fprintf(stderr, "Error opening PL output file for appending\n");
         return;
-    }
+    }   
     for (int i = 0; i < this->barsRef->getnumBars(); i++)
     {
         fprintf(fp, "%s", (to_string(this->plArray[i]) + "\n").c_str());
     }
     fclose(fp);
 
-    fp = fopen(this->tradeLogPath, "a");
-    if (fp == NULL)
-    {
-        fprintf(stderr, "Error opening tradeLogPath for appending\n");
-        return;
-    }
-    fprintf(fp, "%s", this->tradeLog.c_str());
-    fclose(fp);
+    #endif //NOPL
 }
 

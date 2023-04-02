@@ -3,7 +3,6 @@
 #define __INDICATORS_H
 
 #include <string>
-
 #include "Bars.h"
 
 /******* INDICATOR STANDARD TEMPLATE ********/
@@ -21,6 +20,7 @@ template <class T> class Indicator
     T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
     virtual void computeIndicator() = 0;
     void printIndicator(); 
+    void Delete();
 };
 
 
@@ -28,10 +28,6 @@ template <class T> class Indicator
 
 namespace IndicatorBars
 {
-    namespace JCandleStick
-    {
-
-    };
 
     class RSI
     {
@@ -72,6 +68,22 @@ namespace IndicatorBars
         public:
 
         float bollMiddle = 0, bollUpper = 0, bollLower = 0;
+
+        bool crossUpperUp = false, crossUpperDown = false;
+        bool crossMiddleUp = false, crossMiddleDown = false;
+        bool crossLowerUp = false, crossLowerDown = false;
+    };
+
+    class JCandleSticks
+    {
+        public:
+
+        bool bullEngulf = false, bearEngulf = false;
+        bool bullHarami = false, bearHarami = false;
+        bool piercing = false, darkCloud = false;
+        bool morningStar = false, eveningStar = false;
+        bool hammer = false;
+        bool dfDoji = false, llDoji = false, gsDoji = false;
     };
 
     class MACD;

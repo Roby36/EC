@@ -41,6 +41,17 @@ Bars::Bars(int barsPerDay, int maxBars, const char* inputFileDir, const char* st
 }
 
 
+void Bars::Delete()
+{
+    for (int i = 0; i < this->numBars; i++)
+    {
+        this->barArray[i]->Delete();
+    }
+    delete this->barArray;
+    delete(this);
+}
+
+
 void Bars::printBars()
 {
     int params = 6;
@@ -220,15 +231,5 @@ int Bars::parseFile(int barsPerDay, const char* inputFileDir, const char* startD
     return d;
 }
 
-
-void Bars::Delete()
-{
-    for (int i = 0; i < this->numBars; i++)
-    {
-        this->barArray[i]->Delete();
-    }
-    delete this->barArray;
-    delete(this);
-}
 
 

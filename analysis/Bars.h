@@ -44,7 +44,7 @@ class Bars
     public:
 
     /*** PUBLIC INTERFACE ***/
-    Bars(int = 9, int = 10000, const char* = "../input/dax hourly.txt", const char* = NULL, const char* = NULL);
+    Bars(int = 9, int = 10000, const char* = "../input/dax-hourly.txt", const char* = NULL, const char* = NULL);
     void printBars();
     void Delete();
 
