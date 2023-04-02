@@ -66,7 +66,12 @@ RSI_data = [float(x) for x in getData(RSIDirectory)]
 
 divergence_data = [int(x) for x in getData(divergenceDirectory)]
 
-x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
+# x_values = [dt.strptime(d, "%m/%d/%Y").date() for d in dates_data]
+
+########## DATETIME VALUES ##################
+x_values = [dt.strptime(d, "%Y-%m-%d %H:%M:%S").date() for d in dates_data]
+########## DATETIME VALUES ##################
+
 
 # Plotting closing price graph:
 fig, ax = plt.subplots()  

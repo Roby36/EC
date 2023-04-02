@@ -2,10 +2,9 @@
 #ifndef __BARS_H
 #define __BARS_H
 
-using namespace std;
-
 #include <string>
 
+using namespace std;
 
 class Bars
 {
@@ -16,13 +15,14 @@ class Bars
 
     class Bar
     {
-        const int maxDateChar = 32;
+        const int maxDateChar = 20;
         char* dateTime;
         float open, close, high, low, vol;
 
         public:
-        Bar(char*, float, float, float, float, float);
-        Bar(char line[]);
+
+        Bar(char*, float, float, float, float, float = 0.0f);
+        void Delete();
 
         /*** GETTERS & SETTERS ***/
         char* getdateTime() const { return dateTime; }
@@ -36,7 +36,7 @@ class Bars
     Bar** barArray;
 
     /****** FILE-PARSING ********/
-    const string outputDir = "../graphs/data/";
+    const string outputDir = "../data/";
     const string outputExt = ".txt";
 
     int parseFile(int, const char*, const char*, const char*);
@@ -44,8 +44,9 @@ class Bars
     public:
 
     /*** PUBLIC INTERFACE ***/
-    Bars(int = 1, int = 10000, const char* = "../data/DAX Historical Data.csv", const char* = "02/24/2022", const char* = "02/24/2023");
+    Bars(int = 9, int = 10000, const char* = "../input/dax hourly.txt", const char* = NULL, const char* = NULL);
     void printBars();
+    void Delete();
 
 
     /*** GETTERS & SETTERS ***/
@@ -56,7 +57,6 @@ class Bars
 
     string getoutputDir() const { return outputDir; }
     string getoutputExt() const { return outputExt; }
-
 };
 
 

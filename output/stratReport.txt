@@ -1,4 +1,4 @@
-Net loss/profit: 1400.000000 (37 total trades)
+Net loss/profit: 1357.000000 (37 total trades)
  Trade no: 0; Direction: short; Entry date: 2022-04-20 15:00:00; Entry closing price: 14339.000000; Exit date: 2022-04-22 02:00:00; Exit closing price: 14272.000000; Loss/profit: 67.000000;
  Trade no: 1; Direction: long; Entry date: 2022-04-25 09:00:00; Entry closing price: 13970.000000; Exit date: 2022-04-25 21:00:00; Exit closing price: 14116.000000; Loss/profit: 146.000000;
  Trade no: 2; Direction: long; Entry date: 2022-04-26 22:00:00; Entry closing price: 13666.000000; Exit date: 2022-04-28 07:00:00; Exit closing price: 13893.000000; Loss/profit: 227.000000;

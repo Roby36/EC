@@ -8,25 +8,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-using namespace std;
-
-
 Bars::Bar::Bar(char* dateTime, float open, float close, float high, float low, float vol)
-    : dateTime(dateTime), open(open), close(close), high(high), low(low), vol(vol)
-{}
-
-
-Bars::Bar::Bar(char line[])
+    : open(open), close(close), high(high), low(low), vol(vol)
 {
-    dateTime = (char*) malloc(maxDateChar);
+    this->dateTime = (char*) malloc(this->maxDateChar);
+    strcpy(this->dateTime, dateTime);
+}
 
-    sscanf(line, "%s %f %f %f %f %f", 
-    dateTime, 
-    &close, 
-    &open, 
-    &high, 
-    &low, 
-    &vol);
+
+void Bars::Bar::Delete()
+{
+    free(this->dateTime);
+    delete(this);
 }
 
 
@@ -38,7 +31,7 @@ Bars::Bars(int barsPerDay, int maxBars, const char* inputFileDir, const char* st
     int d = this->parseFile(barsPerDay, inputFileDir, startDate, endDate);
     if (d == 0)
     {
-        fprintf(stderr, "Please enter valid barsPerDay\n");
+        fprintf(stderr, "Error extracting data: please enter valid parameters\n");
         exit(1);
     }
     else
@@ -93,73 +86,25 @@ int Bars::parseFile(int barsPerDay, const char* inputFileDir, const char* startD
         return 0;
     }
 
+    int d = 0;
     char c;
     char line[1024];
     int i;
     int numLine = 0;
-    int d = 0;
-    bool record = false;
+    bool record = (endDate == NULL);
 
         switch(barsPerDay)
         {
-            case 9:
-            case 21:
+            case 1:
             {
                 while (numLine < this->maxBars)
                 {
                     i = 0;
                     while ((c = fgetc(fp)) != '\n')
                     {
-                        if (c == ',')
-                        {
-                            line[i] = '.';
-                        }
-                        else
-                        {
-                            line[i] = c;
-                        }
-                        i++;
-                    }
-
-                    char date[10];
-                    char time[9];
-                    char* dateTime = (char*) malloc(20);
-        
-                    float open, high, low, close;
-
-                    sscanf(line, "%s %s %f %f %f %f ",
-                    date, time, &open, &high, &low, &close);
-
-                    sprintf(dateTime, "%s %s", date, time);
-
-                    // Set record to true when we hit the end date:
-                    if (strcmp(dateTime, endDate) == 0) { record = true; }
-
-                    // Make Bar, and insert in tempArray, iff record is on:
-                    if (numLine != 0 && record)
-                    {
-                        Bar *bar = new Bar(dateTime, open, close, high, low, 0.0f);
-                        tempArray[d] = bar;
-                        d++;
-                    }
-
-                    if (strcmp(dateTime, startDate) == 0) { break; }
-
-                    numLine++;
-                }
-                break;
-            }
-
-            case 1:
-            {
-                while (numLine < this->maxBars)
-                {
-                    i = 0;  
-                    while ((c = fgetc(fp)) != '\n')
-                    {
                         if (c == 'M')
                         {
-                            while ((c = fgetc(fp)) != '\n') {}
+                            while ((c = fgetc(fp)) != '\n' && c != EOF) {}
                             break;
                         }
                         else if (c == ',')
@@ -177,6 +122,8 @@ int Bars::parseFile(int barsPerDay, const char* inputFileDir, const char* startD
                         i++;
                     }
 
+                    if (c == EOF) { break; }
+
                     char dateTime[12];
                     int j = 0;
                     char* p = line;
@@ -188,39 +135,100 @@ int Bars::parseFile(int barsPerDay, const char* inputFileDir, const char* startD
                         p++; 
                     }
 
+                    float close, open, high, low, vol;
+
+                    sscanf(line, "%s %f %f %f %f %f", 
+                        dateTime, &close, &open, &high, &low, &vol);
+                             
                     // Set record to true when we hit the end date:
-                    if (strcmp(dateTime, endDate) == 0) { record = true; }
+                    if (endDate != NULL && strcmp(dateTime, endDate) == 0) { record = true; }
 
                     // Make Bar, and insert in tempArray, iff record is on:
                     if (numLine != 0 && record)
                     {
-                        Bar *bar = new Bar(line);
-                        tempArray[d] = bar;
-                        d++;
+                        tempArray[d++] = new Bar(dateTime, open, close, high, low, vol);
                     }
 
-                    if (strcmp(dateTime, startDate) == 0) { break; }
+                    if (startDate != NULL && strcmp(dateTime, startDate) == 0) { break; }
 
                     numLine++;
                 }
-                break;  
+                break; 
+            }
+
+            case 9:
+            case 21:
+            {
+                while (numLine < this->maxBars)
+                {
+                    i = 0;
+                    while ((c = fgetc(fp)) != '\n')
+                    {
+                        if (c == EOF) { break; }
+                        else if (c == ',')
+                        {
+                            line[i] = '.';
+                        }
+                        else
+                        {
+                            line[i] = c;
+                        }
+                        i++;
+                    }
+
+                    if (c == EOF) { break; }
+
+                    char date[10];
+                    char time[9];
+                    char dateTime[20];
+        
+                    float open, high, low, close;
+
+                    sscanf(line, "%s %s %f %f %f %f ",
+                    date, time, &open, &high, &low, &close);
+
+                    snprintf(dateTime, 20, "%s %s", date, time);
+
+                    // Set record to true when we hit the end date:
+                    if (endDate != NULL && strcmp(dateTime, endDate) == 0) { record = true; }
+
+                    // Make Bar, and insert in tempArray, iff record is on:
+                    if (numLine != 0 && record)
+                    {
+                        tempArray[d++] = new Bar(dateTime, open, close, high, low);
+                    }
+
+                    if (startDate != NULL && strcmp(dateTime, startDate) == 0) { break; }
+
+                    numLine++;
+                }
+                break;
             }
             default: return 0;
         }
 
     fclose(fp);
 
-    // Construct barArray containing all Bars:
-
+    // Construct barArray containing all Bars, and delete old tempArray:
     this->barArray = new Bar*[d];
-
     for (int i = 0; i < d; i++)
     {
-        this->barArray[i] = tempArray[d - 1 - i];
+        this->barArray[i] = tempArray[d - 1 - i]; 
     }
 
     // Return days recorded:
     return d;
+}
+
+
+void Bars::Delete()
+{
+    for (int i = 0; i < this->numBars; i++)
+    {
+        this->barArray[i]->Delete();
+    }
+    delete this->barArray;
+    delete(this);
 }
 
 

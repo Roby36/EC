@@ -5,8 +5,6 @@
 #include <stdio.h>
 
 
-
-
 //*** Parameters: Bars, BackTester and Indicators (Divergence) required for generating signals: ***//
 
 void 
@@ -111,7 +109,7 @@ basicDivStrategy(Bars* barsRef, BackTester* bt,
 
 int main()
 {
-    Bars* Bars = new ::Bars(21, 10000, "../data/dax futures hourly.txt", "2022-04-11 12:00:00", "2023-03-30 14:00:00");
+    Bars* Bars = new ::Bars(9, 100000, "../data/dax futures hourly.txt", "2022-04-11 11:00:00", "2023-03-30 17:00:00");
      basicDivStrategy(Bars, new BackTester(Bars, 5.0, 4.0), 
         initDivergences(Bars), new Indicators::LocalMax(Bars), new Indicators::LocalMin(Bars), new Indicators::BollingerBands(Bars));
     return 0;
