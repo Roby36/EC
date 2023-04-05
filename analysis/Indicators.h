@@ -5,22 +5,48 @@
 #include <string>
 #include "Bars.h"
 
-/******* INDICATOR STANDARD TEMPLATE ********/
 
-template <class T> class Indicator  
+class Indicators
 {
-    protected:
-    Bars* dp; // access to Bars data
-    string outputDirectory;
-    T** indicatorArray;
+    /******* INDICATOR STANDARD TEMPLATE ********/
+    template <class T> class Indicator  
+    {
+        protected:
+        Bars* dp; // access to Bars data
+        string outputDirectory;
+        T** indicatorArray;
      
-    public:
-    Indicator(Bars*, const string);
+        public:
+        Indicator(Bars*, const string);
     
-    T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
-    virtual void computeIndicator() = 0;
-    void printIndicator(); 
+        T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
+        virtual void computeIndicator() = 0;
+        void printIndicator(); 
+        void Delete();
+    };
+
+    /******* INDICATOR CLASSES ********/
+    class RSI;
+    class LocalMin;
+    class LocalMax;
+    class Divergence;
+    class BollingerBands;
+    class JCandleSticks;
+
+    public:
+
+    /******* INDICATOR INSTANCES, CONSTRUCTOR, DELETE ********/
+
+    Indicators(Bars*);
     void Delete();
+
+    RSI* RSI;
+    LocalMin* LocalMin;
+    LocalMax* LocalMax;
+    Divergence* Divergence;
+    BollingerBands* BollingerBands;
+    JCandleSticks* JCandleSticks;
+
 };
 
 
@@ -28,7 +54,6 @@ template <class T> class Indicator
 
 namespace IndicatorBars
 {
-
     class RSI
     {
         public:

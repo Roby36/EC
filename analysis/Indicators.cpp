@@ -10,7 +10,7 @@ using namespace std;
 
 /******* INDICATOR STANDARD TEMPLATE ********/
 
-template <class T> Indicator<T>::Indicator(Bars* dp, const string name)
+template <class T> Indicators::Indicator<T>::Indicator(Bars* dp, const string name)
 {
     this->dp = dp;
     this->outputDirectory = dp->getoutputDir() + name + dp->getoutputExt();
@@ -22,8 +22,7 @@ template <class T> Indicator<T>::Indicator(Bars* dp, const string name)
     }
 }
 
-
-template <class T> void Indicator<T>::Delete()
+template <class T> void Indicators::Indicator<T>::Delete()
 {
     for (int i = 0; i < dp->getnumBars(); i++)
     {
@@ -32,8 +31,7 @@ template <class T> void Indicator<T>::Delete()
     delete(this->indicatorArray);
 }
 
-
-template <class T> void Indicator<T>::printIndicator()
+template <class T> void Indicators::Indicator<T>::printIndicator()
 {
     //First ensure old file is clear:
     FILE* fp0 = fopen(outputDirectory.c_str(), "w");
@@ -54,13 +52,9 @@ template <class T> void Indicator<T>::printIndicator()
 }
 
 
+/******* INDICATOR CLASSES ********/
 
-/******* INDICATORS ********/
-
-namespace Indicators
-{
-   
-class RSI : public Indicator<IndicatorBars::RSI> 
+class Indicators::RSI : public Indicator<IndicatorBars::RSI> 
 {
     int timePeriod;
 
@@ -105,7 +99,7 @@ class RSI : public Indicator<IndicatorBars::RSI>
 };
 
 
-class LocalMin : public Indicator<IndicatorBars::LocalStat>
+class Indicators::LocalMin : public Indicator<IndicatorBars::LocalStat>
 {
     protected:
     int m = 1;
@@ -150,7 +144,7 @@ class LocalMin : public Indicator<IndicatorBars::LocalStat>
     }
 };
 
-class LocalMax : public LocalMin
+class Indicators::LocalMax : public LocalMin
 { 
     public:
     LocalMax(Bars* dp, const string name = "LocalMax") : LocalMin(dp, name)
@@ -158,51 +152,48 @@ class LocalMax : public LocalMin
 };
 
 
-class Divergence : public Indicator<IndicatorBars::Divergence>
+class Indicators::Divergence : public Indicator<IndicatorBars::Divergence>
 {
+    // Reference to required Indicators
+    class LocalMax* LocalMax;
+    class LocalMin* LocalMin;
+    class RSI* RSI;
+
     /*** (Elementary) divergence parameters ***/
     int minDivPeriod;
     int maxDivPeriod;
 
-    /*** Indicators required ***/
-    RSI* RSIindic;
-    LocalMax* LocalMaxIndic;
-    LocalMin* LocalMinIndic;
-
     public:
 
     Divergence(Bars* dp, 
-        RSI* RSIindic, LocalMax* LocalMaxIndic, LocalMin* LocalMinIndic, int minDivPeriod = 2, int maxDivPeriod = 28,
+        class LocalMax* LocalMax, class LocalMin* LocalMin, class RSI* RSI,
+        int minDivPeriod = 2, int maxDivPeriod = 28,
         const string name = "Divergence") 
         : Indicator(dp, name)
     {
-        this->RSIindic = RSIindic;
-        this->LocalMaxIndic = LocalMaxIndic;
-        this->LocalMinIndic = LocalMinIndic;
+        this->LocalMax = LocalMax;
+        this->LocalMin = LocalMin;
+        this->RSI = RSI;
         this->minDivPeriod = minDivPeriod;
         this->maxDivPeriod = maxDivPeriod;
     }
 
     void computeIndicator()
-    {
-        //First ensure other indicators are computed:
-        RSIindic->computeIndicator();
-        LocalMinIndic->computeIndicator();
-        LocalMaxIndic->computeIndicator();
-        // Then start iterating through each Bar:
+    { 
+        // Iterate through each Bar:
         for (int d = 1; d < dp->getnumBars(); d++)
-        {
+        {  
             // Find a local maximum
-            if (LocalMaxIndic->getIndicatorBar(d)->isPresent())
+            if (this->LocalMax->getIndicatorBar(d)->isPresent())
             {
                 // Iterate back until previous local maximum
                 for (int i = minDivPeriod; i < maxDivPeriod; i++)
                 {
-                    if ((d-i > 0) && LocalMaxIndic->getIndicatorBar(d-i)->isPresent())
+                    if ((d-i > 0) && this->LocalMax->getIndicatorBar(d-i)->isPresent())
                     {
                         // Test divergence conditions:
                         if (dp->getBar(d)->getclose() > dp->getBar(d-i)->getclose()
-                         && RSIindic->getIndicatorBar(d)->RSI < RSIindic->getIndicatorBar(d-i)->RSI)
+                         && this->RSI->getIndicatorBar(d)->RSI < this->RSI->getIndicatorBar(d-i)->RSI)
                         {
                             this->indicatorArray[d]->leftPos = d-i;
                             this->indicatorArray[d]->rightPos = d;
@@ -215,16 +206,16 @@ class Divergence : public Indicator<IndicatorBars::Divergence>
             }
 
             // Find a local minimum
-            if (LocalMinIndic->getIndicatorBar(d)->isPresent())
+            if (this->LocalMin->getIndicatorBar(d)->isPresent())
             {
                 // Iterate back until previous local minimum
                 for (int i = minDivPeriod; i < maxDivPeriod; i++)
                 {
-                    if ((d-i > 0) && LocalMinIndic->getIndicatorBar(d-i)->isPresent())
+                    if ((d-i > 0) && this->LocalMin->getIndicatorBar(d-i)->isPresent())
                     {
                         // Test divergence conditions:
                         if (dp->getBar(d)->getclose() < dp->getBar(d-i)->getclose()
-                         && RSIindic->getIndicatorBar(d)->RSI > RSIindic->getIndicatorBar(d-i)->RSI)
+                         && this->RSI->getIndicatorBar(d)->RSI > this->RSI->getIndicatorBar(d-i)->RSI)
                         {
                             this->indicatorArray[d]->leftPos = d-i;
                             this->indicatorArray[d]->rightPos = d;
@@ -240,7 +231,7 @@ class Divergence : public Indicator<IndicatorBars::Divergence>
 };
 
 
-class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
+class Indicators::BollingerBands : public Indicator<IndicatorBars::BollingerBands>
 {
     /*** Bollinger Bands parameters ***/
     float stDevUp, stDevDown;
@@ -325,7 +316,7 @@ class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
 };
 
 
-class JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
+class Indicators::JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
 {
     /*** JCandleSticks parameters ***/
     float hammerSize;
@@ -463,9 +454,29 @@ class JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
 };
 
 
+/******* INDICATORS CONSTRUCTOR & DELETE ********/
 
+Indicators::Indicators(::Bars* Bars)
+{
+    this->RSI = new class RSI(Bars); this->RSI->computeIndicator();
+    this->LocalMax = new class LocalMax(Bars); this->LocalMax->computeIndicator();
+    this->LocalMin = new class LocalMin(Bars); this->LocalMin->computeIndicator();
+    this->Divergence = new class Divergence(Bars, this->LocalMax, this->LocalMin, this->RSI); this->Divergence->computeIndicator();
+    this->BollingerBands = new class BollingerBands(Bars); this->BollingerBands->computeIndicator();
+    this->JCandleSticks = new class JCandleSticks(Bars); this->JCandleSticks->computeIndicator();
 }
 
+void Indicators::Delete()
+{
+    this->Divergence->Delete(); delete(this->Divergence);
+    this->BollingerBands->Delete(); delete(this->BollingerBands);
+    this->LocalMax->Delete(); delete(this->LocalMax);
+    this->LocalMin->Delete(); delete(this->LocalMin);
+    this->RSI->Delete(); delete(this->RSI);
+    this->JCandleSticks->Delete(); delete(this->JCandleSticks);
+
+    delete(this);
+}
 
 
 

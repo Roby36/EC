@@ -265,7 +265,6 @@ void BackTester::printResults()
     }
     if (this->reportPath != NULL) { fclose(fp); }
 
-
     // Print log:
     if (this->logPath != NULL)
     {
@@ -285,10 +284,8 @@ void BackTester::printResults()
     fprintf(fp, "\n TRADE LOG:\n%s\n END OF LOG\n\n", this->tradeLog.c_str());
     if (this->logPath != NULL) { fclose(fp); }
 
-
+    #ifdef PL
     // Finally print P&L data to bar's data output file:
-    #ifndef NOPL
-
     fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "w");
     if (fp != NULL) { fclose(fp); }
     fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "a");
