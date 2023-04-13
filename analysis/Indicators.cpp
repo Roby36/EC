@@ -70,7 +70,7 @@ class Indicators::RSI : public Indicator<IndicatorBars::RSI>
 
         for (int d = 1; d < dp->getnumBars(); d++)
         {
-            indicatorArray[d]->change = dp->getBar(d)->getclose() - dp->getBar(d-1)->getclose();
+            indicatorArray[d]->change = dp->getBar(d)->close() - dp->getBar(d-1)->close();
 
             // Computing RSI starting values:
             if (d == timePeriod)
@@ -117,7 +117,7 @@ class Indicators::LocalMin : public Indicator<IndicatorBars::LocalStat>
         {
             leftDepth = 0;
             while (d < dp->getnumBars() && 
-                (this->m) * dp->getBar(d-1)->getclose() > (this->m) * dp->getBar(d)->getclose()) 
+                (this->m) * dp->getBar(d-1)->close() > (this->m) * dp->getBar(d)->close()) 
             { 
                 leftDepth++;
                 d++; 
@@ -127,17 +127,17 @@ class Indicators::LocalMin : public Indicator<IndicatorBars::LocalStat>
                 this->indicatorArray[d-1]->leftDepth = leftDepth;
                 this->indicatorArray[d-1]->m = (int) this->m;
                 this->indicatorArray[d-1]->leftChange = 
-                    (float)((-1)*(this->m)) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-leftDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
+                    (float)((-1)*(this->m)) * ((float)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-leftDepth)->close()) / this->dp->getBar(d-1)->close();
                 rightDepth = 0;
                 while (d < dp->getnumBars() && 
-                    (this->m) * dp->getBar(d-1)->getclose() < (this->m) * dp->getBar(d)->getclose()) 
+                    (this->m) * dp->getBar(d-1)->close() < (this->m) * dp->getBar(d)->close()) 
                 { 
                     rightDepth++;
                     d++; 
                 }
                 this->indicatorArray[d-1-rightDepth]->rightDepth = rightDepth;
                 this->indicatorArray[d-1-rightDepth]->rightChange = 
-                    ((float)(this->m)) * ((float)100) * (this->dp->getBar(d-1)->getclose() - this->dp->getBar(d-1-rightDepth)->getclose()) / this->dp->getBar(d-1)->getclose();
+                    ((float)(this->m)) * ((float)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-rightDepth)->close()) / this->dp->getBar(d-1)->close();
             }
             else { d++; }
         }
@@ -192,7 +192,7 @@ class Indicators::Divergence : public Indicator<IndicatorBars::Divergence>
                     if ((d-i > 0) && this->LocalMax->getIndicatorBar(d-i)->isPresent())
                     {
                         // Test divergence conditions:
-                        if (dp->getBar(d)->getclose() > dp->getBar(d-i)->getclose()
+                        if (dp->getBar(d)->close() > dp->getBar(d-i)->close()
                          && this->RSI->getIndicatorBar(d)->RSI < this->RSI->getIndicatorBar(d-i)->RSI)
                         {
                             this->indicatorArray[d]->leftPos = d-i;
@@ -214,7 +214,7 @@ class Indicators::Divergence : public Indicator<IndicatorBars::Divergence>
                     if ((d-i > 0) && this->LocalMin->getIndicatorBar(d-i)->isPresent())
                     {
                         // Test divergence conditions:
-                        if (dp->getBar(d)->getclose() < dp->getBar(d-i)->getclose()
+                        if (dp->getBar(d)->close() < dp->getBar(d-i)->close()
                          && this->RSI->getIndicatorBar(d)->RSI > this->RSI->getIndicatorBar(d-i)->RSI)
                         {
                             this->indicatorArray[d]->leftPos = d-i;
@@ -257,7 +257,7 @@ class Indicators::BollingerBands : public Indicator<IndicatorBars::BollingerBand
             float midSum = 0;
             for (int j = 0; j < this->timePeriod; j++)
             {
-                midSum += dp->getBar(i-j)->getclose();
+                midSum += dp->getBar(i-j)->close();
             }
             this->indicatorArray[i]->bollMiddle = (float) (midSum / (float) this->timePeriod);
 
@@ -265,7 +265,7 @@ class Indicators::BollingerBands : public Indicator<IndicatorBars::BollingerBand
             float SdSum = 0;
             for (int j = 0; j < this->timePeriod; j++)
             {
-                SdSum += powf((dp->getBar(i-j)->getclose() - this->indicatorArray[i]->bollMiddle), (float) 2);
+                SdSum += powf((dp->getBar(i-j)->close() - this->indicatorArray[i]->bollMiddle), (float) 2);
             }
             float SD = sqrtf((float) (SdSum / (float) this->timePeriod));
 
@@ -278,35 +278,35 @@ class Indicators::BollingerBands : public Indicator<IndicatorBars::BollingerBand
 
             if (i > this->timePeriod)
             {
-                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollUpper
-                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollUpper)
+                if (dp->getBar(i)->close() > this->indicatorArray[i]->bollUpper
+                    && dp->getBar(i-1)->close() < this->indicatorArray[i-1]->bollUpper)
                 {
                     this->indicatorArray[i]->crossUpperUp = true;
                 }
-                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollUpper
-                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollUpper)
+                if (dp->getBar(i)->close() < this->indicatorArray[i]->bollUpper
+                    && dp->getBar(i-1)->close() > this->indicatorArray[i-1]->bollUpper)
                 {
                     this->indicatorArray[i]->crossUpperDown = true;
                 }
 
-                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollMiddle
-                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollMiddle)
+                if (dp->getBar(i)->close() > this->indicatorArray[i]->bollMiddle
+                    && dp->getBar(i-1)->close() < this->indicatorArray[i-1]->bollMiddle)
                 {
                     this->indicatorArray[i]->crossMiddleUp = true;
                 }
-                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollMiddle
-                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollMiddle)
+                if (dp->getBar(i)->close() < this->indicatorArray[i]->bollMiddle
+                    && dp->getBar(i-1)->close() > this->indicatorArray[i-1]->bollMiddle)
                 {
                     this->indicatorArray[i]->crossMiddleDown = true;
                 }
 
-                if (dp->getBar(i)->getclose() > this->indicatorArray[i]->bollLower
-                    && dp->getBar(i-1)->getclose() < this->indicatorArray[i-1]->bollLower)
+                if (dp->getBar(i)->close() > this->indicatorArray[i]->bollLower
+                    && dp->getBar(i-1)->close() < this->indicatorArray[i-1]->bollLower)
                 {
                     this->indicatorArray[i]->crossLowerUp = true;
                 }
-                if (dp->getBar(i)->getclose() < this->indicatorArray[i]->bollLower
-                    && dp->getBar(i-1)->getclose() > this->indicatorArray[i-1]->bollLower)
+                if (dp->getBar(i)->close() < this->indicatorArray[i]->bollLower
+                    && dp->getBar(i-1)->close() > this->indicatorArray[i-1]->bollLower)
                 {
                     this->indicatorArray[i]->crossLowerDown = true;
                 }
@@ -339,18 +339,18 @@ class Indicators::JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
     {
         for (int d = 2; d < dp->getnumBars(); d++)
         {
-            float currOpen = this->dp->getBar(d)->getopen();
-            float currClose = this->dp->getBar(d)->getclose();
-            float currLow = this->dp->getBar(d)->getlow();
-            float currHigh = this->dp->getBar(d)->gethigh();
+            float currOpen = this->dp->getBar(d)->open();
+            float currClose = this->dp->getBar(d)->close();
+            float currLow = this->dp->getBar(d)->low();
+            float currHigh = this->dp->getBar(d)->high();
 
-            float prevOpen = this->dp->getBar(d-1)->getopen();
-            float prevClose = this->dp->getBar(d-1)->getclose();
-            float prevLow = this->dp->getBar(d-1)->getlow();
-            float prevHigh = this->dp->getBar(d-1)->gethigh();
+            float prevOpen = this->dp->getBar(d-1)->open();
+            float prevClose = this->dp->getBar(d-1)->close();
+            float prevLow = this->dp->getBar(d-1)->low();
+            float prevHigh = this->dp->getBar(d-1)->high();
 
-            float prevprevOpen = this->dp->getBar(d-2)->getopen();
-            float prevprevClose = this->dp->getBar(d-2)->getclose();
+            float prevprevOpen = this->dp->getBar(d-2)->open();
+            float prevprevClose = this->dp->getBar(d-2)->close();
 
 
         //** ENGULFMENTS, HARAMI, PIERCING, DARK CLOUD **//

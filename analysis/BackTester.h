@@ -14,7 +14,7 @@ class BackTester
     char* reportPath;
     char* logPath;
 
-    float pl = 0.0;
+    float pl = 0.0f;
     float* plArray;
     int currTradeNo = 0;
     int openTrades = 0;

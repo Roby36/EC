@@ -45,13 +45,13 @@ class BackTester::Trade
         {
             return
             (this->units)*(this->multFactor)*(this->direction)*
-            (this->barsRef->getBar(currPos)->getclose() - this->barsRef->getBar(this->entryPos)->getclose());
+            (this->barsRef->getBar(currPos)->close() - this->barsRef->getBar(this->entryPos)->close());
         }
         else
         {
             return
             (this->units)*(this->multFactor)*(this->direction)*
-            (this->barsRef->getBar(this->exitPos)->getclose() - this->barsRef->getBar(this->entryPos)->getclose());
+            (this->barsRef->getBar(this->exitPos)->close() - this->barsRef->getBar(this->entryPos)->close());
         }
     }
 
@@ -69,10 +69,10 @@ class BackTester::Trade
         return(
             " Trade no: " + to_string(this->tradeNo) + ";"
             + " Direction: " + dir + ";"
-            + " Entry date: " + string(this->barsRef->getBar(entryPos)->getdateTime()) + ";"
-            + " Entry closing price: " + to_string(this->barsRef->getBar(entryPos)->getclose()) + ";"
-            + " Exit date: " + string(this->barsRef->getBar(exitPos)->getdateTime()) + ";"
-            + " Exit closing price: " + to_string(this->barsRef->getBar(exitPos)->getclose()) + ";"
+            + " Entry date: " + string(this->barsRef->getBar(entryPos)->date()) + ";"
+            + " Entry closing price: " + to_string(this->barsRef->getBar(entryPos)->close()) + ";"
+            + " Exit date: " + string(this->barsRef->getBar(exitPos)->date()) + ";"
+            + " Exit closing price: " + to_string(this->barsRef->getBar(exitPos)->close()) + ";"
             + " Loss/profit: " + to_string(this->currBal(exitPos)) + ";"
             + "\n"
         );
@@ -128,7 +128,7 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     // Verify that not too many trades are already open:
     if (this->openTrades == this->maxTrades) 
     {
-        this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->getdateTime()) + " ", 
+        this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->date()) + " ", 
             this->currTradeNo, "maximum number of trades reached");
         return -1; 
     }
@@ -195,14 +195,14 @@ void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfi
 void BackTester::updateTrades(int currPos)
 {
     int tradeNo;
-    int currPl = 0;
+    float currPl = 0.0f;
     for (int i = 0; i < this->currTradeNo; i++)
     {
         // First update total balance with current active or not active trade:
         currPl += this->execTrades[i]->currBal(currPos);
         // Then check if trade needs to be closed
-        if (this->takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->takeProfThresh
-        ||  this->stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->stopLossThresh)
+        if (this->takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > this->takeProfThresh
+        ||  this->stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > this->stopLossThresh)
         {
             this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 

@@ -37,7 +37,7 @@ S1(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
             // then we have found a DENIED divergence,
             //  hence open trade on CURRENT DAY:
 
-            if (barsRef->getBar(i-1)->getclose() > barsRef->getBar(i-1-barsBack)->getclose()
+            if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
              && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
             {
                 bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
@@ -55,7 +55,7 @@ S1(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
             }
 
             // Verify if we are on NEW minimum with NO divergence:
-            if (barsRef->getBar(i-1)->getclose() < barsRef->getBar(i-1-barsBack)->getclose()
+            if (barsRef->getBar(i-1)->close() < barsRef->getBar(i-1-barsBack)->close()
              && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
             {
                 bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
@@ -144,7 +144,7 @@ int main(const int argc, const char* argv[])
     }
 
     //*** INITIALIZING BARS, INDICATORS, BACKTESTER ***//
-    ::Bars* Bars = new ::Bars(9, 10000, argv[1]); 
+    ::Bars* Bars = new ::Bars(0, 9, 10000, argv[1]); 
     ::Indicators* Indicators = new ::Indicators(Bars);
     ::BackTester* bt = new BackTester(Bars, 5.0, 4.0);
 
