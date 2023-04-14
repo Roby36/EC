@@ -6,127 +6,99 @@
 
 
 //*** Parameters: Bars, BackTester and INITIALIZED & COMPUTED Indicators (Divergence) required for generating signals: ***//
-
 void 
-S1(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
+testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
 {
+    //*** SET TAKE PROFIT & STOP LOSS ***//
+    float takeProfit, stopLoss;
+
+    #if defined(S1) || defined(S2)
+        takeProfit = 5.0f; stopLoss = 4.0f;
+    #endif  // defined(S1) || defined(S2)
+
     //*** BAR ITERATION ***//
     for (int i = maxBarsBack; i < barsRef->getnumBars(); i++ )
     {
         //*** STRATEGY ENTRY CONDITION(S) ***//
 
+        #if defined(S1)
             //** DENIED DIVERGENCE **//
 
-        int barsBack;
-        int tradeNo;
-
-        // Find a local maximum ON PREVIOUS DAY: 
-        if (Indicators->LocalMax->getIndicatorBar(i-1)->isPresent())       
-        {
-            // Find previous maximum:
-            barsBack = 1;
-            while (barsBack < maxBarsBack && !Indicators->LocalMax->getIndicatorBar(i-1-barsBack)->isPresent())
+            int barsBack;
+            int tradeNo;
+            // Find a local maximum ON PREVIOUS DAY: 
+            if (Indicators->LocalMax->getIndicatorBar(i-1)->isPresent())       
             {
-                barsBack++;
+                // Find previous maximum:
+                barsBack = 1;
+                while (barsBack < maxBarsBack && !Indicators->LocalMax->getIndicatorBar(i-1-barsBack)->isPresent())
+                {
+                    barsBack++;
+                }
+                // If
+                // 1) current maximum is a NEW maximum, 
+                // 2) current maximum has NO divergence,
+                // 3) previous maximum has divergence 
+                // then we have found a DENIED divergence,
+                //  hence open trade on CURRENT DAY:
+                if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+                {
+                    bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
+                }
             }
-
-            // If
-            // 1) current maximum is a NEW maximum, 
-            // 2) current maximum has NO divergence,
-            // 3) previous maximum has divergence 
-            // then we have found a DENIED divergence,
-            //  hence open trade on CURRENT DAY:
-
-            if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
-             && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+            // Repeat on local minimums:
+            if (Indicators->LocalMin->getIndicatorBar(i-1)->isPresent())
             {
-                bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
+                // Find previous minimum:
+                barsBack = 1;
+                while (barsBack < maxBarsBack && !Indicators->LocalMin->getIndicatorBar(i-1-barsBack)->isPresent())
+                {
+                    barsBack++;
+                }
+                // Verify if we are on NEW minimum with NO divergence:
+                if (barsRef->getBar(i-1)->close() < barsRef->getBar(i-1-barsBack)->close()
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+                {
+                    bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
+                }
             }
-        }
+        #endif  // defined(S1)
 
-        // Repeat on local minimums:
-        if (Indicators->LocalMin->getIndicatorBar(i-1)->isPresent())
-        {
-            // Find previous minimum:
-            barsBack = 1;
-            while (barsBack < maxBarsBack && !Indicators->LocalMin->getIndicatorBar(i-1-barsBack)->isPresent())
-            {
-                barsBack++;
-            }
+        #if defined(S2)
 
-            // Verify if we are on NEW minimum with NO divergence:
-            if (barsRef->getBar(i-1)->close() < barsRef->getBar(i-1-barsBack)->close()
-             && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+            //** DOUBLE DIVERGENCE **//
+            // Find double divergence on PREVIOUS day
+            if (Indicators->Divergence->getIndicatorBar(i-1)->divPoints == 3)
             {
-                bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
+                bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1)->m, i, "Double divergence");
             }
-        }
+        #endif  // defined(S2)
 
 
         //*** STRATEGY EXIT CONDITION(S) ***//
 
-        //*** Opposite (not necessarily denied) Divergence, on PREVIOUS bar ***/
+        #if defined(S1) || defined(S2)
+            //*** Opposite (not necessarily denied) Divergence, on PREVIOUS bar ***/
 
-        bt->closeTrades((-1) * Indicators->Divergence->getIndicatorBar(i-1)->m, i, 
-            "Opposite (not necessarily denied) divergence on previous bar");
+            bt->closeTrades((-1) * Indicators->Divergence->getIndicatorBar(i-1)->m, i, 
+                "Opposite (not necessarily denied) divergence on previous bar");
 
-        //*** Crossing bollinger bands ***/
-            // Close any LONG POSITIVE trades when upper bollinger bands crossed from ABOVE
-        if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown)
-        {
-            bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", true, false);
-        }
-            // Close any SHORT POSITIVE trades when lower bollinger bands crossed from BELOW
-        if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp)
-        {
-            bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", true, false);
-        }
-
-        //*** UPDATE TRADES (TAKE PROFIT & STOP LOSS) ***//
-        bt->updateTrades(i);
-    }
-}
-
-
-
-void 
-S2(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
-{
-    //*** BAR ITERATION ***//
-    for (int i = maxBarsBack; i < barsRef->getnumBars(); i++ )
-    {
-        //*** STRATEGY ENTRY CONDITION(S) ***//
-
-            //** DOUBLE DIVERGENCE **//
-
-        // Find double divergence on PREVIOUS day
-        if (Indicators->Divergence->getIndicatorBar(i-1)->divPoints == 3)
-        {
-            bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1)->m, i, "Double divergence");
-        }
-
-
-        //*** STRATEGY EXIT CONDITION(S) - EQUAL TO S1 ***//
-
-        //*** Opposite (not necessarily denied) Divergence, on PREVIOUS bar ***/
-
-        bt->closeTrades((-1) * Indicators->Divergence->getIndicatorBar(i-1)->m, i, 
-            "Opposite (not necessarily denied) divergence on previous bar");
-
-        //*** Crossing bollinger bands ***/
-            // Close any LONG POSITIVE trades when upper bollinger bands crossed from ABOVE
-        if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown)
-        {
-            bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", true, false);
-        }
-            // Close any SHORT POSITIVE trades when lower bollinger bands crossed from BELOW
-        if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp)
-        {
-            bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", true, false);
-        }
+            //*** Crossing bollinger bands ***/
+                // Close any LONG POSITIVE trades when upper bollinger bands crossed from ABOVE
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown)
+            {
+                bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", true, false);
+            }
+                // Close any SHORT POSITIVE trades when lower bollinger bands crossed from BELOW
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp)
+            {
+                bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", true, false);
+            }
+        #endif  // defined(S1) || defined(S2)
 
         //*** UPDATE TRADES (TAKE PROFIT & STOP LOSS) ***//
-        bt->updateTrades(i);
+        bt->updateTrades(i, takeProfit, stopLoss);
     }
 }
 
@@ -143,13 +115,22 @@ int main(const int argc, const char* argv[])
         exit(2);
     }
 
+    //*** DETERMINE OUTPUT FILE EXTENSIONS ***//
+    string outPath = string(argv[1]);
+    #ifdef S1
+    outPath += ".S1.txt";
+    #endif
+    #ifdef S2
+    outPath += ".S2.txt";
+    #endif
+
     //*** INITIALIZING BARS, INDICATORS, BACKTESTER ***//
-    ::Bars* Bars = new ::Bars(0, 9, 10000, argv[1]); 
+    ::Bars* Bars = new ::Bars(argv[1]); 
     ::Indicators* Indicators = new ::Indicators(Bars);
-    ::BackTester* bt = new BackTester(Bars, 5.0, 4.0);
+    ::BackTester* bt = new BackTester(Bars, 3, outPath.c_str(), outPath.c_str());
 
     //*** RUNNING STRATEGY ***//
-    S1(Bars, bt, Indicators);
+    testStrategy(Bars, bt, Indicators);
 
     //*** PRINT RESULTS ***//
     bt->printResults();
