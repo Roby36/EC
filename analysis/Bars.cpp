@@ -143,16 +143,16 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
         char dateTime[20];
         float open, high, low, close;
 
-        #ifndef DAILY // hourly default case
+    #ifdef HOURLY
         sscanf(line, "%s %s %f %f %f %f ",
         date, time, &open, &high, &low, &close);
         snprintf(dateTime, 20, "%s %s", date, time);
-        #endif
+    #endif
 
-        #ifdef DAILY
+    #ifdef DAILY
         sscanf(line, "%s %f %f %f %f ",
         dateTime, &open, &high, &low, &close);
-        #endif
+    #endif
 
         // Set record to true when we hit the end date:
         if (endDate != NULL && strcmp(dateTime, endDate) == 0) { record = true; }
