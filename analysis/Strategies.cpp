@@ -4,95 +4,132 @@
 #include <string>
 #include <stdio.h>
 
-
-//*** Parameters: Bars, BackTester and INITIALIZED & COMPUTED Indicators (Divergence) required for generating signals: ***//
+/*************************************/
+//*  Parameters:                     */
+/*    - Bars                         */                 
+/*    - BackTester                   */
+/*    - Initialized & computed       */
+/*       Indicators                  */
+/*************************************/
 
 void 
-basicDivStrategy(Bars* barsRef, BackTester* bt, 
-    Indicators::Divergence* DivInd, Indicators::LocalMax* LocMax, Indicators::LocalMin* LocMin, Indicators::BollingerBands* BB,
-    int maxBarsBack = 14)
+testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
 {
-    //*** BAR ITERATION ***//
+    /*************************************/
+    //*** SET TAKE PROFIT & STOP LOSS ***//
+    /*************************************/
+    float takeProfit, stopLoss;
+    #ifdef HOURLY
+        takeProfit = 2.5f; stopLoss = 2.5f;
+    #endif 
+    #ifdef DAILY
+        takeProfit = 5.0f; stopLoss = 4.0f;
+    #endif  
+    
+    /*************************************/
+    /******** START BAR ITERATION ********/
+    /*************************************/
     for (int i = maxBarsBack; i < barsRef->getnumBars(); i++ )
     {
-        //*** STRATEGY ENTRY CONDITION(S) ***//
+        /*************************************/
+        /**** STRATEGY ENTRY CONDITION(S) ****/
+        /*************************************/
 
-            //** DENIED DIVERGENCE **//
+        #if defined(S1) || defined(S1P)
 
-        int barsBack;
-        int tradeNo;
+            //***** DENIED DIVERGENCE *****//
 
-        // Find a local maximum ON PREVIOUS DAY: 
-        if (LocMax->getIndicatorBar(i-1)->isPresent())       
-        {
-            // Find previous maximum:
-            barsBack = 1;
-            while (barsBack < maxBarsBack && !LocMax->getIndicatorBar(i-1-barsBack)->isPresent())
+            int barsBack;
+            int tradeNo;
+            // Find a local maximum ON PREVIOUS DAY: 
+            if (Indicators->LocalMax->getIndicatorBar(i-1)->isPresent())       
             {
-                barsBack++;
+                // Find previous maximum:
+                barsBack = 1;
+                while (barsBack < maxBarsBack && !Indicators->LocalMax->getIndicatorBar(i-1-barsBack)->isPresent())
+                {
+                    barsBack++;
+                }
+                // If
+                // 1) current maximum is a NEW maximum, 
+                // 2) current maximum has NO divergence,
+                // 3) previous maximum has divergence 
+                // then we have found a DENIED divergence,
+                //  hence open trade on CURRENT DAY:
+                if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+                {
+                    bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
+                }
             }
-
-            // If
-            // 1) current maximum is a NEW maximum, 
-            // 2) current maximum has NO divergence,
-            // 3) previous maximum has divergence 
-            // then we have found a DENIED divergence,
-            //  hence open trade on CURRENT DAY:
-
-            if (barsRef->getBar(i-1)->getclose() > barsRef->getBar(i-1-barsBack)->getclose()
-             && !DivInd->getIndicatorBar(i-1)->isPresent())
+            // Repeat on local minimums:
+            if (Indicators->LocalMin->getIndicatorBar(i-1)->isPresent())
             {
-                bt->openTrade(DivInd->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
+                // Find previous minimum:
+                barsBack = 1;
+                while (barsBack < maxBarsBack && !Indicators->LocalMin->getIndicatorBar(i-1-barsBack)->isPresent())
+                {
+                    barsBack++;
+                }
+                // Verify if we are on NEW minimum with NO divergence:
+                if (barsRef->getBar(i-1)->close() < barsRef->getBar(i-1-barsBack)->close()
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
+                {
+                    bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
+                }
             }
-        }
+        #endif  // defined(S1) || defined(S1P)
 
-        // Repeat on local minimums:
-        if (LocMin->getIndicatorBar(i-1)->isPresent())
-        {
-            // Find previous minimum:
-            barsBack = 1;
-            while (barsBack < maxBarsBack && !LocMin->getIndicatorBar(i-1-barsBack)->isPresent())
+        #if defined(S2) || defined(S2P)
+
+            //** DOUBLE DIVERGENCE **//
+
+            // Find double divergence on PREVIOUS day
+            if (Indicators->Divergence->getIndicatorBar(i-1)->divPoints == 3)
             {
-                barsBack++;
+                bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1)->m, i, "Double divergence");
             }
+        #endif  // defined(S2) || defined(S2P)
 
-            // Verify if we are on NEW minimum with NO divergence:
-            if (barsRef->getBar(i-1)->getclose() < barsRef->getBar(i-1-barsBack)->getclose()
-             && !DivInd->getIndicatorBar(i-1)->isPresent())
+
+        /*************************************/
+        /**** STRATEGY EXIT CONDITION(S) ****/
+        /*************************************/
+
+        #if defined(S1) || defined(S1P) || defined(S2) || defined(S2P)
+            //** OPPOSITE DIVERGENCE **//
+            bt->closeTrades((-1) * Indicators->Divergence->getIndicatorBar(i-1)->m, i, 
+                "Opposite (not necessarily denied) divergence on previous bar");
+        #endif 
+
+            //** CROSSING BOLLINGER BANDS **//
+
+            bool takeProfits;
+        #if defined(S1) || defined(S2)
+            takeProfits = true;
+        #endif
+        #if defined(S1P) || defined(S2P)
+            takeProfits = false;
+        #endif
+
+            // Close any LONG trades when upper bollinger bands crossed from ABOVE
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown)
             {
-                bt->openTrade(DivInd->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
+                bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", takeProfits, false);
             }
-        }
+            // Close any SHORT trades when lower bollinger bands crossed from BELOW
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp)
+            {
+                bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", takeProfits, false);
+            }
+        
 
+        /**********************************************/
+        /**** UPDATE TRADES (END OF BAR ITERATION) ****/
+        /**********************************************/
 
-        //*** STRATEGY EXIT CONDITION(S) ***//
-
-        //*** Opposite (not necessarily denied) Divergence, on PREVIOUS bar ***/
-
-        bt->closeTrades((-1) * DivInd->getIndicatorBar(i-1)->m, i, 
-            "Opposite (not necessarily denied) divergence on previous bar");
-
-        //*** Crossing bollinger bands ***/
-            // Close any LONG POSITIVE trades when upper bollinger bands crossed from ABOVE
-        if (BB->getIndicatorBar(i)->crossUpperDown)
-        {
-            bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", true, false);
-        }
-            // Close any SHORT POSITIVE trades when lower bollinger bands crossed from BELOW
-        if (BB->getIndicatorBar(i)->crossLowerUp)
-        {
-            bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", true, false);
-        }
-
-
-        //*** UPDATE TRADES (TAKE PROFIT & STOP LOSS) ***//
-
-        bt->updateTrades(i);
+        bt->updateTrades(i, takeProfit, stopLoss);
     }
-
-    //*** PRINT RESULTS ***//
-
-    bt->printResults();
 }
 
 
@@ -108,35 +145,45 @@ int main(const int argc, const char* argv[])
         exit(2);
     }
 
-    //*** INITIALIZING BARS & STRATEGY'S INDICATORS ***//
-    ::Bars* Bars = new ::Bars(9, 10000, argv[1]);
-    Indicators::RSI* RSI = new Indicators::RSI(Bars);
-    Indicators::LocalMax* LocMax = new Indicators::LocalMax(Bars);
-    Indicators::LocalMin* LocMin = new Indicators::LocalMin(Bars);
-    Indicators::Divergence* DivInd = new Indicators::Divergence(Bars,RSI,LocMax,LocMin);
-    Indicators::BollingerBands* BB = new Indicators::BollingerBands(Bars);
+    //*** DETERMINE OUTPUT FILE EXTENSIONS ***//
+    string outPath = string(argv[1]);
 
-    //*** COMPUTING INDICATORS ***//
-    RSI->computeIndicator();
-    LocMax->computeIndicator();
-    LocMin->computeIndicator();
-    DivInd->computeIndicator();
-    BB->computeIndicator();
+    #ifdef S1
+    outPath += ".S1";
+    #endif
+    #ifdef S2
+    outPath += ".S2";
+    #endif
+    #ifdef S1P
+    outPath += ".S1P";
+    #endif
+    #ifdef S2P
+    outPath += ".S2P";
+    #endif
 
-    //*** INITIALIZING BACKTESTER ***//
-    ::BackTester* bt = new BackTester(Bars, 5.0, 4.0);
+    #ifdef HOURLY
+    outPath += "hourly.txt";
+    #endif
+    #ifdef DAILY
+    outPath += "daily.txt";
+    #endif
+
+    //*** INITIALIZING BARS, INDICATORS, BACKTESTER ***//
+    ::Bars* Bars = new ::Bars(argv[1]); 
+    ::Indicators* Indicators = new ::Indicators(Bars);
+    ::BackTester* bt = new BackTester(Bars, 3, outPath.c_str(), outPath.c_str());
 
     //*** RUNNING STRATEGY ***//
-    basicDivStrategy(Bars, bt, DivInd, LocMax, LocMin, BB);
+    testStrategy(Bars, bt, Indicators);
+
+    //*** PRINT RESULTS ***//
+    bt->printResults();
     
     //*** CLEANING UP ***//
     bt->Delete(); 
-    DivInd->Delete(); delete(DivInd);
-    BB->Delete();     delete(BB);
-    LocMax->Delete(); delete(LocMax);
-    LocMin->Delete(); delete(LocMin);
-    RSI->Delete();    delete(RSI);
+    Indicators->Delete();
     Bars->Delete(); 
 
     return 0;
 }
+

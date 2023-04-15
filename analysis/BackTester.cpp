@@ -5,6 +5,7 @@
 #include <string>
 #include <stdio.h>
 
+
 class BackTester::Trade
 {
     Bars* barsRef; 
@@ -45,13 +46,13 @@ class BackTester::Trade
         {
             return
             (this->units)*(this->multFactor)*(this->direction)*
-            (this->barsRef->getBar(currPos)->getclose() - this->barsRef->getBar(this->entryPos)->getclose());
+            (this->barsRef->getBar(currPos)->close() - this->barsRef->getBar(this->entryPos)->close());
         }
         else
         {
             return
             (this->units)*(this->multFactor)*(this->direction)*
-            (this->barsRef->getBar(this->exitPos)->getclose() - this->barsRef->getBar(this->entryPos)->getclose());
+            (this->barsRef->getBar(this->exitPos)->close() - this->barsRef->getBar(this->entryPos)->close());
         }
     }
 
@@ -69,10 +70,10 @@ class BackTester::Trade
         return(
             " Trade no: " + to_string(this->tradeNo) + ";"
             + " Direction: " + dir + ";"
-            + " Entry date: " + string(this->barsRef->getBar(entryPos)->getdateTime()) + ";"
-            + " Entry closing price: " + to_string(this->barsRef->getBar(entryPos)->getclose()) + ";"
-            + " Exit date: " + string(this->barsRef->getBar(exitPos)->getdateTime()) + ";"
-            + " Exit closing price: " + to_string(this->barsRef->getBar(exitPos)->getclose()) + ";"
+            + " Entry date: " + string(this->barsRef->getBar(entryPos)->date_time_str) + ";"
+            + " Entry closing price: " + to_string(this->barsRef->getBar(entryPos)->close()) + ";"
+            + " Exit date: " + string(this->barsRef->getBar(exitPos)->date_time_str) + ";"
+            + " Exit closing price: " + to_string(this->barsRef->getBar(exitPos)->close()) + ";"
             + " Loss/profit: " + to_string(this->currBal(exitPos)) + ";"
             + "\n"
         );
@@ -83,20 +84,14 @@ class BackTester::Trade
 
 };
 
-
-BackTester::BackTester(Bars* barsRef, 
-    float takeProfThresh, float stopLossThresh, int maxTrades, char* reportPath, char* logPath)
+BackTester::BackTester(Bars* barsRef, const int maxTrades, const char* reportPath, const char* logPath)
+    : reportPath(reportPath), logPath(logPath)
 {
     this->barsRef = barsRef;
     this->execTrades = new Trade*[barsRef->getnumBars()];
     this->plArray = new float[barsRef->getnumBars()];
-    this->takeProfThresh = takeProfThresh;
-    this->stopLossThresh = stopLossThresh;
     this->maxTrades = maxTrades;
-    this->reportPath = reportPath;
-    this->logPath = logPath;
 }
-
 
 void BackTester::Delete()
 {
@@ -108,7 +103,6 @@ void BackTester::Delete()
     delete(this->plArray);
     delete(this);
 }
-
 
 int BackTester::openTrade(int direction, int entryPos, string reason, float units)
 {
@@ -128,7 +122,7 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     // Verify that not too many trades are already open:
     if (this->openTrades == this->maxTrades) 
     {
-        this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->getdateTime()) + " ", 
+        this->logTrade("Could not open trade on " + string(this->barsRef->getBar(entryPos)->date_time_str) + " ", 
             this->currTradeNo, "maximum number of trades reached");
         return -1; 
     }
@@ -139,7 +133,6 @@ int BackTester::openTrade(int direction, int entryPos, string reason, float unit
     this->logTrade("Opened ", this->currTradeNo, reason + ". Currently open trades: " + to_string(this->openTrades));
     return this->currTradeNo++;
 }
-
 
 bool BackTester::closeTrade(int tradeNo, int exitPos, string reason)
 {
@@ -157,7 +150,6 @@ bool BackTester::closeTrade(int tradeNo, int exitPos, string reason)
     }
     return false;
 }
-
 
 void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfits, bool stopLosses)
 {
@@ -191,18 +183,17 @@ void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfi
     }
 }
 
-
-void BackTester::updateTrades(int currPos)
+void BackTester::updateTrades(int currPos, float takeProfThresh, float stopLossThresh)
 {
     int tradeNo;
-    int currPl = 0;
+    float currPl = 0.0f;
     for (int i = 0; i < this->currTradeNo; i++)
     {
         // First update total balance with current active or not active trade:
         currPl += this->execTrades[i]->currBal(currPos);
         // Then check if trade needs to be closed
-        if (this->takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->takeProfThresh
-        ||  this->stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->getclose() > this->stopLossThresh)
+        if (takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh
+        ||  stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh)
         {
             this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 
@@ -211,12 +202,10 @@ void BackTester::updateTrades(int currPos)
     this->plArray[currPos] = this->pl;
 }
 
-
 void BackTester::logTrade(string action, int tradeNo, string reason)
 {
     this->tradeLog += action + " " + to_string(tradeNo) + ": " + reason + "\n";
 }
-
 
 void BackTester::printResults()
 {
@@ -265,12 +254,13 @@ void BackTester::printResults()
     }
     if (this->reportPath != NULL) { fclose(fp); }
 
-
     // Print log:
     if (this->logPath != NULL)
     {
+        /*
         fp = fopen(this->logPath, "w");
         if (fp != NULL) { fclose(fp); }
+        */
         fp = fopen(this->logPath, "a");
         if (fp == NULL)
         {
@@ -285,10 +275,8 @@ void BackTester::printResults()
     fprintf(fp, "\n TRADE LOG:\n%s\n END OF LOG\n\n", this->tradeLog.c_str());
     if (this->logPath != NULL) { fclose(fp); }
 
-
+    #ifdef PL
     // Finally print P&L data to bar's data output file:
-    #ifndef NOPL
-
     fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "w");
     if (fp != NULL) { fclose(fp); }
     fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "a");
@@ -303,6 +291,6 @@ void BackTester::printResults()
     }
     fclose(fp);
 
-    #endif //NOPL
+    #endif //PL
 }
 

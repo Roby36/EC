@@ -8,18 +8,15 @@
 class BackTester
 {
     Bars* barsRef;
-    float takeProfThresh;
-    float stopLossThresh;
     int maxTrades;
-    char* reportPath;
-    char* logPath;
+    const char* reportPath;
+    const char* logPath;
 
-    float pl = 0.0;
+    float pl = 0.0f;
     float* plArray;
     int currTradeNo = 0;
     int openTrades = 0;
 
-    
     string tradeLog = "";
 
     class Trade;
@@ -29,17 +26,15 @@ class BackTester
    
     public:
 
-    BackTester(Bars*, float = 0.0, float = 0.0, int = 3, char* = NULL, char* = NULL);
+    BackTester(Bars*, const int, const char*, const char*);
 
     //*** INTERFACE ***//
     int openTrade(int, int, string, float = 1.0);
     bool closeTrade(int, int, string);
     void closeTrades(int, int, string, bool = false, bool = false);
-    void updateTrades(int);
-
+    void updateTrades(int, float, float);
     void printResults();
     void Delete();
-
 };
 
 
