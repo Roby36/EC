@@ -24,7 +24,10 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
     #endif 
     #ifdef DAILY
         takeProfit = 5.0f; stopLoss = 4.0f;
-    #endif  
+    #endif 
+    #ifdef SE
+        takeProfit = 1.5f; stopLoss = 1.5f;
+    #endif 
     
     /*************************************/
     /******** START BAR ITERATION ********/
@@ -35,7 +38,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
         /**** STRATEGY ENTRY CONDITION(S) ****/
         /*************************************/
 
-        #if defined(S1) || defined(S1P)
+        #if defined(S1) || defined(S1P)  || defined(SE)
 
             //***** DENIED DIVERGENCE *****//
 
@@ -78,7 +81,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
                     bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
                 }
             }
-        #endif  // defined(S1) || defined(S1P)
+        #endif  // defined(S1) || defined(S1P) || defined(SE)
 
         #if defined(S2) || defined(S2P)
 
@@ -95,6 +98,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
         /*************************************/
         /**** STRATEGY EXIT CONDITION(S) ****/
         /*************************************/
+        #ifndef SE
 
         #if defined(S1) || defined(S1P) || defined(S2) || defined(S2P)
             //** OPPOSITE DIVERGENCE **//
@@ -123,7 +127,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
                 bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", takeProfits, false);
             }
         
-
+        #endif // SE
         /**********************************************/
         /**** UPDATE TRADES (END OF BAR ITERATION) ****/
         /**********************************************/
@@ -159,6 +163,9 @@ int main(const int argc, const char* argv[])
     #endif
     #ifdef S2P
     outPath += ".S2P";
+    #endif
+    #ifdef SE
+    outPath += ".SE";
     #endif
 
     #ifdef HOURLY

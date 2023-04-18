@@ -21,6 +21,8 @@ strategies:
 	$(CC) $(CFLAGS) $(LIBS) -DDAILY -DS1P Strategies.cpp -o $E/S1Pdaily
 	$(CC) $(CFLAGS) $(LIBS) -DDAILY -DS2P Strategies.cpp -o $E/S2Pdaily
 
+	$(CC) $(CFLAGS) $(LIBS) -DHOURLY -DSE Strategies.cpp -o $E/SEhourly
+
 
 clean:
 	rm -rf *.dSYM  # MacOS debugger info
