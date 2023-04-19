@@ -1,5 +1,6 @@
 
 #include "Indicators.h"
+#include "IndicatorBar.cpp"
 #include "Bars.cpp"
 
 #include <string>
@@ -10,10 +11,11 @@ using namespace std;
 
 /******* INDICATOR STANDARD TEMPLATE ********/
 
-template <class T> Indicators::Indicator<T>::Indicator(Bars* dp, const string name)
+template <class T> Indicators::Indicator<T>::Indicator(Bars* dp, const string name, const string logDirectory)
 {
     this->dp = dp;
     this->outputDirectory = dp->getoutputDir() + name + dp->getoutputExt();
+    this->logDirectory = logDirectory + name + dp->getoutputExt();
     this->indicatorArray = new T* [dp->getnumBars()];
     // Initialize classes holding indicator data for each point:
     for (int i = 0; i < dp->getnumBars(); i++)
@@ -34,21 +36,27 @@ template <class T> void Indicators::Indicator<T>::Delete()
 template <class T> void Indicators::Indicator<T>::printIndicator()
 {
     //First ensure old file is clear:
-    FILE* fp0 = fopen(outputDirectory.c_str(), "w");
-    if (fp0 != NULL) fclose(fp0);
+    FILE* fp = fopen(outputDirectory.c_str(), "w");
+    FILE* lp = fopen(logDirectory.c_str(), "w");
+    if (fp != NULL) fclose(fp);
+    if (lp != NULL) fclose(lp);
 
     //Open file for appending:
-    FILE* fp = fopen(outputDirectory.c_str(), "a");
-    if (fp == NULL)
-    {
-        fprintf(stderr, "Error opening outputDirectory for appending.\n");
+    fp = fopen(outputDirectory.c_str(), "a");
+    lp = fopen(logDirectory.c_str(), "a");
+    if (fp == NULL || lp == NULL) {
+        fprintf(stderr, "Error opening outputDirectory or logDirectory for appending.\n");
         return;
     }
-    for (int i = 0; i < this->dp->getnumBars(); i++)
-    {
+    for (int i = 0; i < this->dp->getnumBars(); i++) {
         fprintf(fp, "%s\n", this->indicatorArray[i]->toString().c_str());
+        if (this->indicatorArray[i]->isPresent()) {
+            fprintf(lp, "%s: %s\n", this->dp->getBar(i)->date_time_str,
+                this->indicatorArray[i]->logString().c_str());
+        }
     }
     fclose(fp);
+    fclose(lp);
 }
 
 
@@ -476,6 +484,16 @@ void Indicators::Delete()
     this->JCandleSticks->Delete(); delete(this->JCandleSticks);
 
     delete(this);
+}
+
+void Indicators::printIndicators()
+{
+    this->Divergence->printIndicator();
+    this->BollingerBands->printIndicator();
+    this->LocalMax->printIndicator();
+    this->LocalMin->printIndicator();
+    this->RSI->printIndicator();
+    this->JCandleSticks->printIndicator();
 }
 
 

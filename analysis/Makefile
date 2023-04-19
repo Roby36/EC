@@ -22,6 +22,7 @@ strategies:
 	$(CC) $(CFLAGS) $(LIBS) -DDAILY -DS2P Strategies.cpp -o $E/S2Pdaily
 
 	$(CC) $(CFLAGS) $(LIBS) -DHOURLY -DSE Strategies.cpp -o $E/SEhourly
+	$(CC) $(CFLAGS) $(LIBS) -DHOURLY -DS4 Strategies.cpp -o $E/S4hourly
 
 
 clean:

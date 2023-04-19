@@ -38,7 +38,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
         /**** STRATEGY ENTRY CONDITION(S) ****/
         /*************************************/
 
-        #if defined(S1) || defined(S1P)  || defined(SE)
+        #if defined(S1) || defined(S1P)  || defined(SE) || defined(S4)
 
             //***** DENIED DIVERGENCE *****//
 
@@ -49,8 +49,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
             {
                 // Find previous maximum:
                 barsBack = 1;
-                while (barsBack < maxBarsBack && !Indicators->LocalMax->getIndicatorBar(i-1-barsBack)->isPresent())
-                {
+                while (barsBack < maxBarsBack && !Indicators->LocalMax->getIndicatorBar(i-1-barsBack)->isPresent()) {
                     barsBack++;
                 }
                 // If
@@ -60,8 +59,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
                 // then we have found a DENIED divergence,
                 //  hence open trade on CURRENT DAY:
                 if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
-                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
-                {
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent()) {
                     bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
                 }
             }
@@ -70,26 +68,23 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
             {
                 // Find previous minimum:
                 barsBack = 1;
-                while (barsBack < maxBarsBack && !Indicators->LocalMin->getIndicatorBar(i-1-barsBack)->isPresent())
-                {
+                while (barsBack < maxBarsBack && !Indicators->LocalMin->getIndicatorBar(i-1-barsBack)->isPresent()) {
                     barsBack++;
                 }
                 // Verify if we are on NEW minimum with NO divergence:
                 if (barsRef->getBar(i-1)->close() < barsRef->getBar(i-1-barsBack)->close()
-                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent())
-                {
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent()) {
                     bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local minimum");
                 }
             }
-        #endif  // defined(S1) || defined(S1P) || defined(SE)
+        #endif  // defined(S1) || defined(S1P) || defined(SE) || defined(S4)
 
         #if defined(S2) || defined(S2P)
 
             //** DOUBLE DIVERGENCE **//
 
             // Find double divergence on PREVIOUS day
-            if (Indicators->Divergence->getIndicatorBar(i-1)->divPoints == 3)
-            {
+            if (Indicators->Divergence->getIndicatorBar(i-1)->divPoints == 3) {
                 bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1)->m, i, "Double divergence");
             }
         #endif  // defined(S2) || defined(S2P)
@@ -100,16 +95,16 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
         /*************************************/
         #ifndef SE
 
-        #if defined(S1) || defined(S1P) || defined(S2) || defined(S2P)
+        #if defined(S1) || defined(S1P) || defined(S2) || defined(S2P) || defined(S4)
             //** OPPOSITE DIVERGENCE **//
             bt->closeTrades((-1) * Indicators->Divergence->getIndicatorBar(i-1)->m, i, 
                 "Opposite (not necessarily denied) divergence on previous bar");
-        #endif 
+        #endif // defined(S1) || defined(S1P) || defined(S2) || defined(S2P) || defined(S4)
 
             //** CROSSING BOLLINGER BANDS **//
 
             bool takeProfits;
-        #if defined(S1) || defined(S2)
+        #if defined(S1) || defined(S2) || defined(S4)
             takeProfits = true;
         #endif
         #if defined(S1P) || defined(S2P)
@@ -117,15 +112,40 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
         #endif
 
             // Close any LONG trades when upper bollinger bands crossed from ABOVE
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown)
-            {
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown) {
                 bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", takeProfits, false);
             }
             // Close any SHORT trades when lower bollinger bands crossed from BELOW
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp)
-            {
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp) {
                 bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", takeProfits, false);
             }
+
+            /**** Additional S4 conditions ****/
+        #ifdef S4
+            // Close any LONG trades (not necessarily negative) when lower band crossed from ABOVE
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerDown) {
+                bt->closeTrades(1, i, "Crossed lower Bollinger Bands from above", false, false);
+            }
+            // Close any SHORT trades (not necessarily negative) when upper band crossed from BELOW
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperUp) {
+                bt->closeTrades(-1, i, "Crossed upper Bollinger Bands from below", false, false);
+            }
+        #endif // S4
+
+
+        /* Engulfment Tests
+    
+        if (Indicators->JCandleSticks->getIndicatorBar(i)->bearEngulf
+          ||Indicators->JCandleSticks->getIndicatorBar(i)->bearHarami) {
+            bt->closeTrades(1, i, "Bear engulfment / harami", false, false);
+        }
+
+        if (Indicators->JCandleSticks->getIndicatorBar(i)->bullEngulf
+         || Indicators->JCandleSticks->getIndicatorBar(i)->bullHarami) {
+            bt->closeTrades(-1, i, "Bull engulfment / harami", false, false);
+        }
+        
+        */// Engulfment Tests
         
         #endif // SE
         /**********************************************/
@@ -143,8 +163,7 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
 int main(const int argc, const char* argv[])
 {
     //*** VALIDATING ARGUMENTS ***//
-    if (argc != 2)
-    {
+    if (argc != 2) {
         fprintf(stderr, "Usage: %s inputFileDirectory\n", argv[0]);
         exit(2);
     }
@@ -167,6 +186,9 @@ int main(const int argc, const char* argv[])
     #ifdef SE
     outPath += ".SE";
     #endif
+    #ifdef S4
+    outPath += ".S4";
+    #endif
 
     #ifdef HOURLY
     outPath += "hourly.txt";
@@ -183,8 +205,12 @@ int main(const int argc, const char* argv[])
     //*** RUNNING STRATEGY ***//
     testStrategy(Bars, bt, Indicators);
 
-    //*** PRINT RESULTS ***//
+    //*** PRINT RESULTS & INDICATOR DATA ***//
     bt->printResults();
+
+    #ifdef ILOG
+    Indicators->printIndicators();
+    #endif // ILOG
     
     //*** CLEANING UP ***//
     bt->Delete(); 
