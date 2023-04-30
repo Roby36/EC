@@ -29,5 +29,5 @@ clean:
 	rm -rf *.dSYM  # MacOS debugger info
 	rm -f *~ *.o
 	rm -f core
-	rm -f $E/S1hourly $E/S2hourly $E/S1Phourly $E/S2Phourly $E/S1daily $E/S2daily $E/S1Pdaily $E/S2Pdaily
+	rm -f $E/S1hourly $E/S2hourly $E/S1Phourly $E/S2Phourly $E/S1daily $E/S2daily $E/S1Pdaily $E/S2Pdaily $E/SEhourly  $E/S4hourly
 	

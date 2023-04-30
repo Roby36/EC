@@ -2,8 +2,7 @@
 #ifndef __BACKTESTER_H
 #define __BACKTESTER_H
 
-#include <string>
-#include "Bars.h"
+#include "Trade.cpp"
 
 class BackTester
 {
@@ -19,7 +18,6 @@ class BackTester
 
     string tradeLog = "";
 
-    class Trade;
     Trade** execTrades;
 
     void logTrade(string, int, string);
@@ -31,10 +29,11 @@ class BackTester
     //*** INTERFACE ***//
     int openTrade(int, int, string, float = 1.0);
     bool closeTrade(int, int, string);
-    void closeTrades(int, int, string, bool = false, bool = false);
+    void closeTrades(int, int, string, bool = false, bool = false, int = 0);
     void updateTrades(int, float, float);
     void printResults();
     void Delete();
+
 };
 
 

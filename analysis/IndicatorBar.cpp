@@ -1,8 +1,6 @@
 
 #include "IndicatorBar.h"
 
-#include <string>
-
 /******* INDICATOR BARS ********/
 
 namespace IndicatorBars
@@ -13,9 +11,7 @@ namespace IndicatorBars
         float avgUp = 0, avgDown = 0, change = 0, RSI = 0;
 
         bool isPresent() { return (RSI != 0); }
-
         string toString() { return to_string(RSI); }
-
         string logString() {
             return "RSI " + to_string(RSI);
         }
@@ -29,9 +25,7 @@ namespace IndicatorBars
         int m = 0;
 
         bool isPresent() { return (m != 0); }
-
         string toString() { return to_string(isPresent()); }
-
         string logString() {
             if (m == -1) {
                 return "Local Maximum";
@@ -47,17 +41,17 @@ namespace IndicatorBars
     {
         public:
 
+        Bar* leftBar;
+        Bar* rightBar;
         int divPoints = 1;
-        int leftPos = 0;
-        int rightPos = 0;
         int m = 0;
 
         bool isPresent() { return (m != 0); }
-
         string toString() { return to_string(this->divPoints); }
-
         string logString() {
-            return "Divergence of degree " + to_string(divPoints - 1);
+            return ("Divergence of degree " + to_string(divPoints - 1) +
+                    " between " + string(leftBar->date_time_str) +
+                    " and " + string(rightBar->date_time_str));
         }
     };
 
@@ -72,13 +66,11 @@ namespace IndicatorBars
         bool crossLowerUp = false, crossLowerDown = false;
 
         bool isPresent() { return bollMiddle != 0; }
-
         string toString() { 
             return to_string(bollLower) + " "
                  + to_string(bollMiddle) + " "
                  + to_string(bollUpper); 
         }
-        
         string logString() {
             return "Lower Middle Upper Bollinger Bands: " + this->toString();
         }
@@ -100,7 +92,6 @@ namespace IndicatorBars
                    || piercing || darkCloud || morningStar || eveningStar 
                    || hammer || dfDoji || llDoji || gsDoji; 
         }
-
         string toString() { 
             return to_string((int)bullEngulf) + " "
                  + to_string((int)bearEngulf) + " "
@@ -115,7 +106,6 @@ namespace IndicatorBars
                  + to_string((int)llDoji) + " "
                  + to_string((int)gsDoji) + " "; 
         }
-
         string logString() {
             string s = "";
             if (bullEngulf) { s+= "Bull Engulfment; "; }
@@ -133,7 +123,5 @@ namespace IndicatorBars
             return s;
         }
     };
-
-
 
 };

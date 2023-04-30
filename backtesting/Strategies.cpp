@@ -1,8 +1,6 @@
 
 #include "BackTester.cpp"
-
-#include <string>
-#include <stdio.h>
+#include "../analysis/IndicatorSet.cpp"
 
 /*************************************/
 //*  Parameters:                     */
@@ -12,8 +10,11 @@
 /*       Indicators                  */
 /*************************************/
 
+const int bpd = 9;
+const int maxBars = 2*bpd;
+
 void 
-testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsBack = 14)
+testStrategy(Bars* barsRef, BackTester* bt, IndicatorSet* Indicators, int maxBarsBack = 14)
 {
     /*************************************/
     //*** SET TAKE PROFIT & STOP LOSS ***//
@@ -122,30 +123,11 @@ testStrategy(Bars* barsRef, BackTester* bt, Indicators* Indicators, int maxBarsB
 
             /**** Additional S4 conditions ****/
         #ifdef S4
-            // Close any LONG trades (not necessarily negative) when lower band crossed from ABOVE
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerDown) {
-                bt->closeTrades(1, i, "Crossed lower Bollinger Bands from above", false, false);
-            }
-            // Close any SHORT trades (not necessarily negative) when upper band crossed from BELOW
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperUp) {
-                bt->closeTrades(-1, i, "Crossed upper Bollinger Bands from below", false, false);
-            }
+            // Close all EXPIRED, NEGATIVE long & short trades
+            bt->closeTrades(1, i, "Negative after expiration time", false, true, 18);
+            bt->closeTrades(-1, i, "Negative after expiration time", false, true, 18);
         #endif // S4
 
-
-        /* Engulfment Tests
-    
-        if (Indicators->JCandleSticks->getIndicatorBar(i)->bearEngulf
-          ||Indicators->JCandleSticks->getIndicatorBar(i)->bearHarami) {
-            bt->closeTrades(1, i, "Bear engulfment / harami", false, false);
-        }
-
-        if (Indicators->JCandleSticks->getIndicatorBar(i)->bullEngulf
-         || Indicators->JCandleSticks->getIndicatorBar(i)->bullHarami) {
-            bt->closeTrades(-1, i, "Bull engulfment / harami", false, false);
-        }
-        
-        */// Engulfment Tests
         
         #endif // SE
         /**********************************************/
@@ -199,11 +181,11 @@ int main(const int argc, const char* argv[])
 
     //*** INITIALIZING BARS, INDICATORS, BACKTESTER ***//
     ::Bars* Bars = new ::Bars(argv[1]); 
-    ::Indicators* Indicators = new ::Indicators(Bars);
+    ::IndicatorSet* IndicatorSet = new ::IndicatorSet(Bars);
     ::BackTester* bt = new BackTester(Bars, 3, outPath.c_str(), outPath.c_str());
 
     //*** RUNNING STRATEGY ***//
-    testStrategy(Bars, bt, Indicators);
+    testStrategy(Bars, bt, IndicatorSet);
 
     //*** PRINT RESULTS & INDICATOR DATA ***//
     bt->printResults();
@@ -214,7 +196,7 @@ int main(const int argc, const char* argv[])
     
     //*** CLEANING UP ***//
     bt->Delete(); 
-    Indicators->Delete();
+    IndicatorSet->Delete();
     Bars->Delete(); 
 
     return 0;
