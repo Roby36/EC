@@ -1,7 +1,5 @@
 
-#ifndef __INDICATOR_H
-#define __INDICATOR_H
-
+#pragma once
 #include "Bars.h"
 
 /******* INDICATOR STANDARD TEMPLATE ********/
@@ -15,11 +13,9 @@ template <class T> class Indicator
     
     public:
     Indicator(Bars*, const string, const string = "../indicatorslog/");
+    ~Indicator();
 
     T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
     virtual void computeIndicator() = 0;
     void printIndicator(); 
-    void Delete();
 };
-
-#endif //__INDICATOR_H

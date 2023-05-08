@@ -197,6 +197,12 @@ private:
 	std::unique_ptr<EReader> m_pReader;
     bool m_extraAuth;
 	std::string m_bboExchange;
+
+
+	//! TESTING
+	Contract dax_future_contract;
+
+	//! TESTING
 };
 
 #endif

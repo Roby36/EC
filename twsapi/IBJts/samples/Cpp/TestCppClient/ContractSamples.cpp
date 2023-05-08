@@ -354,7 +354,7 @@ Contract ContractSamples::FutureWithMultiplier(){
 	contract.secType = "FUT";
 	contract.exchange = "EUREX";
 	contract.currency = "EUR";
-	contract.lastTradeDateOrContractMonth = "202303";
+	// contract.lastTradeDateOrContractMonth = "202303";
 	contract.multiplier = "1";
 	//! [futcontract_multiplier]
 	return contract;

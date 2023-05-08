@@ -1,6 +1,5 @@
 
-#ifndef __BAR_H
-#define __BAR_H
+#pragma once
 
 #include <ctime>
 #include <stdlib.h>
@@ -8,27 +7,26 @@
 
 typedef struct tm date_t;
 
-class Bar
+class MBar
 {
-    const int maxDateChar = 20;
-    date_t* Date_Time;
-    const float Open, Close, High, Low, Vol;
+    const double      Open, Close, High, Low, Vol;
+    const int         maxDateChar = 20;
+    /*const std::string Time_zone; */
+    date_t*           Date_Time;
 
     public:
 
-    Bar(float, float, float, float, float = 0.0f, 
-        date_t* = NULL, char* = NULL);
+    MBar(double, double, double, double, double = 0.0f, 
+        date_t* = NULL, /*std::string = "",*/ char* = NULL);
+    ~MBar();
     char* date_time_str;
-    void Delete();
-
+    
     /*** GETTERS & SETTERS ***/
-    date_t* date_time() const { return Date_Time; }
-    float open() const { return Open; }
-    float close() const { return Close; }
-    float high() const { return High; }
-    float low() const { return Low; }
-    float vol() const { return Vol; }
+    double      open()      const { return Open;}
+    double      close()     const { return Close;}
+    double      high()      const { return High;}
+    double      low()       const { return Low;}
+    double      vol()       const { return Vol;}
+    date_t*     date_time() const { return Date_Time;}
+    /*std::string time_zone() const { return Time_zone;} */
 };
-
-
-#endif //__BAR_H

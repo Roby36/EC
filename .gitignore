@@ -33,4 +33,13 @@ Icon?
 ###########################################################################
 # custom additions below here; see also .gitignore files in subdirectories.
 
-./twsapi_macunix.1019.01*
+./twsapi/*
+./data/*
+./executables/*
+./indicatorslog/*
+./input/*
+./testing/*
+./analysis/analysis.a
+./datetimedemo.cpp
+./testarch.cpp
+

@@ -20,7 +20,7 @@ bool Trade::close(int exitPos)
     return false;
 }
 
-float Trade::currBal(int currPos) 
+double Trade::currBal(int currPos) 
 {
     if (this->isActive()) {
         return
