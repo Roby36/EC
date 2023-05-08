@@ -1,7 +1,5 @@
 
-#ifndef __INDICATORBAR_H
-#define __INDICATORBAR_H
-
+#pragma once
 #include "Bars.h"
 
 class IndicatorBar
@@ -12,5 +10,3 @@ class IndicatorBar
     virtual string toString()  = 0;
     virtual string logString() = 0;
 };
-
-#endif // __INDICATORBAR_H

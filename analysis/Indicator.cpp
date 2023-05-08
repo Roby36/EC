@@ -15,7 +15,7 @@ template <class T> Indicator<T>::Indicator(Bars* dp, const string name, const st
     }
 }
 
-template <class T> void Indicator<T>::Delete()
+template <class T> Indicator<T>::~Indicator() 
 {
     for (int i = 0; i < dp->getnumBars(); i++) {
         delete(this->indicatorArray[i]);

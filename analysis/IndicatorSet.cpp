@@ -1,6 +1,6 @@
 
 #include "Indicators.cpp"
-#include "Bars.cpp"
+#include "Bars.h"
 
 /******* DECLARATION ********/
 
@@ -12,7 +12,7 @@ class IndicatorSet
     /******* INDICATOR INSTANCES, CONSTRUCTOR, DELETE ********/
 
     IndicatorSet(Bars*);
-    void Delete();
+    ~IndicatorSet();
     void printIndicators();
 
     Indicators::RSI*            RSI;
@@ -39,17 +39,15 @@ IndicatorSet::IndicatorSet(::Bars* Bars)
         this->LocalMax, this->LocalMin, this->RSI);              this->LongDivergence->computeIndicator();
 }
 
-void IndicatorSet::Delete()
+IndicatorSet::~IndicatorSet()
 {
-    this->LongDivergence->Delete(); delete(this->LongDivergence);
-    this->Divergence->Delete();     delete(this->Divergence);
-    this->BollingerBands->Delete(); delete(this->BollingerBands);
-    this->LocalMax->Delete();       delete(this->LocalMax);
-    this->LocalMin->Delete();       delete(this->LocalMin);
-    this->RSI->Delete();            delete(this->RSI);
-    this->JCandleSticks->Delete();  delete(this->JCandleSticks);
-
-    delete(this);
+    delete(this->LongDivergence);
+    delete(this->Divergence);
+    delete(this->BollingerBands);
+    delete(this->LocalMax);
+    delete(this->LocalMin);
+    delete(this->RSI);
+    delete(this->JCandleSticks);
 }
 
 void IndicatorSet::printIndicators()
@@ -69,10 +67,10 @@ void IndicatorSet::printIndicators()
 #ifdef INDTEST
 int main()
 {
-    IndicatorSet* Iset = new IndicatorSet(new Bars());
+    IndicatorSet* Iset = new IndicatorSet(new Bars("../input/DAXINDEX_Start07042020_End_0604023.txt"));
     // fprintf(stdout,"%s\n", (Iset->LongDivergence->getIndicatorBar(100)->logString()).c_str());
     Iset->printIndicators();
-    Iset->Delete();
+    delete(Iset);
     return 0;
 }
 #endif //INDTEST

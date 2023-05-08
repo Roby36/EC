@@ -1,7 +1,5 @@
 
-#ifndef __BACKTESTER_H
-#define __BACKTESTER_H
-
+#pragma once
 #include "Trade.cpp"
 
 class BackTester
@@ -11,8 +9,8 @@ class BackTester
     const char* reportPath;
     const char* logPath;
 
-    float pl = 0.0f;
-    float* plArray;
+    double pl = 0.0;
+    double* plArray;
     int currTradeNo = 0;
     int openTrades = 0;
 
@@ -27,14 +25,11 @@ class BackTester
     BackTester(Bars*, const int, const char*, const char*);
 
     //*** INTERFACE ***//
-    int openTrade(int, int, string, float = 1.0);
+    int openTrade(int, int, string, double = 1.0);
     bool closeTrade(int, int, string);
     void closeTrades(int, int, string, bool = false, bool = false, int = 0);
-    void updateTrades(int, float, float);
+    void updateTrades(int, double, double);
     void printResults();
     void Delete();
 
 };
-
-
-#endif

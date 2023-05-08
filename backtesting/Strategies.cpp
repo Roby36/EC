@@ -19,15 +19,15 @@ testStrategy(Bars* barsRef, BackTester* bt, IndicatorSet* Indicators, int maxBar
     /*************************************/
     //*** SET TAKE PROFIT & STOP LOSS ***//
     /*************************************/
-    float takeProfit, stopLoss;
+    double takeProfit, stopLoss;
     #ifdef HOURLY
-        takeProfit = 2.5f; stopLoss = 2.5f;
+        takeProfit = 2.5; stopLoss = 2.5;
     #endif 
     #ifdef DAILY
-        takeProfit = 5.0f; stopLoss = 4.0f;
+        takeProfit = 5.0; stopLoss = 4.0;
     #endif 
     #ifdef SE
-        takeProfit = 1.5f; stopLoss = 1.5f;
+        takeProfit = 1.5; stopLoss = 1.5;
     #endif 
     
     /*************************************/
@@ -196,8 +196,8 @@ int main(const int argc, const char* argv[])
     
     //*** CLEANING UP ***//
     bt->Delete(); 
-    IndicatorSet->Delete();
-    Bars->Delete(); 
+    delete(IndicatorSet);
+    delete(Bars); 
 
     return 0;
 }

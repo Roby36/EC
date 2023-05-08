@@ -8,7 +8,7 @@ namespace IndicatorBars
     class RSI : public IndicatorBar
     {
         public:
-        float avgUp = 0, avgDown = 0, change = 0, RSI = 0;
+        double avgUp = 0, avgDown = 0, change = 0, RSI = 0;
 
         bool isPresent() { return (RSI != 0); }
         string toString() { return to_string(RSI); }
@@ -21,7 +21,7 @@ namespace IndicatorBars
     {
         public:
         int leftDepth = 0, rightDepth = 0;
-        float leftChange = 0.0, rightChange = 0.0;
+        double leftChange = 0.0, rightChange = 0.0;
         int m = 0;
 
         bool isPresent() { return (m != 0); }
@@ -41,8 +41,8 @@ namespace IndicatorBars
     {
         public:
 
-        Bar* leftBar;
-        Bar* rightBar;
+        MBar* leftBar;
+        MBar* rightBar;
         int divPoints = 1;
         int m = 0;
 
@@ -59,7 +59,7 @@ namespace IndicatorBars
     {
         public:
 
-        float bollMiddle = 0, bollUpper = 0, bollLower = 0;
+        double bollMiddle = 0, bollUpper = 0, bollLower = 0;
 
         bool crossUpperUp = false, crossUpperDown = false;
         bool crossMiddleUp = false, crossMiddleDown = false;

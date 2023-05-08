@@ -37,7 +37,7 @@
 #include <fstream>
 #include <cstdint>
 
-const int PING_DEADLINE = 2; // seconds
+const int PING_DEADLINE = 2; 		// seconds
 const int SLEEP_BETWEEN_PINGS = 30; // seconds
 
 ///////////////////////////////////////////////////////////
@@ -340,8 +340,10 @@ void TestCppClient::processMessages()
 // methods
 //! [connectack]
 void TestCppClient::connectAck() {
+
 	if (!m_extraAuth && m_pClient->asyncEConnect())
         m_pClient->startApi();
+		std::cout << "startApi()" << std::endl;
 }
 //! [connectack]
 
@@ -549,7 +551,7 @@ void TestCppClient::realTimeBars()
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 	/*** Canceling real time bars ***/
     //! [cancelrealtimebars]
-	m_pClient->cancelRealTimeBars(3001);
+		// m_pClient->cancelRealTimeBars(3001);
     //! [cancelrealtimebars]
 
 	m_state = ST_REALTIMEBARS_ACK;
@@ -581,15 +583,19 @@ void TestCppClient::historicalDataRequests()
     timeinfo = std::gmtime(&rawtime);
 	std::strftime(queryTime, 80, "%Y%m%d-%H:%M:%S", timeinfo);
 
-	m_pClient->reqHistoricalData(4001, ContractSamples::EurGbpFx(), queryTime, "1 M", "1 day", "MIDPOINT", 1, 1, false, TagValueListSPtr());
+
+	m_pClient->reqHistoricalData(4208, ContractSamples::Index(), "", "1 D", "5 secs", "TRADES", 1, 1, true, TagValueListSPtr());
+
+/*
 	m_pClient->reqHistoricalData(4002, ContractSamples::EuropeanStock(), queryTime, "10 D", "1 min", "TRADES", 1, 1, false, TagValueListSPtr());
-	m_pClient->reqHistoricalData(4003, ContractSamples::USStockAtSmart(), queryTime, "1 M", "1 day", "SCHEDULE", 1, 1, false, TagValueListSPtr());
 	//! [reqhistoricaldata]
 	std::this_thread::sleep_for(std::chrono::seconds(2));
-	/*** Canceling historical data requests ***/
+
 	m_pClient->cancelHistoricalData(4001);
 	m_pClient->cancelHistoricalData(4002);
 	m_pClient->cancelHistoricalData(4003);
+*/
+
 
 	m_state = ST_HISTORICALDATAREQUESTS_ACK;
 }
@@ -624,15 +630,16 @@ void TestCppClient::optionsOperations()
 
 void TestCppClient::contractOperations()
 {
-	m_pClient->reqContractDetails(209, ContractSamples::EurGbpFx());
+		m_pClient->reqContractDetails(208, ContractSamples::Index());
+	//m_pClient->reqContractDetails(209, ContractSamples::EurGbpFx());
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 	//! [reqcontractdetails]
-	m_pClient->reqContractDetails(210, ContractSamples::OptionForQuery());
-	m_pClient->reqContractDetails(212, ContractSamples::IBMBond());
-	m_pClient->reqContractDetails(213, ContractSamples::IBKRStk());
-	m_pClient->reqContractDetails(214, ContractSamples::Bond());
-	m_pClient->reqContractDetails(215, ContractSamples::FuturesOnOptions());
-	m_pClient->reqContractDetails(216, ContractSamples::SimpleFuture());
+	//m_pClient->reqContractDetails(210, ContractSamples::OptionForQuery());
+	//m_pClient->reqContractDetails(212, ContractSamples::IBMBond());
+	//m_pClient->reqContractDetails(213, ContractSamples::IBKRStk());
+	//m_pClient->reqContractDetails(214, ContractSamples::Bond());
+	//m_pClient->reqContractDetails(215, ContractSamples::FuturesOnOptions());
+	//m_pClient->reqContractDetails(216, ContractSamples::SimpleFuture());
 	//! [reqcontractdetails]
 
 	//! [reqcontractdetailsnews]
@@ -799,19 +806,29 @@ void TestCppClient::orderOperations()
 	m_pClient->reqIds(-1);
 	//! [reqids]
 	//! [reqallopenorders]
-	m_pClient->reqAllOpenOrders();
+		// m_pClient->reqAllOpenOrders();
 	//! [reqallopenorders]
 	//! [reqautoopenorders]
 	m_pClient->reqAutoOpenOrders(true);
 	//! [reqautoopenorders]
 	//! [reqopenorders]
-	m_pClient->reqOpenOrders();
+		// m_pClient->reqOpenOrders();
 	//! [reqopenorders]
+
+	// TEST DAX FUTURE OPEN
+
+	m_pClient->reqContractDetails(7007, ContractSamples::FutureWithMultiplier());
+
+	// TEST DAX FUTURE OPEN
+
+	std::this_thread::sleep_for(std::chrono::seconds(5)); // wait for contract details reception
 
 	/*** Placing/modifying an order - remember to ALWAYS increment the nextValidId after placing an order so it can be used for the next one! ***/
     //! [order_submission]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::USStock(), OrderSamples::LimitOrder("SELL", stringToDecimal("1"), 50));
+	m_pClient->placeOrder(m_orderId++, this->dax_future_contract, OrderSamples::MarketOrder("SELL", doubleToDecimal(1.0)));
     //! [order_submission]
+
+	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	//m_pClient->placeOrder(m_orderId++, ContractSamples::OptionAtBox(), OrderSamples::Block("BUY", stringToDecimal("50"), 20));
 	//m_pClient->placeOrder(m_orderId++, ContractSamples::OptionAtBox(), OrderSamples::BoxTop("SELL", stringToDecimal("10")));
@@ -837,57 +854,64 @@ void TestCppClient::orderOperations()
 	//m_pClient->placeOrder(m_orderId++, ContractSamples::USStock(), OrderSamples::TrailingStopLimit("BUY", stringToDecimal("100"), 2, 5, 50));
 	
 	//! [place_midprice]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::Midprice("BUY", stringToDecimal("1"), 150));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::Midprice("BUY", stringToDecimal("1"), 150));
 	//! [place_midprice]
 	
 	//! [place order with cashQty]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::LimitOrderWithCashQty("BUY", 111.11, 5000));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::LimitOrderWithCashQty("BUY", 111.11, 5000));
 	//! [place order with cashQty]
 
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
 	/*** Cancel one order ***/
 	//! [cancelorder]
-	m_pClient->cancelOrder(m_orderId-1, "");
+		// m_pClient->cancelOrder(m_orderId-1, "");
 	//! [cancelorder]
 	
 	/*** Cancel all orders for all accounts ***/
 	//! [reqglobalcancel]
-	m_pClient->reqGlobalCancel();
+		// m_pClient->reqGlobalCancel();
 	//! [reqglobalcancel]
+
+	
 
 	/*** Request the day's executions ***/
 	//! [reqexecutions]
-	m_pClient->reqExecutions(10001, ExecutionFilter());
+		//m_pClient->reqExecutions(10001, ExecutionFilter());
 	//! [reqexecutions]
 
 	//! [reqcompletedorders]
-	m_pClient->reqCompletedOrders(false);
+		// m_pClient->reqCompletedOrders(false);
 	//! [reqcompletedorders]
 
 	//! [order_submission]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::CryptoContract(), OrderSamples::LimitOrder("BUY", stringToDecimal("0.12345678"), 3700));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::CryptoContract(), OrderSamples::LimitOrder("BUY", stringToDecimal("0.12345678"), 3700));
 	//! [order_submission]
 
 	//! [manual_order_time]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::LimitOrderWithManualOrderTime("BUY", stringToDecimal("100"), 111.11, "20220314-13:00:00"));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::USStockAtSmart(), OrderSamples::LimitOrderWithManualOrderTime("BUY", stringToDecimal("100"), 111.11, "20220314-13:00:00"));
 	//! [manual_order_time]
 
 	//! [manual_order_cancel_time]
-	m_pClient->cancelOrder(m_orderId - 1, "20220314-19:00:00");
+		//m_pClient->cancelOrder(m_orderId - 1, "20220314-19:00:00");
 	//! [manual_order_cancel_time]
 
 	//! [pegbest_up_to_mid_order_submission]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegBestUpToMidOrder("BUY", stringToDecimal("100"), 111.11, 100, 200, 0.02, 0.025));
+		//m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegBestUpToMidOrder("BUY", stringToDecimal("100"), 111.11, 100, 200, 0.02, 0.025));
 	//! [pegbest_up_to_mid_order_submission]
 
 	//! [pegbest_order_submission]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegBestOrder("BUY", stringToDecimal("100"), 111.11, 100, 200, 0.03));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegBestOrder("BUY", stringToDecimal("100"), 111.11, 100, 200, 0.03));
 	//! [pegbest_order_submission]
 
 	//! [pegmid_order_submission]
-	m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegMidOrder("BUY", stringToDecimal("100"), 111.11, 100, 0.02, 0.025));
+		// m_pClient->placeOrder(m_orderId++, ContractSamples::IBKRATSContract(), OrderSamples::PegMidOrder("BUY", stringToDecimal("100"), 111.11, 100, 0.02, 0.025));
 	//! [pegmid_order_submission]
+
+	// Cancel all orders at the end
+		// m_pClient->reqGlobalCancel();
+
+	
 
 	m_state = ST_ORDEROPERATIONS_ACK;
 }
@@ -1476,15 +1500,15 @@ void TestCppClient::nextValidId( OrderId orderId)
     //m_state = ST_PNL; 
 	//m_state = ST_DELAYEDTICKDATAOPERATION; 
 	//m_state = ST_MARKETDEPTHOPERATION;
-	//m_state = ST_REALTIMEBARS;
+	    // m_state = ST_REALTIMEBARS;
 	//m_state = ST_MARKETDATATYPE;
-	//m_state = ST_HISTORICALDATAREQUESTS;
-	m_state = ST_CONTRACTOPERATION;
+		m_state = ST_HISTORICALDATAREQUESTS;
+		// m_state = ST_CONTRACTOPERATION;
 	//m_state = ST_MARKETSCANNERS;
 	//m_state = ST_FUNDAMENTALS;
 	//m_state = ST_BULLETINS;
 	//m_state = ST_ACCOUNTOPERATIONS;
-	//m_state = ST_ORDEROPERATIONS;
+		// m_state = ST_ORDEROPERATIONS;
 	//m_state = ST_OCASAMPLES;
 	//m_state = ST_CONDITIONSAMPLES;
 	//m_state = ST_BRACKETSAMPLES;
@@ -1644,10 +1668,24 @@ void TestCppClient::accountDownloadEnd(const std::string& accountName) {
 
 //! [contractdetails]
 void TestCppClient::contractDetails( int reqId, const ContractDetails& contractDetails) {
+
+	/* 
 	printf( "ContractDetails begin. ReqId: %d\n", reqId);
 	printContractMsg(contractDetails.contract);
 	printContractDetailsMsg(contractDetails);
 	printf( "ContractDetails end. ReqId: %d\n", reqId);
+	*/
+
+
+
+	// TEST DAX FUTURE OPEN
+
+	if (reqId == 7007) {
+		printf("RECEIVED DAX FUTURE CONTRACT DATA\n");
+		this->dax_future_contract = contractDetails.contract;
+	}
+
+	// TEST DAX FUTURE OPEN
 }
 //! [contractdetails]
 

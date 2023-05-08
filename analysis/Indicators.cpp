@@ -19,8 +19,8 @@ namespace Indicators
 
         void computeIndicator()
         {
-            float totalUp = 0;
-            float totalDown = 0;
+            double totalUp = 0;
+            double totalDown = 0;
 
             for (int d = 1; d < dp->getnumBars(); d++)
             {
@@ -35,18 +35,18 @@ namespace Indicators
                         else  { totalDown -= indicatorArray[i]->change; }
                     }
 
-                    indicatorArray[d]->avgUp = (float)(totalUp / timePeriod);
-                    indicatorArray[d]->avgDown = (float)(totalDown / timePeriod);
-                    indicatorArray[d]->RSI = 100 - (float)(100 / (1 + (float)(indicatorArray[d]->avgUp / indicatorArray[d]->avgDown)));
+                    indicatorArray[d]->avgUp = (double)(totalUp / timePeriod);
+                    indicatorArray[d]->avgDown = (double)(totalDown / timePeriod);
+                    indicatorArray[d]->RSI = 100 - (double)(100 / (1 + (double)(indicatorArray[d]->avgUp / indicatorArray[d]->avgDown)));
                 }
 
                 // Computing RSI for successive values:
                 else if (d > timePeriod)
                 {
-                    float change = indicatorArray[d]->change;
-                    indicatorArray[d]->avgUp = (float)(((timePeriod - 1) * (indicatorArray[d-1]->avgUp) + (change > 0) * (change)) / timePeriod);
-                    indicatorArray[d]->avgDown = (float)(((timePeriod - 1) * (indicatorArray[d-1]->avgDown) - (change < 0) * (change)) / timePeriod);
-                    indicatorArray[d]->RSI = 100 - (float)(100 / (1 + (float)(indicatorArray[d]->avgUp / indicatorArray[d]->avgDown)));
+                    double change = indicatorArray[d]->change;
+                    indicatorArray[d]->avgUp = (double)(((timePeriod - 1) * (indicatorArray[d-1]->avgUp) + (change > 0) * (change)) / timePeriod);
+                    indicatorArray[d]->avgDown = (double)(((timePeriod - 1) * (indicatorArray[d-1]->avgDown) - (change < 0) * (change)) / timePeriod);
+                    indicatorArray[d]->RSI = 100 - (double)(100 / (1 + (double)(indicatorArray[d]->avgUp / indicatorArray[d]->avgDown)));
                 }
             }
         }
@@ -80,7 +80,7 @@ namespace Indicators
                     this->indicatorArray[d-1]->leftDepth = leftDepth;
                     this->indicatorArray[d-1]->m = (int) this->m;
                     this->indicatorArray[d-1]->leftChange = 
-                        (float)((-1)*(this->m)) * ((float)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-leftDepth)->close()) / this->dp->getBar(d-1)->close();
+                        (double)((-1)*(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-leftDepth)->close()) / this->dp->getBar(d-1)->close();
                     rightDepth = 0;
                     while (d < dp->getnumBars() && 
                         (this->m) * dp->getBar(d-1)->close() < (this->m) * dp->getBar(d)->close()) 
@@ -90,7 +90,7 @@ namespace Indicators
                     }
                     this->indicatorArray[d-1-rightDepth]->rightDepth = rightDepth;
                     this->indicatorArray[d-1-rightDepth]->rightChange = 
-                        ((float)(this->m)) * ((float)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-rightDepth)->close()) / this->dp->getBar(d-1)->close();
+                        ((double)(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-rightDepth)->close()) / this->dp->getBar(d-1)->close();
                 }
                 else { d++; }
             }
@@ -265,13 +265,13 @@ namespace Indicators
     class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
     {
         /*** Bollinger Bands parameters ***/
-        float stDevUp, stDevDown;
+        double stDevUp, stDevDown;
         int timePeriod;
 
         public:
 
         BollingerBands(Bars* dp, 
-            float stDevUp = 2.0f, float stDevDown = 2.0f, int timePeriod = 20,
+            double stDevUp = 2.0, double stDevDown = 2.0, int timePeriod = 20,
             const string name = "BB") 
             : Indicator(dp, name)
         {
@@ -285,20 +285,20 @@ namespace Indicators
             for (int i = this->timePeriod; i < dp->getnumBars(); i++)
             {
                 // Compute average, or bollMiddle value:
-                float midSum = 0;
+                double midSum = 0;
                 for (int j = 0; j < this->timePeriod; j++)
                 {
                     midSum += dp->getBar(i-j)->close();
                 }
-                this->indicatorArray[i]->bollMiddle = (float) (midSum / (float) this->timePeriod);
+                this->indicatorArray[i]->bollMiddle = (double) (midSum / (double) this->timePeriod);
 
                 // Compute standard deviation:
-                float SdSum = 0;
+                double SdSum = 0;
                 for (int j = 0; j < this->timePeriod; j++)
                 {
-                    SdSum += powf((dp->getBar(i-j)->close() - this->indicatorArray[i]->bollMiddle), (float) 2);
+                    SdSum += powf((dp->getBar(i-j)->close() - this->indicatorArray[i]->bollMiddle), (double) 2);
                 }
-                float SD = sqrtf((float) (SdSum / (float) this->timePeriod));
+                double SD = sqrtf((double) (SdSum / (double) this->timePeriod));
 
                 // Compute upper & lower bands:
                 this->indicatorArray[i]->bollLower = this->indicatorArray[i]->bollMiddle - SD * this->stDevDown;
@@ -341,14 +341,14 @@ namespace Indicators
     class JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
     {
         /*** JCandleSticks parameters ***/
-        float hammerSize;
-        float dojiSize;
+        double hammerSize;
+        double dojiSize;
         int dojiExtremes;
 
         public:
 
         JCandleSticks(Bars* dp, 
-            float hammerSize = 3.0f, float dojiSize = 8.0f, int dojiExtremes = 3,
+            double hammerSize = 3.0, double dojiSize = 8.0, int dojiExtremes = 3,
             const string name = "JCandleSticks") 
             : Indicator(dp, name)
         {
@@ -361,18 +361,18 @@ namespace Indicators
         {
             for (int d = 2; d < dp->getnumBars(); d++)
             {
-                float currOpen = this->dp->getBar(d)->open();
-                float currClose = this->dp->getBar(d)->close();
-                float currLow = this->dp->getBar(d)->low();
-                float currHigh = this->dp->getBar(d)->high();
+                double currOpen = this->dp->getBar(d)->open();
+                double currClose = this->dp->getBar(d)->close();
+                double currLow = this->dp->getBar(d)->low();
+                double currHigh = this->dp->getBar(d)->high();
 
-                float prevOpen = this->dp->getBar(d-1)->open();
-                float prevClose = this->dp->getBar(d-1)->close();
-                float prevLow = this->dp->getBar(d-1)->low();
-                float prevHigh = this->dp->getBar(d-1)->high();
+                double prevOpen = this->dp->getBar(d-1)->open();
+                double prevClose = this->dp->getBar(d-1)->close();
+                double prevLow = this->dp->getBar(d-1)->low();
+                double prevHigh = this->dp->getBar(d-1)->high();
 
-                float prevprevOpen = this->dp->getBar(d-2)->open();
-                float prevprevClose = this->dp->getBar(d-2)->close();
+                double prevprevOpen = this->dp->getBar(d-2)->open();
+                double prevprevClose = this->dp->getBar(d-2)->close();
 
 
             //** ENGULFMENTS, HARAMI, PIERCING, DARK CLOUD **//
@@ -391,7 +391,7 @@ namespace Indicators
                     }
 
                     if (currOpen < prevLow
-                        && currClose > (float)((prevOpen + prevClose)/ (float) 2) ) {
+                        && currClose > (double)((prevOpen + prevClose)/ (double) 2) ) {
                         this->indicatorArray[d]->piercing = true;
                     }
                 }
@@ -411,7 +411,7 @@ namespace Indicators
 
                     // Dark cloud criteria:
                     if (currOpen > prevHigh
-                        && currClose < (float)((prevOpen + prevClose)/ (float) 2)) {
+                        && currClose < (double)((prevOpen + prevClose)/ (double) 2)) {
                         this->indicatorArray[d]->darkCloud = true;
                     }
                 }
@@ -450,10 +450,10 @@ namespace Indicators
 
                 if ((currHigh - currLow) > this->dojiSize * (max(currOpen,currClose) - min(currOpen,currClose)))
                 { 
-                    if (min(currOpen,currClose) > currLow + (currHigh - currLow) * ((1 - (float)1 / (float) this->dojiExtremes))) {
+                    if (min(currOpen,currClose) > currLow + (currHigh - currLow) * ((1 - (double)1 / (double) this->dojiExtremes))) {
                         this->indicatorArray[d]->dfDoji = true;
                     }
-                    else if (max(currOpen,currClose) < currLow + (currHigh - currLow) * ((float)1 / (float) this->dojiExtremes)) {
+                    else if (max(currOpen,currClose) < currLow + (currHigh - currLow) * ((double)1 / (double) this->dojiExtremes)) {
                         this->indicatorArray[d]->gsDoji = true;
                     } else {
                         this->indicatorArray[d]->llDoji = true;
@@ -483,14 +483,14 @@ namespace TestDivConditions
     {
 
         int LleftDepth = 0;
-        float LleftChange = 0.0;
+        double LleftChange = 0.0;
         int LrightDepth = 0;
-        float LrightChange = 0.0;
+        double LrightChange = 0.0;
 
         int RleftDepth = 0;
-        float RleftChange = 0.0;
+        double RleftChange = 0.0;
         int RrightDepth = 0;
-        float RrightChange = 0.0;
+        double RrightChange = 0.0;
 
         /*** Method to test adjacent stationary points on divergence ***/
         bool testAdjStat(IndicatorBars::LocalStat* LStat, IndicatorBars::LocalStat* RStat)

@@ -6,7 +6,7 @@ BackTester::BackTester(Bars* barsRef, const int maxTrades, const char* reportPat
 {
     this->barsRef = barsRef;
     this->execTrades = new Trade*[barsRef->getnumBars()];
-    this->plArray = new float[barsRef->getnumBars()];
+    this->plArray = new double[barsRef->getnumBars()];
     this->maxTrades = maxTrades;
 }
 
@@ -20,7 +20,7 @@ void BackTester::Delete()
     delete(this);
 }
 
-int BackTester::openTrade(int direction, int entryPos, string reason, float units)
+int BackTester::openTrade(int direction, int entryPos, string reason, double units)
 {
     // Verify validity of direction:
     if (direction != -1 && direction != 1) {
@@ -93,16 +93,16 @@ void BackTester::closeTrades(int dir, int exitPos, string reason, bool takeProfi
     }
 }
 
-void BackTester::updateTrades(int currPos, float takeProfThresh, float stopLossThresh)
+void BackTester::updateTrades(int currPos, double takeProfThresh, double stopLossThresh)
 {
     int tradeNo;
-    float currPl = 0.0f;
+    double currPl = 0.0;
     for (int i = 0; i < this->currTradeNo; i++) {
         // First update total balance with current active or not active trade:
         currPl += this->execTrades[i]->currBal(currPos);
         // Then check if trade needs to be closed
-        if (takeProfThresh > 0.1f &&  100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh
-        ||  stopLossThresh > 0.1f && -100.0f * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh)
+        if (takeProfThresh > 0.1f &&  100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh
+        ||  stopLossThresh > 0.1f && -100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh)
         {
             this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 
@@ -118,9 +118,9 @@ void BackTester::logTrade(string action, int tradeNo, string reason) {
 void BackTester::printResults()
 {
     // First compute positive and negative trades, at LAST BAR:
-    int posTrades = 0; float posBalance = 0.0f;
-    int negTrades = 0; float negBalance = 0.0f;
-    float currBal;
+    int posTrades = 0; double posBalance = 0.0;
+    int negTrades = 0; double negBalance = 0.0;
+    double currBal;
     for (int i = 0; i < this->currTradeNo; i++) {
         currBal = this->execTrades[i]->currBal(this->barsRef->getnumBars()-1);
         if (currBal > 0) {
