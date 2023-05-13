@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <ctype.h>
+
 #include "StdAfx.h"
 #include "EWrapper.h"
 #include "EReaderOSSignal.h"
@@ -28,7 +30,9 @@ enum State {
     CANCELORDER,
     CANCELORDER_ACK,
     REQALLOPENORDERS,
-    REQALLOPENORDERS_ACK
+    REQALLOPENORDERS_ACK,
+    REQREALTIMEBARS,
+    REQREALTIMEBARS_ACK
 };
 
 class MClient : public EWrapper
@@ -68,10 +72,7 @@ class MClient : public EWrapper
                             std::shared_ptr<TagValueList> chartOptions = TagValueListSPtr()
     );
 
-    bool reqAllOpenOrders();
-
-    //** STILL TO IMPLEMENT **///
-    void reqRealTimeBars( int 	    tickerId,
+    bool reqRealTimeBars( int 	    tickerId,
                           Contract 	contract,
                           int 	    barSize,
                           string 	whatToShow,
@@ -79,6 +80,11 @@ class MClient : public EWrapper
                           std::shared_ptr<TagValueList> realTimeBarsOptions = TagValueListSPtr()
     );
 
+    bool reqAllOpenOrders();
+
+
+    //** STILL TO IMPLEMENT **///
+    
     void cancelRealTimeBars	(int tickerId);		
 
 
@@ -113,11 +119,16 @@ class MClient : public EWrapper
     /*** Initialize each instrument's bars at start-up ***/
     void initialize_bars(std::string timePeriod, std::string whatToShow = "TRADES", int useRTH = 1);
 
+    /*** Update each instrument's bars (at realTimeBar callback) ***/
+    void update_bars(std::string whatToShow = "TRADES", int useRTH = 1);
 
     /*** ORDERS ***/
     int placeOrder( int inst_id, Order order);
     bool cancelOrder( int orderId);
 
+    //*** HELPERS / UTILS ***//
+    static char* currTime_str();
+    char* extend_dur(std::string barSize, int factor = 2);
 
 
 };

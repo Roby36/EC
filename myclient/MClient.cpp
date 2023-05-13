@@ -121,17 +121,22 @@ bool MClient::reqAllOpenOrders() {
 	return waitResponse(REQALLOPENORDERS_ACK, -1, "reqAllOpenOrders()");
 }
 
-
-/*** STILL TO IMPLEMENT ****/
-
-void MClient::reqRealTimeBars( int 	    tickerId,
+bool MClient::reqRealTimeBars( int 	    tickerId,
 							   Contract contract,
 							   int 	    barSize,
 							   string 	whatToShow,
 							   bool 	useRTH,
 						       std::shared_ptr<TagValueList> realTimeBarsOptions) {
+	// Set request state
+	m_state = REQREALTIMEBARS;
+	// Make the request
 	m_Client->reqRealTimeBars( tickerId, contract, barSize, whatToShow, useRTH, realTimeBarsOptions);
+	// Wait response
+	return waitResponse( REQREALTIMEBARS_ACK, tickerId, "reqRealTimeBars()");
 }
+
+
+/*** STILL TO IMPLEMENT ****/
 
 void MClient::cancelRealTimeBars(int tickerId) {
 	m_Client->cancelRealTimeBars(tickerId);
@@ -220,31 +225,102 @@ Instrument* MClient::reqId_Instrument( int reqId) {
 }
 
 void MClient::initialize_bars(std::string timePeriod, std::string whatToShow, int useRTH) {
-	// Get current time
-	std::time_t rawtime;
-    std::tm* timeinfo;
-    char queryTime [80];
-	std::time(&rawtime);
-    timeinfo = std::gmtime(&rawtime);
-	std::strftime(queryTime, 80, "%Y%m%d-%H:%M:%S", timeinfo);
-
+	// Iterate through all instruments
 	for (int i = 0; i < m_instr_Id; i++) {
 		// For each instrument, first request historical bars details until current time
 		Instrument* instr = m_instrArray[i];
 		// When bars are initialized, keepUpToDate = false so that we can confirm reception
-		if (!reqHistoricalData( instr->m_reqIds.historicalBars, instr->dataContract.contract, queryTime, timePeriod, 
-						   instr->barSize, whatToShow, useRTH, 1, false, TagValueListSPtr())) {
+		char* queryTime = currTime_str();
+		if (!reqHistoricalData( instr->m_reqIds.historicalBars, instr->dataContract.contract, queryTime, 
+					timePeriod, instr->barSize, whatToShow, useRTH, 1, false)) {
 			m_logger->str("\tError retrieving historical data for instrument " + to_string(i) + "\n");
 		}
-		// Next, subscribe to receive constantly updated bars for the instrument's barSize
-
-		//**** TO TEST IF IT WORKS ****//
-		//**** AND DEFEND INSTRUMENT FROM INCOMING INCOMPLETE BARS ****//
-		m_Client->reqHistoricalData( instr->m_reqIds.updatedBars, instr->dataContract.contract, "", "1 D", 
-							instr->barSize, whatToShow, useRTH, 1, true, TagValueListSPtr());
-		//**** TO TEST IF IT WORKS ****//
-
+		// Free string(s)
+		delete(queryTime);
 	}
+}
+
+void MClient::update_bars( std::string whatToShow, int useRTH) {
+	// Iterate through all instruments
+	for (int i = 0; i < m_instr_Id; i++) {
+		Instrument* instr = m_instrArray[i];
+		// Determine if instrument requires an update
+		if ( (int)(instr->curr_sys_time() - instr->last_bar_update)
+				>= instr->sec_barSize ) 
+		{
+			// Extend duration string to make request
+			char* durStr = extend_dur(instr->barSize);
+			// Handle exception
+			if ( durStr == NULL) {
+				m_logger->str( "\tupdate_bars(): extend_dur() error for instrument "
+								+ to_string(i) + "\n");
+				continue;
+			}
+			// Make the request
+			char* queryTime = currTime_str();
+			if ( !reqHistoricalData( instr->m_reqIds.updatedBars, instr->dataContract.contract, queryTime,
+							 durStr, instr->barSize, whatToShow, useRTH, 1, false) ) {
+				m_logger->str("\tError updating historical data for instrument " + to_string(i) + "\n");
+			}
+			// Free strings
+			delete(queryTime);
+			delete(durStr);
+		}
+	}
+}
+
+/*** MALLOC'D STRING MUST BE FREED ***/
+char* MClient::extend_dur( std::string barSize, int factor)
+{
+	// Tokenize string
+	const int size = barSize.size();
+	char cstr[size + 1];
+	int dur;
+  	if ( sscanf( barSize.c_str(), "%d %s", &dur, cstr) != 2) {
+		m_logger->str( "\textend_dur() error: invalid barSize string\n");
+		return NULL;
+	}	
+	// Generate output string
+	int  tf = 1;
+	char tc = 'S';
+	switch ( char t_unit = cstr[0]) {
+		case 's': 				 break;					   
+		case 'm': tf = 60;	     break;
+		case 'h': tf = 60 * 60;  break;
+		case 'd': tc = 'D'; 	 break;
+		default:
+			m_logger->str( "\textend_dur() error: unsupported barSize\n");
+			return NULL;
+	}
+	// Construct output string
+	const int out_len = 8;
+	char buff[out_len];
+	int char_written = snprintf( buff, out_len, "%d %c", 
+						(tf * factor * dur), tc);
+	m_logger->str( "\textend_dur(): snprintf() recorded " + to_string(char_written) + " characters\n");
+	// Handle exception
+	if (char_written < 0) {
+		m_logger->str( "\textend_dur(): snprintf() failed\n");
+		return NULL;
+	}
+	// Allocate the correct amount of memory to fully free string later
+	char* out = new char[char_written + 1]; // include terminating null character
+	strncpy( out, buff,  char_written + 1);
+	// Log output
+	m_logger->str( "\textend_dur(" + barSize + ") = " + string(out) + "\n");
+	return out;	
+}
+
+/*** MALLOC'D STRING MUST BE FREE'D ***/
+char* MClient::currTime_str() {
+	// Get current time
+	std::time_t rawtime;
+    std::tm* timeinfo;
+    char* queryTime = new char[80];
+	std::time(&rawtime);
+    timeinfo = std::gmtime(&rawtime);
+	std::strftime(queryTime, 80, "%Y%m%d-%H:%M:%S", timeinfo);
+	return queryTime;
 }
 
 
@@ -303,7 +379,7 @@ void MClient::historicalData(TickerId reqId, const Bar& bar) {
 		m_logger->str("\n\t ERROR: historicalDataUpdate reqId not found\n\n");
 		return;
 	}
-	// Update the instrument's Bars
+	// Try to update the instrument's Bars
 	instr->addBar(reqId, bar);
 }
 
@@ -311,6 +387,16 @@ void MClient::historicalDataEnd(int reqId, const std::string& startDateStr, cons
 	// ACKNOWLEDGE RECEIVAL OF REQCONTRACTDETAILS REQUEST
 	this->m_state = REQHISTORICALDATA_ACK;
 	m_logger->str( "HistoricalDataEnd. ReqId: " + std::to_string(reqId) + " - Start Date: " + startDateStr + ", End Date: " + endDateStr + "\n" );
+}
+
+void MClient::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,
+                                Decimal volume, Decimal wap, int count) {
+	// Log call
+    m_logger->realtimeBar( reqId, time, open, high, low, close, volume, wap, count);
+	// Acknowledge receival of FIRST BAR only
+	if (m_state == REQREALTIMEBARS) {
+		m_state =  REQREALTIMEBARS_ACK;
+	}
 }
 
 void MClient::openOrder( OrderId orderId, const Contract& contract, const Order& order, const OrderState& orderState) {
@@ -354,11 +440,6 @@ void MClient::openOrderEnd() {
 /******** EWRAPPER CALLBACKS STILL TO BE USED *******/
 
 
-void MClient::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,
-                                Decimal volume, Decimal wap, int count) {
-    m_logger->realtimeBar(reqId, time, open, high, low, close, volume, wap, count);
-
-}
 
 void MClient::completedOrder(const Contract& contract, const Order& order, const OrderState& orderState) {
     m_logger->completedOrder( contract, order, orderState);

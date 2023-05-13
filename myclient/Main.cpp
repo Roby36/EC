@@ -28,19 +28,36 @@ int main() {
 		std::this_thread::sleep_for(std::chrono::seconds(5));
 	}
 
-    // Set up an instrument
-    client->add_Instrument( "1 hour", MContractDetails::DAXInd(), MContractDetails::DAXFut(),    
+    // Set up an instrument at low time-interval
+    client->add_Instrument( "1 min", MContractDetails::DAXInd(), MContractDetails::DAXFut(),    
                             Instrument::reqIds(101, 201, 301, 401, 501));
     // Update contract details and initialize bars data for the instrument
     client->update_contracts();  
     client->initialize_bars("1 D");
 
-    // Place MarketOrder on first Instrument, specifying information regarding strategy
-    int orderId = client->placeOrder( 0, MOrders::MarketOrder("BUY", doubleToDecimal(1.0), "S1"));
-    // Give order time to be submitted
-    std::this_thread::sleep_for(std::chrono::seconds(5));
-    // Cancel order (DOES NOT CLOSE TRADE)
-    client->cancelOrder(orderId);
+    // Update bars a few times
+    std::this_thread::sleep_for(std::chrono::seconds(30));
+    client->update_bars();
+    std::this_thread::sleep_for(std::chrono::seconds(30));
+    client->update_bars();
+    std::this_thread::sleep_for(std::chrono::seconds(60));
+    client->update_bars();
+    std::this_thread::sleep_for(std::chrono::seconds(15));
+    client->update_bars();
+    std::this_thread::sleep_for(std::chrono::seconds(15));
+    client->update_bars();
+
+
+    /**** ORDER TEST ***/
+    /*
+        // Place MarketOrder on first Instrument, specifying information regarding strategy
+        int orderId = client->placeOrder( 0, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+        // Give order time to be submitted
+        std::this_thread::sleep_for(std::chrono::seconds(5));
+        // Cancel order (DOES NOT CLOSE TRADE)
+        client->cancelOrder(orderId);
+    */
+
     // Print out bar data from the first instrument
     client->get_Instrument(0)->bars->printBars();
     

@@ -33,13 +33,12 @@ Icon?
 ###########################################################################
 # custom additions below here; see also .gitignore files in subdirectories.
 
-./twsapi/*
-./data/*
-./executables/*
-./indicatorslog/*
-./input/*
-./testing/*
-./analysis/analysis.a
-./datetimedemo.cpp
-./testarch.cpp
+/twsapi/
+/data/
+/indicatorslog/
+/input/
+/testing/
+/analysis/analysis.a
+/datetimedemo.cpp
+/testarch.cpp
 
