@@ -182,11 +182,11 @@ bool MClient::cancelOrder( int orderId) {
 /*** HANDLING INSTRUMENTS ***/
 
 void MClient::add_Instrument( const std::string barSize, ContractDetails dataContract, 
-        ContractDetails orderContract, Instrument::ReqIds reqIds) {
+        ContractDetails orderContract, Instrument::ReqIds reqIds, std::string logPath) {
 	if ( m_instr_Id < maxInstr) {
 		// Add new instrument to array
 		m_instrArray[m_instr_Id] = new Instrument( m_instr_Id, barSize, dataContract,
-												orderContract, reqIds);
+												orderContract, reqIds, logPath);
 		// Increment current instrument Id
 		m_instr_Id++;
 	} else {
@@ -240,7 +240,7 @@ void MClient::initialize_bars(std::string timePeriod, std::string whatToShow, in
 	}
 }
 
-void MClient::update_bars( std::string whatToShow, int useRTH) {
+void MClient::update_bars( std::string whatToShow, int useRTH, int factor) {
 	// Iterate through all instruments
 	for (int i = 0; i < m_instr_Id; i++) {
 		Instrument* instr = m_instrArray[i];
@@ -249,7 +249,7 @@ void MClient::update_bars( std::string whatToShow, int useRTH) {
 				>= instr->sec_barSize ) 
 		{
 			// Extend duration string to make request
-			char* durStr = extend_dur(instr->barSize);
+			char* durStr = extend_dur(instr->barSize, factor);
 			// Handle exception
 			if ( durStr == NULL) {
 				m_logger->str( "\tupdate_bars(): extend_dur() error for instrument "

@@ -14,40 +14,38 @@ int main() {
 
     MClient* client = new MClient();
 
-	for (;;) {
+    client->connect( "", 7497);
 
-		client->connect( "", 7497);
+    // GIVE TIME TO ESTABLISH CONNECTION
+    std::this_thread::sleep_for(std::chrono::seconds(5));
 
-        // GIVE TIME TO ESTABLISH CONNECTION
-        std::this_thread::sleep_for(std::chrono::seconds(5));
-		
-		if( client->isConnected()) {
-			break;
-		}
+	while (!client->isConnected()) {
+        client->connect( "", 7497);
 		printf( "Sleeping %u seconds before next attempt\n", 5);
 		std::this_thread::sleep_for(std::chrono::seconds(5));
 	}
 
     // Set up an instrument at low time-interval
     client->add_Instrument( "1 min", MContractDetails::DAXInd(), MContractDetails::DAXFut(),    
-                            Instrument::reqIds(101, 201, 301, 401, 501));
+                            Instrument::reqIds(101, 201, 301, 401, 501), "Dax.txt");
+    // Set up crypto-instrument to test bars update
+    client->add_Instrument( "1 min", MContractDetails::CryptoContract(), MContractDetails::CryptoContract(),    
+                            Instrument::reqIds(1101, 1201, 1301, 1401, 1501), "Btc.txt");
     // Update contract details and initialize bars data for the instrument
     client->update_contracts();  
     client->initialize_bars("1 D");
 
     // Update bars a few times
-    std::this_thread::sleep_for(std::chrono::seconds(30));
-    client->update_bars();
-    std::this_thread::sleep_for(std::chrono::seconds(30));
-    client->update_bars();
     std::this_thread::sleep_for(std::chrono::seconds(60));
-    client->update_bars();
-    std::this_thread::sleep_for(std::chrono::seconds(15));
-    client->update_bars();
-    std::this_thread::sleep_for(std::chrono::seconds(15));
-    client->update_bars();
-
-
+    client->update_bars("TRADES", 1, 2);
+    std::this_thread::sleep_for(std::chrono::seconds(60));
+    client->update_bars("TRADES", 1, 2);
+    std::this_thread::sleep_for(std::chrono::seconds(60));
+    client->update_bars("TRADES", 1, 2);
+    std::this_thread::sleep_for(std::chrono::seconds(60));
+    client->update_bars("TRADES", 1, 2);
+    
+    
     /**** ORDER TEST ***/
     /*
         // Place MarketOrder on first Instrument, specifying information regarding strategy
@@ -59,7 +57,7 @@ int main() {
     */
 
     // Print out bar data from the first instrument
-    client->get_Instrument(0)->bars->printBars();
+    client->get_Instrument(1)->bars->printBars();
     
     // Clean up
     delete(client);

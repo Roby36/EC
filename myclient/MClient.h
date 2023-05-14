@@ -104,7 +104,7 @@ class MClient : public EWrapper
 
     /*** HANDLING INSTRUMENTS ***/
     void add_Instrument( const std::string barSize, ContractDetails dataContract, 
-        ContractDetails orderContract, Instrument::ReqIds reqIds);
+        ContractDetails orderContract, Instrument::ReqIds reqIds, std::string logPath);
 
     /*** Get instrument with any matching reqId ***/
     /*** Important: all reqIds must be different across Instruments ****/
@@ -120,7 +120,7 @@ class MClient : public EWrapper
     void initialize_bars(std::string timePeriod, std::string whatToShow = "TRADES", int useRTH = 1);
 
     /*** Update each instrument's bars (at realTimeBar callback) ***/
-    void update_bars(std::string whatToShow = "TRADES", int useRTH = 1);
+    void update_bars(std::string whatToShow = "TRADES", int useRTH = 1, int factor = 2);
 
     /*** ORDERS ***/
     int placeOrder( int inst_id, Order order);

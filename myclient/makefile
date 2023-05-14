@@ -20,4 +20,4 @@ clean:
 	rm -f $(TARGET) *.o
 	rm -f ${ANALYSIS_DIR}/*.o
 	rm -f $(TARGET)Static
-	rm -f ./Instrument_log.txt ./MClient_log.txt
+	rm -f *.txt
