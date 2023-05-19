@@ -37,17 +37,27 @@ enum State {
 
 class MClient : public EWrapper
 {
+    //** States & requests **// 
     State     m_state;
     int       req_timeout = 10;  // maximum seconds waited before giving up on a request
-    int       m_instr_Id  = 0;
-    const int maxInstr;
+    
+    //** Logger **//
+    Mlogger* const m_logger;
+
+    //** Instruments **//
+    int            m_instr_Id = 0;  // current number of instruments
+    const int      maxInstr;
+    Instrument**   m_instrArray;
+
+    //** Orders **//
     OrderId   m_orderId;
     OrderId   m_cancel_orderId; // Id of order requesting to cancel
     bool      m_extraAuth;
+    const int maxOrd;           // Maximum number of orders held within client
+    int       num_ord = 0;      // Number of orders currently held within client
+    Order**   m_ordArray;       // Array of order structs (to keep track of all currently open orders)
 
-    Mlogger* const m_logger;
-    Instrument**   m_instrArray;
-
+    //** ClientSocket server connection **//
     EClientSocket* const m_Client;
     EReaderOSSignal      m_osSignal;
     EReader*             m_Reader;
@@ -80,7 +90,7 @@ class MClient : public EWrapper
                           std::shared_ptr<TagValueList> realTimeBarsOptions = TagValueListSPtr()
     );
 
-    bool reqAllOpenOrders();
+    
 
 
     //** STILL TO IMPLEMENT **///
@@ -92,9 +102,12 @@ class MClient : public EWrapper
     /**** PUBLIC METHODS ***/
     public:
 
+    bool reqAllOpenOrders();
+
     #include "EWrapper_prototypes.h"
 
-    MClient( const std::string logPath = "./MClient_log.txt", const int maxInstr = 128);
+    MClient( const std::string logPath = "./MClient_log.txt", 
+             const int maxInstr = 128, const int maxOrd = 10000);
     ~MClient();
 
     /*** CONNECTIVITY ***/
@@ -112,7 +125,7 @@ class MClient : public EWrapper
 
     /*** Get instrument from its number ***/
     Instrument* get_Instrument( int instr_Id);
-
+    
     /**** Update each intrument's contracts ***/
     void update_contracts();
 
@@ -123,6 +136,8 @@ class MClient : public EWrapper
     void update_bars(std::string whatToShow = "TRADES", int useRTH = 1, int factor = 2);
 
     /*** ORDERS ***/
+    Order* get_Order( int orderId);
+    void update_orders(); // retrieve from server all orders currently open
     int placeOrder( int inst_id, Order order);
     bool cancelOrder( int orderId);
 

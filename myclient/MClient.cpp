@@ -1,24 +1,32 @@
 
 #include "MClient.h"
 
-MClient::MClient( const std::string logPath, const int maxInstr ) :
+MClient::MClient( const std::string logPath, const int maxInstr, const int maxOrd) :
       m_osSignal(2000)	// 2-seconds timeout
 	, m_orderId(0)
     , m_extraAuth(false)
 	, m_logger(new Mlogger( logPath))
-	, maxInstr(maxInstr)		// 128 maximum instruments
+	, maxInstr(maxInstr)		// maximum instruments
+	, maxOrd(maxOrd)			// maximum orders
 	, m_state(ST_CONNECT)		// initialize state
 	, m_Client(new EClientSocket(this, &m_osSignal)) // Finally pass instance to EClientSocket
 {
-	// Initialize Instrument array
+	// Initialize Instrument & Order arrays
 	this->m_instrArray = new Instrument*[maxInstr];
+	this->m_ordArray   = new Order*[maxOrd];
 }
 
 MClient::~MClient()
 {
+	// Clean up Instrument & Order arrays
 	for (int i = 0; i < m_instr_Id; i++) {
 		if (m_instrArray[i] != NULL) {
 			delete(m_instrArray[i]);
+		}
+	}
+	for (int i = 0; i < num_ord; i++) {
+		if (m_ordArray[i] != NULL) {
+			delete(m_ordArray[i]);
 		}
 	}
 	delete m_Reader;
@@ -144,6 +152,19 @@ void MClient::cancelRealTimeBars(int tickerId) {
 
 
 /*** ORDERS ***/
+
+Order* MClient::get_Order(int orderId) {
+	for (int i = 0; i < num_ord; i++) {
+		if (m_ordArray[i]->orderId == orderId) {
+			return m_ordArray[i];
+		}
+	}
+	return NULL;
+}
+
+void MClient::update_orders() {
+
+}
 
 int MClient::placeOrder( int inst_id, Order order) {
 	// Attemp to retrieve the given instrument

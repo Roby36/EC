@@ -36,6 +36,7 @@ int main() {
     client->initialize_bars("1 D");
 
     // Update bars a few times
+    /*
     std::this_thread::sleep_for(std::chrono::seconds(60));
     client->update_bars("TRADES", 1, 2);
     std::this_thread::sleep_for(std::chrono::seconds(60));
@@ -44,17 +45,32 @@ int main() {
     client->update_bars("TRADES", 1, 2);
     std::this_thread::sleep_for(std::chrono::seconds(60));
     client->update_bars("TRADES", 1, 2);
+    */
     
     
     /**** ORDER TEST ***/
-    /*
-        // Place MarketOrder on first Instrument, specifying information regarding strategy
-        int orderId = client->placeOrder( 0, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
-        // Give order time to be submitted
-        std::this_thread::sleep_for(std::chrono::seconds(5));
-        // Cancel order (DOES NOT CLOSE TRADE)
-        client->cancelOrder(orderId);
-    */
+    
+    // Place MarketOrder on first Instrument, specifying information regarding strategy
+    
+    
+    int orderId; 
+    // orderId = client->placeOrder( 0, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+    // orderId = client->placeOrder( 0, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+    // orderId = client->placeOrder( 0, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+    
+    // orderId = client->placeOrder( 1, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+    // orderId = client->placeOrder( 1, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+    // orderId = client->placeOrder( 1, MOrders::MarketOrder("SELL", doubleToDecimal(1.0), "S1"));
+
+
+    // Give order time to be submitted
+    // std::this_thread::sleep_for(std::chrono::seconds(5));
+    // Cancel order (DOES NOT CLOSE TRADE)
+    // client->cancelOrder(orderId);
+
+    // Request all open orders
+    client->reqAllOpenOrders();
+
 
     // Print out bar data from the first instrument
     client->get_Instrument(1)->bars->printBars();
