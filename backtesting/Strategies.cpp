@@ -60,7 +60,8 @@ testStrategy(Bars* barsRef, BackTester* bt, IndicatorSet* Indicators, int maxBar
                 // then we have found a DENIED divergence,
                 //  hence open trade on CURRENT DAY:
                 if (barsRef->getBar(i-1)->close() > barsRef->getBar(i-1-barsBack)->close()
-                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent()) {
+                && !Indicators->Divergence->getIndicatorBar(i-1)->isPresent()) 
+                {
                     bt->openTrade(Indicators->Divergence->getIndicatorBar(i-1-barsBack)->m, i, "Denied divergence on new local maximum");
                 }
             }
@@ -113,11 +114,13 @@ testStrategy(Bars* barsRef, BackTester* bt, IndicatorSet* Indicators, int maxBar
         #endif
 
             // Close any LONG trades when upper bollinger bands crossed from ABOVE
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown) {
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossUpperDown) 
+            {
                 bt->closeTrades(1, i, "Crossed upper Bollinger Bands from above", takeProfits, false);
             }
             // Close any SHORT trades when lower bollinger bands crossed from BELOW
-            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp) {
+            if (Indicators->BollingerBands->getIndicatorBar(i)->crossLowerUp) 
+            {
                 bt->closeTrades(-1, i, "Crossed lower Bollinger Bands from below", takeProfits, false);
             }
 
@@ -195,7 +198,7 @@ int main(const int argc, const char* argv[])
     #endif // ILOG
     
     //*** CLEANING UP ***//
-    bt->Delete(); 
+    delete(bt); 
     delete(IndicatorSet);
     delete(Bars); 
 

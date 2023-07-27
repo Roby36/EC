@@ -1,13 +1,10 @@
 
 #include "Bars.h"
 
-Bars::Bars(const char* inputFileDir, const char* startDate, const char* endDate, /*int timePeriod,*/ int maxBars)
-    : /*TimePeriod(timePeriod),*/ maxBars(maxBars)
+Bars::Bars(const char* inputFileDir, const char* startDate, const char* endDate)
 {
-    if (inputFileDir == NULL) {
-        this->barArray = new MBar*[maxBars];
+    if (inputFileDir == NULL)
         return;
-    }
     this->numBars = this->parseFile(inputFileDir, startDate, endDate);
     if (this->numBars == 0) {
         fprintf(stderr, "Error extracting data: please enter valid parameters\n");
@@ -16,11 +13,10 @@ Bars::Bars(const char* inputFileDir, const char* startDate, const char* endDate,
 }
 
 void Bars::addBar(MBar* bar) {
-    if (numBars < maxBars) {
+    if (numBars < MAXBARS) 
         this->barArray[numBars++] = bar;
-    } else {
+    else 
         fprintf(stderr, "Maximum number of bars reached\n");
-    }
 }
 
 Bars::~Bars()
@@ -28,12 +24,11 @@ Bars::~Bars()
     for (int i = 0; i < this->numBars; i++) {
         delete(this->barArray[i]);
     }
-    delete this->barArray;
 }
 
 int Bars::parseFile(const char* inputFileDir, const char* startDate, const char* endDate)
 {
-    MBar *tempArray[this->maxBars];
+    MBar *tempArray[MAXBARS];
     FILE *fp = fopen(inputFileDir, "r");
     if (fp == NULL) {
         fprintf(stderr, "Error opening %s\n", inputFileDir);
@@ -84,7 +79,7 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
     } 
     #endif
 
-    while (numLine < this->maxBars) {
+    while (numLine < MAXBARS) {
         i = 0;
         while ((c = fgetc(fp)) != '\n') {
             if (c == EOF) { break;}
@@ -123,7 +118,6 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
     }
     fclose(fp);
     // Construct barArray containing all Bars, and delete old tempArray:
-    this->barArray = new MBar*[d];
     for (int i = 0; i < d; i++) {
         this->barArray[i] = tempArray[d - 1 - i]; 
     }
@@ -134,10 +128,10 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
 void Bars::printBars()
 {
     int params = 7;
-    string arr[] = {"dateTime", "open", "close", "high", "low", "vol", "locDateTime"};
+    std::string arr[] = {"dateTime", "open", "close", "high", "low", "vol", "locDateTime"};
     FILE* fpArray[params]; 
     int i = 0;
-    for (string str : arr) {
+    for (std::string str : arr) {
         //First ensure file clear:
         FILE* fp = fopen((this->outputDir + str + this->outputExt).c_str(), "w"); 
         if (fp != NULL) { fclose(fp);}

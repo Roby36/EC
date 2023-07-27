@@ -47,3 +47,12 @@ ContractDetails MContractDetails::CryptoContract() {
 	contractDetails.contract.currency = "USD";
 	return contractDetails;
 }
+
+ContractDetails MContractDetails::EurGbpFx(){
+	ContractDetails contractDetails;
+	contractDetails.contract.symbol = "EUR";
+	contractDetails.contract.secType = "CASH";
+	contractDetails.contract.currency = "GBP";
+	contractDetails.contract.exchange = "IDEALPRO";
+	return contractDetails;
+}

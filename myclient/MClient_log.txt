@@ -1,0 +1,14 @@
+	LOG INITIATED AT: Thu Jul 27 11:10:58 2023
+
+Next Valid Id: 533
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:eufarmnj
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:usfarm
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:euhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:cashhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:ushmds
+Error. Id: -1, Code: 2158, Msg: Sec-def data farm connection is OK:secdefil
+RealTimeBars. 301 - Time: 1690449060, Open: 16279.47, High: 16279.85, Low: 16279.47, Close: 16279.69, Volume: 0, Count: 0, WAP: 0
+RealTimeBars. 301 - Time: 1690449065, Open: 16279.73, High: 16280.63, Low: 16279.73, Close: 16280.28, Volume: 0, Count: 0, WAP: 0
+RealTimeBars. 301 - Time: 1690449070, Open: 16280.65, High: 16281.47, Low: 16280.56, Close: 16281.47, Volume: 0, Count: 0, WAP: 0
+RealTimeBars. 301 - Time: 1690449075, Open: 16280.95, High: 16280.96, Low: 16280.68, Close: 16280.96, Volume: 0, Count: 0, WAP: 0
+RealTimeBars. 301 - Time: 1690449080, Open: 16280.78, High: 16280.96, Low: 16280.56, Close: 16280.56, Volume: 0, Count: 0, WAP: 0

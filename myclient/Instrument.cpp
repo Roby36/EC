@@ -1,15 +1,23 @@
 
 #include "Instrument.h"
 
-Instrument::Instrument(const int inst_id, const std::string barSize, ContractDetails dataContract, 
-        ContractDetails orderContract, ReqIds reqIds, std::string logFilePath)
-         : inst_id(inst_id), barSize(barSize), dataContract(dataContract), orderContract(orderContract),
-            m_reqIds(reqIds), m_logger(new Mlogger( logFilePath)), 
-            sec_barSize( parse_barSize( barSize))
+Instrument::Instrument(const int inst_id, 
+                       const std::string barSize, 
+                       ContractDetails dataContract, 
+                       ContractDetails orderContract, 
+                       ReqIds reqIds, 
+                       std::string logFilePath)
+                        : m_logger(new Mlogger( logFilePath)),  
+                          inst_id(inst_id), 
+                          barSize(barSize), 
+                          sec_barSize( parse_barSize( barSize)),
+                          m_reqIds(reqIds),
+                          dataContract(dataContract), 
+                          orderContract(orderContract)                      
 {
     // Check if bar size successfully parsed 
     if (sec_barSize == -1) {
-        m_logger->str( "Could not initialize instrument " + to_string( inst_id)
+        m_logger->str( "Could not initialize instrument " + std::to_string( inst_id)
                         + " due to invalid barSize. Exiting program.\n");
         exit(7);
     }
@@ -40,9 +48,10 @@ int Instrument::parse_barSize( const std::string barSize)
         case 'h': return n * 60 * 60;
         case 'd': return n * 60 * 60 * 24;
         case 'w': return n * 60 * 60 * 24 * 7;
-        default: 
+        default: {
             m_logger->str( "Error processing barSize: invalid time units\n");
             return -1;
+        }
     }
 }
 
@@ -53,26 +62,33 @@ long Instrument::curr_sys_time() {
 bool Instrument::addBar(TickerId reqId, const Bar& bar) {
     // Ignore call if reqId does not correspond with any valid option
     if (this->m_reqIds.historicalBars != reqId
-     && this->m_reqIds.updatedBars    != reqId) {
+     && this->m_reqIds.updatedBars    != reqId)
         return false;
-    }
     struct tm timeinfo;
     // Time zones not important for daily bars
-    if (this->barSize == "1 day") {
-        strptime(bar.time.c_str(), "%Y%m%d", &timeinfo);
-    } else {
+    if (this->barSize == "1 day")
+        strptime((bar.time + std::string(" 00:00:00")).c_str(), "%Y%m%d %H:%M:%S", &timeinfo);
+    else
         strptime(bar.time.c_str(), "%Y%m%d %H:%M:%S %Z", &timeinfo);
-    } //! Add other possible bar sizes above?
+    //! Add other possible bar sizes above?
     // Compare time with previous bars' time
     int numBars = bars->getnumBars();
     for (int bars_back = 0; 
              bars_back < std::min(cross_validation_bars, numBars); 
              bars_back++) {
         tm* prev_date = bars->getBar((numBars - 1) - bars_back)->date_time();
-        if ( difftime( mktime(&timeinfo), mktime(prev_date)) 
-                < (double) this->sec_barSize) {
+#ifdef DATEDBG
+    char curr_time_str[32];
+    char prev_time_str[32];
+    strftime(curr_time_str, 32, "%Y%m%d %H:%M:%S %Z", &timeinfo);
+    strftime(prev_time_str, 32, "%Y%m%d %H:%M:%S %Z", prev_date);
+    time_t curr_time = mktime(&timeinfo);
+    time_t prev_time = mktime(prev_date);
+    double time_diff = difftime(curr_time, prev_time);
+#endif
+        if ( difftime( mktime(&timeinfo), mktime(prev_date)) < (double) this->sec_barSize) {
             // Log error and return
-            m_logger->str("\tCannot add bar for instrument " + to_string(inst_id)
+            m_logger->str("\tCannot add bar for instrument " + std::to_string(inst_id)
                             + " with date "                  + asctime(&timeinfo) 
                             + ": most recent bar found on "  + asctime(prev_date) +"\n");
             return false;
@@ -86,38 +102,24 @@ bool Instrument::addBar(TickerId reqId, const Bar& bar) {
     // Record time of insertion
     this->last_bar_update = curr_sys_time();
     // Log new bar's insertion
-    m_logger->str("\tSuccessfully added bar for instrument " + to_string(inst_id)
+    m_logger->str("\tSuccessfully added bar for instrument " + std::to_string(inst_id)
                             + " with date "      + asctime(&timeinfo) 
-                            + " at system time " + to_string(last_bar_update) + "\n");
+                            + " at system time " + std::to_string(last_bar_update) + "\n");
     return true;
 }         
 
 void Instrument::updateDataContract (int reqId, const ContractDetails& contractDetails) {
     // Ignore call if reqId does not correspond
-    if (this->m_reqIds.dataContract != reqId) {
+    if (this->m_reqIds.dataContract != reqId)
         return;
-    }
     // Update contract
     this->dataContract = contractDetails;
 }
 
 void Instrument::updateOrderContract(int reqId, const ContractDetails& contractDetails) {
     // Ignore call if reqId does not correspond
-    if (this->m_reqIds.orderContract != reqId) {
+    if (this->m_reqIds.orderContract != reqId) 
         return;
-    }
     // Update contract
     this->orderContract = contractDetails;
 }
-
-Instrument::ReqIds Instrument::reqIds(int orderContract, int dataContract, 
-                    int realTimeBars, TickerId historicalBars, TickerId updatedBars) {
-    Instrument::ReqIds reqIds;
-    reqIds.orderContract  = orderContract;
-    reqIds.dataContract   = dataContract;
-    reqIds.realTimeBars   = realTimeBars;
-    reqIds.historicalBars = historicalBars;
-    reqIds.updatedBars    = updatedBars;
-    return reqIds;
-}
-

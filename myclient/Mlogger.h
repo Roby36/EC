@@ -5,6 +5,7 @@
 #include "Utils.h"
 #include "Decimal.h"
 #include "Order.h"
+#include "Execution.h"
 #include "OrderState.h"
 #include "CommonDefs.h"
 #include "Contract.h"
@@ -16,7 +17,7 @@ class Mlogger
   FILE* lfp;
 
   public:
-  Mlogger(std::string);
+  Mlogger(std::string = "");
   ~Mlogger();
 
   private:
@@ -37,6 +38,8 @@ class Mlogger
   void realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,
                         Decimal volume, Decimal wap, int count);
   void completedOrder(const Contract& contract, const Order& order, const OrderState& orderState);
+  void position( const std::string& account, const Contract& contract, Decimal position, double avgCost);
+  void execDetails( int reqId, const Contract& contract, const Execution& execution);
 
   void printBondContractDetailsMsg(const ContractDetails& contractDetails);
 
