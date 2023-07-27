@@ -2,6 +2,10 @@
 CXX			= g++
 CXXFLAGS	= -Wall -Wno-switch -Wpedantic -Wno-unused-function -std=c++11
 LIB         = analysis.a
+# LIBS		= -lboost_serialization
+# BOOST_DIR   = /usr/local/boost-1.81.0/include
+# BOOST_LIB   = /usr/local/boost-1.81.0/lib
+# INCLUDES    = -I${BOOST_DIR} -L${BOOST_LIB}
 IST         = IsetTest
 OBJS 		= Bar.o Bars.o Indicator.o Indicators.o IndicatorSet.o
 
@@ -14,23 +18,26 @@ $(LIB): $(OBJS)
 
 # Make all object files and archive them in library
 Bar.o: Bar.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@ 
 
-Bars.o: Bars.cpp Bar.h 
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+Bars.o: Bars.cpp 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@
 
-Indicator.o: Indicator.cpp Bars.h 
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+Indicator.o: Indicator.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@
 
-Indicators.o: Indicators.cpp IndicatorBar.cpp Indicator.h
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+IndicatorBar.o: IndicatorBar.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@
 
-IndicatorSet.o: IndicatorSet.cpp Indicators.cpp Bars.h
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+Indicators.o: Indicators.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@
+
+IndicatorSet.o: IndicatorSet.cpp 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< $(LIBS) -o $@
 
 # Make IST target
 $(IST): IndicatorSet.cpp Indicator.cpp Bars.cpp Bar.cpp
-	$(CXX)  -DINDTEST $(CXXFLAGS) $^ -o $@
+	$(CXX)  -DINDTEST $(CXXFLAGS) $(INCLUDES) $^ $(LIBS) -o $@
 
 clean:
 	rm -f *.o

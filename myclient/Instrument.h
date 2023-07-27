@@ -13,29 +13,52 @@
 
 class Instrument
 {
-    Mlogger* const m_logger;
+    Mlogger* /*const*/ m_logger;
+    int parse_barSize( const std::string barSize);
 
     public:
 
     /*** Important: all reqIds must be different across Instruments ****/
-    typedef struct {
+    typedef struct RI {
+
         int orderContract;
         int dataContract;
         int realTimeBars;
         TickerId historicalBars;
         TickerId updatedBars;
+
+        RI(const int orderContract, 
+           const int dataContract, 
+           const int realTimeBars, 
+           const TickerId historicalBars, 
+           const TickerId updatedBars)
+            : orderContract(orderContract),
+              dataContract(dataContract),
+              realTimeBars(realTimeBars),
+              historicalBars(historicalBars),
+              updatedBars(updatedBars)
+        {
+        }
         
     } ReqIds;
 
-    Instrument(const int inst_id, const std::string barSize, ContractDetails dataContract, 
-        ContractDetails orderContract, ReqIds reqIds, std::string logFilePath = "./Instrument_log.txt");
+    Instrument(const int inst_id, 
+               const std::string barSize, 
+               ContractDetails dataContract, 
+               ContractDetails orderContract, 
+               ReqIds reqIds, 
+               std::string logFilePath = "./Instrument_log.txt");
     ~Instrument();
 
-    const int inst_id;
-    const std::string barSize;
+    /*const*/ int inst_id;
+    /*const*/ std::string barSize;
+    /*const*/ int sec_barSize;
+
+    //** System time for last bar update (seconds) **//
+    long last_bar_update;
 
     /*** DEFENSIVE PARAMETERS ****/
-    const int cross_validation_bars = 8; // number of bars to cross-validate against when updating bars
+    /*const*/ int cross_validation_bars = 8; // number of bars to cross-validate against when updating bars
 
     ReqIds m_reqIds;
 
@@ -43,12 +66,10 @@ class Instrument
     ContractDetails dataContract;
     ContractDetails orderContract;
 
-    void addBar(TickerId reqId, const Bar& bar);                             // passed in historicalDataUpdate callback
+    bool addBar(TickerId reqId, const Bar& bar);                             // passed in historicalDataUpdate callback
     void updateDataContract (int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
     void updateOrderContract(int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
 
-    // Function to fill up the struct upon initialization
-    static ReqIds reqIds(int orderContract, int dataContract, 
-                    int realTimeBars, TickerId historicalBars, TickerId updatedBars);
-
+    // Function to get current system time (to regulate updates)
+    static long curr_sys_time();
 };

@@ -11,4 +11,7 @@ class MContractDetails
     static ContractDetails NIKInd();
     static ContractDetails NIKFut();
 
+    static ContractDetails CryptoContract();
+    static ContractDetails EurGbpFx();
+
 };

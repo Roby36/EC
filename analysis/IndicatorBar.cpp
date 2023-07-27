@@ -11,10 +11,11 @@ namespace IndicatorBars
         double avgUp = 0, avgDown = 0, change = 0, RSI = 0;
 
         bool isPresent() { return (RSI != 0); }
-        string toString() { return to_string(RSI); }
-        string logString() {
-            return "RSI " + to_string(RSI);
+        std::string toString() { return std::to_string(RSI); }
+        std::string logString() {
+            return "RSI " + std::to_string(RSI);
         }
+
     };
 
     class LocalStat : public IndicatorBar
@@ -25,14 +26,12 @@ namespace IndicatorBars
         int m = 0;
 
         bool isPresent() { return (m != 0); }
-        string toString() { return to_string(isPresent()); }
-        string logString() {
-            if (m == -1) {
+        std::string toString() { return std::to_string(isPresent()); }
+        std::string logString() {
+            if (m == -1)
                 return "Local Maximum";
-            }
-            if (m == 1) {
+            if (m == 1) 
                 return "Local Minimum";
-            }
             return "";
         }
     };
@@ -43,15 +42,17 @@ namespace IndicatorBars
 
         MBar* leftBar;
         MBar* rightBar;
+        int leftBarIndex;
+        int rightBarIndex;
         int divPoints = 1;
         int m = 0;
 
         bool isPresent() { return (m != 0); }
-        string toString() { return to_string(this->divPoints); }
-        string logString() {
-            return ("Divergence of degree " + to_string(divPoints - 1) +
-                    " between " + string(leftBar->date_time_str) +
-                    " and " + string(rightBar->date_time_str));
+        std::string toString() { return std::to_string(this->divPoints); }
+        std::string logString() {
+            return ("Divergence of degree " + std::to_string(divPoints - 1) +
+                    " between "             + std::string(leftBar->date_time_str) +
+                    " and "                 + std::string(rightBar->date_time_str));
         }
     };
 
@@ -66,12 +67,12 @@ namespace IndicatorBars
         bool crossLowerUp = false, crossLowerDown = false;
 
         bool isPresent() { return bollMiddle != 0; }
-        string toString() { 
-            return to_string(bollLower) + " "
-                 + to_string(bollMiddle) + " "
-                 + to_string(bollUpper); 
+        std::string toString() { 
+            return std::to_string(bollLower) + " "
+                 + std::to_string(bollMiddle) + " "
+                 + std::to_string(bollUpper); 
         }
-        string logString() {
+        std::string logString() {
             return "Lower Middle Upper Bollinger Bands: " + this->toString();
         }
     };
@@ -92,36 +93,35 @@ namespace IndicatorBars
                    || piercing || darkCloud || morningStar || eveningStar 
                    || hammer || dfDoji || llDoji || gsDoji; 
         }
-        string toString() { 
-            return to_string((int)bullEngulf) + " "
-                 + to_string((int)bearEngulf) + " "
-                 + to_string((int)bullHarami) + " "
-                 + to_string((int)bearHarami) + " "
-                 + to_string((int)piercing) + " "
-                 + to_string((int)darkCloud) + " "
-                 + to_string((int)morningStar) + " "
-                 + to_string((int)eveningStar) + " "
-                 + to_string((int)hammer) + " "
-                 + to_string((int)dfDoji) + " "
-                 + to_string((int)llDoji) + " "
-                 + to_string((int)gsDoji) + " "; 
+        std::string toString() { 
+            return std::to_string((int)bullEngulf)  + " "
+                 + std::to_string((int)bearEngulf)  + " "
+                 + std::to_string((int)bullHarami)  + " "
+                 + std::to_string((int)bearHarami)  + " "
+                 + std::to_string((int)piercing)    + " "
+                 + std::to_string((int)darkCloud)   + " "
+                 + std::to_string((int)morningStar) + " "
+                 + std::to_string((int)eveningStar) + " "
+                 + std::to_string((int)hammer)      + " "
+                 + std::to_string((int)dfDoji)      + " "
+                 + std::to_string((int)llDoji)      + " "
+                 + std::to_string((int)gsDoji)      + " "; 
         }
-        string logString() {
-            string s = "";
-            if (bullEngulf) { s+= "Bull Engulfment; "; }
-            if (bearEngulf) { s+= "Bear Engulfment; "; }
-            if (bullHarami) { s+= "Bull Harami; "; }
-            if (bearHarami) { s+= "Bear Harami; "; }
-            if (piercing) { s+= "Piercing; "; }
-            if (darkCloud) { s+= "Dark Cloud; "; }
+        std::string logString() {
+            std::string s = "";
+            if (bullEngulf)  { s+= "Bull Engulfment; "; }
+            if (bearEngulf)  { s+= "Bear Engulfment; "; }
+            if (bullHarami)  { s+= "Bull Harami; "; }
+            if (bearHarami)  { s+= "Bear Harami; "; }
+            if (piercing)    { s+= "Piercing; "; }
+            if (darkCloud)   { s+= "Dark Cloud; "; }
             if (morningStar) { s+= "Morning Star; "; }
             if (eveningStar) { s+= "Evening Star; "; }
-            if (hammer) { s+= "Hammer; "; }
-            if (dfDoji) { s+= "Dragon-fly Doji; "; }
-            if (llDoji) { s+= "Long-legged Doji; "; }
-            if (gsDoji) { s+= "Gravestone Doji; "; }
+            if (hammer)      { s+= "Hammer; "; }
+            if (dfDoji)      { s+= "Dragon-fly Doji; "; }
+            if (llDoji)      { s+= "Long-legged Doji; "; }
+            if (gsDoji)      { s+= "Gravestone Doji; "; }
             return s;
         }
     };
-
 };

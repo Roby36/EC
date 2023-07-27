@@ -6,13 +6,15 @@
 template <class T> class Indicator  
 {
     protected:
-    Bars* dp; // access to Bars data
-    string outputDirectory;
-    string logDirectory;
-    T** indicatorArray;
+    Bars* const dp; 
+    std::string outputDirectory;
+    std::string logDirectory;
+    T* indicatorArray [MAXBARS];
     
     public:
-    Indicator(Bars*, const string, const string = "../indicatorslog/");
+    Indicator(Bars* dp, 
+              const std::string name = "Unnamed", 
+              const std::string logDirectory =  "../indicatorslog/");
     ~Indicator();
 
     T* getIndicatorBar(int i) { return this->indicatorArray[i]; }

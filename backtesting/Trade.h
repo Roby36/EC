@@ -4,7 +4,7 @@
 
 class Trade
 {
-    Bars* barsRef; 
+    Bars* const barsRef; 
 
     const double multFactor = 1.0;
     int tradeNo;
@@ -20,7 +20,7 @@ class Trade
     bool close(int exitPos);
     double currBal(int currPos);
     bool isActive();
-    string print();
+    std::string print();
 
     /*** GETTERS ***/
     int getdir()      const { return this->direction;}

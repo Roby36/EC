@@ -1,12 +1,11 @@
 
-#include "Indicators.cpp"
+#include "Indicators.h"
 #include "Bars.h"
 
 /******* DECLARATION ********/
 
 class IndicatorSet
 {
-    
     public:
 
     /******* INDICATOR INSTANCES, CONSTRUCTOR, DELETE ********/
@@ -28,15 +27,15 @@ class IndicatorSet
 
 IndicatorSet::IndicatorSet(::Bars* Bars)
 {
-    this->RSI            = new Indicators::RSI(Bars);            this->RSI->computeIndicator();
-    this->LocalMax       = new Indicators::LocalMax(Bars);       this->LocalMax->computeIndicator();
-    this->LocalMin       = new Indicators::LocalMin(Bars);       this->LocalMin->computeIndicator();
-    this->BollingerBands = new Indicators::BollingerBands(Bars); this->BollingerBands->computeIndicator();
-    this->JCandleSticks  = new Indicators::JCandleSticks(Bars);  this->JCandleSticks->computeIndicator();
-    this->Divergence     = new Indicators::Divergence(Bars, 
-        this->LocalMax, this->LocalMin, this->RSI);              this->Divergence->computeIndicator();
-    this->LongDivergence = new Indicators::LongDivergence(Bars,
-        this->LocalMax, this->LocalMin, this->RSI);              this->LongDivergence->computeIndicator();
+    this->RSI            = new Indicators::RSI(Bars, 0);            this->RSI->computeIndicator();
+    this->LocalMax       = new Indicators::LocalMax(Bars, 0);       this->LocalMax->computeIndicator();
+    this->LocalMin       = new Indicators::LocalMin(Bars, 0);       this->LocalMin->computeIndicator();
+    this->BollingerBands = new Indicators::BollingerBands(Bars, 0); this->BollingerBands->computeIndicator();
+    this->JCandleSticks  = new Indicators::JCandleSticks(Bars, 0);  this->JCandleSticks->computeIndicator();
+    this->Divergence     = new Indicators::Divergence(Bars,
+        this->LocalMax, this->LocalMin, this->RSI);                  this->Divergence->computeIndicator();
+    this->LongDivergence = new Indicators::LongDivergence(Bars, 
+        this->LocalMax, this->LocalMin, this->RSI);                  this->LongDivergence->computeIndicator();
 }
 
 IndicatorSet::~IndicatorSet()

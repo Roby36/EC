@@ -8,33 +8,31 @@
 #include <string.h>
 #include "Bar.h"
 
-using namespace std;
+#define MAXBARS 65536   //2^16
 
 class Bars
 {
-    /*const int TimePeriod; // minutes */
-    const int maxBars;
     int numBars = 0;
-    MBar** barArray;
+    MBar * barArray [MAXBARS];
 
     /****** FILE-PARSING ********/
-    const string outputDir = "../data/";
-    const string outputExt = ".txt";
-    int parseFile(const char*, const char*, const char*);
-
+    const std::string outputDir = "../data/";
+    const std::string outputExt = ".txt";
+    int parseFile(const char* inputFileDir, const char* startDate, const char* endDate);
+   
     public:
 
     /*** PUBLIC INTERFACE ***/
-    Bars(const char* = NULL, const char* = NULL, const char* = NULL, /*int = 0,*/ int = 100000);
+    Bars(const char* inputFileDir = NULL, 
+         const char* startDate    = NULL, 
+         const char* endDate      = NULL);
     ~Bars();
     void addBar(MBar*);
     void printBars();
 
     /*** GETTERS & SETTERS ***/
-    MBar* getBar(int i) { return this->barArray[i];}
-
-    int getnumBars()      const { return numBars;}
-    /* int getTimePeriod()   const { return TimePeriod;} */
-    string getoutputDir() const { return outputDir;}
-    string getoutputExt() const { return outputExt;}
+    MBar*       getBar(int i)  const { return this->barArray[i];}
+    int         getnumBars()   const { return numBars;}
+    std::string getoutputDir() const { return outputDir;}
+    std::string getoutputExt() const { return outputExt;}
 };

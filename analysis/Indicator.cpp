@@ -3,24 +3,21 @@
 
 /******* INDICATOR STANDARD TEMPLATE ********/
 
-template <class T> Indicator<T>::Indicator(Bars* dp, const string name, const string logDirectory)
+template <class T> Indicator<T>::Indicator(Bars* dp, const std::string name, const std::string logDirectory)
+    : dp(dp)
 {
-    this->dp = dp;
     this->outputDirectory = dp->getoutputDir() + name + dp->getoutputExt();
-    this->logDirectory = logDirectory + name + dp->getoutputExt();
-    this->indicatorArray = new T* [dp->getnumBars()];
-    // Initialize classes holding indicator data for each point:
-    for (int i = 0; i < dp->getnumBars(); i++) {
+    this->logDirectory    = logDirectory + name + dp->getoutputExt();
+    for (int i = 0; i < MAXBARS; i++) {
         indicatorArray[i] = new T();
     }
 }
 
 template <class T> Indicator<T>::~Indicator() 
 {
-    for (int i = 0; i < dp->getnumBars(); i++) {
+    for (int i = 0; i < MAXBARS; i++) {
         delete(this->indicatorArray[i]);
     }
-    delete(this->indicatorArray);
 }
 
 template <class T> void Indicator<T>::printIndicator()
@@ -30,7 +27,6 @@ template <class T> void Indicator<T>::printIndicator()
     FILE* lp0 = fopen(logDirectory.c_str(), "w");
     if (fp0 != NULL) fclose(fp0);
     if (lp0 != NULL) fclose(lp0);
-
     //Open file for appending:
     FILE* fp = fopen(outputDirectory.c_str(), "a");
     FILE* lp = fopen(logDirectory.c_str(), "a");
@@ -40,10 +36,9 @@ template <class T> void Indicator<T>::printIndicator()
     }
     for (int i = 0; i < this->dp->getnumBars(); i++) {
         fprintf(fp, "%s\n", this->indicatorArray[i]->toString().c_str());
-        if (this->indicatorArray[i]->isPresent()) {
+        if (this->indicatorArray[i]->isPresent()) 
             fprintf(lp, "%s: %s\n", this->dp->getBar(i)->date_time_str,
-                this->indicatorArray[i]->logString().c_str());
-        }
+            this->indicatorArray[i]->logString().c_str());    
     }
     fclose(fp);
     fclose(lp);
