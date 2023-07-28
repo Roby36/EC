@@ -11,12 +11,33 @@
 
 #include "Mlogger.h"
 
+#define MAXBARSIZESTRINGLENGTH 8
+
 class Instrument
 {
-    Mlogger* /*const*/ m_logger;
+    Mlogger* const m_logger;
+    long last_bar_update;
+    const int cross_validation_bars = 8;
+
     int parse_barSize( const std::string barSize);
+    static long curr_sys_time();
 
     public:
+
+    const int inst_id;
+    const std::string barSize;
+    const int sec_barSize;
+    int bars2update = 0;
+    char* extend_dur(int factor);
+    bool requires_update();
+
+    Bars* bars;
+    ContractDetails dataContract;
+    ContractDetails orderContract;
+
+    bool addBar(TickerId reqId, const Bar& bar, const double time_tol = 1.5, const int update_factor = 2);                             // passed in historicalDataUpdate callback
+    void updateDataContract (int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
+    void updateOrderContract(int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
 
     /*** Important: all reqIds must be different across Instruments ****/
     typedef struct RI {
@@ -42,6 +63,8 @@ class Instrument
         
     } ReqIds;
 
+    ReqIds m_reqIds;
+
     Instrument(const int inst_id, 
                const std::string barSize, 
                ContractDetails dataContract, 
@@ -50,26 +73,4 @@ class Instrument
                std::string logFilePath = "./Instrument_log.txt");
     ~Instrument();
 
-    /*const*/ int inst_id;
-    /*const*/ std::string barSize;
-    /*const*/ int sec_barSize;
-
-    //** System time for last bar update (seconds) **//
-    long last_bar_update;
-
-    /*** DEFENSIVE PARAMETERS ****/
-    /*const*/ int cross_validation_bars = 8; // number of bars to cross-validate against when updating bars
-
-    ReqIds m_reqIds;
-
-    Bars* bars;
-    ContractDetails dataContract;
-    ContractDetails orderContract;
-
-    bool addBar(TickerId reqId, const Bar& bar);                             // passed in historicalDataUpdate callback
-    void updateDataContract (int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
-    void updateOrderContract(int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
-
-    // Function to get current system time (to regulate updates)
-    static long curr_sys_time();
 };

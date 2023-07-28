@@ -103,17 +103,20 @@ void Strategy::openTrade(const std::string strategy,
                          const Order closingOrder,
                          const std::string orderRef)
 {
-	*trade2open = MTrade_t(m_tradeData->numTrades, m_instr->inst_id,
+    MTrade_t * temp_trade = new MTrade_t(m_tradeData->numTrades, m_instr->inst_id,
 				this->strategy_code, openingOrder, closingOrder);
+    memcpy(trade2open, temp_trade, sizeof(MTrade_t));
 	trade2open->openingOrder.orderRef = orderRef;
     this->openingTrade = true; // signal that the trade must be opened
     //! MCllient.cpp must set the flag back to false when trade executed
+    delete(temp_trade);
 }
 
 void Strategy::closeTrade(MTrade_t * curr_trade,
                           const std::string orderRef)
 {
-	*trade2close = *curr_trade;
+    fprintf(stderr, "Strategy::closeTrade: closing trade number %d orderRef %s \n", curr_trade->tradeId, orderRef.c_str()); 
+	trade2close = curr_trade; // no need to memcpy since curr_trade is already a malloc'd pointer
 	trade2close->closingOrder.orderRef = orderRef;
     this->closingTrade = true; // signal that the trade must be closed
     //! MCllient.cpp must set the flag back to false when trade executed
@@ -124,9 +127,7 @@ void Strategy::general_open(const int dir,
                             std::string orderRef)
 {
     // TO BE LOGGED IN DEDICATED TRADING FILE
-#ifndef MEMDBG
     fprintf(stderr, "Strategy::general_open: opening trade in dir %d at bar index %d with orderRef %s \n", dir, bar_index, orderRef.c_str()); 
-#endif
     // Determine trade direction
     std::string opening_action;
     std::string closing_action;
