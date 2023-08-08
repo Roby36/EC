@@ -20,12 +20,10 @@
 #include "MOrders.h"
 #include "MTrade.h"
 #include "Strategy.h"
+#include "CommonMacros.h"
 
 #include "ser.h"
 #include "memdbg.h"
-
-#define MAXINSTR 32
-#define MAXSTRAT 16
 
 enum State {
     ST_CONNECT,
@@ -48,11 +46,7 @@ enum State {
     REQPOSITIONS,
     REQPOSITIONS_ACK,
     REQEXECUTIONS,
-    REQEXECUTIONS_ACK,
-    OPENTRADE,
-    OPENTRADE_ACK,
-    CLOSETRADE,
-    CLOSETRADE_ACK
+    REQEXECUTIONS_ACK
 
 };
 
@@ -75,6 +69,7 @@ class MClient : public EWrapper
     //** Orders **//
     OrderId   m_orderId;
     OrderId   m_cancel_orderId; // Id of order requesting to cancel
+    Order *   rec_order; // most recent order
     bool      m_extraAuth;
 
     //** ClientSocket server connection **//
@@ -85,7 +80,6 @@ class MClient : public EWrapper
     //** Trades & serialization **//
     TradeData * m_tradeData;
     const std::string serFileName  = "../ser/tradeData.txt";
-    MTrade_t * currTrade;
     void archive_td_out();
     void archive_td_in();
 
@@ -136,7 +130,8 @@ class MClient : public EWrapper
     ReqIds m_reqIds;
 
     MClient( const std::string logPath = "./MClient_log.txt", 
-             ReqIds reqIds             = ReqIds(17001));
+             ReqIds reqIds             = ReqIds(17001),
+             bool init_trade_data      = false);
     ~MClient();
 
     /*** CONNECTIVITY ***/
@@ -156,10 +151,9 @@ class MClient : public EWrapper
     void update_contracts();
 
     /*** BARS ***/
-    void initialize_bars(std::string timePeriod, std::string whatToShow = "TRADES", int useRTH = 1);
-    void update_bars(std::string whatToShow = "TRADES", int useRTH = 1, int factor = 2);
+    void update_instr_bars(int instr_id, int numBars, bool initialization, std::string whatToShow = "TRADES", int useRTH = 1);
+    void update_bars(int numBars, bool initialization, std::string whatToShow = "TRADES", int useRTH = 1);
     static char* currTime_str();
-    char* extend_dur(std::string barSize, int factor = 2);
     
     //** Orders & Trades **//
     void add_Strategy(const int instr_id, Strategy * strategy);

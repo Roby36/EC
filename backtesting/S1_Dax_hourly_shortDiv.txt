@@ -1,0 +1,205 @@
+
+ STRATEGY REPORT:
+Total positive trades: 33 (7253.500000 points); Total negative trades: 32 (-4004.200000 points);
+ Net loss/profit: 3249.300000
+
+ Trade no: 0; Direction: long; Entry date: 23/09/2020 09:00:00 CEST; Entry closing price: 12777.660000; Exit date: 25/09/2020 10:00:00 CEST; Exit closing price: 12558.750000; Loss/profit: -218.910000;
+ Trade no: 1; Direction: long; Entry date: 25/09/2020 13:00:00 CEST; Entry closing price: 12420.750000; Exit date: 28/09/2020 09:00:00 CEST; Exit closing price: 12767.870000; Loss/profit: 347.120000;
+ Trade no: 2; Direction: long; Entry date: 26/10/2020 11:00:00 CET; Entry closing price: 12366.980000; Exit date: 27/10/2020 15:00:00 CET; Exit closing price: 12065.320000; Loss/profit: -301.660000;
+ Trade no: 3; Direction: short; Entry date: 05/11/2020 13:00:00 CET; Entry closing price: 12529.260000; Exit date: 09/11/2020 12:00:00 CET; Exit closing price: 13113.700000; Loss/profit: -584.440000;
+ Trade no: 4; Direction: short; Entry date: 09/11/2020 15:00:00 CET; Entry closing price: 13161.700000; Exit date: 11/11/2020 16:00:00 CET; Exit closing price: 13229.270000; Loss/profit: -67.570000;
+ Trade no: 5; Direction: short; Entry date: 27/11/2020 17:00:00 CET; Entry closing price: 13335.680000; Exit date: 02/12/2020 11:00:00 CET; Exit closing price: 13347.750000; Loss/profit: -12.070000;
+ Trade no: 6; Direction: long; Entry date: 07/12/2020 10:00:00 CET; Entry closing price: 13233.350000; Exit date: 09/12/2020 12:00:00 CET; Exit closing price: 13385.590000; Loss/profit: 152.240000;
+ Trade no: 7; Direction: short; Entry date: 07/01/2021 11:00:00 CET; Entry closing price: 13940.250000; Exit date: 11/01/2021 12:00:00 CET; Exit closing price: 13963.610000; Loss/profit: -23.360000;
+ Trade no: 8; Direction: short; Entry date: 20/01/2021 12:00:00 CET; Entry closing price: 13884.390000; Exit date: 22/01/2021 12:00:00 CET; Exit closing price: 13787.770000; Loss/profit: 96.620000;
+ Trade no: 9; Direction: long; Entry date: 27/01/2021 16:00:00 CET; Entry closing price: 13648.190000; Exit date: 29/01/2021 17:00:00 CET; Exit closing price: 13432.870000; Loss/profit: -215.320000;
+ Trade no: 10; Direction: short; Entry date: 25/02/2021 12:00:00 CET; Entry closing price: 13935.280000; Exit date: 26/02/2021 14:00:00 CET; Exit closing price: 13822.410000; Loss/profit: 112.870000;
+ Trade no: 11; Direction: short; Entry date: 10/03/2021 11:00:00 CET; Entry closing price: 14482.110000; Exit date: 12/03/2021 13:00:00 CET; Exit closing price: 14488.860000; Loss/profit: -6.750000;
+ Trade no: 12; Direction: short; Entry date: 12/03/2021 16:00:00 CET; Entry closing price: 14496.270000; Exit date: 16/03/2021 17:00:00 CET; Exit closing price: 14557.580000; Loss/profit: -61.310000;
+ Trade no: 13; Direction: short; Entry date: 30/03/2021 10:00:00 CEST; Entry closing price: 14907.220000; Exit date: 01/04/2021 11:00:00 CEST; Exit closing price: 15074.570000; Loss/profit: -167.350000;
+ Trade no: 14; Direction: short; Entry date: 01/04/2021 10:00:00 CEST; Entry closing price: 15089.780000; Exit date: 07/04/2021 11:00:00 CEST; Exit closing price: 15203.010000; Loss/profit: -113.230000;
+ Trade no: 15; Direction: short; Entry date: 09/04/2021 14:00:00 CEST; Entry closing price: 15213.630000; Exit date: 13/04/2021 15:00:00 CEST; Exit closing price: 15256.410000; Loss/profit: -42.780000;
+ Trade no: 16; Direction: short; Entry date: 15/04/2021 17:00:00 CEST; Entry closing price: 15255.330000; Exit date: 20/04/2021 09:00:00 CEST; Exit closing price: 15345.290000; Loss/profit: -89.960000;
+ Trade no: 17; Direction: short; Entry date: 19/04/2021 10:00:00 CEST; Entry closing price: 15458.020000; Exit date: 20/04/2021 14:00:00 CEST; Exit closing price: 15222.980000; Loss/profit: 235.040000;
+ Trade no: 18; Direction: long; Entry date: 24/06/2021 09:00:00 CEST; Entry closing price: 15506.080000; Exit date: 28/06/2021 15:00:00 CEST; Exit closing price: 15611.510000; Loss/profit: 105.430000;
+ Trade no: 19; Direction: short; Entry date: 29/06/2021 13:00:00 CEST; Entry closing price: 15691.130000; Exit date: 30/06/2021 11:00:00 CEST; Exit closing price: 15497.690000; Loss/profit: 193.440000;
+ Trade no: 20; Direction: long; Entry date: 16/07/2021 17:00:00 CEST; Entry closing price: 15540.310000; Exit date: 19/07/2021 13:00:00 CEST; Exit closing price: 15157.060000; Loss/profit: -383.250000;
+ Trade no: 21; Direction: short; Entry date: 05/08/2021 11:00:00 CEST; Entry closing price: 15716.650000; Exit date: 09/08/2021 12:00:00 CEST; Exit closing price: 15733.810000; Loss/profit: -17.160000;
+ Trade no: 22; Direction: long; Entry date: 19/08/2021 11:00:00 CEST; Entry closing price: 15695.550000; Exit date: 24/08/2021 14:00:00 CEST; Exit closing price: 15860.680000; Loss/profit: 165.130000;
+ Trade no: 23; Direction: short; Entry date: 14/10/2021 12:00:00 CEST; Entry closing price: 15381.480000; Exit date: 18/10/2021 13:00:00 CEST; Exit closing price: 15488.360000; Loss/profit: -106.880000;
+ Trade no: 24; Direction: short; Entry date: 04/11/2021 12:00:00 CET; Entry closing price: 16036.480000; Exit date: 08/11/2021 14:00:00 CET; Exit closing price: 16043.030000; Loss/profit: -6.550000;
+ Trade no: 25; Direction: short; Entry date: 09/11/2021 11:00:00 CET; Entry closing price: 16079.050000; Exit date: 11/11/2021 12:00:00 CET; Exit closing price: 16084.740000; Loss/profit: -5.690000;
+ Trade no: 26; Direction: short; Entry date: 12/11/2021 13:00:00 CET; Entry closing price: 16101.540000; Exit date: 16/11/2021 14:00:00 CET; Exit closing price: 16226.910000; Loss/profit: -125.370000;
+ Trade no: 27; Direction: short; Entry date: 13/12/2021 11:00:00 CET; Entry closing price: 15760.380000; Exit date: 14/12/2021 17:00:00 CET; Exit closing price: 15453.560000; Loss/profit: 306.820000;
+ Trade no: 28; Direction: short; Entry date: 28/12/2021 11:00:00 CET; Entry closing price: 15942.640000; Exit date: 03/01/2022 09:00:00 CET; Exit closing price: 16014.450000; Loss/profit: -71.810000;
+ Trade no: 29; Direction: short; Entry date: 03/01/2022 14:00:00 CET; Entry closing price: 16045.290000; Exit date: 05/01/2022 15:00:00 CET; Exit closing price: 16232.990000; Loss/profit: -187.700000;
+ Trade no: 30; Direction: long; Entry date: 10/01/2022 17:00:00 CET; Entry closing price: 15768.270000; Exit date: 12/01/2022 16:00:00 CET; Exit closing price: 16008.910000; Loss/profit: 240.640000;
+ Trade no: 31; Direction: short; Entry date: 13/01/2022 15:00:00 CET; Entry closing price: 16037.270000; Exit date: 14/01/2022 10:00:00 CET; Exit closing price: 15939.490000; Loss/profit: 97.780000;
+ Trade no: 32; Direction: short; Entry date: 10/02/2022 14:00:00 CET; Entry closing price: 15471.200000; Exit date: 11/02/2022 11:00:00 CET; Exit closing price: 15423.870000; Loss/profit: 47.330000;
+ Trade no: 33; Direction: long; Entry date: 24/02/2022 12:00:00 CET; Entry closing price: 13963.030000; Exit date: 25/02/2022 13:00:00 CET; Exit closing price: 14412.390000; Loss/profit: 449.360000;
+ Trade no: 34; Direction: short; Entry date: 14/03/2022 11:00:00 CET; Entry closing price: 14009.410000; Exit date: 15/03/2022 09:00:00 CET; Exit closing price: 13612.440000; Loss/profit: 396.970000;
+ Trade no: 35; Direction: short; Entry date: 22/03/2022 11:00:00 CET; Entry closing price: 14448.920000; Exit date: 23/03/2022 15:00:00 CET; Exit closing price: 14280.340000; Loss/profit: 168.580000;
+ Trade no: 36; Direction: long; Entry date: 06/04/2022 16:00:00 CEST; Entry closing price: 14096.900000; Exit date: 12/04/2022 09:00:00 CEST; Exit closing price: 13960.960000; Loss/profit: -135.940000;
+ Trade no: 37; Direction: long; Entry date: 12/04/2022 10:00:00 CEST; Entry closing price: 14032.570000; Exit date: 19/04/2022 11:00:00 CEST; Exit closing price: 14015.280000; Loss/profit: -17.290000;
+ Trade no: 38; Direction: short; Entry date: 17/05/2022 12:00:00 CEST; Entry closing price: 14186.780000; Exit date: 19/05/2022 09:00:00 CEST; Exit closing price: 13770.010000; Loss/profit: 416.770000;
+ Trade no: 39; Direction: short; Entry date: 28/06/2022 16:00:00 CEST; Entry closing price: 13283.180000; Exit date: 29/06/2022 13:00:00 CEST; Exit closing price: 13034.300000; Loss/profit: 248.880000;
+ Trade no: 40; Direction: long; Entry date: 05/07/2022 11:00:00 CEST; Entry closing price: 12644.680000; Exit date: 08/07/2022 16:00:00 CEST; Exit closing price: 12997.480000; Loss/profit: 352.800000;
+ Trade no: 41; Direction: long; Entry date: 14/07/2022 17:00:00 CEST; Entry closing price: 12519.660000; Exit date: 15/07/2022 17:00:00 CEST; Exit closing price: 12864.720000; Loss/profit: 345.060000;
+ Trade no: 42; Direction: short; Entry date: 22/07/2022 09:00:00 CEST; Entry closing price: 13225.740000; Exit date: 25/07/2022 17:00:00 CEST; Exit closing price: 13210.320000; Loss/profit: 15.420000;
+ Trade no: 43; Direction: short; Entry date: 16/08/2022 11:00:00 CEST; Entry closing price: 13905.010000; Exit date: 17/08/2022 15:00:00 CEST; Exit closing price: 13696.230000; Loss/profit: 208.780000;
+ Trade no: 44; Direction: long; Entry date: 23/08/2022 15:00:00 CEST; Entry closing price: 13236.850000; Exit date: 25/08/2022 10:00:00 CEST; Exit closing price: 13307.030000; Loss/profit: 70.180000;
+ Trade no: 45; Direction: short; Entry date: 08/09/2022 11:00:00 CEST; Entry closing price: 12904.770000; Exit date: 08/09/2022 15:00:00 CEST; Exit closing price: 12791.370000; Loss/profit: 113.400000;
+ Trade no: 46; Direction: long; Entry date: 28/09/2022 12:00:00 CEST; Entry closing price: 12047.410000; Exit date: 30/09/2022 13:00:00 CEST; Exit closing price: 12000.750000; Loss/profit: -46.660000;
+ Trade no: 47; Direction: long; Entry date: 13/10/2022 15:00:00 CEST; Entry closing price: 12134.800000; Exit date: 14/10/2022 09:00:00 CEST; Exit closing price: 12480.020000; Loss/profit: 345.220000;
+ Trade no: 48; Direction: short; Entry date: 27/10/2022 17:00:00 CEST; Entry closing price: 13211.230000; Exit date: 01/11/2022 09:00:00 CET; Exit closing price: 13391.910000; Loss/profit: -180.680000;
+ Trade no: 49; Direction: short; Entry date: 01/11/2022 12:00:00 CET; Entry closing price: 13424.390000; Exit date: 03/11/2022 12:00:00 CET; Exit closing price: 13080.970000; Loss/profit: 343.420000;
+ Trade no: 50; Direction: short; Entry date: 09/11/2022 09:00:00 CET; Entry closing price: 13616.410000; Exit date: 10/11/2022 14:00:00 CET; Exit closing price: 14014.230000; Loss/profit: -397.820000;
+ Trade no: 51; Direction: short; Entry date: 11/11/2022 10:00:00 CET; Entry closing price: 14213.030000; Exit date: 15/11/2022 11:00:00 CET; Exit closing price: 14282.190000; Loss/profit: -69.160000;
+ Trade no: 52; Direction: long; Entry date: 29/11/2022 11:00:00 CET; Entry closing price: 14389.170000; Exit date: 01/12/2022 10:00:00 CET; Exit closing price: 14464.430000; Loss/profit: 75.260000;
+ Trade no: 53; Direction: short; Entry date: 04/01/2023 10:00:00 CET; Entry closing price: 14356.480000; Exit date: 06/01/2023 11:00:00 CET; Exit closing price: 14436.490000; Loss/profit: -80.010000;
+ Trade no: 54; Direction: short; Entry date: 18/01/2023 10:00:00 CET; Entry closing price: 15172.380000; Exit date: 19/01/2023 14:00:00 CET; Exit closing price: 14963.900000; Loss/profit: 208.480000;
+ Trade no: 55; Direction: short; Entry date: 09/02/2023 12:00:00 CET; Entry closing price: 15615.300000; Exit date: 10/02/2023 13:00:00 CET; Exit closing price: 15256.010000; Loss/profit: 359.290000;
+ Trade no: 56; Direction: long; Entry date: 10/02/2023 14:00:00 CET; Entry closing price: 15327.640000; Exit date: 16/02/2023 13:00:00 CET; Exit closing price: 15570.980000; Loss/profit: 243.340000;
+ Trade no: 57; Direction: long; Entry date: 27/02/2023 09:00:00 CET; Entry closing price: 15402.610000; Exit date: 01/03/2023 14:00:00 CET; Exit closing price: 15391.240000; Loss/profit: -11.370000;
+ Trade no: 58; Direction: short; Entry date: 07/03/2023 12:00:00 CET; Entry closing price: 15670.460000; Exit date: 10/03/2023 12:00:00 CET; Exit closing price: 15433.760000; Loss/profit: 236.700000;
+ Trade no: 59; Direction: short; Entry date: 31/03/2023 17:00:00 CEST; Entry closing price: 15628.840000; Exit date: 11/04/2023 09:00:00 CEST; Exit closing price: 15672.500000; Loss/profit: -43.660000;
+ Trade no: 60; Direction: short; Entry date: 12/04/2023 15:00:00 CEST; Entry closing price: 15703.580000; Exit date: 14/04/2023 16:00:00 CEST; Exit closing price: 15805.010000; Loss/profit: -101.430000;
+ Trade no: 61; Direction: short; Entry date: 14/06/2023 13:00:00 CEST; Entry closing price: 16311.860000; Exit date: 16/06/2023 14:00:00 CEST; Exit closing price: 16422.920000; Loss/profit: -111.060000;
+ Trade no: 62; Direction: short; Entry date: 16/06/2023 15:00:00 CEST; Entry closing price: 16361.100000; Exit date: 20/06/2023 11:00:00 CEST; Exit closing price: 16106.420000; Loss/profit: 254.680000;
+ Trade no: 63; Direction: short; Entry date: 30/06/2023 13:00:00 CEST; Entry closing price: 16131.730000; Exit date: 05/07/2023 10:00:00 CEST; Exit closing price: 15964.550000; Loss/profit: 167.180000;
+ Trade no: 64; Direction: short; Entry date: 31/07/2023 09:00:00 CEST; Entry closing price: 16464.500000; Exit date: 01/08/2023 12:00:00 CEST; Exit closing price: 16331.230000; Loss/profit: 133.270000;
+
+ TRADE LOG:
+Opened  0: Denied divergence on new local minimum on 22/09/2020 17:00:00 CEST; divergence between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST of entity 2. Currently open trades: 1
+Closed 0: Negative after expiration time (stop loss)
+Opened  1: Denied divergence on new local minimum on 25/09/2020 12:00:00 CEST; divergence between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST of entity 2. Currently open trades: 1
+Closed 1: reached stop loss / take profit point
+Opened  2: Denied divergence on new local minimum on 26/10/2020 10:00:00 CET; divergence between 22/10/2020 14:00:00 CEST and 22/10/2020 16:00:00 CEST of entity 2. Currently open trades: 1
+Closed 2: reached stop loss / take profit point
+Opened  3: Denied divergence on new local maximum on 05/11/2020 12:00:00 CET; divergence between 03/11/2020 17:00:00 CET and 04/11/2020 10:00:00 CET of entity 2. Currently open trades: 1
+Closed 3: reached stop loss / take profit point
+Opened  4: Denied divergence on new local maximum on 09/11/2020 14:00:00 CET; divergence between 05/11/2020 12:00:00 CET and 05/11/2020 16:00:00 CET of entity 2. Currently open trades: 1
+Closed 4: Negative after expiration time (stop loss)
+Opened  5: Denied divergence on new local maximum on 27/11/2020 16:00:00 CET; divergence between 26/11/2020 15:00:00 CET and 27/11/2020 09:00:00 CET of entity 2. Currently open trades: 1
+Closed 5: Negative after expiration time (stop loss)
+Opened  6: Denied divergence on new local minimum on 07/12/2020 09:00:00 CET; divergence between 03/12/2020 15:00:00 CET and 04/12/2020 12:00:00 CET of entity 3. Currently open trades: 1
+Closed 6: Crossed upper Bollinger Bands from above (take profit)
+Opened  7: Denied divergence on new local maximum on 07/01/2021 10:00:00 CET; divergence between 04/01/2021 11:00:00 CET and 04/01/2021 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 7: Negative after expiration time (stop loss)
+Opened  8: Denied divergence on new local maximum on 20/01/2021 11:00:00 CET; divergence between 19/01/2021 10:00:00 CET and 19/01/2021 12:00:00 CET of entity 2. Currently open trades: 1
+Closed 8: Crossed lower Bollinger Bands from below (take profit)
+Opened  9: Denied divergence on new local minimum on 27/01/2021 15:00:00 CET; divergence between 25/01/2021 13:00:00 CET and 25/01/2021 17:00:00 CET of entity 2. Currently open trades: 1
+Closed 9: Negative after expiration time (stop loss)
+Opened  10: Denied divergence on new local maximum on 25/02/2021 11:00:00 CET; divergence between 24/02/2021 13:00:00 CET and 24/02/2021 16:00:00 CET of entity 2. Currently open trades: 1
+Closed 10: Crossed lower Bollinger Bands from below (take profit)
+Opened  11: Denied divergence on new local maximum on 10/03/2021 10:00:00 CET; divergence between 09/03/2021 12:00:00 CET and 09/03/2021 15:00:00 CET of entity 2. Currently open trades: 1
+Closed 11: Negative after expiration time (stop loss)
+Opened  12: Denied divergence on new local maximum on 12/03/2021 15:00:00 CET; divergence between 12/03/2021 11:00:00 CET and 12/03/2021 13:00:00 CET of entity 2. Currently open trades: 1
+Closed 12: Negative after expiration time (stop loss)
+Opened  13: Denied divergence on new local maximum on 30/03/2021 09:00:00 CEST; divergence between 29/03/2021 13:00:00 CEST and 29/03/2021 15:00:00 CEST of entity 2. Currently open trades: 1
+Opened  14: Denied divergence on new local maximum on 01/04/2021 09:00:00 CEST; divergence between 30/03/2021 17:00:00 CEST and 31/03/2021 12:00:00 CEST of entity 2. Currently open trades: 2
+Closed 13: Negative after expiration time (stop loss)
+Closed 14: Negative after expiration time (stop loss)
+Opened  15: Denied divergence on new local maximum on 09/04/2021 13:00:00 CEST; divergence between 07/04/2021 16:00:00 CEST and 08/04/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Closed 15: Negative after expiration time (stop loss)
+Opened  16: Denied divergence on new local maximum on 15/04/2021 16:00:00 CEST; divergence between 15/04/2021 10:00:00 CEST and 15/04/2021 12:00:00 CEST of entity 2. Currently open trades: 1
+Opened  17: Denied divergence on new local maximum on 19/04/2021 09:00:00 CEST; divergence between 16/04/2021 11:00:00 CEST and 16/04/2021 14:00:00 CEST of entity 2. Currently open trades: 2
+Closed 16: Negative after expiration time (stop loss)
+Closed 17: Crossed lower Bollinger Bands from below (take profit)
+Opened  18: Denied divergence on new local minimum on 23/06/2021 17:00:00 CEST; divergence between 21/06/2021 15:00:00 CEST and 22/06/2021 10:00:00 CEST of entity 2. Currently open trades: 1
+Closed 18: Crossed upper Bollinger Bands from above (take profit)
+Opened  19: Denied divergence on new local maximum on 29/06/2021 12:00:00 CEST; divergence between 28/06/2021 14:00:00 CEST and 29/06/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Closed 19: Crossed lower Bollinger Bands from below (take profit)
+Opened  20: Denied divergence on new local minimum on 16/07/2021 16:00:00 CEST; divergence between 15/07/2021 16:00:00 CEST and 16/07/2021 13:00:00 CEST of entity 2. Currently open trades: 1
+Closed 20: reached stop loss / take profit point
+Opened  21: Denied divergence on new local maximum on 05/08/2021 10:00:00 CEST; divergence between 04/08/2021 12:00:00 CEST and 04/08/2021 16:00:00 CEST of entity 2. Currently open trades: 1
+Closed 21: Negative after expiration time (stop loss)
+Opened  22: Denied divergence on new local minimum on 19/08/2021 10:00:00 CEST; divergence between 16/08/2021 16:00:00 CEST and 17/08/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Closed 22: Opposite (not necessarily denied) divergence on previous bar
+Opened  23: Denied divergence on new local maximum on 14/10/2021 11:00:00 CEST; divergence between 13/10/2021 13:00:00 CEST and 13/10/2021 15:00:00 CEST of entity 2. Currently open trades: 1
+Closed 23: Negative after expiration time (stop loss)
+Opened  24: Denied divergence on new local maximum on 04/11/2021 11:00:00 CET; divergence between 02/11/2021 17:00:00 CET and 03/11/2021 12:00:00 CET of entity 2. Currently open trades: 1
+Closed 24: Negative after expiration time (stop loss)
+Opened  25: Denied divergence on new local maximum on 09/11/2021 10:00:00 CET; divergence between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET of entity 2. Currently open trades: 1
+Closed 25: Negative after expiration time (stop loss)
+Opened  26: Denied divergence on new local maximum on 12/11/2021 12:00:00 CET; divergence between 11/11/2021 10:00:00 CET and 12/11/2021 09:00:00 CET of entity 3. Currently open trades: 1
+Closed 26: Negative after expiration time (stop loss)
+Opened  27: Denied divergence on new local maximum on 13/12/2021 10:00:00 CET; divergence between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 27: Crossed lower Bollinger Bands from below (take profit)
+Opened  28: Denied divergence on new local maximum on 28/12/2021 10:00:00 CET; divergence between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET of entity 2. Currently open trades: 1
+Closed 28: Negative after expiration time (stop loss)
+Opened  29: Denied divergence on new local maximum on 03/01/2022 13:00:00 CET; divergence between 03/01/2022 09:00:00 CET and 03/01/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Closed 29: Negative after expiration time (stop loss)
+Opened  30: Denied divergence on new local minimum on 10/01/2022 16:00:00 CET; divergence between 07/01/2022 16:00:00 CET and 10/01/2022 09:00:00 CET of entity 2. Currently open trades: 1
+Closed 30: Opposite (not necessarily denied) divergence on previous bar
+Opened  31: Denied divergence on new local maximum on 13/01/2022 14:00:00 CET; divergence between 12/01/2022 10:00:00 CET and 12/01/2022 15:00:00 CET of entity 2. Currently open trades: 1
+Closed 31: Crossed lower Bollinger Bands from below (take profit)
+Opened  32: Denied divergence on new local maximum on 10/02/2022 13:00:00 CET; divergence between 09/02/2022 16:00:00 CET and 10/02/2022 09:00:00 CET of entity 2. Currently open trades: 1
+Closed 32: Crossed lower Bollinger Bands from below (take profit)
+Opened  33: Denied divergence on new local minimum on 24/02/2022 11:00:00 CET; divergence between 22/02/2022 12:00:00 CET and 22/02/2022 16:00:00 CET of entity 3. Currently open trades: 1
+Closed 33: reached stop loss / take profit point
+Opened  34: Denied divergence on new local maximum on 14/03/2022 10:00:00 CET; divergence between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 34: reached stop loss / take profit point
+Opened  35: Denied divergence on new local maximum on 22/03/2022 10:00:00 CET; divergence between 17/03/2022 17:00:00 CET and 18/03/2022 17:00:00 CET of entity 2. Currently open trades: 1
+Closed 35: Crossed lower Bollinger Bands from below (take profit)
+Opened  36: Denied divergence on new local minimum on 06/04/2022 15:00:00 CEST; divergence between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST of entity 2. Currently open trades: 1
+Closed 36: Negative after expiration time (stop loss)
+Opened  37: Denied divergence on new local minimum on 12/04/2022 09:00:00 CEST; divergence between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Closed 37: Negative after expiration time (stop loss)
+Opened  38: Denied divergence on new local maximum on 17/05/2022 11:00:00 CEST; divergence between 13/05/2022 17:00:00 CEST and 16/05/2022 10:00:00 CEST of entity 2. Currently open trades: 1
+Closed 38: reached stop loss / take profit point
+Opened  39: Denied divergence on new local maximum on 28/06/2022 15:00:00 CEST; divergence between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Closed 39: Crossed lower Bollinger Bands from below (take profit)
+Opened  40: Denied divergence on new local minimum on 05/07/2022 10:00:00 CEST; divergence between 01/07/2022 09:00:00 CEST and 01/07/2022 13:00:00 CEST of entity 2. Currently open trades: 1
+Closed 40: reached stop loss / take profit point
+Opened  41: Denied divergence on new local minimum on 14/07/2022 16:00:00 CEST; divergence between 12/07/2022 09:00:00 CEST and 12/07/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Closed 41: reached stop loss / take profit point
+Opened  42: Denied divergence on new local maximum on 21/07/2022 17:00:00 CEST; divergence between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Closed 42: Crossed lower Bollinger Bands from below (take profit)
+Opened  43: Denied divergence on new local maximum on 16/08/2022 10:00:00 CEST; divergence between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST of entity 2. Currently open trades: 1
+Closed 43: Crossed lower Bollinger Bands from below (take profit)
+Opened  44: Denied divergence on new local minimum on 23/08/2022 14:00:00 CEST; divergence between 23/08/2022 10:00:00 CEST and 23/08/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Closed 44: Crossed upper Bollinger Bands from above (take profit)
+Opened  45: Denied divergence on new local maximum on 08/09/2022 10:00:00 CEST; divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2. Currently open trades: 1
+Closed 45: Crossed lower Bollinger Bands from below (take profit)
+Opened  46: Denied divergence on new local minimum on 28/09/2022 11:00:00 CEST; divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2. Currently open trades: 1
+Closed 46: Negative after expiration time (stop loss)
+Opened  47: Denied divergence on new local minimum on 13/10/2022 14:00:00 CEST; divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2. Currently open trades: 1
+Closed 47: reached stop loss / take profit point
+Opened  48: Denied divergence on new local maximum on 27/10/2022 16:00:00 CEST; divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Closed 48: Negative after expiration time (stop loss)
+Opened  49: Denied divergence on new local maximum on 01/11/2022 11:00:00 CET; divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2. Currently open trades: 1
+Closed 49: reached stop loss / take profit point
+Opened  50: Denied divergence on new local maximum on 08/11/2022 17:00:00 CET; divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Closed 50: reached stop loss / take profit point
+Opened  51: Denied divergence on new local maximum on 11/11/2022 09:00:00 CET; divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Closed 51: Negative after expiration time (stop loss)
+Opened  52: Denied divergence on new local minimum on 29/11/2022 10:00:00 CET; divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 52: Crossed upper Bollinger Bands from above (take profit)
+Opened  53: Denied divergence on new local maximum on 04/01/2023 09:00:00 CET; divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2. Currently open trades: 1
+Closed 53: Negative after expiration time (stop loss)
+Opened  54: Denied divergence on new local maximum on 18/01/2023 09:00:00 CET; divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 54: Crossed lower Bollinger Bands from below (take profit)
+Opened  55: Denied divergence on new local maximum on 09/02/2023 11:00:00 CET; divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2. Currently open trades: 1
+Closed 55: Crossed lower Bollinger Bands from below (take profit)
+Opened  56: Denied divergence on new local minimum on 10/02/2023 13:00:00 CET; divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2. Currently open trades: 1
+Closed 56: Crossed upper Bollinger Bands from above (take profit)
+Opened  57: Denied divergence on new local minimum on 24/02/2023 17:00:00 CET; divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2. Currently open trades: 1
+Closed 57: Negative after expiration time (stop loss)
+Opened  58: Denied divergence on new local maximum on 07/03/2023 11:00:00 CET; divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2. Currently open trades: 1
+Closed 58: Crossed lower Bollinger Bands from below (take profit)
+Opened  59: Denied divergence on new local maximum on 31/03/2023 16:00:00 CEST; divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2. Currently open trades: 1
+Closed 59: Negative after expiration time (stop loss)
+Opened  60: Denied divergence on new local maximum on 12/04/2023 14:00:00 CEST; divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2. Currently open trades: 1
+Closed 60: Negative after expiration time (stop loss)
+Opened  61: Denied divergence on new local maximum on 14/06/2023 12:00:00 CEST; divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2. Currently open trades: 1
+Closed 61: Negative after expiration time (stop loss)
+Opened  62: Denied divergence on new local maximum on 16/06/2023 14:00:00 CEST; divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2. Currently open trades: 1
+Closed 62: Crossed lower Bollinger Bands from below (take profit)
+Opened  63: Denied divergence on new local maximum on 30/06/2023 12:00:00 CEST; divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2. Currently open trades: 1
+Closed 63: Crossed lower Bollinger Bands from below (take profit)
+Opened  64: Denied divergence on new local maximum on 28/07/2023 17:00:00 CEST; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2. Currently open trades: 1
+Closed 64: Crossed lower Bollinger Bands from below (take profit)
+
+ END OF LOG
+

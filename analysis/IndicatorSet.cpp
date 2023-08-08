@@ -2,6 +2,8 @@
 #include "Indicators.h"
 #include "Bars.h"
 
+#define MIN_DIV_PERIOD 2
+#define MAX_DIV_PERIOD 14
 /******* DECLARATION ********/
 
 class IndicatorSet
@@ -33,9 +35,9 @@ IndicatorSet::IndicatorSet(::Bars* Bars)
     this->BollingerBands = new Indicators::BollingerBands(Bars, 0); this->BollingerBands->computeIndicator();
     this->JCandleSticks  = new Indicators::JCandleSticks(Bars, 0);  this->JCandleSticks->computeIndicator();
     this->Divergence     = new Indicators::Divergence(Bars,
-        this->LocalMax, this->LocalMin, this->RSI);                  this->Divergence->computeIndicator();
+        this->LocalMax, this->LocalMin, this->RSI, MIN_DIV_PERIOD, MAX_DIV_PERIOD);                  this->Divergence->computeIndicator();
     this->LongDivergence = new Indicators::LongDivergence(Bars, 
-        this->LocalMax, this->LocalMin, this->RSI);                  this->LongDivergence->computeIndicator();
+        this->LocalMax, this->LocalMin, this->RSI, MIN_DIV_PERIOD, MAX_DIV_PERIOD);                  this->LongDivergence->computeIndicator();
 }
 
 IndicatorSet::~IndicatorSet()

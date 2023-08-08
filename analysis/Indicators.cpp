@@ -41,29 +41,28 @@ void Indicators::LocalMin::computeIndicator()
     while (d < dp->getnumBars()) {
         leftDepth = 0;
         while (d < dp->getnumBars() && 
-            (this->m) * dp->getBar(d-1)->close() > (this->m) * dp->getBar(d)->close()) 
-        { 
+          (this->m) * dp->getBar(d-1)->close() > (this->m) * dp->getBar(d)->close()) { 
             leftDepth++;
             d++; 
         }
-        if (leftDepth != 0) {
-            this->indicatorArray[d-1]->leftDepth = leftDepth;
-            this->indicatorArray[d-1]->m = (int) this->m;
-            this->indicatorArray[d-1]->leftChange = 
-                (double)((-1)*(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-leftDepth)->close()) / this->dp->getBar(d-1)->close();
-            rightDepth = 0;
-            while (d < dp->getnumBars() && 
-                (this->m) * dp->getBar(d-1)->close() < (this->m) * dp->getBar(d)->close()) 
-            { 
-                rightDepth++;
-                d++; 
-            }
-            this->indicatorArray[d-1-rightDepth]->rightDepth = rightDepth;
-            this->indicatorArray[d-1-rightDepth]->rightChange = 
-                ((double)(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-rightDepth)->close()) / this->dp->getBar(d-1)->close();
-        } else { 
+        if (d >= dp->getnumBars() || leftDepth == 0) {
+            d++;
+            continue;
+        }
+        this->indicatorArray[d-1]->leftDepth = leftDepth;
+        this->indicatorArray[d-1]->m = (int) this->m;
+        this->indicatorArray[d-1]->leftChange = 
+            (double)((-1)*(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-leftDepth)->close()) / this->dp->getBar(d-1)->close();
+        rightDepth = 0;
+        while (d < dp->getnumBars() && 
+            (this->m) * dp->getBar(d-1)->close() < (this->m) * dp->getBar(d)->close()) { 
+            rightDepth++;
             d++; 
         }
+        this->indicatorArray[d-1-rightDepth]->rightDepth = rightDepth;
+        this->indicatorArray[d-1-rightDepth]->rightChange = 
+            ((double)(this->m)) * ((double)100) * (this->dp->getBar(d-1)->close() - this->dp->getBar(d-1-rightDepth)->close()) / this->dp->getBar(d-1)->close();
+      
     }
 }
 
@@ -91,7 +90,7 @@ void Indicators::Divergence::computeIndicator()
             for (int i = minDivPeriod; i < maxDivPeriod; i++) {
                 if ((d-i > 0) && this->LocalMax->getIndicatorBar(d-i)->isPresent()) {
                     // Test divergence conditions:
-                    if (dp->getBar(d)->close()             > dp->getBar(d-i)->close()
+                    if (dp->getBar(d)->close() > dp->getBar(d-i)->close()
                         && this->RSI->getIndicatorBar(d)->RSI < this->RSI->getIndicatorBar(d-i)->RSI)
                     {
                         this->indicatorArray[d]->leftBarIndex   = d-i;
@@ -140,23 +139,22 @@ void Indicators::LongDivergence::computeIndicator()
                      i--) {
                 // If we find any point greater than current maximum,
                 // or the previous point was marked with a divergence, exit
-                if (dp->getBar(i)->close() > dp->getBar(d)->close()
-                  || this->getIndicatorBar(i+1)->isPresent())
+                if (dp->getBar(i)->close() > dp->getBar(d)->close() ||
+                    this->getIndicatorBar(i+1)->isPresent())
                     break;
                 // Find another max in between and test divergence condition
-                if (LocalMax->getIndicatorBar(i)->isPresent()) {
-                    if (dp->getBar(d)->close()          > dp->getBar(i)->close()
-                        && RSI->getIndicatorBar(d)->RSI < RSI->getIndicatorBar(i)->RSI)
-                    {
-                        this->indicatorArray[d]->leftBarIndex   = i;
-                        this->indicatorArray[d]->rightBarIndex  = d;
-                        this->indicatorArray[d]->leftBar   = dp->getBar(i);
-                        this->indicatorArray[d]->rightBar  = dp->getBar(d);
-                        this->indicatorArray[d]->divPoints = this->indicatorArray[i]->divPoints + 1;
-                        this->indicatorArray[d]->m         = -1;
-                        // Break loop if divergence is found
-                        break;
-                    }
+                if (LocalMax->getIndicatorBar(i)->isPresent() &&
+                    dp->getBar(d)->close() > dp->getBar(i)->close() &&
+                    RSI->getIndicatorBar(d)->RSI < RSI->getIndicatorBar(i)->RSI)
+                {
+                    this->indicatorArray[d]->leftBarIndex   = i;
+                    this->indicatorArray[d]->rightBarIndex  = d;
+                    this->indicatorArray[d]->leftBar   = dp->getBar(i);
+                    this->indicatorArray[d]->rightBar  = dp->getBar(d);
+                    this->indicatorArray[d]->divPoints = this->indicatorArray[i]->divPoints + 1;
+                    this->indicatorArray[d]->m         = -1;
+                    // Break loop if divergence is found
+                    break;
                 }
             }
         }
@@ -167,23 +165,22 @@ void Indicators::LongDivergence::computeIndicator()
                      i > std::max(1, d - maxDivPeriod); i--) {
                 // If we find any point lower than current minimum, 
                 // or previous minimum was marked with a divergence, exit
-                if (dp->getBar(i)->close() < dp->getBar(d)->close()
-                  || this->getIndicatorBar(i+1)->isPresent())
+                if (dp->getBar(i)->close() < dp->getBar(d)->close() ||
+                    this->getIndicatorBar(i+1)->isPresent())
                     break;
                 // Find another min in between and test divergence condition
-                if (LocalMin->getIndicatorBar(i)->isPresent())  {
-                    if (dp->getBar(d)->close() < dp->getBar(i)->close()
-                        && RSI->getIndicatorBar(d)->RSI > RSI->getIndicatorBar(i)->RSI)
-                    {
-                        this->indicatorArray[d]->leftBarIndex   = i;
-                        this->indicatorArray[d]->rightBarIndex  = d;
-                        this->indicatorArray[d]->leftBar   = dp->getBar(i);
-                        this->indicatorArray[d]->rightBar  = dp->getBar(d);
-                        this->indicatorArray[d]->divPoints = this->indicatorArray[i]->divPoints + 1;
-                        this->indicatorArray[d]->m         = 1;
-                        // Break loop if divergence is found
-                        break;
-                    }
+                if (LocalMin->getIndicatorBar(i)->isPresent() &&
+                    dp->getBar(d)->close() < dp->getBar(i)->close() &&
+                    RSI->getIndicatorBar(d)->RSI > RSI->getIndicatorBar(i)->RSI)
+                {
+                    this->indicatorArray[d]->leftBarIndex   = i;
+                    this->indicatorArray[d]->rightBarIndex  = d;
+                    this->indicatorArray[d]->leftBar   = dp->getBar(i);
+                    this->indicatorArray[d]->rightBar  = dp->getBar(d);
+                    this->indicatorArray[d]->divPoints = this->indicatorArray[i]->divPoints + 1;
+                    this->indicatorArray[d]->m         = 1;
+                    // Break loop if divergence is found
+                    break;
                 }
             }
         }

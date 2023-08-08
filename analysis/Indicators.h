@@ -63,8 +63,8 @@ namespace Indicators
                    class LocalMax* LocalMax, 
                    class LocalMin* LocalMin, 
                    class RSI* RSI,
-                   int minDivPeriod = 2, 
-                   int maxDivPeriod = 28,
+                   int minDivPeriod,
+                   int maxDivPeriod,
                    const std::string name = "Divergence");
 
         void computeIndicator();
@@ -78,8 +78,8 @@ namespace Indicators
                       class LocalMax* LocalMax, 
                       class LocalMin* LocalMin, 
                       class RSI* RSI,
-                      int minDivPeriod = 2, 
-                      int maxDivPeriod = 28,
+                      int minDivPeriod,
+                      int maxDivPeriod,
                       const std::string name = "LongDivergence")
             : Divergence(dp, LocalMax, LocalMin, RSI, minDivPeriod, maxDivPeriod, name)
         {

@@ -46,6 +46,7 @@ namespace IndicatorBars
         int rightBarIndex;
         int divPoints = 1;
         int m = 0;
+        int isDenied = false;
 
         bool isPresent() { return (m != 0); }
         std::string toString() { return std::to_string(this->divPoints); }

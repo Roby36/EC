@@ -1,0 +1,100 @@
+
+ STRATEGY REPORT:
+Total positive trades: 20 (7996.300000 points); Total negative trades: 10 (-3802.540000 points);
+ Net loss/profit: 4193.760000
+
+ Trade no: 0; Direction: short; Entry date: 15/08/2013 00:00:00 CEST; Entry closing price: 8376.290000; Exit date: 29/08/2013 00:00:00 CEST; Exit closing price: 8194.550000; Loss/profit: 181.740000;
+ Trade no: 1; Direction: short; Entry date: 14/10/2013 00:00:00 CEST; Entry closing price: 8723.810000; Exit date: 06/11/2013 00:00:00 CET; Exit closing price: 9040.870000; Loss/profit: -317.060000;
+ Trade no: 2; Direction: short; Entry date: 05/11/2013 00:00:00 CET; Entry closing price: 9009.110000; Exit date: 27/11/2013 00:00:00 CET; Exit closing price: 9351.130000; Loss/profit: -342.020000;
+ Trade no: 3; Direction: short; Entry date: 20/01/2014 00:00:00 CET; Entry closing price: 9715.900000; Exit date: 27/01/2014 00:00:00 CET; Exit closing price: 9349.220000; Loss/profit: 366.680000;
+ Trade no: 4; Direction: short; Entry date: 09/05/2014 00:00:00 CEST; Entry closing price: 9581.450000; Exit date: 27/05/2014 00:00:00 CEST; Exit closing price: 9940.820000; Loss/profit: -359.370000;
+ Trade no: 5; Direction: long; Entry date: 29/07/2014 00:00:00 CEST; Entry closing price: 9653.630000; Exit date: 01/08/2014 00:00:00 CEST; Exit closing price: 9210.080000; Loss/profit: -443.550000;
+ Trade no: 6; Direction: short; Entry date: 16/02/2015 00:00:00 CET; Entry closing price: 10923.230000; Exit date: 26/02/2015 00:00:00 CET; Exit closing price: 11327.190000; Loss/profit: -403.960000;
+ Trade no: 7; Direction: short; Entry date: 08/04/2015 00:00:00 CEST; Entry closing price: 12035.860000; Exit date: 29/04/2015 00:00:00 CEST; Exit closing price: 11432.720000; Loss/profit: 603.140000;
+ Trade no: 8; Direction: long; Entry date: 18/06/2015 00:00:00 CEST; Entry closing price: 11100.300000; Exit date: 23/06/2015 00:00:00 CEST; Exit closing price: 11542.540000; Loss/profit: 442.240000;
+ Trade no: 9; Direction: long; Entry date: 01/07/2015 00:00:00 CEST; Entry closing price: 11180.500000; Exit date: 07/07/2015 00:00:00 CEST; Exit closing price: 10676.780000; Loss/profit: -503.720000;
+ Trade no: 10; Direction: short; Entry date: 31/03/2016 00:00:00 CEST; Entry closing price: 9965.510000; Exit date: 05/04/2016 00:00:00 CEST; Exit closing price: 9563.360000; Loss/profit: 402.150000;
+ Trade no: 11; Direction: short; Entry date: 31/08/2016 00:00:00 CEST; Entry closing price: 10592.690000; Exit date: 30/11/2016 00:00:00 CET; Exit closing price: 10640.300000; Loss/profit: -47.610000;
+ Trade no: 12; Direction: short; Entry date: 05/09/2016 00:00:00 CEST; Entry closing price: 10672.220000; Exit date: 16/09/2016 00:00:00 CEST; Exit closing price: 10276.170000; Loss/profit: 396.050000;
+ Trade no: 13; Direction: short; Entry date: 12/01/2017 00:00:00 CET; Entry closing price: 11521.040000; Exit date: 21/02/2017 00:00:00 CET; Exit closing price: 11967.490000; Loss/profit: -446.450000;
+ Trade no: 14; Direction: short; Entry date: 20/03/2017 00:00:00 CET; Entry closing price: 12052.900000; Exit date: 02/05/2017 00:00:00 CEST; Exit closing price: 12507.900000; Loss/profit: -455.000000;
+ Trade no: 15; Direction: short; Entry date: 16/05/2017 00:00:00 CEST; Entry closing price: 12804.530000; Exit date: 30/06/2017 00:00:00 CEST; Exit closing price: 12325.120000; Loss/profit: 479.410000;
+ Trade no: 16; Direction: long; Entry date: 30/08/2017 00:00:00 CEST; Entry closing price: 12002.470000; Exit date: 11/09/2017 00:00:00 CEST; Exit closing price: 12475.240000; Loss/profit: 472.770000;
+ Trade no: 17; Direction: short; Entry date: 17/10/2017 00:00:00 CEST; Entry closing price: 12995.060000; Exit date: 03/11/2017 00:00:00 CET; Exit closing price: 13478.860000; Loss/profit: -483.800000;
+ Trade no: 18; Direction: short; Entry date: 10/01/2020 00:00:00 CET; Entry closing price: 13483.310000; Exit date: 31/01/2020 00:00:00 CET; Exit closing price: 12981.970000; Loss/profit: 501.340000;
+ Trade no: 19; Direction: long; Entry date: 19/03/2020 00:00:00 CET; Entry closing price: 8610.430000; Exit date: 20/03/2020 00:00:00 CET; Exit closing price: 8928.950000; Loss/profit: 318.520000;
+ Trade no: 20; Direction: short; Entry date: 17/09/2020 00:00:00 CEST; Entry closing price: 13208.120000; Exit date: 21/09/2020 00:00:00 CEST; Exit closing price: 12542.440000; Loss/profit: 665.680000;
+ Trade no: 21; Direction: short; Entry date: 14/04/2021 00:00:00 CEST; Entry closing price: 15209.150000; Exit date: 05/05/2021 00:00:00 CEST; Exit closing price: 15170.780000; Loss/profit: 38.370000;
+ Trade no: 22; Direction: short; Entry date: 17/05/2021 00:00:00 CEST; Entry closing price: 15396.620000; Exit date: 20/07/2021 00:00:00 CEST; Exit closing price: 15216.270000; Loss/profit: 180.350000;
+ Trade no: 23; Direction: short; Entry date: 26/05/2021 00:00:00 CEST; Entry closing price: 15450.720000; Exit date: 20/07/2021 00:00:00 CEST; Exit closing price: 15216.270000; Loss/profit: 234.450000;
+ Trade no: 24; Direction: long; Entry date: 07/10/2021 00:00:00 CEST; Entry closing price: 15250.860000; Exit date: 01/11/2021 00:00:00 CET; Exit closing price: 15806.290000; Loss/profit: 555.430000;
+ Trade no: 25; Direction: long; Entry date: 01/07/2022 00:00:00 CEST; Entry closing price: 12813.030000; Exit date: 19/07/2022 00:00:00 CEST; Exit closing price: 13308.410000; Loss/profit: 495.380000;
+ Trade no: 26; Direction: short; Entry date: 11/08/2022 00:00:00 CEST; Entry closing price: 13694.510000; Exit date: 22/08/2022 00:00:00 CEST; Exit closing price: 13230.570000; Loss/profit: 463.940000;
+ Trade no: 27; Direction: short; Entry date: 17/02/2023 00:00:00 CET; Entry closing price: 15482.000000; Exit date: 14/03/2023 00:00:00 CET; Exit closing price: 15232.830000; Loss/profit: 249.170000;
+ Trade no: 28; Direction: short; Entry date: 07/03/2023 00:00:00 CET; Entry closing price: 15559.530000; Exit date: 13/03/2023 00:00:00 CET; Exit closing price: 14959.470000; Loss/profit: 600.060000;
+ Trade no: 29; Direction: short; Entry date: 08/05/2023 00:00:00 CEST; Entry closing price: 15952.830000; Exit date: 07/07/2023 00:00:00 CEST; Exit closing price: 15603.400000; Loss/profit: 349.430000;
+
+ TRADE LOG:
+Opened  0: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 0: Crossed lower Bollinger Bands from below (take profit)
+Opened  1: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  2: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 1: reached stop loss / take profit point
+Closed 2: reached stop loss / take profit point
+Opened  3: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 3: reached stop loss / take profit point
+Opened  4: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 4: reached stop loss / take profit point
+Opened  5: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 5: reached stop loss / take profit point
+Opened  6: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 6: reached stop loss / take profit point
+Opened  7: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 7: reached stop loss / take profit point
+Opened  8: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 8: reached stop loss / take profit point
+Opened  9: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 9: reached stop loss / take profit point
+Opened  10: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 10: reached stop loss / take profit point
+Opened  11: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  12: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 12: reached stop loss / take profit point
+Closed 11: Negative after expiration time (stop loss)
+Opened  13: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 13: reached stop loss / take profit point
+Opened  14: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 14: reached stop loss / take profit point
+Opened  15: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 15: reached stop loss / take profit point
+Opened  16: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 16: reached stop loss / take profit point
+Opened  17: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 17: reached stop loss / take profit point
+Opened  18: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 18: reached stop loss / take profit point
+Opened  19: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 19: reached stop loss / take profit point
+Opened  20: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 20: reached stop loss / take profit point
+Opened  21: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 21: Crossed lower Bollinger Bands from below (take profit)
+Opened  22: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  23: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 22: Crossed lower Bollinger Bands from below (take profit)
+Closed 23: Crossed lower Bollinger Bands from below (take profit)
+Opened  24: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 24: reached stop loss / take profit point
+Opened  25: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 25: reached stop loss / take profit point
+Opened  26: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 26: reached stop loss / take profit point
+Opened  27: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  28: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 28: reached stop loss / take profit point
+Closed 27: Crossed lower Bollinger Bands from below (take profit)
+Opened  29: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 29: Crossed lower Bollinger Bands from below (take profit)
+
+ END OF LOG
+

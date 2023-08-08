@@ -1,7 +1,7 @@
 
 #include "MClient.h"
 
-MClient::MClient( const std::string logPath, ReqIds reqIds) :
+MClient::MClient( const std::string logPath, ReqIds reqIds, bool init_trade_data) :
 	  m_state(ST_CONNECT)		
 	, m_logger(new Mlogger( logPath))
 	, m_orderId(0)
@@ -14,9 +14,8 @@ MClient::MClient( const std::string logPath, ReqIds reqIds) :
 	for (int i = 0; i < MAXTRADES; i++) {
 		m_tradeData->tradeArr[i] = (MTrade_t*) malloc (sizeof(MTrade_t));
 	}
-	currTrade = (MTrade_t *) malloc (sizeof(MTrade_t));
-	//! Restore trade Data: cannot be called with empty ser file!!!
-	archive_td_in();
+	rec_order = (Order *) malloc (sizeof(Order));
+	if (!init_trade_data) archive_td_in(); //! Restore trade Data: cannot be called with empty ser file!!!
 }
 
 MClient::~MClient()
@@ -25,11 +24,11 @@ MClient::~MClient()
 		if (m_instrArray[i] != NULL) 
 			delete(m_instrArray[i]);	
 	}
-	for (int i = 0; i < m_tradeData->numTrades; i++) {
+	for (int i = 0; i < MAXTRADES; i++) {
 		free(m_tradeData->tradeArr[i]);
 	}	
-	free(currTrade);
 	free(m_tradeData);
+	free(rec_order);
 	delete m_Reader;
 	delete m_Client;
 	delete m_logger;
@@ -237,7 +236,7 @@ bool MClient::waitResponse( State target, int reqId, std::string caller) {
 int MClient::placeOrder( int inst_id, Order order) {
 	// Attemp to retrieve the given instrument
 	Instrument* instr = get_Instrument(inst_id);
-	if ( instr == NULL ) {
+	if (instr == NULL) {
 		m_logger->str("\t\n Cannot place order: invalid inst_id\n\n");
 		return -1;
 	}
@@ -256,10 +255,12 @@ int MClient::placeOrder( int inst_id, Order order) {
 void MClient::handle_openOrder( OrderId orderId, const Contract& contract, const Order& order, const OrderState& orderState) {
 	m_logger->openOrder( orderId, contract, order, orderState);
 	// Mark successful order execution only if orderId corresponds with the current one & order recently placed
-	if ( m_state == PLACEORDER && m_orderId == orderId)
+	if ( m_state == PLACEORDER && m_orderId == orderId) {
+		memcpy(rec_order, &order, sizeof(Order));
 		m_state = PLACEORDER_ACK;
+	}
 	// Handle open orders information receival
-	if ( m_state == REQALLOPENORDERS)
+	if (m_state == REQALLOPENORDERS)
 		m_logger->str( "\tReceived orderId " + std::to_string(order.orderId) + " orderRef " + order.orderRef +"\n");
 }
 
@@ -301,79 +302,68 @@ void MClient::setTradingState(TradingState tstate)
 
 int MClient::openTrade(Strategy * strategy)
 {
-	// Save the trade to open 
-	*(this->currTrade) = *(strategy->trade2open);
-	// Place opening order (& fetch execution details from callback!)
-	if (placeOrder( currTrade->instr_id, currTrade->openingOrder) == -1) {
+	MTrade_t * currTrade = strategy->trade2open;
+	// Place opening order (fetch execution details from callback later on)
+	if (placeOrder(currTrade->instr_id, currTrade->openingOrder) == -1) {
 		m_logger->str("openTrade error: failed openingOrder.\n");
 		return -1;
 	}
-	// Wait for execution
-	m_state = OPENTRADE;
-	//! May require higher req_timeout here for orders not executing within seconds!!
-	if (!waitResponse(OPENTRADE_ACK, m_orderId, "openTrade()")) {
-		m_logger->str("openTrade error: failed execution.\n");
-		return -1;
-	}
-	// assign completed trade
-	*m_tradeData->tradeArr[m_tradeData->numTrades++] = *(this->currTrade); 
-	// Update archive
-	archive_td_out();
-	// Log trade execution
-	m_logger->str(std::string("Opened trade ") 	      + 
+	m_logger->str(std::string("Successfully placed order to open trade ") 	            + 
 				  std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
 				  std::to_string(currTrade->instr_id) + std::string(" for strategy ")   + strategy->strategy_code +
 				  std::string(" OrderRef: " + currTrade->openingOrder.orderRef + std::string("\n")));
-	// Signal strategy that trade was opened
-	strategy->openingTrade = false;
-	// Return previous trade Id
-	return (m_tradeData->numTrades - 1);
-}
-
-void MClient::handle_execDetails( int reqId, const Contract& contract, const Execution& execution) {
-	m_logger->execDetails( reqId, contract, execution);
-	// Check if we are attempting to open a trade
-	if (m_state == OPENTRADE && execution.orderId == m_orderId ) {
-		currTrade->openingExecution = execution;
-		currTrade->isOpen = true;
-		m_state = OPENTRADE_ACK;
-	}
-	// Check if we are attempting to close a trade
-	if (m_state == CLOSETRADE && execution.orderId == m_orderId ) {
-		currTrade->closingExecution = execution;
-		currTrade->isOpen = false;
-		m_state = CLOSETRADE_ACK;
-	}
+	memcpy(&currTrade->openingOrder, this->rec_order, sizeof(Order)); // save full opening order retrieved from callback
+	memcpy(m_tradeData->tradeArr[m_tradeData->numTrades++], currTrade, sizeof(MTrade_t) );
+	archive_td_out(); // update trade archive
+	strategy->openingTrade = false; // signal strategy
+	return (m_tradeData->numTrades - 1); // return previous trade Id
 }
 
 bool MClient::closeTrade(Strategy * strategy)
 {
 	// Save the trade to close
-	*(this->currTrade) = *(strategy->trade2close);
+	MTrade_t * currTrade = strategy->trade2close;
 	// Place closing order (& fetch execution details from callback!)
-	if (placeOrder( currTrade->instr_id, currTrade->closingOrder) == -1) {
+	if (placeOrder(currTrade->instr_id, currTrade->closingOrder) == -1) {
 		m_logger->str("closeTrade error: failed closingOrder.\n");
 		return false;
 	}
-	// Wait for response
-	m_state = CLOSETRADE;
-	//! May require higher req_timeout here for orders not executing within seconds!!
-	if (!waitResponse(CLOSETRADE_ACK, m_orderId, "closeTrade()")) {
-		m_logger->str("closeTrade error: failed execution.\n");
-		return false;
-	}
-	// Update trade entry
-	*m_tradeData->tradeArr[currTrade->tradeId] = *currTrade; 
-	// Updata archive
-	archive_td_out();
-	// Log trade execution
-	m_logger->str(std::string("Closed trade ")        + 
+	m_logger->str(std::string("Successfully placed order to close trade ")        + 
 				  std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
 				  std::to_string(currTrade->instr_id) + std::string(" for strategy ")   + strategy->strategy_code +
 				  std::string(" OrderRef: " + currTrade->closingOrder.orderRef + std::string("\n")));
-	// Signal strategy that trade was closed
-	strategy->closingTrade = false;
+	memcpy(&currTrade->closingOrder, this->rec_order, sizeof(Order)); // save full closing order retrieved from callback
+	memcpy(m_tradeData->tradeArr[currTrade->tradeId], currTrade, sizeof(MTrade_t)); // Update trade entry
+	archive_td_out(); // update trade archive 
+	strategy->closingTrade = false; // signal strategy
 	return true;
+}
+
+void MClient::handle_execDetails(int reqId, const Contract& contract, const Execution& execution) {
+	m_logger->execDetails(reqId, contract, execution);
+	// Iterate through each trade
+	for (int i = 0; i < m_tradeData->numTrades; i++) {
+		MTrade_t* currTrade = m_tradeData->tradeArr[i];
+		// Check unexecuted trades to open
+		if (!currTrade->isOpen && currTrade->openingOrder.permId == execution.permId) {
+			currTrade->openingExecution = execution;
+			currTrade->isOpen = true;
+			// Log execution
+			m_logger->str(std::string("Successfully executed order to open trade ") 	        + 
+						  std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
+						  std::to_string(currTrade->instr_id) + std::string(" for strategy ")   + currTrade->strategy +
+						  std::string(" OrderRef: " + currTrade->openingOrder.orderRef + std::string("\n")));
+		// Check unexecuted trades to close
+		} else if (currTrade->isOpen && currTrade->closingOrder.permId == execution.permId) {
+			currTrade->closingExecution = execution;
+			currTrade->isOpen = false;
+			// Log execution
+			m_logger->str(std::string("Successfully executed order to close trade ") 	        + 
+						  std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
+						  std::to_string(currTrade->instr_id) + std::string(" for strategy ")   + currTrade->strategy +
+						  std::string(" OrderRef: " + currTrade->openingOrder.orderRef + std::string("\n")));
+		}
+	}
 }
 
 void MClient::handle_historicalData(TickerId reqId, const Bar& bar) 
@@ -387,18 +377,15 @@ void MClient::handle_historicalData(TickerId reqId, const Bar& bar)
 		m_logger->str("\n\t ERROR: historicalDataUpdate reqId not found\n\n");
 		return;
 	}
-	// Try to update the instrument's Bars
-	if (!instr->addBar(reqId, bar))
-		return;
+	// Try to update the instrument's Bars, and check if instrument requires bar update
+	if (!instr->addBar(reqId, bar)) return;
 	// Call each strategy on the instrument
 	for (int s = 0; s < m_stratCount[instr->inst_id]; s++) {
 		Strategy * curr_strat = m_stratArray[instr->inst_id][s];
 		curr_strat->handle_barUpdate();
 		// Check if a trade needs to be opened or closed
-		if (curr_strat->openingTrade)
-			openTrade(curr_strat);
-		else if (curr_strat->closingTrade)
-			closeTrade(curr_strat);
+		if (curr_strat->openingTrade) openTrade(curr_strat);
+		else if (curr_strat->closingTrade) closeTrade(curr_strat);
 	}
 }
 
@@ -421,8 +408,7 @@ void MClient::handle_realtimeBar(TickerId reqId, long time, double open, double 
 		Strategy * curr_strat = m_stratArray[instr_id][s];
 		curr_strat->handle_realTimeBar(close);
 		// Check if a trade needs to be closed (only option for real time bars)
-		if (curr_strat->closingTrade)
-			closeTrade(curr_strat);
+		if (curr_strat->closingTrade) closeTrade(curr_strat);
 	}
 }
 
@@ -475,7 +461,7 @@ void MClient::add_Strategy(const int instr_id, Strategy * strategy)
 	m_logger->str("Added Strategy " + m_stratArray[instr_id][(m_stratCount[instr_id]) - 1]->strategy_code);
 }
 
-Instrument* MClient::get_Instrument( int instr_Id) {
+Instrument* MClient::get_Instrument(int instr_Id) {
 	if ( instr_Id >= 0 && instr_Id < m_instr_Id)
 		return m_instrArray[instr_Id];
 	m_logger->str("\n\t ERROR: Instrument " + std::to_string(instr_Id) + " out of range\n\n");
@@ -518,84 +504,36 @@ Instrument* MClient::reqId_Instrument( int reqId) {
 
 //** BARS **//
 
-void MClient::initialize_bars(std::string timePeriod, std::string whatToShow, int useRTH) {
-	for (int i = 0; i < m_instr_Id; i++) {
-		// For each instrument, first request historical bars details until current time
-		Instrument* instr = m_instrArray[i];
-		// When bars are initialized, keepUpToDate = false so that we can confirm reception
-		char* queryTime = currTime_str();
-		if (!reqHistoricalData( instr->m_reqIds.historicalBars, instr->dataContract.contract, queryTime, 
-					timePeriod, instr->barSize, whatToShow, useRTH, 1, false)) {
-			m_logger->str("\tError retrieving historical data for instrument " + std::to_string(i) + "\n");
-		}
-		delete(queryTime); // clean up
+void MClient::update_instr_bars(int instr_id, int numBars, bool initialization, std::string whatToShow, int useRTH) {
+	Instrument* instr;
+	if (instr_id >= m_instr_Id || (instr = m_instrArray[instr_id]) == NULL) {
+		m_logger->str( "MClient::update_instr_bars(): invalid instrument id\n");
+		return;
 	}
+	if (!initialization && !instr->requires_update() && instr->bars2update == 0) // if we are in update mode check if instrument requires update
+		return;
+	char* durStr = instr->extend_dur(std::max(numBars, instr->bars2update));
+	if (durStr == NULL) {
+		m_logger->str( "\tMClient::update_instr_bars(): extend_dur() error for instrument " + std::to_string(instr_id) + "\n");
+		return;
+	}
+	char* queryTime = currTime_str();
+	// Fetch appropriate reqIds for instrument
+	int reqId = (initialization == true)  * ((int) instr->m_reqIds.historicalBars) +
+			    (initialization == false) * ((int) instr->m_reqIds.updatedBars);
+	if (!reqHistoricalData(reqId, instr->dataContract.contract, queryTime,
+							durStr, instr->barSize, whatToShow, useRTH, 1, false))
+		m_logger->str("\tError retrieving / updating historical data for instrument " + std::to_string(instr_id) + "\n");
+	else instr->bars2update = 0; // reset bars to update for instrument only if data fetched successfully
+	// Clean up
+	delete(queryTime); 
+	delete(durStr);
 }
 
-void MClient::update_bars( std::string whatToShow, int useRTH, int factor) {
+void MClient::update_bars( int numBars, bool initialization, std::string whatToShow, int useRTH) {
 	for (int i = 0; i < m_instr_Id; i++) {
-		Instrument* instr = m_instrArray[i];
-		// Determine if instrument requires an update
-		if ( (int)(instr->curr_sys_time() - instr->last_bar_update) < instr->sec_barSize )
-			continue;
-		// Extend duration string to make request
-		char* durStr = extend_dur(instr->barSize, factor);
-		// Handle exception
-		if (durStr == NULL) {
-			m_logger->str( "\tupdate_bars(): extend_dur() error for instrument "
-							+ std::to_string(i) + "\n");
-			continue;
-		}
-		// Make the request
-		char* queryTime = currTime_str();
-		if ( !reqHistoricalData( instr->m_reqIds.updatedBars, instr->dataContract.contract, queryTime,
-							durStr, instr->barSize, whatToShow, useRTH, 1, false) )
-			m_logger->str("\tError updating historical data for instrument " + std::to_string(i) + "\n");
-		delete(queryTime); // clean up
-		delete(durStr);
+		update_instr_bars(i, numBars, initialization, whatToShow, useRTH);
 	}
-}
-
-/*** utility function: MALLOC'D STRING MUST BE FREED ***/
-char* MClient::extend_dur( std::string barSize, int factor)
-{
-	// Tokenize string
-	const int size = barSize.size();
-	char cstr[size + 1];
-	int dur;
-  	if ( sscanf( barSize.c_str(), "%d %s", &dur, cstr) != 2) {
-		m_logger->str( "\textend_dur() error: invalid barSize string\n");
-		return NULL;
-	}	
-	// Generate output string
-	int  tf = 1;
-	char tc = 'S';
-	switch ( char t_unit = cstr[0]) {
-		case 's': 				 break;					   
-		case 'm': tf = 60;	     break;
-		case 'h': tf = 60 * 60;  break;
-		case 'd': tc = 'D'; 	 break;
-		default:
-			m_logger->str( "\textend_dur() error: unsupported barSize\n");
-			return NULL;
-	}
-	// Construct output string
-	const int out_len = 8;
-	char buff[out_len];
-	int char_written = snprintf( buff, out_len, "%d %c", 
-						(tf * factor * dur), tc);
-	m_logger->str( "\textend_dur(): snprintf() recorded " + std::to_string(char_written) + " characters\n");
-	// Handle exception
-	if (char_written < 0) {
-		m_logger->str( "\textend_dur(): snprintf() failed\n");
-		return NULL;
-	}
-	// Allocate the correct amount of memory to fully free string later
-	char* out = new char[char_written + 1]; // include terminating null character
-	strncpy( out, buff,  char_written + 1);
-	// Log output
-	m_logger->str( "\textend_dur(" + barSize + ") = " + std::string(out) + "\n");
-	return out;	
 }
 
 /*** MALLOC'D STRING MUST BE FREE'D ***/

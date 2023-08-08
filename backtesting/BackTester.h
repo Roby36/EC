@@ -1,7 +1,7 @@
 
 #pragma once
 #include "Trade.h"
-#include "../myclient/memdbg.h"
+#include "../utils/memdbg.h"
 
 // YOU MUST ALLOCATE THE ARRAY STATICALLY
 // ELSE COMPILER WON'T KNOW SIZE OF OBJECT
