@@ -6,9 +6,7 @@
 #include "MTrade.h"
 #include "MOrders.h"
 #include "memdbg.h"
-
-#define MAXENTRYCONDS 8
-#define MAXEXITCONDS  8
+#include "CommonMacros.h"
 
 enum TradingState {
 	BACKTESTING,

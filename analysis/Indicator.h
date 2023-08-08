@@ -14,7 +14,7 @@ template <class T> class Indicator
     public:
     Indicator(Bars* dp, 
               const std::string name = "Unnamed", 
-              const std::string logDirectory =  "../indicatorslog/");
+              const std::string logDirectory =  "../indicators_log/");
     ~Indicator();
 
     T* getIndicatorBar(int i) { return this->indicatorArray[i]; }

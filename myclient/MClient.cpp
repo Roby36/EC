@@ -15,8 +15,7 @@ MClient::MClient( const std::string logPath, ReqIds reqIds, bool init_trade_data
 		m_tradeData->tradeArr[i] = (MTrade_t*) malloc (sizeof(MTrade_t));
 	}
 	rec_order = (Order *) malloc (sizeof(Order));
-	if (!init_trade_data)
-		archive_td_in(); //! Restore trade Data: cannot be called with empty ser file!!!
+	if (!init_trade_data) archive_td_in(); //! Restore trade Data: cannot be called with empty ser file!!!
 }
 
 MClient::~MClient()
@@ -379,22 +378,14 @@ void MClient::handle_historicalData(TickerId reqId, const Bar& bar)
 		return;
 	}
 	// Try to update the instrument's Bars, and check if instrument requires bar update
-	if (!instr->addBar(reqId, bar)) {
-		if (instr->bars2update != 0) {
-			update_instr_bars(instr->inst_id, instr->bars2update, false);
-			instr->bars2update = 0; // set flag back to zero
-		}
-		return;
-	}
+	if (!instr->addBar(reqId, bar)) return;
 	// Call each strategy on the instrument
 	for (int s = 0; s < m_stratCount[instr->inst_id]; s++) {
 		Strategy * curr_strat = m_stratArray[instr->inst_id][s];
 		curr_strat->handle_barUpdate();
 		// Check if a trade needs to be opened or closed
-		if (curr_strat->openingTrade)
-			openTrade(curr_strat);
-		else if (curr_strat->closingTrade)
-			closeTrade(curr_strat);
+		if (curr_strat->openingTrade) openTrade(curr_strat);
+		else if (curr_strat->closingTrade) closeTrade(curr_strat);
 	}
 }
 
@@ -417,8 +408,7 @@ void MClient::handle_realtimeBar(TickerId reqId, long time, double open, double 
 		Strategy * curr_strat = m_stratArray[instr_id][s];
 		curr_strat->handle_realTimeBar(close);
 		// Check if a trade needs to be closed (only option for real time bars)
-		if (curr_strat->closingTrade)
-			closeTrade(curr_strat);
+		if (curr_strat->closingTrade) closeTrade(curr_strat);
 	}
 }
 
@@ -520,21 +510,23 @@ void MClient::update_instr_bars(int instr_id, int numBars, bool initialization, 
 		m_logger->str( "MClient::update_instr_bars(): invalid instrument id\n");
 		return;
 	}
-	if (!initialization && !instr->requires_update()) // if we are in update mode check if instrument requires update
+	if (!initialization && !instr->requires_update() && instr->bars2update == 0) // if we are in update mode check if instrument requires update
 		return;
-	char* durStr = instr->extend_dur(numBars);
+	char* durStr = instr->extend_dur(std::max(numBars, instr->bars2update));
 	if (durStr == NULL) {
 		m_logger->str( "\tMClient::update_instr_bars(): extend_dur() error for instrument " + std::to_string(instr_id) + "\n");
 		return;
 	}
 	char* queryTime = currTime_str();
 	// Fetch appropriate reqIds for instrument
-	int reqId = (initialization == true)  * ((int) instr->m_reqIds.historicalBars)
-			  + (initialization == false) * ((int) instr->m_reqIds.updatedBars);
-	if ( !reqHistoricalData(reqId, instr->dataContract.contract, queryTime,
+	int reqId = (initialization == true)  * ((int) instr->m_reqIds.historicalBars) +
+			    (initialization == false) * ((int) instr->m_reqIds.updatedBars);
+	if (!reqHistoricalData(reqId, instr->dataContract.contract, queryTime,
 							durStr, instr->barSize, whatToShow, useRTH, 1, false))
 		m_logger->str("\tError retrieving / updating historical data for instrument " + std::to_string(instr_id) + "\n");
-	delete(queryTime); // clean up
+	else instr->bars2update = 0; // reset bars to update for instrument only if data fetched successfully
+	// Clean up
+	delete(queryTime); 
 	delete(durStr);
 }
 

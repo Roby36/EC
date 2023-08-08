@@ -1,0 +1,1032 @@
+	LOG INITIATED AT: Tue Aug  8 18:40:19 2023
+
+	extend_dur(): snprintf() recorded 3 characters
+	extend_dur(1 day) = 2 Y
+	Successfully added bar for instrument 1 with date Mon Aug  9 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 10 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 11 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 12 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 13 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 16 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 17 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 18 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 19 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 20 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 23 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 24 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 25 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 26 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 27 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 30 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 31 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep  1 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep  2 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep  3 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep  6 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep  7 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep  8 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep  9 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 10 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 13 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 14 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 15 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 16 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 17 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 20 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 21 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 22 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 23 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 24 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 27 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 28 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 29 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 30 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct  1 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct  4 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct  5 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct  6 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct  7 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct  8 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 11 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 12 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 13 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 14 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 15 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 18 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 19 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 20 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 21 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 22 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 25 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 26 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 27 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 28 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 29 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov  1 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov  2 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov  3 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov  4 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov  5 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov  8 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov  9 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 10 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 11 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 12 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 15 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 16 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 17 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 18 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 19 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 22 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 23 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 24 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 25 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 26 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 29 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 30 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec  1 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec  2 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec  3 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec  6 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec  7 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec  8 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec  9 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec 10 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec 13 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 14 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 15 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 16 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec 17 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec 20 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 21 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 22 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 23 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec 27 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 28 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 29 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 30 00:00:00 2021
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 31 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 31 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 31 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug 31 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Sep 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Sep 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Sep 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Sep 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Sep 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Oct 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Oct 26 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Oct 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Oct 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Oct 31 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov  3 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov  4 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 10 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 11 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 17 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 18 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Nov 24 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Nov 25 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Nov 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Nov 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Nov 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec  1 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec  2 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec  5 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec  6 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec  7 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec  8 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec  9 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec 12 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 13 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 14 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 15 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec 16 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Dec 19 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 20 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 21 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 22 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec 23 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Dec 27 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Dec 28 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Dec 29 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Dec 30 00:00:00 2022
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan  4 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan  5 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan  9 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 10 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 11 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 12 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 16 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 18 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 19 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 23 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jan 25 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jan 26 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jan 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jan 30 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jan 31 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb  1 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb  7 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb  8 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb  9 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 10 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb 14 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb 15 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb 16 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb 21 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Feb 22 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Feb 23 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Feb 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Feb 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Feb 28 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar  1 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar  7 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar  8 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar  9 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 10 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 14 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 15 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 16 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 21 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 22 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 23 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Mar 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Mar 28 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Mar 29 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Mar 30 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Mar 31 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr  4 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr  5 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 11 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 12 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr 14 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 18 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 19 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr 21 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Apr 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Apr 25 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Apr 26 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Apr 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Apr 28 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May  4 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May  5 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May  8 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May  9 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 10 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 11 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 12 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 15 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 16 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 18 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 19 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 22 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 23 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu May 25 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri May 26 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon May 29 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue May 30 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed May 31 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun  1 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun  5 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun  7 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun  8 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun  9 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 12 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 14 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 15 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 16 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 19 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 21 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 22 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 23 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jun 26 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jun 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jun 28 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jun 29 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jun 30 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul  4 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul  5 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul  6 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul  7 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 10 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 11 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 12 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 13 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 14 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 17 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 18 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 19 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 20 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 21 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 24 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Jul 25 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Jul 26 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Jul 27 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Jul 28 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Jul 31 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug  1 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Wed Aug  2 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Thu Aug  3 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Fri Aug  4 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Mon Aug  7 00:00:00 2023
+ at system time 1691512821
+	Successfully added bar for instrument 1 with date Tue Aug  8 00:00:00 2023
+ at system time 1691512821

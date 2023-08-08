@@ -4,9 +4,7 @@
 #include "Instrument.h"
 #include "Execution.h"
 #include "Order.h"
-
-// Trades need cleaning up when array full to make up space!
-#define MAXTRADES 1024 // MUST BE 1024 FOR CURRENTLY STORED SER FILE!!!
+#include "CommonMacros.h"
 
 typedef struct MTrade 
 {

@@ -1,0 +1,28 @@
+
+ STRATEGY REPORT:
+Total positive trades: 6 (2344.110000 points); Total negative trades: 0 (0.000000 points);
+ Net loss/profit: 2344.110000
+
+ Trade no: 0; Direction: long; Entry date: 01/07/2022 00:00:00 CEST; Entry closing price: 12813.030000; Exit date: 19/07/2022 00:00:00 CEST; Exit closing price: 13308.410000; Loss/profit: 495.380000;
+ Trade no: 1; Direction: short; Entry date: 11/08/2022 00:00:00 CEST; Entry closing price: 13694.510000; Exit date: 22/08/2022 00:00:00 CEST; Exit closing price: 13230.570000; Loss/profit: 463.940000;
+ Trade no: 2; Direction: short; Entry date: 17/02/2023 00:00:00 CET; Entry closing price: 15482.000000; Exit date: 14/03/2023 00:00:00 CET; Exit closing price: 15232.830000; Loss/profit: 249.170000;
+ Trade no: 3; Direction: short; Entry date: 07/03/2023 00:00:00 CET; Entry closing price: 15559.530000; Exit date: 13/03/2023 00:00:00 CET; Exit closing price: 14959.470000; Loss/profit: 600.060000;
+ Trade no: 4; Direction: short; Entry date: 17/04/2023 00:00:00 CEST; Entry closing price: 15789.530000; Exit date: 07/07/2023 00:00:00 CEST; Exit closing price: 15603.400000; Loss/profit: 186.130000;
+ Trade no: 5; Direction: short; Entry date: 08/05/2023 00:00:00 CEST; Entry closing price: 15952.830000; Exit date: 07/07/2023 00:00:00 CEST; Exit closing price: 15603.400000; Loss/profit: 349.430000;
+
+ TRADE LOG:
+Opened  0: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 0: reached stop loss / take profit point
+Opened  1: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 1: reached stop loss / take profit point
+Opened  2: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  3: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 3: reached stop loss / take profit point
+Closed 2: Crossed lower Bollinger Bands from below (take profit)
+Opened  4: Double divergence on local maximum / minimum. Currently open trades: 1
+Opened  5: Double divergence on local maximum / minimum. Currently open trades: 2
+Closed 4: Crossed lower Bollinger Bands from below (take profit)
+Closed 5: Crossed lower Bollinger Bands from below (take profit)
+
+ END OF LOG
+

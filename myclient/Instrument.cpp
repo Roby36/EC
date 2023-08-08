@@ -11,9 +11,9 @@ Instrument::Instrument(const int inst_id,
                           inst_id(inst_id), 
                           barSize(barSize), 
                           sec_barSize( parse_barSize( barSize)),
-                          m_reqIds(reqIds),
                           dataContract(dataContract), 
-                          orderContract(orderContract)                      
+                          orderContract(orderContract),
+                          m_reqIds(reqIds)                   
 {
     // Check if bar size successfully parsed 
     if (sec_barSize == -1) {
@@ -36,7 +36,7 @@ int Instrument::parse_barSize( const std::string barSize)
 {
     // Attemp to extract time units
     int n;
-    char str[MAXBARSIZESTRINGLENGTH];
+    char str[MAX_BARSIZE_STRING_LENGTH];
     if ( sscanf( barSize.c_str(), "%d %s", &n, str) != 2) {
         m_logger->str( "Error processing barSize: invalid string\n");
         return -1;
@@ -59,9 +59,9 @@ int Instrument::parse_barSize( const std::string barSize)
 char* Instrument::extend_dur(int factor)
 {
 	// Tokenize string
-	char cstr[MAXBARSIZESTRINGLENGTH];
+	char cstr[MAX_BARSIZE_STRING_LENGTH];
 	int dur;
-  	if (sscanf( barSize.c_str(), "%d %s", &dur, cstr) != 2) {
+  	if (sscanf(barSize.c_str(), "%d %s", &dur, cstr) != 2) {
 		m_logger->str( "\textend_dur() error: invalid barSize string\n");
 		return NULL;
 	}	
@@ -77,10 +77,19 @@ char* Instrument::extend_dur(int factor)
 			m_logger->str( "\textend_dur() error: unsupported barSize\n");
 			return NULL;
 	}
+    // Check that we are not exceeding the maximum seconds for data request
+    int tot_time_units =  tf * factor * dur;
+    if (tc == 'S' && tot_time_units >= MAX_TOTAL_SECONDS) {
+        tc = 'D'; // change character to days, and decrement total time units accordingly
+        tot_time_units = tot_time_units / (60 * 60 * 24); /** NOTE: not significant loss of precision here */
+    }
+    if (tc == 'D' && tot_time_units >= MAX_TOTAL_DAYS) {
+        tc = 'Y'; 
+        tot_time_units = tot_time_units / 365;
+    }
 	// Construct output string
-	char buff[MAXBARSIZESTRINGLENGTH];
-	int char_written = snprintf( buff, MAXBARSIZESTRINGLENGTH, "%d %c", 
-						(tf * factor * dur), tc);
+	char buff[MAX_BARSIZE_STRING_LENGTH];
+	int char_written = snprintf( buff, MAX_BARSIZE_STRING_LENGTH, "%d %c", tot_time_units, tc);
 	m_logger->str( "\textend_dur(): snprintf() recorded " + std::to_string(char_written) + " characters\n");
 	// Handle exception
 	if (char_written < 0) {
@@ -136,14 +145,19 @@ bool Instrument::addBar(TickerId reqId, const Bar& bar, const double time_tol, c
                             + " with date "                  + asctime(&timeinfo) 
                             + ": most recent bar found on "  + asctime(prev_date) +"\n");
             return false;
-        // Check whether most recent bar is not too far back
-        } else if (bars_back == 0 && time_diff > (double) (time_tol * sec_barSize)) {
-            // Request bar update
-            m_logger->str("\tCannot add bar for instrument " + std::to_string(inst_id)
-                            + " with date "                  + asctime(&timeinfo) 
-                            + ": missing bars in between "  + asctime(prev_date) +"\n");
-            // Determine how many bars are required (MClient responsible for setting bars2update back to zero!)
+        } 
+        /** NOTE: This check is hard to implement due to trading hours irregularities! **/
+        else if (bars_back == 0 && 
+                 time_diff > (double) (time_tol * sec_barSize) &&
+                 within_trading_hours(this->dataContract)) /* check ignored if not within trading hours */ {
             bars2update = (update_factor * time_diff) / sec_barSize;
+            // Request bar update
+            m_logger->str("\tCannot add bar for instrument "  + std::to_string(inst_id)
+                            + " with date "                   + asctime(&timeinfo) 
+                            + ": missing bars in between "    + asctime(prev_date) 
+                            + " and requesting an update of " + std::to_string(bars2update)
+                            + " bars.\n");
+            // Determine how many bars are required (MClient responsible for setting bars2update back to zero!)
             return false;
         }
     }
@@ -160,6 +174,38 @@ bool Instrument::addBar(TickerId reqId, const Bar& bar, const double time_tol, c
                             + " at system time " + std::to_string(last_bar_update) + "\n");
     return true;
 }         
+
+bool Instrument::within_trading_hours(ContractDetails contract_details) 
+{
+    /** EXAMPLES:
+    20230806:CLOSED;20230807:0215-20230807:2205;20230808:0215-20230808:2205;20230809:0215-20230809:2205;20230810:0215-20230810:2205;20230811:0215-20230811:2205
+    20230806:CLOSED;
+    20230807:0215 - 20230807:2205 ;
+    */
+    char th_string [MAX_TH_STRING_LENGTH]; // Copy constant date-time string into modifiable array
+    strncpy(th_string, contract_details.tradingHours.c_str(), MAX_TH_STRING_LENGTH);
+    char * th_string_it = th_string;
+    while (*(++th_string_it) != ';') {} // iterate until the first ';' 
+    *th_string_it = '\0'; // truncate string
+    // Parse string contents into opening and closing time strings
+    char opening_time_str[MAX_TH_STRING_LENGTH / 2];
+    char closing_time_str[MAX_TH_STRING_LENGTH / 2];
+    if (sscanf(th_string, "%s-%s", opening_time_str, closing_time_str) != 2)
+        return false; // this implies that market is closed today
+    // Parse strings into time structs
+    struct tm opening_time_struct;
+    struct tm closing_time_struct;
+    strptime(opening_time_str, "%Y%m%d:%H%M", &opening_time_struct);
+    strptime(closing_time_str, "%Y%m%d:%H%M", &closing_time_struct);
+    // Compare time structs with current time 
+    time_t opening_time = mktime(&opening_time_struct);
+    time_t closing_time = mktime(&closing_time_struct);
+    time_t curr_time    = std::time(NULL);
+    if (difftime(curr_time, opening_time) < 0 ||
+        difftime(curr_time, closing_time) > 0)
+        return false;
+    return true;
+}
 
 void Instrument::updateDataContract (int reqId, const ContractDetails& contractDetails) {
     // Ignore call if reqId does not correspond

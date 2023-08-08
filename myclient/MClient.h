@@ -20,12 +20,10 @@
 #include "MOrders.h"
 #include "MTrade.h"
 #include "Strategy.h"
+#include "CommonMacros.h"
 
 #include "ser.h"
 #include "memdbg.h"
-
-#define MAXINSTR 32
-#define MAXSTRAT 16
 
 enum State {
     ST_CONNECT,

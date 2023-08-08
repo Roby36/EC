@@ -1,0 +1,15 @@
+
+ STRATEGY REPORT:
+Total positive trades: 2 (164.230000 points); Total negative trades: 0 (0.000000 points);
+ Net loss/profit: 164.230000
+
+ Trade no: 0; Direction: short; Entry date: 25/07/2023 12:00:00 CEST; Entry closing price: 16210.350000; Exit date: 26/07/2023 13:00:00 CEST; Exit closing price: 16073.200000; Loss/profit: 137.150000;
+ Trade no: 1; Direction: long; Entry date: 08/08/2023 13:00:00 CEST; Entry closing price: 15747.850000; Exit date: 08/08/2023 13:00:00 CEST; Exit closing price: 15747.850000; Loss/profit: 0.000000;
+
+ TRADE LOG:
+Opened  0: Double divergence on local maximum / minimum. Currently open trades: 1
+Closed 0: Crossed lower Bollinger Bands from below (take profit)
+Opened  1: Double divergence on local maximum / minimum. Currently open trades: 1
+
+ END OF LOG
+

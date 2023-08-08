@@ -9,9 +9,8 @@
 #include "StdAfx.h"
 #include <time.h>
 
+#include "CommonMacros.h"
 #include "Mlogger.h"
-
-#define MAXBARSIZESTRINGLENGTH 8
 
 class Instrument
 {
@@ -19,7 +18,7 @@ class Instrument
     long last_bar_update;
     const int cross_validation_bars = 8;
 
-    int parse_barSize( const std::string barSize);
+    int parse_barSize(const std::string barSize);
     static long curr_sys_time();
 
     public:
@@ -35,7 +34,8 @@ class Instrument
     ContractDetails dataContract;
     ContractDetails orderContract;
 
-    bool addBar(TickerId reqId, const Bar& bar, const double time_tol = 1.5, const int update_factor = 2);                             // passed in historicalDataUpdate callback
+    bool addBar(TickerId reqId, const Bar& bar, const double time_tol = 1.5, const int update_factor = 2);  // passed in historicalDataUpdate callback
+    static bool within_trading_hours(ContractDetails contract_details);
     void updateDataContract (int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
     void updateOrderContract(int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
 

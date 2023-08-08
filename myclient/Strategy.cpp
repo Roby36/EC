@@ -172,84 +172,73 @@ void Strategy::print_backtest()
 
 void Strategy::denied_divergence_local_max()
 {
-    int barsBack = 1;
+    /** CONDITIONS:
+    *  (1) We are on a local maximum without divergence
+    *  (2) We are on a new maximum since the previous divergence (located on a maximum)
+    *  (3) Current maximum's RSI greater than first maximum's RSI
+    */
+    const int startBar = curr_bar_index - 2;
+    int barsBack       = 0;
     int currLeftBar;
-
-    // Check for local maximum on PREVIOUS bar (with NO divergence)
-    if (!m_LocalMax->getIndicatorBar(curr_bar_index - 2)->isPresent()) 
+    /* (1) */
+    if (!m_LocalMax->getIndicatorBar(startBar)->isPresent() ||
+        m_LongDivergence->getIndicatorBar(startBar)->isPresent()) 
         return;
-    // Iterate back to previous maximum
-    while (barsBack < m_LongDivergence->maxDivPeriod &&
-          !m_LocalMax->getIndicatorBar(curr_bar_index - 2 - barsBack)->isPresent()) {
-        // check we are not going too much behind before incrementing!
-        if ((curr_bar_index - 2 - (++barsBack)) < 0)
+    /* (2) */
+    while (m_LongDivergence->getIndicatorBar(startBar - barsBack)->m != -1) {
+        if (startBar - (++barsBack) < 0 ||  // move one bar back
+            barsBack > m_LongDivergence->maxDivPeriod ||  // check max divergency period, and that we are on a new maximum
+            m_instr->bars->getBar(startBar)->close() < m_instr->bars->getBar(startBar - barsBack)->close())
             return;
     }
-    // Check if we actually found a maxiumum
-    if (!m_LocalMax->getIndicatorBar(curr_bar_index - 2 - barsBack)->isPresent()) 
-        return;
-    // Now navigate towards the left maximum of the hypothetical divergence
-    currLeftBar = curr_bar_index - 2 - barsBack;
+    // Now navigate towards the left (root) maximum of the divergence
+    currLeftBar = startBar - barsBack;
     while (m_LongDivergence->getIndicatorBar(currLeftBar)->isPresent()) {
         currLeftBar = m_LongDivergence->getIndicatorBar(currLeftBar)->leftBarIndex;
     }
-    // Check if we actually had a divergence on the previous maximum
-    if (currLeftBar == curr_bar_index - 2 - barsBack)
+    /* (3) */
+    if (m_RSI->getIndicatorBar(startBar)->RSI < m_RSI->getIndicatorBar(currLeftBar)->RSI)
         return;
-    /** IF:
-    *  1) Current maximum is a NEW maximum
-    *  2) Current maximum is a NEW RSI maximum since the FIRST maximum,
-    * we have a denied divergence, given the previously checked conditions */
-    if (( m_instr->bars->getBar(curr_bar_index - 2)->close() >
-            m_instr->bars->getBar(curr_bar_index - 2 - barsBack)->close()) &&  
-        ( m_RSI->getIndicatorBar(curr_bar_index - 2)->RSI >
-            m_RSI->getIndicatorBar(currLeftBar)->RSI) )
-        general_open(-1, curr_bar_index - 1, "Denied divergence on new local maximum" );
+    /* Open trade once all conditions have been passed */
+    general_open(-1, curr_bar_index - 1, "Denied divergence on new local maximum" );
 }
 
 /* Similar to Strategy::denied_divergence_local_max() */
 void Strategy::denied_divergence_local_min()
 {
-    int barsBack = 1;
+    /** CONDITIONS:
+    *  (1) We are on a local minimum without divergence
+    *  (2) We are on a new minimum since the previous divergence (located on a minimum)
+    *  (3) Current minimum's RSI lower than first minimum's RSI
+    */
+    const int startBar = curr_bar_index - 2;
+    int barsBack       = 0;
     int currLeftBar;
-
-    // Check for local minimum on PREVIOUS bar (with NO divergence)
-    if (!m_LocalMin->getIndicatorBar(curr_bar_index - 2)->isPresent()) 
+    /* (1) */
+    if (!m_LocalMin->getIndicatorBar(startBar)->isPresent() ||
+        m_LongDivergence->getIndicatorBar(startBar)->isPresent()) 
         return;
-    // Iterate back to previous minimum
-    while (barsBack < m_LongDivergence->maxDivPeriod &&
-        !m_LocalMin->getIndicatorBar(curr_bar_index - 2 - barsBack)->isPresent()) {
-        // check we are not going too much behind before incrementing!
-        if ((curr_bar_index - 2 - (++barsBack)) < 0)
-            return; 
+    /* (2) */
+    while (m_LongDivergence->getIndicatorBar(startBar - barsBack)->m != 1) {
+        if (startBar - (++barsBack) < 0 ||  // move one bar back
+            barsBack > m_LongDivergence->maxDivPeriod ||  // check max divergency period, and that we are on a new minimum
+            m_instr->bars->getBar(startBar)->close() > m_instr->bars->getBar(startBar - barsBack)->close())
+            return;
     }
-    // Check if we actually found a minimum
-    if (!m_LocalMin->getIndicatorBar(curr_bar_index - 2 - barsBack)->isPresent())
-        return;
-    // Now navigate towards the left minimum of the hypothetical divergence
-    currLeftBar = curr_bar_index - 2 - barsBack;
+    // Now navigate towards the left (root) minimum of the divergence
+    currLeftBar = startBar - barsBack;
     while (m_LongDivergence->getIndicatorBar(currLeftBar)->isPresent()) {
         currLeftBar = m_LongDivergence->getIndicatorBar(currLeftBar)->leftBarIndex;
     }
-    // Check if we actually had a divergence on the previous minimum
-    if (currLeftBar == curr_bar_index - 2 - barsBack)
+    /* (3) */
+    if (m_RSI->getIndicatorBar(startBar)->RSI > m_RSI->getIndicatorBar(currLeftBar)->RSI)
         return;
-    /** IF:
-    *  1) Current minimum is a NEW minimum
-    *  2) Current minimum is a NEW RSI minimum since the FIRST minimum,
-    * we have a denied divergence, given the previously checked conditions */
-    if (( m_instr->bars->getBar(curr_bar_index - 2)->close() <
-            m_instr->bars->getBar(curr_bar_index - 2 - barsBack)->close()) &&  
-        ( m_RSI->getIndicatorBar(curr_bar_index - 2)->RSI <
-            m_RSI->getIndicatorBar(currLeftBar)->RSI) )
-        general_open(1, curr_bar_index - 1, "Denied divergence on new local minimum");
+    /* Open trade once all conditions have been passed */
+    general_open(1, curr_bar_index - 1, "Denied divergence on new local minimum");
 }
 
 void Strategy::denied_divergence() 
 {
-    // If divergence present on previous bar, no trades can be opened
-    if (m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->isPresent())
-        return;
     denied_divergence_local_max();
     denied_divergence_local_min();
 }
@@ -356,8 +345,8 @@ void Strategy::stop_loss_take_profit(MTrade_t* curr_trade, const double close)
 void Strategy::check_entry_conditions() {
     for (int i = 0; i < MAXENTRYCONDS; i++) {
         EntryConditions cond = entry_conditions[i];
-        if (cond == ENTRY_CONDITIONS_END) // check if we ran out of conditions
-            break;
+        // check if we ran out of conditions
+        if (cond == ENTRY_CONDITIONS_END) break;
         /** CONDITIONSTRINGS: **/
         else if (cond == DOUBLE_DIVERGENCE) double_divergence(); /* S2 */
         else if (cond == DENIED_DIVERGENCE) denied_divergence(); /* S1 */
@@ -368,8 +357,8 @@ void Strategy::check_entry_conditions() {
 void Strategy::check_exit_conditions(MTrade_t* curr_trade) {
     for (int i = 0; i < MAXEXITCONDS; i++) {
         ExitConditions cond = exit_conditions[i];
-        if (cond == EXIT_CONDITIONS_END) // check if we ran out of conditions
-            break;
+        // check if we ran out of conditions
+        if (cond == EXIT_CONDITIONS_END) break;
         /** CONDITIONSTRINGS: SAME for S1, S2**/
         else if (cond == OPPOSITE_DIVERGENCE)       opposite_divergence(curr_trade);
         else if (cond == BOLLINGER_CROSSING)        bollinger_crossing(curr_trade);
@@ -381,8 +370,7 @@ void Strategy::check_exit_conditions(MTrade_t* curr_trade) {
 
 void Strategy::handle_barUpdate() {
     // Update & verify bar position (including 1 bar iterating back)
-    if ((curr_bar_index = m_instr->bars->getnumBars()) < 3)
-        return;
+    if ((curr_bar_index = m_instr->bars->getnumBars()) < 3) return;
     // First update indicators to account for new bar
     compute_indicators();
     //** ENTRY CONDITIONS (live & backtesting) **//
@@ -392,8 +380,7 @@ void Strategy::handle_barUpdate() {
     // Iterate through every trade of MClient and check if it belongs to this strategy, with this instrument
     for (int i = 0; i < m_tradeData->numTrades; i++) {
         MTrade_t* curr_trade = m_tradeData->tradeArr[i];
-        if (!check_trade(curr_trade))
-            continue;
+        if (!check_trade(curr_trade)) continue;
         check_exit_conditions(curr_trade);
         }
     }
