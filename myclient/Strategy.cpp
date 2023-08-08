@@ -22,12 +22,21 @@ Strategy::Strategy(Instrument* const m_instr,
                     Indicators::LocalMax * input_LocalMax,
                     Indicators::RSI      * input_RSI,
                     Indicators::BollingerBands * input_BollingerBands,
+                    Indicators::Divergence     * input_Divergence,
                     Indicators::LongDivergence * input_LongDivergence,
                 //! Condition arrays (to be copied into instance variables)
                     EntryConditions input_entry_conditions [],
-                    ExitConditions  input_exit_conditions  []
+                    ExitConditions  input_exit_conditions  [],
+                // Parameters for denied divergence
+                    const DivergenceType divType, 
+                    const int max_neg_period, 
+                    const bool RSI_cond
                     ) : 
         m_instr(m_instr),
+        m_logger(new Mlogger( std::string("../strategies_log/" + strategy_code + ".txt"))),
+        divType(divType),
+        max_neg_period(max_neg_period),
+        RSI_cond(RSI_cond),
         stop_loss(stop_loss),
         take_profit(take_profit),
         expirationBars(expirationBars),
@@ -44,6 +53,7 @@ Strategy::Strategy(Instrument* const m_instr,
     m_LocalMax = input_LocalMax;
     m_RSI      = input_RSI;
     m_BollingerBands = input_BollingerBands;
+    m_Divergence     = input_Divergence;
     m_LongDivergence = input_LongDivergence;
     // Copying arrays
     for (int i = 0; i < MAXENTRYCONDS; i++) {
@@ -63,6 +73,7 @@ Strategy::Strategy(Instrument* const m_instr,
 Strategy::~Strategy()
 {
     delete(m_bt);
+    delete(m_logger);
     delete_indicators();
     free(trade2open);
     free(trade2close);
@@ -70,6 +81,7 @@ Strategy::~Strategy()
 
 void Strategy::delete_indicators()
 {
+    delete(m_Divergence);
     delete(m_LongDivergence);
     delete(m_BollingerBands);
     delete(m_LocalMax);
@@ -91,6 +103,7 @@ void Strategy::compute_indicators()
     m_LocalMin->computeIndicator();
     m_LocalMax->computeIndicator();
     m_RSI->computeIndicator();
+    m_Divergence->computeIndicator();
     m_LongDivergence->computeIndicator();
     m_BollingerBands->computeIndicator();
 }
@@ -115,7 +128,7 @@ void Strategy::openTrade(const std::string strategy,
 void Strategy::closeTrade(MTrade_t * curr_trade,
                           const std::string orderRef)
 {
-    fprintf(stderr, "Strategy::closeTrade: closing trade number %d orderRef %s \n", curr_trade->tradeId, orderRef.c_str()); 
+    m_logger->str(std::string("Strategy::closeTrade: closing trade number " + std::to_string(curr_trade->tradeId) + " with orderRef: " + orderRef +  "\n")); 
 	trade2close = curr_trade; // no need to memcpy since curr_trade is already a malloc'd pointer
 	trade2close->closingOrder.orderRef = orderRef;
     this->closingTrade = true; // signal that the trade must be closed
@@ -126,8 +139,7 @@ void Strategy::general_open(const int dir,
                             const int bar_index, 
                             std::string orderRef)
 {
-    // TO BE LOGGED IN DEDICATED TRADING FILE
-    fprintf(stderr, "Strategy::general_open: opening trade in dir %d at bar index %d with orderRef %s \n", dir, bar_index, orderRef.c_str()); 
+    m_logger->str(std::string("Strategy::general_open: opening trade in dir " + std::to_string(dir) + " at bar index " + std::to_string(bar_index) + " with orderRef: " + orderRef + "\n")); 
     // Determine trade direction
     std::string opening_action;
     std::string closing_action;
@@ -138,7 +150,7 @@ void Strategy::general_open(const int dir,
         opening_action = "SELL";
         closing_action = "BUY";
     } else {
-        fprintf(stderr,"Strategy::general_open(): invalid trade direction\n");
+        m_logger->str("Strategy::general_open(): invalid trade direction\n");
         return;
     } 
     // Consider live trading & backtesting cases
@@ -170,77 +182,78 @@ void Strategy::print_backtest()
 
 //** ENTRY CONDITIONS **//
 
-void Strategy::denied_divergence_local_max()
+void Strategy::denied_divergence_general(StatType statType /* DivergenceType divType, StatType statType, const int max_neg_period, const bool RSI_cond */) 
 {
-    /** CONDITIONS:
-    *  (1) We are on a local maximum without divergence
-    *  (2) We are on a new maximum since the previous divergence (located on a maximum)
-    *  (3) Current maximum's RSI greater than first maximum's RSI
-    */
+    // Select desired indicators
+    Indicators::LocalMin * StatIndicator;
+    Indicators::Divergence * DivIndicator;
+    std::string stat_point_str;
+    switch (statType) {
+        case MAX: {
+            StatIndicator = m_LocalMax;
+            stat_point_str = "maximum";
+            break; 
+            }
+        case MIN: {
+            StatIndicator  = m_LocalMin;
+            stat_point_str = "minimum";
+            break;
+        }
+    }
+    switch (divType) {
+        case SHORT: DivIndicator = m_Divergence; break;
+        case LONG:  DivIndicator = m_LongDivergence; break;
+    }
+
     const int startBar = curr_bar_index - 2;
     int barsBack       = 0;
     int currLeftBar;
-    /* (1) */
-    if (!m_LocalMax->getIndicatorBar(startBar)->isPresent() ||
-        m_LongDivergence->getIndicatorBar(startBar)->isPresent()) 
+    int rightBar;
+
+    /*** CONDITIONS: ***/
+    /* (1) We are on a maximum/minimum without divergence */
+    if (!StatIndicator->getIndicatorBar(startBar)->isPresent() ||
+        DivIndicator->getIndicatorBar(startBar)->isPresent()) 
         return;
-    /* (2) */
-    while (m_LongDivergence->getIndicatorBar(startBar - barsBack)->m != -1) {
+    /* (2) We are on a new maximum/minimum since the previous divergence (located on a maximum/minimum) */
+    while (DivIndicator->getIndicatorBar(startBar - barsBack)->m != (int)statType) {
         if (startBar - (++barsBack) < 0 ||  // move one bar back
-            barsBack > m_LongDivergence->maxDivPeriod ||  // check max divergency period, and that we are on a new maximum
-            m_instr->bars->getBar(startBar)->close() < m_instr->bars->getBar(startBar - barsBack)->close())
+            barsBack > max_neg_period ||  // check max negation period, 
+            /* (first_stat_neg && barsBack > 1 &&  // if we find a stationary point without divergence, then we can't be on first maximum/minimum after a divergence 
+                StatIndicator->getIndicatorBar(startBar - barsBack + 1)->isPresent()) ||  // not a particularly useful parameter */
+            (int)statType * m_instr->bars->getBar(startBar)->close() > /* check whether we are on new maximum/minimum*/
+            (int)statType * m_instr->bars->getBar(startBar - barsBack)->close())
             return;
     }
-    // Now navigate towards the left (root) maximum of the divergence
-    currLeftBar = startBar - barsBack;
-    while (m_LongDivergence->getIndicatorBar(currLeftBar)->isPresent()) {
-        currLeftBar = m_LongDivergence->getIndicatorBar(currLeftBar)->leftBarIndex;
-    }
-    /* (3) */
-    if (m_RSI->getIndicatorBar(startBar)->RSI < m_RSI->getIndicatorBar(currLeftBar)->RSI)
+    /* Check if this divergence was denied already */
+    rightBar = startBar - barsBack;
+    if (DivIndicator->getIndicatorBar(rightBar)->isDenied)
         return;
-    /* Open trade once all conditions have been passed */
-    general_open(-1, curr_bar_index - 1, "Denied divergence on new local maximum" );
+    // Navigate towards the left (root) maximum of the divergence
+    currLeftBar = rightBar;
+    while (DivIndicator->getIndicatorBar(currLeftBar)->isPresent()) {
+        currLeftBar = DivIndicator->getIndicatorBar(currLeftBar)->leftBarIndex;
+    }
+    /* (3) Current maximum/minimum's RSI greater/smaller than first maximum/minimum's RSI */
+    if (RSI_cond &&
+        (int)statType * m_RSI->getIndicatorBar(startBar)->RSI > 
+        (int)statType * m_RSI->getIndicatorBar(currLeftBar)->RSI)
+        return;
+    /* Mark divergence as denied, and open trade */
+    DivIndicator->getIndicatorBar(rightBar)->isDenied = true;
+    general_open((int)statType, curr_bar_index - 1, 
+                std::string("Denied divergence on new local " + stat_point_str + 
+                            " on " + std::string(m_instr->bars->getBar(startBar)->date_time_str) +
+                            "; divergence between " + std::string(m_instr->bars->getBar(currLeftBar)->date_time_str) +
+                            " and " + std::string(m_instr->bars->getBar(rightBar)->date_time_str) +
+                            " of entity " + std::to_string(DivIndicator->getIndicatorBar(rightBar)->divPoints)));
+                          
 }
 
-/* Similar to Strategy::denied_divergence_local_max() */
-void Strategy::denied_divergence_local_min()
+void Strategy::denied_divergence(/* DivergenceType divType, const int max_neg_period, const bool RSI_cond */) 
 {
-    /** CONDITIONS:
-    *  (1) We are on a local minimum without divergence
-    *  (2) We are on a new minimum since the previous divergence (located on a minimum)
-    *  (3) Current minimum's RSI lower than first minimum's RSI
-    */
-    const int startBar = curr_bar_index - 2;
-    int barsBack       = 0;
-    int currLeftBar;
-    /* (1) */
-    if (!m_LocalMin->getIndicatorBar(startBar)->isPresent() ||
-        m_LongDivergence->getIndicatorBar(startBar)->isPresent()) 
-        return;
-    /* (2) */
-    while (m_LongDivergence->getIndicatorBar(startBar - barsBack)->m != 1) {
-        if (startBar - (++barsBack) < 0 ||  // move one bar back
-            barsBack > m_LongDivergence->maxDivPeriod ||  // check max divergency period, and that we are on a new minimum
-            m_instr->bars->getBar(startBar)->close() > m_instr->bars->getBar(startBar - barsBack)->close())
-            return;
-    }
-    // Now navigate towards the left (root) minimum of the divergence
-    currLeftBar = startBar - barsBack;
-    while (m_LongDivergence->getIndicatorBar(currLeftBar)->isPresent()) {
-        currLeftBar = m_LongDivergence->getIndicatorBar(currLeftBar)->leftBarIndex;
-    }
-    /* (3) */
-    if (m_RSI->getIndicatorBar(startBar)->RSI > m_RSI->getIndicatorBar(currLeftBar)->RSI)
-        return;
-    /* Open trade once all conditions have been passed */
-    general_open(1, curr_bar_index - 1, "Denied divergence on new local minimum");
-}
-
-void Strategy::denied_divergence() 
-{
-    denied_divergence_local_max();
-    denied_divergence_local_min();
+    denied_divergence_general(MAX);
+    denied_divergence_general(MIN);
 }
 
 void Strategy::double_divergence()
@@ -265,7 +278,7 @@ bool Strategy::check_trade(MTrade_t* curr_trade)
 
 void Strategy::opposite_divergence(MTrade_t* curr_trade)
 {
-    if (curr_trade == NULL && t_state == BACKTESTING) // bt case
+    if (curr_trade == NULL && t_state == BACKTESTING) 
         m_bt->closeTrades((-1) * m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1, 
         "Opposite (not necessarily denied) divergence on previous bar");
     // live trading case
@@ -288,11 +301,11 @@ void Strategy::bollinger_crossing(MTrade_t* curr_trade)
     else if (curr_trade->openingOrder.action == "BUY" &&
         curr_trade->openingExecution.price < m_instr->bars->getBar(curr_bar_index - 1)->close() && 
         m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossUpperDown)
-            closeTrade(curr_trade, "Crossed upper Bollinger Bands in profit");
+            closeTrade(curr_trade, "Crossed upper Bollinger Bands from above in profit");
     else if (curr_trade->openingOrder.action == "SELL" &&
         curr_trade->openingExecution.price > m_instr->bars->getBar(curr_bar_index - 1)->close() && 
         m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossLowerUp)
-            closeTrade(curr_trade, "Crossed lower Bollinger Bands in profit");
+            closeTrade(curr_trade, "Crossed lower Bollinger Bands from below in profit");
 }
 
 void Strategy::negative_trade_expiration(MTrade_t* curr_trade)

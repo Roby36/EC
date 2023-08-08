@@ -28,17 +28,31 @@ enum ExitConditions {
 	EXIT_CONDITIONS_END
 };
 
+enum DivergenceType {
+	SHORT,
+	LONG
+};
+
+enum StatType {
+	MAX = -1,
+	MIN = 1
+};
+
 class Strategy
 {
 	/** INSTRUMENT: */
 	Instrument * /*const*/ m_instr;  
 	int curr_bar_index = 0; // bar iteration
 
+	/** LOGGING: */
+	Mlogger* const m_logger;
+
 	/** INDICATORS: */
 	// Indicators required for each strategy
 	Indicators::LocalMin*       m_LocalMin;
 	Indicators::LocalMax*       m_LocalMax;
 	Indicators::RSI*            m_RSI;
+	Indicators::Divergence*		m_Divergence;
 	Indicators::LongDivergence* m_LongDivergence;
 	Indicators::BollingerBands* m_BollingerBands;
 	void compute_indicators();
@@ -47,10 +61,14 @@ class Strategy
 	/** CONDITIONS: */
 	EntryConditions entry_conditions [MAXENTRYCONDS];
     ExitConditions  exit_conditions  [MAXEXITCONDS];
+	/* Conditions for denied divergence */
+	const DivergenceType divType;
+	const int max_neg_period;
+	const bool RSI_cond;
+
 	/** ENTRY: */
-	void denied_divergence_local_max(); // Helper
-	void denied_divergence_local_min(); // Helper
-	void denied_divergence();
+	void denied_divergence_general( StatType statType /* DivergenceType divType, const int max_neg_period, const bool RSI_cond = true */);
+	void denied_divergence(/* DivergenceType divType, const int max_neg_period , const bool RSI_cond = true */);
 	void double_divergence();
 	/** EXIT: */
 	void opposite_divergence(MTrade_t* curr_trade = NULL);
@@ -97,10 +115,15 @@ class Strategy
 				Indicators::LocalMax * input_LocalMax,
 				Indicators::RSI      * input_RSI,
 				Indicators::BollingerBands * input_BollingerBands,
+				Indicators::Divergence     * intput_Divergence,
 				Indicators::LongDivergence * input_LongDivergence,
 			// Condition arrays (to be copied into instance variables)
 				EntryConditions input_entry_conditions [],
-				ExitConditions  input_exit_conditions  []
+				ExitConditions  input_exit_conditions  [],
+			// Parameters for denied divergence
+				const DivergenceType divType = LONG, 
+				const int max_neg_period = 14, 
+				const bool RSI_cond = true
 				);
 	~Strategy();
 

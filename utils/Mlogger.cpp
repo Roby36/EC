@@ -13,7 +13,7 @@ Mlogger::Mlogger(std::string filepath) {
     time_t now = ::time(NULL);
     struct tm * timeinfo = localtime ( &now);
     fprintf( lfp, "\tLOG INITIATED AT: %s\n", asctime( timeinfo));
-    fprintf( stdout, "Initiated log file \n");
+    fprintf( stdout, "Initiated log file %s\n", filepath.c_str());
 	fflush(lfp);
 }
 

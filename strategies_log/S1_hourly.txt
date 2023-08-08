@@ -1,0 +1,745 @@
+	LOG INITIATED AT: Tue Aug  8 21:38:11 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 170 with orderRef: Denied divergence on new local minimum; Divergence of degree 1 between 05/07/2023 09:00:00 CEST and 05/07/2023 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 259 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 19/07/2023 12:00:00 CEST and 20/07/2023 10:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 299 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 20/07/2023 15:00:00 CEST and 20/07/2023 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 304 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 20/07/2023 15:00:00 CEST and 20/07/2023 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 315 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 317 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST
+	LOG INITIATED AT: Tue Aug  8 22:26:19 2023
+
+Strategy::general_open: opening trade in dir -1 at bar index 163 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 166 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 168 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 171 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 186 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 253 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 259 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 399 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 410 with orderRef: Denied divergence on new local minimum; Divergence of degree 1 between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 504 with orderRef: Denied divergence on new local minimum; Divergence of degree 1 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 561 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 728 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 780 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 793 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 802 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1174 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1194 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1282 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1286 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1288 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1467 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1469 with orderRef: Denied divergence on new local maximum; Divergence of degree 1 between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST
+	LOG INITIATED AT: Tue Aug  8 23:08:56 2023
+
+Strategy::general_open: opening trade in dir -1 at bar index 315 with orderRef: Denied divergence on new local maximum; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2
+
+	LOG INITIATED AT: Tue Aug  8 23:10:04 2023
+
+Strategy::general_open: opening trade in dir -1 at bar index 163 with orderRef: Denied divergence on new local maximum; divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 253 with orderRef: Denied divergence on new local maximum; divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 399 with orderRef: Denied divergence on new local maximum; divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 410 with orderRef: Denied divergence on new local minimum; divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 504 with orderRef: Denied divergence on new local minimum; divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 561 with orderRef: Denied divergence on new local maximum; divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 728 with orderRef: Denied divergence on new local maximum; divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 780 with orderRef: Denied divergence on new local maximum; divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1174 with orderRef: Denied divergence on new local maximum; divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1194 with orderRef: Denied divergence on new local maximum; divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1282 with orderRef: Denied divergence on new local maximum; divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1467 with orderRef: Denied divergence on new local maximum; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2
+
+	LOG INITIATED AT: Tue Aug  8 23:13:16 2023
+
+Strategy::general_open: opening trade in dir -1 at bar index 200 with orderRef: Denied divergence on new local maximum; divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 327 with orderRef: Denied divergence on new local minimum; divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 429 with orderRef: Denied divergence on new local minimum; divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 521 with orderRef: Denied divergence on new local maximum; divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 543 with orderRef: Denied divergence on new local maximum; divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 594 with orderRef: Denied divergence on new local maximum; divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 613 with orderRef: Denied divergence on new local maximum; divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 722 with orderRef: Denied divergence on new local minimum; divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 946 with orderRef: Denied divergence on new local maximum; divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1036 with orderRef: Denied divergence on new local maximum; divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1182 with orderRef: Denied divergence on new local maximum; divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1193 with orderRef: Denied divergence on new local minimum; divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1287 with orderRef: Denied divergence on new local minimum; divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1344 with orderRef: Denied divergence on new local maximum; divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1511 with orderRef: Denied divergence on new local maximum; divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1563 with orderRef: Denied divergence on new local maximum; divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1957 with orderRef: Denied divergence on new local maximum; divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1977 with orderRef: Denied divergence on new local maximum; divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2065 with orderRef: Denied divergence on new local maximum; divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2250 with orderRef: Denied divergence on new local maximum; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2
+
+	LOG INITIATED AT: Tue Aug  8 23:16:15 2023
+
+Strategy::general_open: opening trade in dir -1 at bar index 201 with orderRef: Denied divergence on new local maximum; divergence between 07/09/2012 16:00:00 CEST and 10/09/2012 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 370 with orderRef: Denied divergence on new local minimum; divergence between 08/10/2012 09:00:00 CEST and 08/10/2012 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 416 with orderRef: Denied divergence on new local maximum; divergence between 15/10/2012 11:00:00 CEST and 15/10/2012 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 618 with orderRef: Denied divergence on new local minimum; divergence between 13/11/2012 09:00:00 CET and 13/11/2012 14:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 662 with orderRef: Denied divergence on new local maximum; divergence between 21/11/2012 12:00:00 CET and 21/11/2012 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 686 with orderRef: Denied divergence on new local maximum; divergence between 26/11/2012 11:00:00 CET and 26/11/2012 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 703 with orderRef: Denied divergence on new local maximum; divergence between 27/11/2012 13:00:00 CET and 27/11/2012 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 821 with orderRef: Denied divergence on new local maximum; divergence between 13/12/2012 15:00:00 CET and 14/12/2012 12:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 917 with orderRef: Denied divergence on new local minimum; divergence between 07/01/2013 15:00:00 CET and 08/01/2013 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1170 with orderRef: Denied divergence on new local minimum; divergence between 15/02/2013 11:00:00 CET and 15/02/2013 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1200 with orderRef: Denied divergence on new local minimum; divergence between 15/02/2013 17:00:00 CET and 18/02/2013 10:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1300 with orderRef: Denied divergence on new local maximum; divergence between 07/03/2013 12:00:00 CET and 07/03/2013 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1333 with orderRef: Denied divergence on new local maximum; divergence between 12/03/2013 11:00:00 CET and 12/03/2013 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1417 with orderRef: Denied divergence on new local minimum; divergence between 25/03/2013 17:00:00 CET and 26/03/2013 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1531 with orderRef: Denied divergence on new local minimum; divergence between 15/04/2013 12:00:00 CEST and 16/04/2013 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1584 with orderRef: Denied divergence on new local maximum; divergence between 24/04/2013 11:00:00 CEST and 24/04/2013 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1613 with orderRef: Denied divergence on new local maximum; divergence between 29/04/2013 10:00:00 CEST and 29/04/2013 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1639 with orderRef: Denied divergence on new local maximum; divergence between 02/05/2013 17:00:00 CEST and 03/05/2013 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1700 with orderRef: Denied divergence on new local maximum; divergence between 13/05/2013 14:00:00 CEST and 13/05/2013 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1715 with orderRef: Denied divergence on new local maximum; divergence between 15/05/2013 11:00:00 CEST and 15/05/2013 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1755 with orderRef: Denied divergence on new local maximum; divergence between 20/05/2013 11:00:00 CEST and 20/05/2013 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1820 with orderRef: Denied divergence on new local minimum; divergence between 29/05/2013 16:00:00 CEST and 30/05/2013 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1854 with orderRef: Denied divergence on new local minimum; divergence between 05/06/2013 12:00:00 CEST and 06/06/2013 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 1944 with orderRef: Denied divergence on new local minimum; divergence between 20/06/2013 11:00:00 CEST and 20/06/2013 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 1988 with orderRef: Denied divergence on new local maximum; divergence between 26/06/2013 13:00:00 CEST and 26/06/2013 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2072 with orderRef: Denied divergence on new local maximum; divergence between 09/07/2013 10:00:00 CEST and 09/07/2013 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2135 with orderRef: Denied divergence on new local maximum; divergence between 19/07/2013 13:00:00 CEST and 19/07/2013 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2156 with orderRef: Denied divergence on new local maximum; divergence between 23/07/2013 10:00:00 CEST and 23/07/2013 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2279 with orderRef: Denied divergence on new local maximum; divergence between 09/08/2013 15:00:00 CEST and 12/08/2013 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 2403 with orderRef: Denied divergence on new local minimum; divergence between 29/08/2013 15:00:00 CEST and 30/08/2013 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2494 with orderRef: Denied divergence on new local maximum; divergence between 12/09/2013 16:00:00 CEST and 13/09/2013 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2515 with orderRef: Denied divergence on new local maximum; divergence between 17/09/2013 10:00:00 CEST and 17/09/2013 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 2620 with orderRef: Denied divergence on new local minimum; divergence between 02/10/2013 16:00:00 CEST and 03/10/2013 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2686 with orderRef: Denied divergence on new local maximum; divergence between 11/10/2013 10:00:00 CEST and 11/10/2013 17:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 2699 with orderRef: Denied divergence on new local maximum; divergence between 15/10/2013 12:00:00 CEST and 15/10/2013 17:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 2716 with orderRef: Denied divergence on new local maximum; divergence between 18/10/2013 11:00:00 CEST and 18/10/2013 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2783 with orderRef: Denied divergence on new local maximum; divergence between 24/10/2013 17:00:00 CEST and 28/10/2013 10:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 2814 with orderRef: Denied divergence on new local maximum; divergence between 01/11/2013 14:00:00 CET and 04/11/2013 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 2926 with orderRef: Denied divergence on new local minimum; divergence between 20/11/2013 11:00:00 CET and 20/11/2013 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2947 with orderRef: Denied divergence on new local maximum; divergence between 22/11/2013 09:00:00 CET and 22/11/2013 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 2968 with orderRef: Denied divergence on new local maximum; divergence between 26/11/2013 09:00:00 CET and 26/11/2013 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 3013 with orderRef: Denied divergence on new local minimum; divergence between 03/12/2013 14:00:00 CET and 04/12/2013 11:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 3129 with orderRef: Denied divergence on new local maximum; divergence between 20/12/2013 10:00:00 CET and 20/12/2013 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 3198 with orderRef: Denied divergence on new local maximum; divergence between 08/01/2014 13:00:00 CET and 08/01/2014 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 3299 with orderRef: Denied divergence on new local minimum; divergence between 23/01/2014 16:00:00 CET and 24/01/2014 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 3501 with orderRef: Denied divergence on new local maximum; divergence between 25/02/2014 10:00:00 CET and 25/02/2014 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 3610 with orderRef: Denied divergence on new local minimum; divergence between 12/03/2014 11:00:00 CET and 12/03/2014 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 3686 with orderRef: Denied divergence on new local maximum; divergence between 21/03/2014 11:00:00 CET and 21/03/2014 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 3701 with orderRef: Denied divergence on new local maximum; divergence between 26/03/2014 17:00:00 CET and 27/03/2014 10:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 3742 with orderRef: Denied divergence on new local maximum; divergence between 01/04/2014 15:00:00 CEST and 02/04/2014 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 3816 with orderRef: Denied divergence on new local minimum; divergence between 14/04/2014 15:00:00 CEST and 15/04/2014 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 3869 with orderRef: Denied divergence on new local minimum; divergence between 24/04/2014 15:00:00 CEST and 25/04/2014 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 4087 with orderRef: Denied divergence on new local maximum; divergence between 30/05/2014 12:00:00 CEST and 30/05/2014 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 4140 with orderRef: Denied divergence on new local maximum; divergence between 06/06/2014 15:00:00 CEST and 09/06/2014 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 4215 with orderRef: Denied divergence on new local maximum; divergence between 19/06/2014 09:00:00 CEST and 19/06/2014 14:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 4240 with orderRef: Denied divergence on new local minimum; divergence between 24/06/2014 11:00:00 CEST and 24/06/2014 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 4255 with orderRef: Denied divergence on new local minimum; divergence between 25/06/2014 15:00:00 CEST and 26/06/2014 12:00:00 CEST of entity 4
+
+Strategy::general_open: opening trade in dir -1 at bar index 4376 with orderRef: Denied divergence on new local maximum; divergence between 14/07/2014 17:00:00 CEST and 15/07/2014 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 4618 with orderRef: Denied divergence on new local maximum; divergence between 21/08/2014 09:00:00 CEST and 21/08/2014 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 4708 with orderRef: Denied divergence on new local maximum; divergence between 03/09/2014 10:00:00 CEST and 03/09/2014 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 4759 with orderRef: Denied divergence on new local minimum; divergence between 11/09/2014 16:00:00 CEST and 12/09/2014 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 4772 with orderRef: Denied divergence on new local minimum; divergence between 12/09/2014 15:00:00 CEST and 15/09/2014 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 4858 with orderRef: Denied divergence on new local minimum; divergence between 26/09/2014 09:00:00 CEST and 29/09/2014 09:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 4876 with orderRef: Denied divergence on new local minimum; divergence between 30/09/2014 10:00:00 CEST and 30/09/2014 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 4959 with orderRef: Denied divergence on new local minimum; divergence between 10/10/2014 11:00:00 CEST and 13/10/2014 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5067 with orderRef: Denied divergence on new local maximum; divergence between 31/10/2014 12:00:00 CET and 31/10/2014 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5177 with orderRef: Denied divergence on new local maximum; divergence between 18/11/2014 15:00:00 CET and 18/11/2014 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5257 with orderRef: Denied divergence on new local maximum; divergence between 28/11/2014 15:00:00 CET and 28/11/2014 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 5310 with orderRef: Denied divergence on new local minimum; divergence between 04/12/2014 15:00:00 CET and 04/12/2014 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 5329 with orderRef: Denied divergence on new local minimum; divergence between 10/12/2014 17:00:00 CET and 11/12/2014 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 5434 with orderRef: Denied divergence on new local minimum; divergence between 02/01/2015 09:00:00 CET and 02/01/2015 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5552 with orderRef: Denied divergence on new local maximum; divergence between 19/01/2015 14:00:00 CET and 20/01/2015 12:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 5570 with orderRef: Denied divergence on new local maximum; divergence between 26/01/2015 10:00:00 CET and 26/01/2015 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5617 with orderRef: Denied divergence on new local maximum; divergence between 28/01/2015 15:00:00 CET and 28/01/2015 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5689 with orderRef: Denied divergence on new local maximum; divergence between 12/02/2015 11:00:00 CET and 12/02/2015 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5760 with orderRef: Denied divergence on new local maximum; divergence between 23/02/2015 15:00:00 CET and 23/02/2015 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5773 with orderRef: Denied divergence on new local maximum; divergence between 25/02/2015 13:00:00 CET and 25/02/2015 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5788 with orderRef: Denied divergence on new local maximum; divergence between 26/02/2015 17:00:00 CET and 27/02/2015 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5968 with orderRef: Denied divergence on new local maximum; divergence between 24/03/2015 16:00:00 CET and 25/03/2015 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 5977 with orderRef: Denied divergence on new local maximum; divergence between 30/03/2015 09:00:00 CEST and 30/03/2015 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6080 with orderRef: Denied divergence on new local minimum; divergence between 16/04/2015 14:00:00 CEST and 16/04/2015 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6157 with orderRef: Denied divergence on new local minimum; divergence between 29/04/2015 09:00:00 CEST and 29/04/2015 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6308 with orderRef: Denied divergence on new local minimum; divergence between 26/05/2015 09:00:00 CEST and 26/05/2015 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6377 with orderRef: Denied divergence on new local minimum; divergence between 04/06/2015 11:00:00 CEST and 05/06/2015 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6388 with orderRef: Denied divergence on new local minimum; divergence between 05/06/2015 13:00:00 CEST and 08/06/2015 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6432 with orderRef: Denied divergence on new local minimum; divergence between 12/06/2015 16:00:00 CEST and 15/06/2015 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6579 with orderRef: Denied divergence on new local minimum; divergence between 06/07/2015 09:00:00 CEST and 06/07/2015 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 6609 with orderRef: Denied divergence on new local maximum; divergence between 10/07/2015 09:00:00 CEST and 10/07/2015 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 6639 with orderRef: Denied divergence on new local maximum; divergence between 14/07/2015 17:00:00 CEST and 15/07/2015 13:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 6763 with orderRef: Denied divergence on new local maximum; divergence between 03/08/2015 17:00:00 CEST and 04/08/2015 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 6851 with orderRef: Denied divergence on new local minimum; divergence between 18/08/2015 11:00:00 CEST and 18/08/2015 15:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 6881 with orderRef: Denied divergence on new local minimum; divergence between 21/08/2015 09:00:00 CEST and 21/08/2015 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 6921 with orderRef: Denied divergence on new local maximum; divergence between 28/08/2015 11:00:00 CEST and 28/08/2015 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7088 with orderRef: Denied divergence on new local minimum; divergence between 23/09/2015 13:00:00 CEST and 23/09/2015 17:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 7100 with orderRef: Denied divergence on new local maximum; divergence between 25/09/2015 11:00:00 CEST and 25/09/2015 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7162 with orderRef: Denied divergence on new local maximum; divergence between 05/10/2015 15:00:00 CEST and 06/10/2015 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7188 with orderRef: Denied divergence on new local maximum; divergence between 08/10/2015 13:00:00 CEST and 08/10/2015 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7261 with orderRef: Denied divergence on new local maximum; divergence between 19/10/2015 09:00:00 CEST and 19/10/2015 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7445 with orderRef: Denied divergence on new local maximum; divergence between 17/11/2015 17:00:00 CET and 18/11/2015 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7544 with orderRef: Denied divergence on new local minimum; divergence between 02/12/2015 14:00:00 CET and 02/12/2015 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7594 with orderRef: Denied divergence on new local minimum; divergence between 09/12/2015 11:00:00 CET and 10/12/2015 14:00:00 CET of entity 5
+
+Strategy::general_open: opening trade in dir 1 at bar index 7720 with orderRef: Denied divergence on new local minimum; divergence between 06/01/2016 11:00:00 CET and 06/01/2016 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7740 with orderRef: Denied divergence on new local minimum; divergence between 07/01/2016 17:00:00 CET and 08/01/2016 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7770 with orderRef: Denied divergence on new local minimum; divergence between 08/01/2016 17:00:00 CET and 11/01/2016 17:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 7783 with orderRef: Denied divergence on new local minimum; divergence between 14/01/2016 11:00:00 CET and 15/01/2016 11:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 7804 with orderRef: Denied divergence on new local minimum; divergence between 18/01/2016 10:00:00 CET and 18/01/2016 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7828 with orderRef: Denied divergence on new local maximum; divergence between 22/01/2016 09:00:00 CET and 22/01/2016 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 7848 with orderRef: Denied divergence on new local maximum; divergence between 22/01/2016 17:00:00 CET and 25/01/2016 13:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 7908 with orderRef: Denied divergence on new local minimum; divergence between 03/02/2016 13:00:00 CET and 03/02/2016 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 7935 with orderRef: Denied divergence on new local minimum; divergence between 08/02/2016 11:00:00 CET and 08/02/2016 17:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 8096 with orderRef: Denied divergence on new local maximum; divergence between 02/03/2016 13:00:00 CET and 03/03/2016 11:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 8254 with orderRef: Denied divergence on new local minimum; divergence between 24/03/2016 17:00:00 CET and 29/03/2016 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8360 with orderRef: Denied divergence on new local maximum; divergence between 15/04/2016 11:00:00 CEST and 15/04/2016 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8381 with orderRef: Denied divergence on new local maximum; divergence between 19/04/2016 17:00:00 CEST and 20/04/2016 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 8574 with orderRef: Denied divergence on new local minimum; divergence between 23/05/2016 09:00:00 CEST and 23/05/2016 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8622 with orderRef: Denied divergence on new local maximum; divergence between 30/05/2016 09:00:00 CEST and 30/05/2016 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 8656 with orderRef: Denied divergence on new local minimum; divergence between 01/06/2016 14:00:00 CEST and 02/06/2016 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8754 with orderRef: Denied divergence on new local maximum; divergence between 20/06/2016 10:00:00 CEST and 20/06/2016 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8771 with orderRef: Denied divergence on new local maximum; divergence between 21/06/2016 13:00:00 CEST and 21/06/2016 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 8779 with orderRef: Denied divergence on new local maximum; divergence between 22/06/2016 13:00:00 CEST and 22/06/2016 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 8798 with orderRef: Denied divergence on new local minimum; divergence between 24/06/2016 10:00:00 CEST and 24/06/2016 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9019 with orderRef: Denied divergence on new local maximum; divergence between 27/07/2016 10:00:00 CEST and 28/07/2016 09:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 9035 with orderRef: Denied divergence on new local minimum; divergence between 02/08/2016 10:00:00 CEST and 02/08/2016 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9065 with orderRef: Denied divergence on new local maximum; divergence between 05/08/2016 09:00:00 CEST and 05/08/2016 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9128 with orderRef: Denied divergence on new local minimum; divergence between 16/08/2016 10:00:00 CEST and 16/08/2016 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9193 with orderRef: Denied divergence on new local minimum; divergence between 25/08/2016 12:00:00 CEST and 25/08/2016 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9385 with orderRef: Denied divergence on new local minimum; divergence between 26/09/2016 09:00:00 CEST and 26/09/2016 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9390 with orderRef: Denied divergence on new local minimum; divergence between 26/09/2016 15:00:00 CEST and 26/09/2016 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9550 with orderRef: Denied divergence on new local maximum; divergence between 20/10/2016 15:00:00 CEST and 21/10/2016 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9622 with orderRef: Denied divergence on new local minimum; divergence between 02/11/2016 09:00:00 CET and 02/11/2016 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 9766 with orderRef: Denied divergence on new local minimum; divergence between 23/11/2016 17:00:00 CET and 24/11/2016 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9901 with orderRef: Denied divergence on new local maximum; divergence between 13/12/2016 13:00:00 CET and 13/12/2016 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9987 with orderRef: Denied divergence on new local maximum; divergence between 28/12/2016 14:00:00 CET and 28/12/2016 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 9997 with orderRef: Denied divergence on new local maximum; divergence between 02/01/2017 10:00:00 CET and 02/01/2017 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 10144 with orderRef: Denied divergence on new local maximum; divergence between 20/01/2017 15:00:00 CET and 20/01/2017 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 10306 with orderRef: Denied divergence on new local maximum; divergence between 15/02/2017 12:00:00 CET and 15/02/2017 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 10424 with orderRef: Denied divergence on new local minimum; divergence between 07/03/2017 15:00:00 CET and 08/03/2017 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 10848 with orderRef: Denied divergence on new local minimum; divergence between 17/05/2017 16:00:00 CEST and 18/05/2017 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 11098 with orderRef: Denied divergence on new local minimum; divergence between 27/06/2017 10:00:00 CEST and 27/06/2017 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 11312 with orderRef: Denied divergence on new local minimum; divergence between 28/07/2017 14:00:00 CEST and 28/07/2017 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 11402 with orderRef: Denied divergence on new local maximum; divergence between 14/08/2017 09:00:00 CEST and 14/08/2017 14:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 11409 with orderRef: Denied divergence on new local maximum; divergence between 15/08/2017 09:00:00 CEST and 15/08/2017 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 11739 with orderRef: Denied divergence on new local maximum; divergence between 05/10/2017 15:00:00 CEST and 06/10/2017 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 11779 with orderRef: Denied divergence on new local maximum; divergence between 11/10/2017 17:00:00 CEST and 12/10/2017 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 11806 with orderRef: Denied divergence on new local maximum; divergence between 16/10/2017 11:00:00 CEST and 16/10/2017 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 11908 with orderRef: Denied divergence on new local maximum; divergence between 02/11/2017 10:00:00 CET and 02/11/2017 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 11950 with orderRef: Denied divergence on new local minimum; divergence between 08/11/2017 11:00:00 CET and 08/11/2017 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 11967 with orderRef: Denied divergence on new local minimum; divergence between 09/11/2017 15:00:00 CET and 10/11/2017 17:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 12002 with orderRef: Denied divergence on new local maximum; divergence between 16/11/2017 14:00:00 CET and 16/11/2017 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 12190 with orderRef: Denied divergence on new local maximum; divergence between 13/12/2017 13:00:00 CET and 13/12/2017 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12235 with orderRef: Denied divergence on new local minimum; divergence between 22/12/2017 17:00:00 CET and 27/12/2017 10:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12254 with orderRef: Denied divergence on new local minimum; divergence between 28/12/2017 09:00:00 CET and 28/12/2017 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12364 with orderRef: Denied divergence on new local minimum; divergence between 15/01/2018 14:00:00 CET and 15/01/2018 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 12389 with orderRef: Denied divergence on new local maximum; divergence between 19/01/2018 15:00:00 CET and 19/01/2018 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12467 with orderRef: Denied divergence on new local minimum; divergence between 01/02/2018 14:00:00 CET and 01/02/2018 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12535 with orderRef: Denied divergence on new local minimum; divergence between 13/02/2018 09:00:00 CET and 13/02/2018 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 12650 with orderRef: Denied divergence on new local minimum; divergence between 01/03/2018 10:00:00 CET and 01/03/2018 15:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 12752 with orderRef: Denied divergence on new local minimum; divergence between 14/03/2018 11:00:00 CET and 14/03/2018 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 12824 with orderRef: Denied divergence on new local maximum; divergence between 29/03/2018 11:00:00 CEST and 29/03/2018 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 12844 with orderRef: Denied divergence on new local maximum; divergence between 03/04/2018 14:00:00 CEST and 03/04/2018 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 12901 with orderRef: Denied divergence on new local maximum; divergence between 09/04/2018 10:00:00 CEST and 10/04/2018 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13099 with orderRef: Denied divergence on new local maximum; divergence between 11/05/2018 13:00:00 CEST and 11/05/2018 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13107 with orderRef: Denied divergence on new local maximum; divergence between 16/05/2018 12:00:00 CEST and 16/05/2018 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13129 with orderRef: Denied divergence on new local maximum; divergence between 17/05/2018 17:00:00 CEST and 18/05/2018 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13303 with orderRef: Denied divergence on new local minimum; divergence between 18/06/2018 13:00:00 CEST and 18/06/2018 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13323 with orderRef: Denied divergence on new local minimum; divergence between 19/06/2018 13:00:00 CEST and 19/06/2018 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13347 with orderRef: Denied divergence on new local minimum; divergence between 21/06/2018 11:00:00 CEST and 21/06/2018 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13397 with orderRef: Denied divergence on new local maximum; divergence between 29/06/2018 13:00:00 CEST and 29/06/2018 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13442 with orderRef: Denied divergence on new local maximum; divergence between 09/07/2018 11:00:00 CEST and 09/07/2018 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13490 with orderRef: Denied divergence on new local maximum; divergence between 17/07/2018 09:00:00 CEST and 17/07/2018 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13558 with orderRef: Denied divergence on new local maximum; divergence between 24/07/2018 11:00:00 CEST and 24/07/2018 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13654 with orderRef: Denied divergence on new local minimum; divergence between 10/08/2018 11:00:00 CEST and 10/08/2018 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13679 with orderRef: Denied divergence on new local minimum; divergence between 13/08/2018 14:00:00 CEST and 13/08/2018 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13710 with orderRef: Denied divergence on new local maximum; divergence between 20/08/2018 09:00:00 CEST and 20/08/2018 15:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 13770 with orderRef: Denied divergence on new local maximum; divergence between 29/08/2018 09:00:00 CEST and 29/08/2018 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 13802 with orderRef: Denied divergence on new local minimum; divergence between 03/09/2018 11:00:00 CEST and 03/09/2018 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 13899 with orderRef: Denied divergence on new local maximum; divergence between 13/09/2018 10:00:00 CEST and 14/09/2018 10:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 14016 with orderRef: Denied divergence on new local minimum; divergence between 08/10/2018 10:00:00 CEST and 08/10/2018 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 14788 with orderRef: Denied divergence on new local maximum; divergence between 12/02/2019 09:00:00 CET and 12/02/2019 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 14811 with orderRef: Denied divergence on new local maximum; divergence between 13/02/2019 16:00:00 CET and 14/02/2019 12:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 14853 with orderRef: Denied divergence on new local maximum; divergence between 21/02/2019 14:00:00 CET and 22/02/2019 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 15009 with orderRef: Denied divergence on new local maximum; divergence between 15/03/2019 13:00:00 CET and 18/03/2019 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15038 with orderRef: Denied divergence on new local minimum; divergence between 21/03/2019 13:00:00 CET and 22/03/2019 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 15081 with orderRef: Denied divergence on new local maximum; divergence between 28/03/2019 14:00:00 CET and 29/03/2019 10:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 15223 with orderRef: Denied divergence on new local maximum; divergence between 17/04/2019 16:00:00 CEST and 23/04/2019 16:00:00 CEST of entity 4
+
+Strategy::general_open: opening trade in dir -1 at bar index 15247 with orderRef: Denied divergence on new local maximum; divergence between 26/04/2019 12:00:00 CEST and 26/04/2019 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 15512 with orderRef: Denied divergence on new local maximum; divergence between 05/06/2019 12:00:00 CEST and 06/06/2019 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15553 with orderRef: Denied divergence on new local minimum; divergence between 14/06/2019 12:00:00 CEST and 14/06/2019 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15598 with orderRef: Denied divergence on new local minimum; divergence between 24/06/2019 12:00:00 CEST and 24/06/2019 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 15654 with orderRef: Denied divergence on new local maximum; divergence between 02/07/2019 12:00:00 CEST and 02/07/2019 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15684 with orderRef: Denied divergence on new local minimum; divergence between 05/07/2019 16:00:00 CEST and 08/07/2019 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15851 with orderRef: Denied divergence on new local minimum; divergence between 31/07/2019 13:00:00 CEST and 01/08/2019 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 15934 with orderRef: Denied divergence on new local minimum; divergence between 13/08/2019 11:00:00 CEST and 13/08/2019 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16103 with orderRef: Denied divergence on new local maximum; divergence between 06/09/2019 13:00:00 CEST and 09/09/2019 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16309 with orderRef: Denied divergence on new local maximum; divergence between 14/10/2019 10:00:00 CEST and 14/10/2019 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16316 with orderRef: Denied divergence on new local maximum; divergence between 15/10/2019 09:00:00 CEST and 15/10/2019 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16329 with orderRef: Denied divergence on new local maximum; divergence between 16/10/2019 14:00:00 CEST and 16/10/2019 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16356 with orderRef: Denied divergence on new local maximum; divergence between 21/10/2019 14:00:00 CEST and 21/10/2019 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16372 with orderRef: Denied divergence on new local maximum; divergence between 22/10/2019 15:00:00 CEST and 23/10/2019 11:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16431 with orderRef: Denied divergence on new local maximum; divergence between 01/11/2019 09:00:00 CET and 01/11/2019 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16463 with orderRef: Denied divergence on new local maximum; divergence between 06/11/2019 09:00:00 CET and 06/11/2019 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16640 with orderRef: Denied divergence on new local maximum; divergence between 04/12/2019 10:00:00 CET and 04/12/2019 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16644 with orderRef: Denied divergence on new local maximum; divergence between 04/12/2019 16:00:00 CET and 05/12/2019 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16712 with orderRef: Denied divergence on new local maximum; divergence between 16/12/2019 09:00:00 CET and 16/12/2019 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 16903 with orderRef: Denied divergence on new local maximum; divergence between 20/01/2020 15:00:00 CET and 20/01/2020 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 16974 with orderRef: Denied divergence on new local minimum; divergence between 30/01/2020 16:00:00 CET and 31/01/2020 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 17029 with orderRef: Denied divergence on new local maximum; divergence between 07/02/2020 12:00:00 CET and 07/02/2020 17:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir 1 at bar index 17121 with orderRef: Denied divergence on new local minimum; divergence between 24/02/2020 11:00:00 CET and 24/02/2020 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 17200 with orderRef: Denied divergence on new local minimum; divergence between 06/03/2020 12:00:00 CET and 06/03/2020 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 17235 with orderRef: Denied divergence on new local minimum; divergence between 09/03/2020 15:00:00 CET and 11/03/2020 13:00:00 CET of entity 4
+
+Strategy::general_open: opening trade in dir 1 at bar index 17267 with orderRef: Denied divergence on new local minimum; divergence between 17/03/2020 14:00:00 CET and 18/03/2020 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 17422 with orderRef: Denied divergence on new local maximum; divergence between 09/04/2020 15:00:00 CEST and 14/04/2020 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 17523 with orderRef: Denied divergence on new local maximum; divergence between 28/04/2020 11:00:00 CEST and 28/04/2020 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 17649 with orderRef: Denied divergence on new local maximum; divergence between 19/05/2020 14:00:00 CEST and 20/05/2020 11:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 17684 with orderRef: Denied divergence on new local maximum; divergence between 26/05/2020 10:00:00 CEST and 26/05/2020 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 17784 with orderRef: Denied divergence on new local minimum; divergence between 11/06/2020 09:00:00 CEST and 11/06/2020 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 17995 with orderRef: Denied divergence on new local maximum; divergence between 13/07/2020 09:00:00 CEST and 13/07/2020 17:00:00 CEST of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 18179 with orderRef: Denied divergence on new local maximum; divergence between 11/08/2020 17:00:00 CEST and 12/08/2020 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 18240 with orderRef: Denied divergence on new local minimum; divergence between 20/08/2020 10:00:00 CEST and 20/08/2020 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 18256 with orderRef: Denied divergence on new local maximum; divergence between 24/08/2020 13:00:00 CEST and 25/08/2020 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 18270 with orderRef: Denied divergence on new local maximum; divergence between 26/08/2020 10:00:00 CEST and 26/08/2020 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 18441 with orderRef: Denied divergence on new local minimum; divergence between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 18463 with orderRef: Denied divergence on new local minimum; divergence between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 18650 with orderRef: Denied divergence on new local minimum; divergence between 22/10/2020 14:00:00 CEST and 22/10/2020 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 18724 with orderRef: Denied divergence on new local maximum; divergence between 03/11/2020 17:00:00 CET and 04/11/2020 10:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 18744 with orderRef: Denied divergence on new local maximum; divergence between 05/11/2020 12:00:00 CET and 05/11/2020 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 18872 with orderRef: Denied divergence on new local maximum; divergence between 26/11/2020 15:00:00 CET and 27/11/2020 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 18919 with orderRef: Denied divergence on new local minimum; divergence between 03/12/2020 15:00:00 CET and 04/12/2020 12:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 19091 with orderRef: Denied divergence on new local maximum; divergence between 04/01/2021 11:00:00 CET and 04/01/2021 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19173 with orderRef: Denied divergence on new local maximum; divergence between 19/01/2021 10:00:00 CET and 19/01/2021 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 19222 with orderRef: Denied divergence on new local minimum; divergence between 25/01/2021 13:00:00 CET and 25/01/2021 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19407 with orderRef: Denied divergence on new local maximum; divergence between 24/02/2021 13:00:00 CET and 24/02/2021 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19487 with orderRef: Denied divergence on new local maximum; divergence between 09/03/2021 12:00:00 CET and 09/03/2021 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19510 with orderRef: Denied divergence on new local maximum; divergence between 12/03/2021 11:00:00 CET and 12/03/2021 13:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19612 with orderRef: Denied divergence on new local maximum; divergence between 29/03/2021 13:00:00 CEST and 29/03/2021 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19630 with orderRef: Denied divergence on new local maximum; divergence between 30/03/2021 17:00:00 CEST and 31/03/2021 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19670 with orderRef: Denied divergence on new local maximum; divergence between 07/04/2021 16:00:00 CEST and 08/04/2021 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19709 with orderRef: Denied divergence on new local maximum; divergence between 15/04/2021 10:00:00 CEST and 15/04/2021 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 19720 with orderRef: Denied divergence on new local maximum; divergence between 16/04/2021 11:00:00 CEST and 16/04/2021 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 20142 with orderRef: Denied divergence on new local minimum; divergence between 21/06/2021 15:00:00 CEST and 22/06/2021 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 20173 with orderRef: Denied divergence on new local maximum; divergence between 28/06/2021 14:00:00 CEST and 29/06/2021 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 20294 with orderRef: Denied divergence on new local minimum; divergence between 15/07/2021 16:00:00 CEST and 16/07/2021 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 20414 with orderRef: Denied divergence on new local maximum; divergence between 04/08/2021 12:00:00 CEST and 04/08/2021 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 20504 with orderRef: Denied divergence on new local minimum; divergence between 16/08/2021 16:00:00 CEST and 17/08/2021 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 20865 with orderRef: Denied divergence on new local maximum; divergence between 13/10/2021 13:00:00 CEST and 13/10/2021 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21000 with orderRef: Denied divergence on new local maximum; divergence between 02/11/2021 17:00:00 CET and 03/11/2021 12:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21026 with orderRef: Denied divergence on new local maximum; divergence between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21055 with orderRef: Denied divergence on new local maximum; divergence between 11/11/2021 10:00:00 CET and 12/11/2021 09:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 21242 with orderRef: Denied divergence on new local maximum; divergence between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21332 with orderRef: Denied divergence on new local maximum; divergence between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21362 with orderRef: Denied divergence on new local maximum; divergence between 03/01/2022 09:00:00 CET and 03/01/2022 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 21410 with orderRef: Denied divergence on new local minimum; divergence between 07/01/2022 16:00:00 CET and 10/01/2022 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21435 with orderRef: Denied divergence on new local maximum; divergence between 12/01/2022 10:00:00 CET and 12/01/2022 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21614 with orderRef: Denied divergence on new local maximum; divergence between 09/02/2022 16:00:00 CET and 10/02/2022 09:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 21702 with orderRef: Denied divergence on new local minimum; divergence between 22/02/2022 12:00:00 CET and 22/02/2022 16:00:00 CET of entity 3
+
+Strategy::general_open: opening trade in dir -1 at bar index 21809 with orderRef: Denied divergence on new local maximum; divergence between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 21863 with orderRef: Denied divergence on new local maximum; divergence between 17/03/2022 17:00:00 CET and 18/03/2022 17:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 21967 with orderRef: Denied divergence on new local minimum; divergence between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 21997 with orderRef: Denied divergence on new local minimum; divergence between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 22206 with orderRef: Denied divergence on new local maximum; divergence between 13/05/2022 17:00:00 CEST and 16/05/2022 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 22480 with orderRef: Denied divergence on new local maximum; divergence between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 22520 with orderRef: Denied divergence on new local minimum; divergence between 01/07/2022 09:00:00 CEST and 01/07/2022 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 22589 with orderRef: Denied divergence on new local minimum; divergence between 12/07/2022 09:00:00 CEST and 12/07/2022 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 22635 with orderRef: Denied divergence on new local maximum; divergence between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 22790 with orderRef: Denied divergence on new local maximum; divergence between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 22839 with orderRef: Denied divergence on new local minimum; divergence between 23/08/2022 10:00:00 CEST and 23/08/2022 12:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 22943 with orderRef: Denied divergence on new local maximum; divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 23070 with orderRef: Denied divergence on new local minimum; divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 23172 with orderRef: Denied divergence on new local minimum; divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23264 with orderRef: Denied divergence on new local maximum; divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23286 with orderRef: Denied divergence on new local maximum; divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23337 with orderRef: Denied divergence on new local maximum; divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23356 with orderRef: Denied divergence on new local maximum; divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 23465 with orderRef: Denied divergence on new local minimum; divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23689 with orderRef: Denied divergence on new local maximum; divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23779 with orderRef: Denied divergence on new local maximum; divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 23925 with orderRef: Denied divergence on new local maximum; divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 23936 with orderRef: Denied divergence on new local minimum; divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir 1 at bar index 24030 with orderRef: Denied divergence on new local minimum; divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24087 with orderRef: Denied divergence on new local maximum; divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24254 with orderRef: Denied divergence on new local maximum; divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24306 with orderRef: Denied divergence on new local maximum; divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24700 with orderRef: Denied divergence on new local maximum; divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24720 with orderRef: Denied divergence on new local maximum; divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24808 with orderRef: Denied divergence on new local maximum; divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2
+
+Strategy::general_open: opening trade in dir -1 at bar index 24993 with orderRef: Denied divergence on new local maximum; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2
+
+	LOG INITIATED AT: Tue Aug  8 23:44:05 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 288 with orderRef: Denied divergence on new local minimum on 22/09/2020 17:00:00 CEST; divergence between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 310 with orderRef: Denied divergence on new local minimum on 25/09/2020 12:00:00 CEST; divergence between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 497 with orderRef: Denied divergence on new local minimum on 26/10/2020 10:00:00 CET; divergence between 22/10/2020 14:00:00 CEST and 22/10/2020 16:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 571 with orderRef: Denied divergence on new local maximum on 05/11/2020 12:00:00 CET; divergence between 03/11/2020 17:00:00 CET and 04/11/2020 10:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 591 with orderRef: Denied divergence on new local maximum on 09/11/2020 14:00:00 CET; divergence between 05/11/2020 12:00:00 CET and 05/11/2020 16:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 719 with orderRef: Denied divergence on new local maximum on 27/11/2020 16:00:00 CET; divergence between 26/11/2020 15:00:00 CET and 27/11/2020 09:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 766 with orderRef: Denied divergence on new local minimum on 07/12/2020 09:00:00 CET; divergence between 03/12/2020 15:00:00 CET and 04/12/2020 12:00:00 CET of entity 3
+Strategy::general_open: opening trade in dir -1 at bar index 938 with orderRef: Denied divergence on new local maximum on 07/01/2021 10:00:00 CET; divergence between 04/01/2021 11:00:00 CET and 04/01/2021 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1020 with orderRef: Denied divergence on new local maximum on 20/01/2021 11:00:00 CET; divergence between 19/01/2021 10:00:00 CET and 19/01/2021 12:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 1069 with orderRef: Denied divergence on new local minimum on 27/01/2021 15:00:00 CET; divergence between 25/01/2021 13:00:00 CET and 25/01/2021 17:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1254 with orderRef: Denied divergence on new local maximum on 25/02/2021 11:00:00 CET; divergence between 24/02/2021 13:00:00 CET and 24/02/2021 16:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1334 with orderRef: Denied divergence on new local maximum on 10/03/2021 10:00:00 CET; divergence between 09/03/2021 12:00:00 CET and 09/03/2021 15:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1357 with orderRef: Denied divergence on new local maximum on 12/03/2021 15:00:00 CET; divergence between 12/03/2021 11:00:00 CET and 12/03/2021 13:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1459 with orderRef: Denied divergence on new local maximum on 30/03/2021 09:00:00 CEST; divergence between 29/03/2021 13:00:00 CEST and 29/03/2021 15:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1477 with orderRef: Denied divergence on new local maximum on 01/04/2021 09:00:00 CEST; divergence between 30/03/2021 17:00:00 CEST and 31/03/2021 12:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1517 with orderRef: Denied divergence on new local maximum on 09/04/2021 13:00:00 CEST; divergence between 07/04/2021 16:00:00 CEST and 08/04/2021 09:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1556 with orderRef: Denied divergence on new local maximum on 15/04/2021 16:00:00 CEST; divergence between 15/04/2021 10:00:00 CEST and 15/04/2021 12:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 1567 with orderRef: Denied divergence on new local maximum on 19/04/2021 09:00:00 CEST; divergence between 16/04/2021 11:00:00 CEST and 16/04/2021 14:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 1989 with orderRef: Denied divergence on new local minimum on 23/06/2021 17:00:00 CEST; divergence between 21/06/2021 15:00:00 CEST and 22/06/2021 10:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2020 with orderRef: Denied divergence on new local maximum on 29/06/2021 12:00:00 CEST; divergence between 28/06/2021 14:00:00 CEST and 29/06/2021 09:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 2141 with orderRef: Denied divergence on new local minimum on 16/07/2021 16:00:00 CEST; divergence between 15/07/2021 16:00:00 CEST and 16/07/2021 13:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2261 with orderRef: Denied divergence on new local maximum on 05/08/2021 10:00:00 CEST; divergence between 04/08/2021 12:00:00 CEST and 04/08/2021 16:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 2351 with orderRef: Denied divergence on new local minimum on 19/08/2021 10:00:00 CEST; divergence between 16/08/2021 16:00:00 CEST and 17/08/2021 09:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2712 with orderRef: Denied divergence on new local maximum on 14/10/2021 11:00:00 CEST; divergence between 13/10/2021 13:00:00 CEST and 13/10/2021 15:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2847 with orderRef: Denied divergence on new local maximum on 04/11/2021 11:00:00 CET; divergence between 02/11/2021 17:00:00 CET and 03/11/2021 12:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2873 with orderRef: Denied divergence on new local maximum on 09/11/2021 10:00:00 CET; divergence between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 2902 with orderRef: Denied divergence on new local maximum on 12/11/2021 12:00:00 CET; divergence between 11/11/2021 10:00:00 CET and 12/11/2021 09:00:00 CET of entity 3
+Strategy::general_open: opening trade in dir -1 at bar index 3089 with orderRef: Denied divergence on new local maximum on 13/12/2021 10:00:00 CET; divergence between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 3179 with orderRef: Denied divergence on new local maximum on 28/12/2021 10:00:00 CET; divergence between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 3209 with orderRef: Denied divergence on new local maximum on 03/01/2022 13:00:00 CET; divergence between 03/01/2022 09:00:00 CET and 03/01/2022 11:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 3257 with orderRef: Denied divergence on new local minimum on 10/01/2022 16:00:00 CET; divergence between 07/01/2022 16:00:00 CET and 10/01/2022 09:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 3282 with orderRef: Denied divergence on new local maximum on 13/01/2022 14:00:00 CET; divergence between 12/01/2022 10:00:00 CET and 12/01/2022 15:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 3461 with orderRef: Denied divergence on new local maximum on 10/02/2022 13:00:00 CET; divergence between 09/02/2022 16:00:00 CET and 10/02/2022 09:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 3549 with orderRef: Denied divergence on new local minimum on 24/02/2022 11:00:00 CET; divergence between 22/02/2022 12:00:00 CET and 22/02/2022 16:00:00 CET of entity 3
+Strategy::general_open: opening trade in dir -1 at bar index 3656 with orderRef: Denied divergence on new local maximum on 14/03/2022 10:00:00 CET; divergence between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 3710 with orderRef: Denied divergence on new local maximum on 22/03/2022 10:00:00 CET; divergence between 17/03/2022 17:00:00 CET and 18/03/2022 17:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 3814 with orderRef: Denied divergence on new local minimum on 06/04/2022 15:00:00 CEST; divergence between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 3844 with orderRef: Denied divergence on new local minimum on 12/04/2022 09:00:00 CEST; divergence between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 4053 with orderRef: Denied divergence on new local maximum on 17/05/2022 11:00:00 CEST; divergence between 13/05/2022 17:00:00 CEST and 16/05/2022 10:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 4327 with orderRef: Denied divergence on new local maximum on 28/06/2022 15:00:00 CEST; divergence between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 4367 with orderRef: Denied divergence on new local minimum on 05/07/2022 10:00:00 CEST; divergence between 01/07/2022 09:00:00 CEST and 01/07/2022 13:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 4436 with orderRef: Denied divergence on new local minimum on 14/07/2022 16:00:00 CEST; divergence between 12/07/2022 09:00:00 CEST and 12/07/2022 12:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 4482 with orderRef: Denied divergence on new local maximum on 21/07/2022 17:00:00 CEST; divergence between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 4637 with orderRef: Denied divergence on new local maximum on 16/08/2022 10:00:00 CEST; divergence between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 4686 with orderRef: Denied divergence on new local minimum on 23/08/2022 14:00:00 CEST; divergence between 23/08/2022 10:00:00 CEST and 23/08/2022 12:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 4790 with orderRef: Denied divergence on new local maximum on 08/09/2022 10:00:00 CEST; divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 4917 with orderRef: Denied divergence on new local minimum on 28/09/2022 11:00:00 CEST; divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 5019 with orderRef: Denied divergence on new local minimum on 13/10/2022 14:00:00 CEST; divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5111 with orderRef: Denied divergence on new local maximum on 27/10/2022 16:00:00 CEST; divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5133 with orderRef: Denied divergence on new local maximum on 01/11/2022 11:00:00 CET; divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5184 with orderRef: Denied divergence on new local maximum on 08/11/2022 17:00:00 CET; divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5203 with orderRef: Denied divergence on new local maximum on 11/11/2022 09:00:00 CET; divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 5312 with orderRef: Denied divergence on new local minimum on 29/11/2022 10:00:00 CET; divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5536 with orderRef: Denied divergence on new local maximum on 04/01/2023 09:00:00 CET; divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5626 with orderRef: Denied divergence on new local maximum on 18/01/2023 09:00:00 CET; divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5772 with orderRef: Denied divergence on new local maximum on 09/02/2023 11:00:00 CET; divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 5783 with orderRef: Denied divergence on new local minimum on 10/02/2023 13:00:00 CET; divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir 1 at bar index 5877 with orderRef: Denied divergence on new local minimum on 24/02/2023 17:00:00 CET; divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 5934 with orderRef: Denied divergence on new local maximum on 07/03/2023 11:00:00 CET; divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6101 with orderRef: Denied divergence on new local maximum on 31/03/2023 16:00:00 CEST; divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6153 with orderRef: Denied divergence on new local maximum on 12/04/2023 14:00:00 CEST; divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6547 with orderRef: Denied divergence on new local maximum on 14/06/2023 12:00:00 CEST; divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6567 with orderRef: Denied divergence on new local maximum on 16/06/2023 14:00:00 CEST; divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6655 with orderRef: Denied divergence on new local maximum on 30/06/2023 12:00:00 CEST; divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2
+Strategy::general_open: opening trade in dir -1 at bar index 6840 with orderRef: Denied divergence on new local maximum on 28/07/2023 17:00:00 CEST; divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2

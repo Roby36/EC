@@ -169,9 +169,10 @@ bool Instrument::addBar(TickerId reqId, const Bar& bar, const double time_tol, c
     // Record time of insertion
     this->last_bar_update = curr_sys_time();
     // Log new bar's insertion
-    m_logger->str("\tSuccessfully added bar for instrument " + std::to_string(inst_id)
-                            + " with date "      + asctime(&timeinfo) 
-                            + " at system time " + std::to_string(last_bar_update) + "\n");
+    m_logger->str("\tSuccessfully added bar " + std::to_string(this->bars->getnumBars() - 1) + 
+                  " for instrument " + std::to_string(inst_id) +
+                  " with date "      + asctime(&timeinfo) +
+                  " at system time " + std::to_string(last_bar_update) + "\n");
     return true;
 }         
 
