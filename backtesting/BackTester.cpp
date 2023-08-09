@@ -142,7 +142,7 @@ void BackTester::printResults()
     fprintf(fp, "\n STRATEGY REPORT:\nTotal positive trades: %d (%f points); Total negative trades: %d (%f points);\n Net loss/profit: %f\n\n", 
             posTrades, posBalance, negTrades, negBalance, this->pl);
     for (int i = 0; i < this->currTradeNo; i++) {
-        fprintf(fp, "%s", this->execTrades[i]->print().c_str());
+        fprintf(fp, "%s Current p&l: %f\n", this->execTrades[i]->print().c_str(), plArray[execTrades[i]->getExitPos()]);
     }
     if (this->reportPath != NULL) 
         fclose(fp); 

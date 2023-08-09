@@ -57,6 +57,8 @@ class Strategy
 	Indicators::BollingerBands* m_BollingerBands;
 	void compute_indicators();
 	void delete_indicators();
+	void select_statType(StatType statType, Indicators::LocalMin * &StatIndicator, std::string &stat_point_str);
+	void select_divType(DivergenceType divType, Indicators::Divergence * &DivIndicator, std::string &div_point_str);
 
 	/** CONDITIONS: */
 	EntryConditions entry_conditions [MAXENTRYCONDS];
@@ -67,16 +69,16 @@ class Strategy
 	const bool RSI_cond;
 
 	/** ENTRY: */
-	void denied_divergence_general( StatType statType /* DivergenceType divType, const int max_neg_period, const bool RSI_cond = true */);
-	void denied_divergence(/* DivergenceType divType, const int max_neg_period , const bool RSI_cond = true */);
-	void double_divergence();
+	bool denied_divergence_general(DivergenceType divType, StatType statType, const int max_neg_period, const bool RSI_cond = true, bool no_open = false);
+	bool denied_divergence(DivergenceType divType, const int max_neg_period, const bool RSI_cond);
+	bool double_divergence(DivergenceType divType, /* StatType statType, */ bool no_open = false);
 	/** EXIT: */
-	void opposite_divergence(MTrade_t* curr_trade = NULL);
+	void opposite_divergence(DivergenceType divType, MTrade_t* curr_trade = NULL);
 	void bollinger_crossing(MTrade_t* curr_trade  = NULL);
 	void negative_trade_expiration(MTrade_t* curr_trade = NULL);
 	void stop_loss_take_profit(MTrade_t* curr_trade = NULL, const double close = -DBL_MAX);
-	void check_entry_conditions();
-    void check_exit_conditions(MTrade_t* curr_trade = NULL);
+	void check_entry_conditions(DivergenceType divType, const int max_neg_period, const bool RSI_cond);
+    void check_exit_conditions(DivergenceType divType, MTrade_t* curr_trade);
 	/*const*/ double stop_loss;
 	/*const*/ double take_profit;
 	/*const*/ int    expirationBars;
@@ -93,8 +95,8 @@ class Strategy
 	void closeTrade(MTrade_t * curr_trade, 
 					const std::string orderRef = "");
 	void general_open(const int dir, 
-						const int curr_bar_index, 
-						std::string orderRef = "");
+					  const int curr_bar_index, 
+					  std::string orderRef = "");
 
 	public:
 

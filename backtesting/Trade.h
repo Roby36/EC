@@ -26,5 +26,6 @@ class Trade
     int getdir()      const { return this->direction;}
     int getTradeNo()  const { return this->tradeNo;}
     int getEntryPos() const { return this->entryPos;}    
+    int getExitPos()  const { return this->exitPos;}
 
 };

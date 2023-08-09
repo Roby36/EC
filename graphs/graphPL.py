@@ -27,7 +27,6 @@ closesDirectory = "/Users/roby/Desktop/EC/graphs/data/close.txt"
 PLDirectory = "/Users/roby/Desktop/EC/graphs/data/PL.txt"
 divergenceDirectory = "/Users/roby/Desktop/EC/graphs/data/Divergence.txt"
 
-
 # Functions:
 def getData(directory):
 
@@ -57,7 +56,6 @@ def restrictedYvalues(y_values, bool_data, num):
             restr_y_values.append(y_values[i])
     return restr_y_values
 
-
 # Parsing data:
 dates_data = getData(datesDirectory)
 closes_data = [float(x) for x in getData(closesDirectory)]
@@ -65,11 +63,9 @@ PL_data = [float(x) for x in getData(PLDirectory)]
 
 divergence_data = [int(x) for x in getData(divergenceDirectory)]
 
-
 ########## DATETIME VALUES ##################
 x_values = [dt.strptime(d, "%Y-%m-%d %H:%M:%S").date() for d in dates_data]
 ########## DATETIME VALUES ##################
-
 
 # Plotting closing price graph:
 fig, ax = plt.subplots()  

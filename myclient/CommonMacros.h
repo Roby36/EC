@@ -13,7 +13,7 @@
 #define MAX_TH_STRING_LENGTH 32
 
 /*** MClient.h macros ***/
-#define MAXINSTR 32
+#define MAXINSTR 16
 #define MAXSTRAT 16
 
 /*** MTrade.h macros */
