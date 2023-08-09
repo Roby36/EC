@@ -23,13 +23,11 @@ bool Trade::close(int exitPos)
 double Trade::currBal(int currPos) 
 {
     if (this->isActive()) {
-        return
-        (this->units)*(this->multFactor)*(this->direction)*
-        (this->barsRef->getBar(currPos)->close() - this->barsRef->getBar(this->entryPos)->close());
+        return (this->units)*(this->multFactor)*(this->direction)*
+               (this->barsRef->getBar(currPos)->close() - this->barsRef->getBar(this->entryPos)->close());
     } else {
-        return
-        (this->units)*(this->multFactor)*(this->direction)*
-        (this->barsRef->getBar(this->exitPos)->close() - this->barsRef->getBar(this->entryPos)->close());
+        return (this->units)*(this->multFactor)*(this->direction)*
+               (this->barsRef->getBar(this->exitPos)->close() - this->barsRef->getBar(this->entryPos)->close());
     }
 }
 
@@ -40,10 +38,8 @@ bool Trade::isActive() {
 std::string Trade::print() 
 {
     std::string dir;
-    if (this->direction == 1)  
-        dir = "long"; 
-    else  
-        dir = "short";    
+    if (this->direction == 1) dir = "long"; 
+    else dir = "short";    
     return(
           " Trade no: "            + std::to_string(this->tradeNo) + ";"
         + " Direction: "           + dir + ";"
@@ -51,7 +47,7 @@ std::string Trade::print()
         + " Entry closing price: " + std::to_string(this->barsRef->getBar(entryPos)->close())       + ";"
         + " Exit date: "           + std::string   (this->barsRef->getBar(exitPos)->date_time_str)  + ";"
         + " Exit closing price: "  + std::to_string(this->barsRef->getBar(exitPos)->close())        + ";"
-        + " Loss/profit: "         + std::to_string(this->currBal(exitPos))                         + ";" + "\n"
+        + " Loss/profit: "         + std::to_string(this->currBal(exitPos))                         + ";" 
     );
 }
     

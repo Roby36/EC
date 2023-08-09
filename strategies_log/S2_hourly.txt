@@ -851,3 +851,225 @@ Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: 
 Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: Double divergence on local maximum / minimum
 Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: Double divergence on local maximum / minimum
 Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: Double divergence on local maximum / minimum
+	LOG INITIATED AT: Wed Aug  9 18:20:05 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 538 with orderRef: long Divergence of degree 2 between 29/10/2020 12:00:00 CET and 30/10/2020 15:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 586 with orderRef: long Divergence of degree 2 between 05/11/2020 16:00:00 CET and 09/11/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 606 with orderRef: long Divergence of degree 2 between 10/11/2020 15:00:00 CET and 11/11/2020 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 608 with orderRef: long & short Divergence of degree 3 between 11/11/2020 11:00:00 CET and 11/11/2020 13:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 611 with orderRef: long & short Divergence of degree 4 between 11/11/2020 13:00:00 CET and 11/11/2020 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 760 with orderRef: long & short Divergence of degree 2 between 04/12/2020 09:00:00 CET and 04/12/2020 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 847 with orderRef: long Divergence of degree 2 between 17/12/2020 15:00:00 CET and 18/12/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 852 with orderRef: long & short Divergence of degree 3 between 18/12/2020 09:00:00 CET and 18/12/2020 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1140 with orderRef: long Divergence of degree 2 between 05/02/2021 13:00:00 CET and 08/02/2021 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 1214 with orderRef: long Divergence of degree 2 between 18/02/2021 11:00:00 CET and 18/02/2021 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1710 with orderRef: long Divergence of degree 2 between 07/05/2021 17:00:00 CEST and 10/05/2021 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1756 with orderRef: long Divergence of degree 2 between 17/05/2021 10:00:00 CEST and 18/05/2021 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2123 with orderRef: long Divergence of degree 2 between 14/07/2021 14:00:00 CEST and 14/07/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2384 with orderRef: long & short Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2856 with orderRef: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2899 with orderRef: long & short Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2935 with orderRef: long & short Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3428 with orderRef: long & short Divergence of degree 2 between 04/02/2022 14:00:00 CET and 04/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3536 with orderRef: long & short Divergence of degree 2 between 22/02/2022 14:00:00 CET and 22/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3545 with orderRef: long Divergence of degree 3 between 22/02/2022 16:00:00 CET and 23/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 3651 with orderRef: long Divergence of degree 2 between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 4020 with orderRef: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4235 with orderRef: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4239 with orderRef: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4302 with orderRef: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4426 with orderRef: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4629 with orderRef: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4633 with orderRef: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 5226 with orderRef: long & short Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5600 with orderRef: long Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5611 with orderRef: long Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5613 with orderRef: long Divergence of degree 4 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5733 with orderRef: long & short Divergence of degree 2 between 02/02/2023 14:00:00 CET and 02/02/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5853 with orderRef: long Divergence of degree 2 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5976 with orderRef: long & short Divergence of degree 2 between 13/03/2023 13:00:00 CET and 13/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5988 with orderRef: long Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: long Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: long & short Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST
+	LOG INITIATED AT: Wed Aug  9 18:31:31 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 538 with orderRef: long Divergence of degree 2 between 29/10/2020 12:00:00 CET and 30/10/2020 15:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 586 with orderRef: long Divergence of degree 2 between 05/11/2020 16:00:00 CET and 09/11/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 606 with orderRef: long Divergence of degree 2 between 10/11/2020 15:00:00 CET and 11/11/2020 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 608 with orderRef: long & short Divergence of degree 3 between 11/11/2020 11:00:00 CET and 11/11/2020 13:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 611 with orderRef: long & short Divergence of degree 4 between 11/11/2020 13:00:00 CET and 11/11/2020 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 760 with orderRef: long & short Divergence of degree 2 between 04/12/2020 09:00:00 CET and 04/12/2020 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 847 with orderRef: long Divergence of degree 2 between 17/12/2020 15:00:00 CET and 18/12/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 852 with orderRef: long & short Divergence of degree 3 between 18/12/2020 09:00:00 CET and 18/12/2020 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1140 with orderRef: long Divergence of degree 2 between 05/02/2021 13:00:00 CET and 08/02/2021 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 1214 with orderRef: long Divergence of degree 2 between 18/02/2021 11:00:00 CET and 18/02/2021 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1710 with orderRef: long Divergence of degree 2 between 07/05/2021 17:00:00 CEST and 10/05/2021 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1756 with orderRef: long Divergence of degree 2 between 17/05/2021 10:00:00 CEST and 18/05/2021 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2123 with orderRef: long Divergence of degree 2 between 14/07/2021 14:00:00 CEST and 14/07/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2384 with orderRef: long & short Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2856 with orderRef: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2899 with orderRef: long & short Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2935 with orderRef: long & short Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3428 with orderRef: long & short Divergence of degree 2 between 04/02/2022 14:00:00 CET and 04/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3536 with orderRef: long & short Divergence of degree 2 between 22/02/2022 14:00:00 CET and 22/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3545 with orderRef: long Divergence of degree 3 between 22/02/2022 16:00:00 CET and 23/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 3651 with orderRef: long Divergence of degree 2 between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 4020 with orderRef: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4235 with orderRef: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4239 with orderRef: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4302 with orderRef: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4426 with orderRef: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4629 with orderRef: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4633 with orderRef: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 5226 with orderRef: long & short Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5600 with orderRef: long Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5611 with orderRef: long Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5613 with orderRef: long Divergence of degree 4 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5733 with orderRef: long & short Divergence of degree 2 between 02/02/2023 14:00:00 CET and 02/02/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5853 with orderRef: long Divergence of degree 2 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5976 with orderRef: long & short Divergence of degree 2 between 13/03/2023 13:00:00 CET and 13/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5988 with orderRef: long Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: long Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: long & short Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST
+	LOG INITIATED AT: Wed Aug  9 18:50:49 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 538 with orderRef: long Divergence of degree 2 between 29/10/2020 12:00:00 CET and 30/10/2020 15:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 586 with orderRef: long Divergence of degree 2 between 05/11/2020 16:00:00 CET and 09/11/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 606 with orderRef: long Divergence of degree 2 between 10/11/2020 15:00:00 CET and 11/11/2020 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 608 with orderRef: long & short Divergence of degree 3 between 11/11/2020 11:00:00 CET and 11/11/2020 13:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 611 with orderRef: long & short Divergence of degree 4 between 11/11/2020 13:00:00 CET and 11/11/2020 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 760 with orderRef: long & short Divergence of degree 2 between 04/12/2020 09:00:00 CET and 04/12/2020 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 847 with orderRef: long Divergence of degree 2 between 17/12/2020 15:00:00 CET and 18/12/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 852 with orderRef: long & short Divergence of degree 3 between 18/12/2020 09:00:00 CET and 18/12/2020 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1140 with orderRef: long Divergence of degree 2 between 05/02/2021 13:00:00 CET and 08/02/2021 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 1214 with orderRef: long Divergence of degree 2 between 18/02/2021 11:00:00 CET and 18/02/2021 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1710 with orderRef: long Divergence of degree 2 between 07/05/2021 17:00:00 CEST and 10/05/2021 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1756 with orderRef: long Divergence of degree 2 between 17/05/2021 10:00:00 CEST and 18/05/2021 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2123 with orderRef: long Divergence of degree 2 between 14/07/2021 14:00:00 CEST and 14/07/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2384 with orderRef: long & short Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2856 with orderRef: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2899 with orderRef: long & short Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2935 with orderRef: long & short Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3428 with orderRef: long & short Divergence of degree 2 between 04/02/2022 14:00:00 CET and 04/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3536 with orderRef: long & short Divergence of degree 2 between 22/02/2022 14:00:00 CET and 22/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3545 with orderRef: long Divergence of degree 3 between 22/02/2022 16:00:00 CET and 23/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 3651 with orderRef: long Divergence of degree 2 between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 4020 with orderRef: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4235 with orderRef: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4239 with orderRef: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4302 with orderRef: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4426 with orderRef: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4629 with orderRef: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4633 with orderRef: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 5226 with orderRef: long & short Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5600 with orderRef: long Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5611 with orderRef: long Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5613 with orderRef: long Divergence of degree 4 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5733 with orderRef: long & short Divergence of degree 2 between 02/02/2023 14:00:00 CET and 02/02/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5853 with orderRef: long Divergence of degree 2 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5976 with orderRef: long & short Divergence of degree 2 between 13/03/2023 13:00:00 CET and 13/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5988 with orderRef: long Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: long Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: long & short Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST
+	LOG INITIATED AT: Wed Aug  9 18:53:01 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 538 with orderRef: long Divergence of degree 2 between 29/10/2020 12:00:00 CET and 30/10/2020 15:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 586 with orderRef: long Divergence of degree 2 between 05/11/2020 16:00:00 CET and 09/11/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 606 with orderRef: long Divergence of degree 2 between 10/11/2020 15:00:00 CET and 11/11/2020 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 608 with orderRef: long & short Divergence of degree 3 between 11/11/2020 11:00:00 CET and 11/11/2020 13:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 611 with orderRef: long & short Divergence of degree 4 between 11/11/2020 13:00:00 CET and 11/11/2020 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 760 with orderRef: long & short Divergence of degree 2 between 04/12/2020 09:00:00 CET and 04/12/2020 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 847 with orderRef: long Divergence of degree 2 between 17/12/2020 15:00:00 CET and 18/12/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 852 with orderRef: long & short Divergence of degree 3 between 18/12/2020 09:00:00 CET and 18/12/2020 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1140 with orderRef: long Divergence of degree 2 between 05/02/2021 13:00:00 CET and 08/02/2021 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 1214 with orderRef: long Divergence of degree 2 between 18/02/2021 11:00:00 CET and 18/02/2021 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1710 with orderRef: long Divergence of degree 2 between 07/05/2021 17:00:00 CEST and 10/05/2021 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1756 with orderRef: long Divergence of degree 2 between 17/05/2021 10:00:00 CEST and 18/05/2021 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2123 with orderRef: long Divergence of degree 2 between 14/07/2021 14:00:00 CEST and 14/07/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2384 with orderRef: long & short Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2856 with orderRef: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2899 with orderRef: long & short Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2935 with orderRef: long & short Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3428 with orderRef: long & short Divergence of degree 2 between 04/02/2022 14:00:00 CET and 04/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3536 with orderRef: long & short Divergence of degree 2 between 22/02/2022 14:00:00 CET and 22/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3545 with orderRef: long Divergence of degree 3 between 22/02/2022 16:00:00 CET and 23/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 3651 with orderRef: long Divergence of degree 2 between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 4020 with orderRef: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4235 with orderRef: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4239 with orderRef: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4302 with orderRef: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4426 with orderRef: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4629 with orderRef: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4633 with orderRef: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 5226 with orderRef: long & short Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5600 with orderRef: long Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5611 with orderRef: long Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5613 with orderRef: long Divergence of degree 4 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5733 with orderRef: long & short Divergence of degree 2 between 02/02/2023 14:00:00 CET and 02/02/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5853 with orderRef: long Divergence of degree 2 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5976 with orderRef: long & short Divergence of degree 2 between 13/03/2023 13:00:00 CET and 13/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5988 with orderRef: long Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: long Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: long & short Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST
+	LOG INITIATED AT: Wed Aug  9 18:54:39 2023
+
+Strategy::general_open: opening trade in dir 1 at bar index 538 with orderRef: long Divergence of degree 2 between 29/10/2020 12:00:00 CET and 30/10/2020 15:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 586 with orderRef: long Divergence of degree 2 between 05/11/2020 16:00:00 CET and 09/11/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 606 with orderRef: long Divergence of degree 2 between 10/11/2020 15:00:00 CET and 11/11/2020 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 608 with orderRef: long & short Divergence of degree 3 between 11/11/2020 11:00:00 CET and 11/11/2020 13:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 611 with orderRef: long & short Divergence of degree 4 between 11/11/2020 13:00:00 CET and 11/11/2020 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 760 with orderRef: long & short Divergence of degree 2 between 04/12/2020 09:00:00 CET and 04/12/2020 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 847 with orderRef: long Divergence of degree 2 between 17/12/2020 15:00:00 CET and 18/12/2020 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 852 with orderRef: long & short Divergence of degree 3 between 18/12/2020 09:00:00 CET and 18/12/2020 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1140 with orderRef: long Divergence of degree 2 between 05/02/2021 13:00:00 CET and 08/02/2021 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 1214 with orderRef: long Divergence of degree 2 between 18/02/2021 11:00:00 CET and 18/02/2021 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 1710 with orderRef: long Divergence of degree 2 between 07/05/2021 17:00:00 CEST and 10/05/2021 17:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 1756 with orderRef: long Divergence of degree 2 between 17/05/2021 10:00:00 CEST and 18/05/2021 09:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2123 with orderRef: long Divergence of degree 2 between 14/07/2021 14:00:00 CEST and 14/07/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2384 with orderRef: long & short Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 2856 with orderRef: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2899 with orderRef: long & short Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 2935 with orderRef: long & short Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3428 with orderRef: long & short Divergence of degree 2 between 04/02/2022 14:00:00 CET and 04/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3536 with orderRef: long & short Divergence of degree 2 between 22/02/2022 14:00:00 CET and 22/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 3545 with orderRef: long Divergence of degree 3 between 22/02/2022 16:00:00 CET and 23/02/2022 16:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 3651 with orderRef: long Divergence of degree 2 between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 4020 with orderRef: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4235 with orderRef: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4239 with orderRef: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4302 with orderRef: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST
+Strategy::general_open: opening trade in dir 1 at bar index 4426 with orderRef: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4629 with orderRef: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 4633 with orderRef: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 5226 with orderRef: long & short Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5600 with orderRef: long Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5611 with orderRef: long Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5613 with orderRef: long Divergence of degree 4 between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 5733 with orderRef: long & short Divergence of degree 2 between 02/02/2023 14:00:00 CET and 02/02/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5853 with orderRef: long Divergence of degree 2 between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5976 with orderRef: long & short Divergence of degree 2 between 13/03/2023 13:00:00 CET and 13/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5988 with orderRef: long Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5990 with orderRef: long Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET
+Strategy::general_open: opening trade in dir 1 at bar index 5994 with orderRef: long & short Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET
+Strategy::general_open: opening trade in dir -1 at bar index 6324 with orderRef: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST
+Strategy::general_open: opening trade in dir -1 at bar index 6386 with orderRef: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST
+	LOG INITIATED AT: Wed Aug  9 18:59:34 2023
+
+	LOG INITIATED AT: Wed Aug  9 20:36:26 2023
+
+	LOG INITIATED AT: Wed Aug  9 20:39:50 2023
+
+	LOG INITIATED AT: Wed Aug  9 20:42:15 2023
+
+	LOG INITIATED AT: Wed Aug  9 20:43:40 2023
+
+	LOG INITIATED AT: Wed Aug  9 20:46:07 2023
+

@@ -180,14 +180,10 @@ void Strategy::print_backtest()
     m_bt->printResults();
 }
 
-//** ENTRY CONDITIONS **//
+//** Indicator selection fucntions **//
 
-void Strategy::denied_divergence_general(StatType statType /* DivergenceType divType, StatType statType, const int max_neg_period, const bool RSI_cond */) 
+void Strategy::select_statType(StatType statType, Indicators::LocalMin * &StatIndicator, std::string &stat_point_str)
 {
-    // Select desired indicators
-    Indicators::LocalMin * StatIndicator;
-    Indicators::Divergence * DivIndicator;
-    std::string stat_point_str;
     switch (statType) {
         case MAX: {
             StatIndicator = m_LocalMax;
@@ -200,11 +196,37 @@ void Strategy::denied_divergence_general(StatType statType /* DivergenceType div
             break;
         }
     }
-    switch (divType) {
-        case SHORT: DivIndicator = m_Divergence; break;
-        case LONG:  DivIndicator = m_LongDivergence; break;
-    }
+}
 
+void Strategy::select_divType(DivergenceType divType, Indicators::Divergence * &DivIndicator, std::string &div_point_str)
+{
+    switch (divType) {
+        case SHORT: {
+            DivIndicator  = m_Divergence; 
+            div_point_str = "short ";
+            break;
+
+        }
+        case LONG: {
+            DivIndicator  = m_LongDivergence; 
+            div_point_str = "long ";
+            break;
+        }
+    }
+}
+
+//** ENTRY CONDITIONS **//
+
+bool Strategy::denied_divergence_general(DivergenceType divType, StatType statType, const int max_neg_period, const bool RSI_cond, bool no_open) 
+{
+    // Select desired indicators
+    Indicators::LocalMin * StatIndicator;
+    Indicators::Divergence * DivIndicator;
+    std::string stat_point_str;
+    std::string div_point_str;
+    select_divType(divType, DivIndicator, div_point_str);
+    select_statType(statType, StatIndicator, stat_point_str);
+    
     const int startBar = curr_bar_index - 2;
     int barsBack       = 0;
     int currLeftBar;
@@ -214,7 +236,7 @@ void Strategy::denied_divergence_general(StatType statType /* DivergenceType div
     /* (1) We are on a maximum/minimum without divergence */
     if (!StatIndicator->getIndicatorBar(startBar)->isPresent() ||
         DivIndicator->getIndicatorBar(startBar)->isPresent()) 
-        return;
+        return false;
     /* (2) We are on a new maximum/minimum since the previous divergence (located on a maximum/minimum) */
     while (DivIndicator->getIndicatorBar(startBar - barsBack)->m != (int)statType) {
         if (startBar - (++barsBack) < 0 ||  // move one bar back
@@ -223,12 +245,12 @@ void Strategy::denied_divergence_general(StatType statType /* DivergenceType div
                 StatIndicator->getIndicatorBar(startBar - barsBack + 1)->isPresent()) ||  // not a particularly useful parameter */
             (int)statType * m_instr->bars->getBar(startBar)->close() > /* check whether we are on new maximum/minimum*/
             (int)statType * m_instr->bars->getBar(startBar - barsBack)->close())
-            return;
+            return false;
     }
     /* Check if this divergence was denied already */
     rightBar = startBar - barsBack;
     if (DivIndicator->getIndicatorBar(rightBar)->isDenied)
-        return;
+        return false;
     // Navigate towards the left (root) maximum of the divergence
     currLeftBar = rightBar;
     while (DivIndicator->getIndicatorBar(currLeftBar)->isPresent()) {
@@ -238,33 +260,48 @@ void Strategy::denied_divergence_general(StatType statType /* DivergenceType div
     if (RSI_cond &&
         (int)statType * m_RSI->getIndicatorBar(startBar)->RSI > 
         (int)statType * m_RSI->getIndicatorBar(currLeftBar)->RSI)
-        return;
-    /* Mark divergence as denied, and open trade */
+        return false;
+    /* Mark divergence as denied */
     DivIndicator->getIndicatorBar(rightBar)->isDenied = true;
-    general_open((int)statType, curr_bar_index - 1, 
-                std::string("Denied divergence on new local " + stat_point_str + 
-                            " on " + std::string(m_instr->bars->getBar(startBar)->date_time_str) +
-                            "; divergence between " + std::string(m_instr->bars->getBar(currLeftBar)->date_time_str) +
-                            " and " + std::string(m_instr->bars->getBar(rightBar)->date_time_str) +
-                            " of entity " + std::to_string(DivIndicator->getIndicatorBar(rightBar)->divPoints)));
-                          
+    /* If we have a long divergence, use same function to check if trade would also have been open with short divergence */
+    if (divType == LONG && denied_divergence_general(SHORT, statType, max_neg_period, RSI_cond, true)) /* call function without executing any trade */
+        div_point_str = "long & short ";
+    /* Check if we are testing divergence condition or if trade actually needs to be opened */
+    if (!no_open)
+        general_open((int)statType, curr_bar_index - 1, 
+                std::string("Denied divergence on new local " + stat_point_str +  " on " + 
+                        std::string(m_instr->bars->getBar(startBar)->date_time_str) + "; " + div_point_str + "divergence between " + 
+                        std::string(m_instr->bars->getBar(currLeftBar)->date_time_str) + " and " + 
+                        std::string(m_instr->bars->getBar(rightBar)->date_time_str) + " of entity " + 
+                        std::to_string(DivIndicator->getIndicatorBar(rightBar)->divPoints)));
+    return true;                  
 }
 
-void Strategy::denied_divergence(/* DivergenceType divType, const int max_neg_period, const bool RSI_cond */) 
+bool Strategy::denied_divergence(DivergenceType divType, const int max_neg_period, const bool RSI_cond) 
 {
-    denied_divergence_general(MAX);
-    denied_divergence_general(MIN);
+    return (denied_divergence_general(divType, MAX, max_neg_period, RSI_cond, false) ||
+            denied_divergence_general(divType, MIN, max_neg_period, RSI_cond, false));
 }
 
-void Strategy::double_divergence()
+bool Strategy::double_divergence(DivergenceType divType, /* StatType statType, */ bool no_open)
 {
-    // Check for at least double divergence on PREVIOUS bar
-    if (m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->divPoints < 3)
-        return;
+    // Select appropriate divergence indicator
+    Indicators::Divergence * DivIndicator;
+    std::string div_point_str;
+    select_divType(divType, DivIndicator, div_point_str);
+
+    /*** CONDITIONS: ***/
+    /* (1) Check for at least double divergence on PREVIOUS bar */
+    if (DivIndicator->getIndicatorBar(curr_bar_index - 2)->divPoints < 3)
+        return false;
+    /* Check if this also applies to short divergernce*/
+    if (divType == LONG && double_divergence(SHORT, true)) /* call without executing any trade */
+        div_point_str = "long & short ";
     // Go long if we are on a minimum, short if we are on a maximum
-    general_open(m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->m,
-                 curr_bar_index - 1,
-                "Double divergence on local maximum / minimum");
+    if (!no_open)
+        general_open(DivIndicator->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1,
+                div_point_str + DivIndicator->getIndicatorBar(curr_bar_index - 2)->logString());
+    return true;
 }
 
 bool Strategy::check_trade(MTrade_t* curr_trade)
@@ -276,16 +313,24 @@ bool Strategy::check_trade(MTrade_t* curr_trade)
 
 /** EXIT CONDITIONS **/
 
-void Strategy::opposite_divergence(MTrade_t* curr_trade)
+void Strategy::opposite_divergence(DivergenceType divType, MTrade_t* curr_trade)
 {
+    // Select appropriate divergence indicator
+    Indicators::Divergence * DivIndicator;
+    std::string div_point_str;
+    select_divType(divType, DivIndicator, div_point_str);
+    // Check if we have a "long & short divergence"
+    if (divType == LONG && m_Divergence->getIndicatorBar(curr_bar_index - 2)->isPresent())
+        div_point_str = "long & short ";
+    // Check backtesting & livetrading cases
     if (curr_trade == NULL && t_state == BACKTESTING) 
-        m_bt->closeTrades((-1) * m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1, 
-        "Opposite (not necessarily denied) divergence on previous bar");
+        m_bt->closeTrades((-1) * DivIndicator->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1, 
+        std::string("Opposite (not necessarily denied) " + div_point_str + "divergence on previous bar"));
     // live trading case
-    else if (m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->isPresent() &&
-        ((m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->m == 1 && curr_trade->openingOrder.action == "SELL") || 
-         (m_LongDivergence->getIndicatorBar(curr_bar_index - 2)->m == -1 && curr_trade->openingOrder.action == "BUY")))
-        closeTrade(curr_trade, "Opposite divergence");
+    else if (DivIndicator->getIndicatorBar(curr_bar_index - 2)->isPresent() &&
+        ((DivIndicator->getIndicatorBar(curr_bar_index - 2)->m == 1 && curr_trade->openingOrder.action == "SELL") || 
+         (DivIndicator->getIndicatorBar(curr_bar_index - 2)->m == -1 && curr_trade->openingOrder.action == "BUY")))
+        closeTrade(curr_trade, std::string("Opposite (not necessarily denied) " + div_point_str + "divergence"));
 }
 
 void Strategy::bollinger_crossing(MTrade_t* curr_trade) 
@@ -355,25 +400,25 @@ void Strategy::stop_loss_take_profit(MTrade_t* curr_trade, const double close)
 
 //** CONDITION CHECKS **//
 
-void Strategy::check_entry_conditions() {
+void Strategy::check_entry_conditions(DivergenceType divType, const int max_neg_period, const bool RSI_cond) {
     for (int i = 0; i < MAXENTRYCONDS; i++) {
         EntryConditions cond = entry_conditions[i];
         // check if we ran out of conditions
         if (cond == ENTRY_CONDITIONS_END) break;
         /** CONDITIONSTRINGS: **/
-        else if (cond == DOUBLE_DIVERGENCE) double_divergence(); /* S2 */
-        else if (cond == DENIED_DIVERGENCE) denied_divergence(); /* S1 */
+        else if (cond == DOUBLE_DIVERGENCE) double_divergence(divType, false); /* S2 */
+        else if (cond == DENIED_DIVERGENCE) denied_divergence(divType, max_neg_period, RSI_cond); /* S1 */
         /** Other possible entry conditions  ... */
     }
 }
 
-void Strategy::check_exit_conditions(MTrade_t* curr_trade) {
+void Strategy::check_exit_conditions(DivergenceType divType, MTrade_t* curr_trade) {
     for (int i = 0; i < MAXEXITCONDS; i++) {
         ExitConditions cond = exit_conditions[i];
         // check if we ran out of conditions
         if (cond == EXIT_CONDITIONS_END) break;
         /** CONDITIONSTRINGS: SAME for S1, S2**/
-        else if (cond == OPPOSITE_DIVERGENCE)       opposite_divergence(curr_trade);
+        else if (cond == OPPOSITE_DIVERGENCE)       opposite_divergence(divType, curr_trade);
         else if (cond == BOLLINGER_CROSSING)        bollinger_crossing(curr_trade);
         else if (cond == NEGATIVE_TRADE_EXPIRATION) negative_trade_expiration(curr_trade);
         else if (cond == STOP_LOSS_TAKE_PROFIT)     stop_loss_take_profit(curr_trade);
@@ -381,23 +426,25 @@ void Strategy::check_exit_conditions(MTrade_t* curr_trade) {
     }
 }
 
+/*** Only function with hard-coded (DivergenceType divType, const int max_neg_period, const bool RSI_cond) parameters ***/
+
 void Strategy::handle_barUpdate() {
     // Update & verify bar position (including 1 bar iterating back)
     if ((curr_bar_index = m_instr->bars->getnumBars()) < 3) return;
     // First update indicators to account for new bar
     compute_indicators();
     //** ENTRY CONDITIONS (live & backtesting) **//
-    check_entry_conditions();
+    check_entry_conditions(this->divType, this->max_neg_period, this->RSI_cond);
     //** EXIT CONDITIONS **//
     if (t_state == LIVE) {
     // Iterate through every trade of MClient and check if it belongs to this strategy, with this instrument
     for (int i = 0; i < m_tradeData->numTrades; i++) {
         MTrade_t* curr_trade = m_tradeData->tradeArr[i];
         if (!check_trade(curr_trade)) continue;
-        check_exit_conditions(curr_trade);
+        check_exit_conditions(this->divType, curr_trade);
         }
     }
     if (t_state == BACKTESTING) {
-        check_exit_conditions(NULL);
+        check_exit_conditions(this->divType, NULL);
     }
 }

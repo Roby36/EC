@@ -28,10 +28,8 @@ namespace IndicatorBars
         bool isPresent() { return (m != 0); }
         std::string toString() { return std::to_string(isPresent()); }
         std::string logString() {
-            if (m == -1)
-                return "Local Maximum";
-            if (m == 1) 
-                return "Local Minimum";
+            if (m == -1) return "Local Maximum";
+            if (m == 1)  return "Local Minimum";
             return "";
         }
     };
