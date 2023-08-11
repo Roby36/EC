@@ -141,5 +141,6 @@ class Strategy
 	void handle_realTimeBar(const double close);
 	void handle_barUpdate();
 	void print_backtest();
+	void print_indicators();
 };
 

@@ -101,10 +101,13 @@ void run_backtests(MClient * client) {
     client->update_contracts(); 
     /* Determina il numero di barre da includere nei backtest */
     client->update_instr_bars(dax_hourly_id, 32000, true);
-    client->update_instr_bars(dax_daily_id, 4096, true);
+    // client->update_instr_bars(dax_daily_id, 4096, true);
     /* stampa risultati backtests */
     client->print_backtests(); 
 /* Elimina strategie */
+#ifdef INDDBG
+    S1_hourly_shortDiv->print_indicators();
+#endif
     delete (S1_hourly_shortDiv); /* Can only delete one strategy if same Inidcator pointers held by two different strategies! */
     delete (S1_daily);
     delete (S2_hourly);
