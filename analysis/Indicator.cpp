@@ -3,13 +3,23 @@
 
 /******* INDICATOR STANDARD TEMPLATE ********/
 
-template <class T> Indicator<T>::Indicator(Bars* dp, const std::string name, const std::string logDirectory)
-    : dp(dp)
+template <class T> Indicator<T>::Indicator(Bars* dp, const int starting_bar, const std::string name, const std::string logDirectory)
+    : dp(dp), starting_bar(starting_bar)
 {
     this->outputDirectory = dp->getoutputDir() + name + dp->getoutputExt();
     this->logDirectory    = logDirectory + name + dp->getoutputExt();
     for (int i = 0; i < MAXBARS; i++) {
         indicatorArray[i] = new T();
+    }
+}
+
+template <class T> void Indicator<T>::computeIndicator()
+{
+    for (int d = starting_bar; d < dp->getnumBars(); d++) {
+        if ((this->getIndicatorBar(d))->is_computed)
+            continue;
+        this->computeIndicatorBar(d); // compute idnicator bar only if not computed yet
+        this->getIndicatorBar(d)->is_computed = true; // mark indicator bar a s copmputed
     }
 }
 

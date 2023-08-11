@@ -70,135 +70,135 @@ Total positive trades: 33 (7253.500000 points); Total negative trades: 32 (-4004
  Trade no: 64; Direction: short; Entry date: 31/07/2023 09:00:00 CEST; Entry closing price: 16464.500000; Exit date: 01/08/2023 12:00:00 CEST; Exit closing price: 16331.230000; Loss/profit: 133.270000; Current p&l: 3249.300000
 
  TRADE LOG:
-Opened  0: Denied divergence on new local minimum on 22/09/2020 17:00:00 CEST; short divergence between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST of entity 2. Currently open trades: 1
+Opened  0: Denied divergence on new local minimum on 22/09/2020 17:00:00 CEST; short divergence between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST of entity 2 with absolute % change per bar 0.027527. Currently open trades: 1
 Closed 0: Negative after expiration time (stop loss)
-Opened  1: Denied divergence on new local minimum on 25/09/2020 12:00:00 CEST; short divergence between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST of entity 2. Currently open trades: 1
+Opened  1: Denied divergence on new local minimum on 25/09/2020 12:00:00 CEST; short divergence between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST of entity 2 with absolute % change per bar 0.007918. Currently open trades: 1
 Closed 1: reached stop loss / take profit point
-Opened  2: Denied divergence on new local minimum on 26/10/2020 10:00:00 CET; short divergence between 22/10/2020 14:00:00 CEST and 22/10/2020 16:00:00 CEST of entity 2. Currently open trades: 1
+Opened  2: Denied divergence on new local minimum on 26/10/2020 10:00:00 CET; short divergence between 22/10/2020 14:00:00 CEST and 22/10/2020 16:00:00 CEST of entity 2 with absolute % change per bar 0.035131. Currently open trades: 1
 Closed 2: reached stop loss / take profit point
-Opened  3: Denied divergence on new local maximum on 05/11/2020 12:00:00 CET; short divergence between 03/11/2020 17:00:00 CET and 04/11/2020 10:00:00 CET of entity 2. Currently open trades: 1
+Opened  3: Denied divergence on new local maximum on 05/11/2020 12:00:00 CET; short divergence between 03/11/2020 17:00:00 CET and 04/11/2020 10:00:00 CET of entity 2 with absolute % change per bar 0.255315. Currently open trades: 1
 Closed 3: reached stop loss / take profit point
-Opened  4: Denied divergence on new local maximum on 09/11/2020 14:00:00 CET; short divergence between 05/11/2020 12:00:00 CET and 05/11/2020 16:00:00 CET of entity 2. Currently open trades: 1
+Opened  4: Denied divergence on new local maximum on 09/11/2020 14:00:00 CET; short divergence between 05/11/2020 12:00:00 CET and 05/11/2020 16:00:00 CET of entity 2 with absolute % change per bar 0.073024. Currently open trades: 1
 Closed 4: Negative after expiration time (stop loss)
-Opened  5: Denied divergence on new local maximum on 27/11/2020 16:00:00 CET; short divergence between 26/11/2020 15:00:00 CET and 27/11/2020 09:00:00 CET of entity 2. Currently open trades: 1
+Opened  5: Denied divergence on new local maximum on 27/11/2020 16:00:00 CET; short divergence between 26/11/2020 15:00:00 CET and 27/11/2020 09:00:00 CET of entity 2 with absolute % change per bar 0.033127. Currently open trades: 1
 Closed 5: Negative after expiration time (stop loss)
-Opened  6: Denied divergence on new local minimum on 07/12/2020 09:00:00 CET; short divergence between 03/12/2020 15:00:00 CET and 04/12/2020 12:00:00 CET of entity 3. Currently open trades: 1
+Opened  6: Denied divergence on new local minimum on 07/12/2020 09:00:00 CET; short divergence between 03/12/2020 15:00:00 CET and 04/12/2020 12:00:00 CET of entity 3 with absolute % change per bar 0.027360. Currently open trades: 1
 Closed 6: Crossed upper Bollinger Bands from above (take profit)
-Opened  7: Denied divergence on new local maximum on 07/01/2021 10:00:00 CET; short divergence between 04/01/2021 11:00:00 CET and 04/01/2021 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  7: Denied divergence on new local maximum on 07/01/2021 10:00:00 CET; short divergence between 04/01/2021 11:00:00 CET and 04/01/2021 14:00:00 CET of entity 2 with absolute % change per bar 0.004897. Currently open trades: 1
 Closed 7: Negative after expiration time (stop loss)
-Opened  8: Denied divergence on new local maximum on 20/01/2021 11:00:00 CET; short divergence between 19/01/2021 10:00:00 CET and 19/01/2021 12:00:00 CET of entity 2. Currently open trades: 1
+Opened  8: Denied divergence on new local maximum on 20/01/2021 11:00:00 CET; short divergence between 19/01/2021 10:00:00 CET and 19/01/2021 12:00:00 CET of entity 2 with absolute % change per bar 0.000504. Currently open trades: 1
 Closed 8: Crossed lower Bollinger Bands from below (take profit)
-Opened  9: Denied divergence on new local minimum on 27/01/2021 15:00:00 CET; short divergence between 25/01/2021 13:00:00 CET and 25/01/2021 17:00:00 CET of entity 2. Currently open trades: 1
+Opened  9: Denied divergence on new local minimum on 27/01/2021 15:00:00 CET; short divergence between 25/01/2021 13:00:00 CET and 25/01/2021 17:00:00 CET of entity 2 with absolute % change per bar 0.021529. Currently open trades: 1
 Closed 9: Negative after expiration time (stop loss)
-Opened  10: Denied divergence on new local maximum on 25/02/2021 11:00:00 CET; short divergence between 24/02/2021 13:00:00 CET and 24/02/2021 16:00:00 CET of entity 2. Currently open trades: 1
+Opened  10: Denied divergence on new local maximum on 25/02/2021 11:00:00 CET; short divergence between 24/02/2021 13:00:00 CET and 24/02/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.016129. Currently open trades: 1
 Closed 10: Crossed lower Bollinger Bands from below (take profit)
-Opened  11: Denied divergence on new local maximum on 10/03/2021 10:00:00 CET; short divergence between 09/03/2021 12:00:00 CET and 09/03/2021 15:00:00 CET of entity 2. Currently open trades: 1
+Opened  11: Denied divergence on new local maximum on 10/03/2021 10:00:00 CET; short divergence between 09/03/2021 12:00:00 CET and 09/03/2021 15:00:00 CET of entity 2 with absolute % change per bar 0.042107. Currently open trades: 1
 Closed 11: Negative after expiration time (stop loss)
-Opened  12: Denied divergence on new local maximum on 12/03/2021 15:00:00 CET; short divergence between 12/03/2021 11:00:00 CET and 12/03/2021 13:00:00 CET of entity 2. Currently open trades: 1
+Opened  12: Denied divergence on new local maximum on 12/03/2021 15:00:00 CET; short divergence between 12/03/2021 11:00:00 CET and 12/03/2021 13:00:00 CET of entity 2 with absolute % change per bar 0.000483. Currently open trades: 1
 Closed 12: Negative after expiration time (stop loss)
-Opened  13: Denied divergence on new local maximum on 30/03/2021 09:00:00 CEST; short divergence between 29/03/2021 13:00:00 CEST and 29/03/2021 15:00:00 CEST of entity 2. Currently open trades: 1
-Opened  14: Denied divergence on new local maximum on 01/04/2021 09:00:00 CEST; short divergence between 30/03/2021 17:00:00 CEST and 31/03/2021 12:00:00 CEST of entity 2. Currently open trades: 2
+Opened  13: Denied divergence on new local maximum on 30/03/2021 09:00:00 CEST; short divergence between 29/03/2021 13:00:00 CEST and 29/03/2021 15:00:00 CEST of entity 2 with absolute % change per bar 0.036715. Currently open trades: 1
+Opened  14: Denied divergence on new local maximum on 01/04/2021 09:00:00 CEST; short divergence between 30/03/2021 17:00:00 CEST and 31/03/2021 12:00:00 CEST of entity 2 with absolute % change per bar 0.010461. Currently open trades: 2
 Closed 13: Negative after expiration time (stop loss)
 Closed 14: Negative after expiration time (stop loss)
-Opened  15: Denied divergence on new local maximum on 09/04/2021 13:00:00 CEST; short divergence between 07/04/2021 16:00:00 CEST and 08/04/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Opened  15: Denied divergence on new local maximum on 09/04/2021 13:00:00 CEST; short divergence between 07/04/2021 16:00:00 CEST and 08/04/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023287. Currently open trades: 1
 Closed 15: Negative after expiration time (stop loss)
-Opened  16: Denied divergence on new local maximum on 15/04/2021 16:00:00 CEST; short divergence between 15/04/2021 10:00:00 CEST and 15/04/2021 12:00:00 CEST of entity 2. Currently open trades: 1
-Opened  17: Denied divergence on new local maximum on 19/04/2021 09:00:00 CEST; short divergence between 16/04/2021 11:00:00 CEST and 16/04/2021 14:00:00 CEST of entity 2. Currently open trades: 2
+Opened  16: Denied divergence on new local maximum on 15/04/2021 16:00:00 CEST; short divergence between 15/04/2021 10:00:00 CEST and 15/04/2021 12:00:00 CEST of entity 2 with absolute % change per bar 0.000787. Currently open trades: 1
+Opened  17: Denied divergence on new local maximum on 19/04/2021 09:00:00 CEST; short divergence between 16/04/2021 11:00:00 CEST and 16/04/2021 14:00:00 CEST of entity 2 with absolute % change per bar 0.058752. Currently open trades: 2
 Closed 16: Negative after expiration time (stop loss)
 Closed 17: Crossed lower Bollinger Bands from below (take profit)
-Opened  18: Denied divergence on new local minimum on 23/06/2021 17:00:00 CEST; short divergence between 21/06/2021 15:00:00 CEST and 22/06/2021 10:00:00 CEST of entity 2. Currently open trades: 1
+Opened  18: Denied divergence on new local minimum on 23/06/2021 17:00:00 CEST; short divergence between 21/06/2021 15:00:00 CEST and 22/06/2021 10:00:00 CEST of entity 2 with absolute % change per bar 0.014616. Currently open trades: 1
 Closed 18: Crossed upper Bollinger Bands from above (take profit)
-Opened  19: Denied divergence on new local maximum on 29/06/2021 12:00:00 CEST; short divergence between 28/06/2021 14:00:00 CEST and 29/06/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Opened  19: Denied divergence on new local maximum on 29/06/2021 12:00:00 CEST; short divergence between 28/06/2021 14:00:00 CEST and 29/06/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023408. Currently open trades: 1
 Closed 19: Crossed lower Bollinger Bands from below (take profit)
-Opened  20: Denied divergence on new local minimum on 16/07/2021 16:00:00 CEST; short divergence between 15/07/2021 16:00:00 CEST and 16/07/2021 13:00:00 CEST of entity 2. Currently open trades: 1
+Opened  20: Denied divergence on new local minimum on 16/07/2021 16:00:00 CEST; short divergence between 15/07/2021 16:00:00 CEST and 16/07/2021 13:00:00 CEST of entity 2 with absolute % change per bar 0.025392. Currently open trades: 1
 Closed 20: reached stop loss / take profit point
-Opened  21: Denied divergence on new local maximum on 05/08/2021 10:00:00 CEST; short divergence between 04/08/2021 12:00:00 CEST and 04/08/2021 16:00:00 CEST of entity 2. Currently open trades: 1
+Opened  21: Denied divergence on new local maximum on 05/08/2021 10:00:00 CEST; short divergence between 04/08/2021 12:00:00 CEST and 04/08/2021 16:00:00 CEST of entity 2 with absolute % change per bar 0.024621. Currently open trades: 1
 Closed 21: Negative after expiration time (stop loss)
-Opened  22: Denied divergence on new local minimum on 19/08/2021 10:00:00 CEST; short divergence between 16/08/2021 16:00:00 CEST and 17/08/2021 09:00:00 CEST of entity 2. Currently open trades: 1
+Opened  22: Denied divergence on new local minimum on 19/08/2021 10:00:00 CEST; short divergence between 16/08/2021 16:00:00 CEST and 17/08/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023283. Currently open trades: 1
 Closed 22: Opposite (not necessarily denied) short divergence on previous bar
-Opened  23: Denied divergence on new local maximum on 14/10/2021 11:00:00 CEST; short divergence between 13/10/2021 13:00:00 CEST and 13/10/2021 15:00:00 CEST of entity 2. Currently open trades: 1
+Opened  23: Denied divergence on new local maximum on 14/10/2021 11:00:00 CEST; short divergence between 13/10/2021 13:00:00 CEST and 13/10/2021 15:00:00 CEST of entity 2 with absolute % change per bar 0.018639. Currently open trades: 1
 Closed 23: Negative after expiration time (stop loss)
-Opened  24: Denied divergence on new local maximum on 04/11/2021 11:00:00 CET; short divergence between 02/11/2021 17:00:00 CET and 03/11/2021 12:00:00 CET of entity 2. Currently open trades: 1
+Opened  24: Denied divergence on new local maximum on 04/11/2021 11:00:00 CET; short divergence between 02/11/2021 17:00:00 CET and 03/11/2021 12:00:00 CET of entity 2 with absolute % change per bar 0.018412. Currently open trades: 1
 Closed 24: Negative after expiration time (stop loss)
-Opened  25: Denied divergence on new local maximum on 09/11/2021 10:00:00 CET; short divergence between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET of entity 2. Currently open trades: 1
+Opened  25: Denied divergence on new local maximum on 09/11/2021 10:00:00 CET; short divergence between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET of entity 2 with absolute % change per bar 0.004511. Currently open trades: 1
 Closed 25: Negative after expiration time (stop loss)
-Opened  26: Denied divergence on new local maximum on 12/11/2021 12:00:00 CET; short divergence between 11/11/2021 10:00:00 CET and 12/11/2021 09:00:00 CET of entity 3. Currently open trades: 1
+Opened  26: Denied divergence on new local maximum on 12/11/2021 12:00:00 CET; short divergence between 11/11/2021 10:00:00 CET and 12/11/2021 09:00:00 CET of entity 3 with absolute % change per bar 0.003277. Currently open trades: 1
 Closed 26: Negative after expiration time (stop loss)
-Opened  27: Denied divergence on new local maximum on 13/12/2021 10:00:00 CET; short divergence between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  27: Denied divergence on new local maximum on 13/12/2021 10:00:00 CET; short divergence between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET of entity 2 with absolute % change per bar 0.010530. Currently open trades: 1
 Closed 27: Crossed lower Bollinger Bands from below (take profit)
-Opened  28: Denied divergence on new local maximum on 28/12/2021 10:00:00 CET; short divergence between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET of entity 2. Currently open trades: 1
+Opened  28: Denied divergence on new local maximum on 28/12/2021 10:00:00 CET; short divergence between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.070577. Currently open trades: 1
 Closed 28: Negative after expiration time (stop loss)
-Opened  29: Denied divergence on new local maximum on 03/01/2022 13:00:00 CET; short divergence between 03/01/2022 09:00:00 CET and 03/01/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Opened  29: Denied divergence on new local maximum on 03/01/2022 13:00:00 CET; short divergence between 03/01/2022 09:00:00 CET and 03/01/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.054451. Currently open trades: 1
 Closed 29: Negative after expiration time (stop loss)
-Opened  30: Denied divergence on new local minimum on 10/01/2022 16:00:00 CET; short divergence between 07/01/2022 16:00:00 CET and 10/01/2022 09:00:00 CET of entity 2. Currently open trades: 1
+Opened  30: Denied divergence on new local minimum on 10/01/2022 16:00:00 CET; short divergence between 07/01/2022 16:00:00 CET and 10/01/2022 09:00:00 CET of entity 2 with absolute % change per bar 0.017867. Currently open trades: 1
 Closed 30: Opposite (not necessarily denied) short divergence on previous bar
-Opened  31: Denied divergence on new local maximum on 13/01/2022 14:00:00 CET; short divergence between 12/01/2022 10:00:00 CET and 12/01/2022 15:00:00 CET of entity 2. Currently open trades: 1
+Opened  31: Denied divergence on new local maximum on 13/01/2022 14:00:00 CET; short divergence between 12/01/2022 10:00:00 CET and 12/01/2022 15:00:00 CET of entity 2 with absolute % change per bar 0.005849. Currently open trades: 1
 Closed 31: Crossed lower Bollinger Bands from below (take profit)
-Opened  32: Denied divergence on new local maximum on 10/02/2022 13:00:00 CET; short divergence between 09/02/2022 16:00:00 CET and 10/02/2022 09:00:00 CET of entity 2. Currently open trades: 1
+Opened  32: Denied divergence on new local maximum on 10/02/2022 13:00:00 CET; short divergence between 09/02/2022 16:00:00 CET and 10/02/2022 09:00:00 CET of entity 2 with absolute % change per bar 0.060566. Currently open trades: 1
 Closed 32: Crossed lower Bollinger Bands from below (take profit)
-Opened  33: Denied divergence on new local minimum on 24/02/2022 11:00:00 CET; short divergence between 22/02/2022 12:00:00 CET and 22/02/2022 16:00:00 CET of entity 3. Currently open trades: 1
+Opened  33: Denied divergence on new local minimum on 24/02/2022 11:00:00 CET; short divergence between 22/02/2022 12:00:00 CET and 22/02/2022 16:00:00 CET of entity 3 with absolute % change per bar 0.072644. Currently open trades: 1
 Closed 33: reached stop loss / take profit point
-Opened  34: Denied divergence on new local maximum on 14/03/2022 10:00:00 CET; short divergence between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  34: Denied divergence on new local maximum on 14/03/2022 10:00:00 CET; short divergence between 11/03/2022 12:00:00 CET and 11/03/2022 14:00:00 CET of entity 2 with absolute % change per bar 0.099534. Currently open trades: 1
 Closed 34: reached stop loss / take profit point
-Opened  35: Denied divergence on new local maximum on 22/03/2022 10:00:00 CET; short divergence between 17/03/2022 17:00:00 CET and 18/03/2022 17:00:00 CET of entity 2. Currently open trades: 1
+Opened  35: Denied divergence on new local maximum on 22/03/2022 10:00:00 CET; short divergence between 17/03/2022 17:00:00 CET and 18/03/2022 17:00:00 CET of entity 2 with absolute % change per bar 0.019329. Currently open trades: 1
 Closed 35: Crossed lower Bollinger Bands from below (take profit)
-Opened  36: Denied divergence on new local minimum on 06/04/2022 15:00:00 CEST; short divergence between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST of entity 2. Currently open trades: 1
+Opened  36: Denied divergence on new local minimum on 06/04/2022 15:00:00 CEST; short divergence between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST of entity 2 with absolute % change per bar 0.008122. Currently open trades: 1
 Closed 36: Negative after expiration time (stop loss)
-Opened  37: Denied divergence on new local minimum on 12/04/2022 09:00:00 CEST; short divergence between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Opened  37: Denied divergence on new local minimum on 12/04/2022 09:00:00 CEST; short divergence between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.015200. Currently open trades: 1
 Closed 37: Negative after expiration time (stop loss)
-Opened  38: Denied divergence on new local maximum on 17/05/2022 11:00:00 CEST; short divergence between 13/05/2022 17:00:00 CEST and 16/05/2022 10:00:00 CEST of entity 2. Currently open trades: 1
+Opened  38: Denied divergence on new local maximum on 17/05/2022 11:00:00 CEST; short divergence between 13/05/2022 17:00:00 CEST and 16/05/2022 10:00:00 CEST of entity 2 with absolute % change per bar 0.039279. Currently open trades: 1
 Closed 38: reached stop loss / take profit point
-Opened  39: Denied divergence on new local maximum on 28/06/2022 15:00:00 CEST; short divergence between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Opened  39: Denied divergence on new local maximum on 28/06/2022 15:00:00 CEST; short divergence between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST of entity 2 with absolute % change per bar 0.051202. Currently open trades: 1
 Closed 39: Crossed lower Bollinger Bands from below (take profit)
-Opened  40: Denied divergence on new local minimum on 05/07/2022 10:00:00 CEST; short divergence between 01/07/2022 09:00:00 CEST and 01/07/2022 13:00:00 CEST of entity 2. Currently open trades: 1
+Opened  40: Denied divergence on new local minimum on 05/07/2022 10:00:00 CEST; short divergence between 01/07/2022 09:00:00 CEST and 01/07/2022 13:00:00 CEST of entity 2 with absolute % change per bar 0.040712. Currently open trades: 1
 Closed 40: reached stop loss / take profit point
-Opened  41: Denied divergence on new local minimum on 14/07/2022 16:00:00 CEST; short divergence between 12/07/2022 09:00:00 CEST and 12/07/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Opened  41: Denied divergence on new local minimum on 14/07/2022 16:00:00 CEST; short divergence between 12/07/2022 09:00:00 CEST and 12/07/2022 12:00:00 CEST of entity 2 with absolute % change per bar 0.019843. Currently open trades: 1
 Closed 41: reached stop loss / take profit point
-Opened  42: Denied divergence on new local maximum on 21/07/2022 17:00:00 CEST; short divergence between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Opened  42: Denied divergence on new local maximum on 21/07/2022 17:00:00 CEST; short divergence between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.023538. Currently open trades: 1
 Closed 42: Crossed lower Bollinger Bands from below (take profit)
-Opened  43: Denied divergence on new local maximum on 16/08/2022 10:00:00 CEST; short divergence between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST of entity 2. Currently open trades: 1
+Opened  43: Denied divergence on new local maximum on 16/08/2022 10:00:00 CEST; short divergence between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST of entity 2 with absolute % change per bar 0.009198. Currently open trades: 1
 Closed 43: Crossed lower Bollinger Bands from below (take profit)
-Opened  44: Denied divergence on new local minimum on 23/08/2022 14:00:00 CEST; short divergence between 23/08/2022 10:00:00 CEST and 23/08/2022 12:00:00 CEST of entity 2. Currently open trades: 1
+Opened  44: Denied divergence on new local minimum on 23/08/2022 14:00:00 CEST; short divergence between 23/08/2022 10:00:00 CEST and 23/08/2022 12:00:00 CEST of entity 2 with absolute % change per bar 0.089702. Currently open trades: 1
 Closed 44: Crossed upper Bollinger Bands from above (take profit)
-Opened  45: Denied divergence on new local maximum on 08/09/2022 10:00:00 CEST; short divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2. Currently open trades: 1
+Opened  45: Denied divergence on new local maximum on 08/09/2022 10:00:00 CEST; short divergence between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST of entity 2 with absolute % change per bar 0.032333. Currently open trades: 1
 Closed 45: Crossed lower Bollinger Bands from below (take profit)
-Opened  46: Denied divergence on new local minimum on 28/09/2022 11:00:00 CEST; short divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2. Currently open trades: 1
+Opened  46: Denied divergence on new local minimum on 28/09/2022 11:00:00 CEST; short divergence between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST of entity 2 with absolute % change per bar 0.024413. Currently open trades: 1
 Closed 46: Negative after expiration time (stop loss)
-Opened  47: Denied divergence on new local minimum on 13/10/2022 14:00:00 CEST; short divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2. Currently open trades: 1
+Opened  47: Denied divergence on new local minimum on 13/10/2022 14:00:00 CEST; short divergence between 12/10/2022 14:00:00 CEST and 12/10/2022 17:00:00 CEST of entity 2 with absolute % change per bar 0.006352. Currently open trades: 1
 Closed 47: reached stop loss / take profit point
-Opened  48: Denied divergence on new local maximum on 27/10/2022 16:00:00 CEST; short divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2. Currently open trades: 1
+Opened  48: Denied divergence on new local maximum on 27/10/2022 16:00:00 CEST; short divergence between 27/10/2022 10:00:00 CEST and 27/10/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.021702. Currently open trades: 1
 Closed 48: Negative after expiration time (stop loss)
-Opened  49: Denied divergence on new local maximum on 01/11/2022 11:00:00 CET; short divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2. Currently open trades: 1
+Opened  49: Denied divergence on new local maximum on 01/11/2022 11:00:00 CET; short divergence between 31/10/2022 12:00:00 CET and 31/10/2022 15:00:00 CET of entity 2 with absolute % change per bar 0.028081. Currently open trades: 1
 Closed 49: reached stop loss / take profit point
-Opened  50: Denied divergence on new local maximum on 08/11/2022 17:00:00 CET; short divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Opened  50: Denied divergence on new local maximum on 08/11/2022 17:00:00 CET; short divergence between 04/11/2022 15:00:00 CET and 07/11/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.136509. Currently open trades: 1
 Closed 50: reached stop loss / take profit point
-Opened  51: Denied divergence on new local maximum on 11/11/2022 09:00:00 CET; short divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2. Currently open trades: 1
+Opened  51: Denied divergence on new local maximum on 11/11/2022 09:00:00 CET; short divergence between 09/11/2022 17:00:00 CET and 10/11/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.011854. Currently open trades: 1
 Closed 51: Negative after expiration time (stop loss)
-Opened  52: Denied divergence on new local minimum on 29/11/2022 10:00:00 CET; short divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  52: Denied divergence on new local minimum on 29/11/2022 10:00:00 CET; short divergence between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET of entity 2 with absolute % change per bar 0.001527. Currently open trades: 1
 Closed 52: Crossed upper Bollinger Bands from above (take profit)
-Opened  53: Denied divergence on new local maximum on 04/01/2023 09:00:00 CET; short divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2. Currently open trades: 1
+Opened  53: Denied divergence on new local maximum on 04/01/2023 09:00:00 CET; short divergence between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET of entity 2 with absolute % change per bar 0.047288. Currently open trades: 1
 Closed 53: Negative after expiration time (stop loss)
-Opened  54: Denied divergence on new local maximum on 18/01/2023 09:00:00 CET; short divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  54: Denied divergence on new local maximum on 18/01/2023 09:00:00 CET; short divergence between 16/01/2023 12:00:00 CET and 16/01/2023 14:00:00 CET of entity 2 with absolute % change per bar 0.044204. Currently open trades: 1
 Closed 54: Crossed lower Bollinger Bands from below (take profit)
-Opened  55: Denied divergence on new local maximum on 09/02/2023 11:00:00 CET; short divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2. Currently open trades: 1
+Opened  55: Denied divergence on new local maximum on 09/02/2023 11:00:00 CET; short divergence between 08/02/2023 11:00:00 CET and 08/02/2023 15:00:00 CET of entity 2 with absolute % change per bar 0.023023. Currently open trades: 1
 Closed 55: Crossed lower Bollinger Bands from below (take profit)
-Opened  56: Denied divergence on new local minimum on 10/02/2023 13:00:00 CET; short divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2. Currently open trades: 1
+Opened  56: Denied divergence on new local minimum on 10/02/2023 13:00:00 CET; short divergence between 07/02/2023 14:00:00 CET and 07/02/2023 16:00:00 CET of entity 2 with absolute % change per bar 0.004414. Currently open trades: 1
 Closed 56: Crossed upper Bollinger Bands from above (take profit)
-Opened  57: Denied divergence on new local minimum on 24/02/2023 17:00:00 CET; short divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2. Currently open trades: 1
+Opened  57: Denied divergence on new local minimum on 24/02/2023 17:00:00 CET; short divergence between 22/02/2023 09:00:00 CET and 22/02/2023 11:00:00 CET of entity 2 with absolute % change per bar 0.002779. Currently open trades: 1
 Closed 57: Negative after expiration time (stop loss)
-Opened  58: Denied divergence on new local maximum on 07/03/2023 11:00:00 CET; short divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2. Currently open trades: 1
+Opened  58: Denied divergence on new local maximum on 07/03/2023 11:00:00 CET; short divergence between 06/03/2023 11:00:00 CET and 06/03/2023 14:00:00 CET of entity 2 with absolute % change per bar 0.078783. Currently open trades: 1
 Closed 58: Crossed lower Bollinger Bands from below (take profit)
-Opened  59: Denied divergence on new local maximum on 31/03/2023 16:00:00 CEST; short divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2. Currently open trades: 1
+Opened  59: Denied divergence on new local maximum on 31/03/2023 16:00:00 CEST; short divergence between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST of entity 2 with absolute % change per bar 0.002963. Currently open trades: 1
 Closed 59: Negative after expiration time (stop loss)
-Opened  60: Denied divergence on new local maximum on 12/04/2023 14:00:00 CEST; short divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2. Currently open trades: 1
+Opened  60: Denied divergence on new local maximum on 12/04/2023 14:00:00 CEST; short divergence between 11/04/2023 10:00:00 CEST and 12/04/2023 09:00:00 CEST of entity 2 with absolute % change per bar 0.002166. Currently open trades: 1
 Closed 60: Negative after expiration time (stop loss)
-Opened  61: Denied divergence on new local maximum on 14/06/2023 12:00:00 CEST; short divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2. Currently open trades: 1
+Opened  61: Denied divergence on new local maximum on 14/06/2023 12:00:00 CEST; short divergence between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST of entity 2 with absolute % change per bar 0.029348. Currently open trades: 1
 Closed 61: Negative after expiration time (stop loss)
-Opened  62: Denied divergence on new local maximum on 16/06/2023 14:00:00 CEST; short divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2. Currently open trades: 1
+Opened  62: Denied divergence on new local maximum on 16/06/2023 14:00:00 CEST; short divergence between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST of entity 2 with absolute % change per bar 0.020619. Currently open trades: 1
 Closed 62: Crossed lower Bollinger Bands from below (take profit)
-Opened  63: Denied divergence on new local maximum on 30/06/2023 12:00:00 CEST; short divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2. Currently open trades: 1
+Opened  63: Denied divergence on new local maximum on 30/06/2023 12:00:00 CEST; short divergence between 28/06/2023 15:00:00 CEST and 29/06/2023 13:00:00 CEST of entity 2 with absolute % change per bar 0.011401. Currently open trades: 1
 Closed 63: Crossed lower Bollinger Bands from below (take profit)
-Opened  64: Denied divergence on new local maximum on 28/07/2023 17:00:00 CEST; short divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2. Currently open trades: 1
+Opened  64: Denied divergence on new local maximum on 28/07/2023 17:00:00 CEST; short divergence between 27/07/2023 15:00:00 CEST and 27/07/2023 17:00:00 CEST of entity 2 with absolute % change per bar 0.016829. Currently open trades: 1
 Closed 64: Crossed lower Bollinger Bands from below (take profit)
 
  END OF LOG

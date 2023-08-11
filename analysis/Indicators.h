@@ -15,33 +15,35 @@ namespace Indicators
 
         const int timePeriod;
 
-        RSI(Bars* dp, const std::string name = "RSI",  const int TimePeriod = 14) 
-            : Indicator(dp, name), timePeriod(TimePeriod) 
+        RSI(Bars* dp, const std::string name = "RSI",  const int TimePeriod = 14, const int starting_bar = 1) 
+            : Indicator(dp, starting_bar, name), timePeriod(TimePeriod)
         {
         }
 
-        void computeIndicator();
+        void computeIndicatorBar(int& d);
     };
 
     class LocalMin : public Indicator<IndicatorBars::LocalStat>
     {
         protected:
         int m = 1;
+        int curr_it_bar;
 
         public:
-        LocalMin(Bars* dp, const std::string name = "LocalMin") 
-            : Indicator(dp, name)
+        LocalMin(Bars* dp, const std::string name = "LocalMin", const int starting_bar = 1) 
+            : Indicator(dp, starting_bar, name), curr_it_bar(starting_bar)
         {
         }
 
-        void computeIndicator();
+        void computeIndicatorBar(int& d) override;
+        void computeIndicator() override;
     };
 
     class LocalMax : public LocalMin
     { 
         public:
-        LocalMax(Bars* dp, const std::string name = "LocalMax") 
-            : LocalMin(dp, name)
+        LocalMax(Bars* dp, const std::string name = "LocalMax",  const int starting_bar = 1) 
+            : LocalMin(dp, name, starting_bar)
         { this->m = -1; }
     };
 
@@ -49,25 +51,32 @@ namespace Indicators
     {
         protected:
         // Reference to required Indicators
-        class LocalMax* LocalMax;
-        class LocalMin* LocalMin;
-        class RSI* RSI;
+        class LocalMax * const LocalMax;
+        class LocalMin * const LocalMin;
+        class RSI * const RSI;
 
         public:
         /*** (Elementary) divergence parameters ***/
         const int minDivPeriod;
         const int maxDivPeriod;
-        const int minRSItimePeriods = 10;
 
         Divergence(Bars* dp,
-                   class LocalMax* LocalMax, 
-                   class LocalMin* LocalMin, 
-                   class RSI* RSI,
-                   int minDivPeriod,
-                   int maxDivPeriod,
-                   const std::string name = "Divergence");
+                class LocalMax* const LocalMax, 
+                class LocalMin* const LocalMin, 
+                class RSI* const RSI,
+                const int minDivPeriod, 
+                const int maxDivPeriod,
+                const int minRSItimePeriods = 10,
+                const std::string name = "Divergence")
+        : Indicator(dp, minRSItimePeriods * RSI->timePeriod, name), 
+           LocalMax(LocalMax), LocalMin(LocalMin), RSI(RSI),
+           minDivPeriod(minDivPeriod), maxDivPeriod(maxDivPeriod)
+        {
+        }
 
-        void computeIndicator();
+        virtual void computeLocalStat(class LocalMin * const LocalStat, int& d);
+        void computeIndicatorBar(int& d);
+        void markDivergence(int leftBarIndex, int rightBarIndex, int m);
     };
 
     class LongDivergence : public Divergence
@@ -75,52 +84,62 @@ namespace Indicators
         public:
 
         LongDivergence(Bars* dp, 
-                      class LocalMax* LocalMax, 
-                      class LocalMin* LocalMin, 
-                      class RSI* RSI,
+                      class LocalMax* const LocalMax, 
+                      class LocalMin* const LocalMin, 
+                      class RSI* const RSI,
                       int minDivPeriod,
                       int maxDivPeriod,
+                      const int minRSItimePeriods = 10,
                       const std::string name = "LongDivergence")
-            : Divergence(dp, LocalMax, LocalMin, RSI, minDivPeriod, maxDivPeriod, name)
+            : Divergence(dp, LocalMax, LocalMin, RSI, minDivPeriod, maxDivPeriod, minRSItimePeriods, name)
         {
         }
 
-        void computeIndicator() override;
+        void computeLocalStat(class LocalMin * const LocalStat, int& d) override;
     };
 
     class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
     {
         /*** Bollinger Bands parameters ***/
-        double stDevUp, stDevDown;
-        int timePeriod;
+        const double stDevUp, stDevDown;
+        const int timePeriod;
 
         public:
 
         BollingerBands(Bars* dp, 
-                       double stDevUp = 2.0, 
-                       double stDevDown = 2.0, 
-                       int timePeriod = 20,
-                       const std::string name = "BB"); 
+                       const double stDevUp = 2.0, 
+                       const double stDevDown = 2.0, 
+                       const int timePeriod = 20,
+                       const std::string name = "BB")
+                : Indicator(dp, timePeriod, name), 
+                  stDevUp(stDevUp), stDevDown(stDevDown), timePeriod(timePeriod) 
+        {
+        }
             
-        void computeIndicator();
+        void computeIndicatorBar(int& d);
     };
 
     class JCandleSticks : public Indicator<IndicatorBars::JCandleSticks>
     {
         /*** JCandleSticks parameters ***/
-        double hammerSize;
-        double dojiSize;
-        int dojiExtremes;
+        const double hammerSize;
+        const double dojiSize;
+        const int dojiExtremes;
 
         public:
 
         JCandleSticks(Bars* dp,
-                      double hammerSize = 3.0, 
-                      double dojiSize = 8.0, 
-                      int dojiExtremes = 3,
-                      const std::string name = "JCandleSticks"); 
-            
-        void computeIndicator();
+                      const double hammerSize = 3.0, 
+                      const double dojiSize = 8.0, 
+                      const int dojiExtremes = 3,
+                      const std::string name = "JCandleSticks",
+                      const int starting_bar = 2)
+                : Indicator(dp, starting_bar, name),
+                 hammerSize(hammerSize), dojiSize(dojiSize), dojiExtremes(dojiExtremes)
+        {
+        }
+ 
+        void computeIndicatorBar(int& d);
     };
 }
 

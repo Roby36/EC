@@ -1,6 +1,6 @@
 
 CXX				= g++
-CXXFLAGS		= -pthread -Wall -Wno-switch -Wpedantic -Wno-unused-function -Wno-delete-non-abstract-non-virtual-dtor -std=c++11 -g -DDATEDBG -DPL # -DMEMDBG
+CXXFLAGS		= -pthread -Wall -Wno-switch -Wpedantic -Wno-unused-function -Wno-delete-non-abstract-non-virtual-dtor -std=c++11 -g -DDATEDBG -DPL -DINDDBG # -DMEMDBG
 
 ROOT_DIR		= ../twsapi/IBJts/source/cppclient
 ANALYSIS_DIR	= ../analysis

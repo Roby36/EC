@@ -44,14 +44,16 @@ namespace IndicatorBars
         int rightBarIndex;
         int divPoints = 1;
         int m = 0;
-        int isDenied = false;
+        bool isDenied = false;
+        double abs_perc_change_per_bar = 0;
 
         bool isPresent() { return (m != 0); }
         std::string toString() { return std::to_string(this->divPoints); }
         std::string logString() {
-            return ("Divergence of degree " + std::to_string(divPoints - 1) +
-                    " between "             + std::string(leftBar->date_time_str) +
-                    " and "                 + std::string(rightBar->date_time_str));
+            return ("Divergence of degree "   + std::to_string(divPoints - 1) +
+                    " between "               + std::string(leftBar->date_time_str) +
+                    " and "                   + std::string(rightBar->date_time_str)) +
+                    " with absolute % change per bar " + std::to_string(abs_perc_change_per_bar);
         }
     };
 

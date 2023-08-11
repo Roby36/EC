@@ -108,6 +108,16 @@ void Strategy::compute_indicators()
     m_BollingerBands->computeIndicator();
 }
 
+void Strategy::print_indicators()
+{
+    m_LocalMin->printIndicator();
+    m_LocalMax->printIndicator();
+    m_RSI->printIndicator();
+    m_Divergence->printIndicator();
+    m_LongDivergence->printIndicator();
+    m_BollingerBands->printIndicator();
+}
+
 //** TRADE OPERATIONS **//
 
 void Strategy::openTrade(const std::string strategy,
@@ -205,7 +215,6 @@ void Strategy::select_divType(DivergenceType divType, Indicators::Divergence * &
             DivIndicator  = m_Divergence; 
             div_point_str = "short ";
             break;
-
         }
         case LONG: {
             DivIndicator  = m_LongDivergence; 
@@ -273,7 +282,8 @@ bool Strategy::denied_divergence_general(DivergenceType divType, StatType statTy
                         std::string(m_instr->bars->getBar(startBar)->date_time_str) + "; " + div_point_str + "divergence between " + 
                         std::string(m_instr->bars->getBar(currLeftBar)->date_time_str) + " and " + 
                         std::string(m_instr->bars->getBar(rightBar)->date_time_str) + " of entity " + 
-                        std::to_string(DivIndicator->getIndicatorBar(rightBar)->divPoints)));
+                        std::to_string(DivIndicator->getIndicatorBar(rightBar)->divPoints)) + " with absolute % change per bar " +
+                        std::to_string(DivIndicator->getIndicatorBar(rightBar)->abs_perc_change_per_bar));
     return true;                  
 }
 
