@@ -6,55 +6,55 @@
 #endif
 
 Strategy::Strategy(Instrument* const m_instr,
-                    TradeData* tradeData,
-                //! Orders parameters
-                    const Decimal orderQuant,
-                //! Backtester parameters
-                    const char* reportPath, 
-                    const char* logPath,
-                //! General strategy parameters
-                    const double stop_loss,
-                    const double take_profit,
-                    const int    expirationBars,
-                    const std::string strategy_code,
-                //! Indicator pointers (malloc'd already and simply copied into instance variables)
-                    Indicators::LocalMin * input_LocalMin,
-                    Indicators::LocalMax * input_LocalMax,
-                    Indicators::RSI      * input_RSI,
-                    Indicators::BollingerBands * input_BollingerBands,
-                    Indicators::Divergence     * input_Divergence,
-                    Indicators::LongDivergence * input_LongDivergence,
-                //! Condition arrays (to be copied into instance variables)
-                    EntryConditions input_entry_conditions [],
-                    ExitConditions  input_exit_conditions  [],
-                // Parameters for denied divergence
-                    const DivergenceType divType, 
-                    const int max_neg_period, 
-                    const bool RSI_cond
-                    ) : 
+				TradeData* tradeData,
+			// General strategy parameters
+				const double stop_loss, 	 /* S1 = 2.5, S2 = 3.5 */
+				const double take_profit, 	 /* S1 = 2.5, S2 = 3.5 */
+				const int    expirationBars, /* S1 = 18,  S2 = 63  */
+				const std::string strategy_code,
+            // Condition arrays (to be copied into instance variables)
+                EntryConditions input_entry_conditions [],
+                ExitConditions  input_exit_conditions  [],
+			// Indicator pointers (malloc'd already and simply copied into instance variables)
+				Indicators::LocalMin * input_LocalMin,
+				Indicators::LocalMax * input_LocalMax,
+				Indicators::RSI      * input_RSI,
+				Indicators::BollingerBands * input_BollingerBands,
+				Indicators::Divergence     * input_Divergence,
+				Indicators::LongDivergence * input_LongDivergence,
+            // Parameters for denied divergence
+				const DivergenceType divType, 
+				const int max_neg_period, 
+				const bool RSI_cond,
+			// Will not be necessary (VARIABLE order sizes)
+				double orderQuant,
+			// Backtesting results directories
+				const std::string bt_report_dir, 
+				const std::string bt_log_dir,
+                const std::string file_ext
+				) :   
         m_instr(m_instr),
+        t_state(RETRIEVAL),
         m_logger(new Mlogger( std::string("../strategies_log/" + strategy_code + ".txt"))),
+        m_LocalMin(input_LocalMin), m_LocalMax(input_LocalMax), m_RSI(input_RSI),
+        m_Divergence(input_Divergence), m_LongDivergence(input_LongDivergence), m_BollingerBands(input_BollingerBands), 
         divType(divType),
         max_neg_period(max_neg_period),
         RSI_cond(RSI_cond),
         stop_loss(stop_loss),
         take_profit(take_profit),
         expirationBars(expirationBars),
-        orderQuant(orderQuant),
+        orderQuant(doubleToDecimal(orderQuant)),
         strategy_code(strategy_code),
-        m_tradeData(tradeData),
-        t_state(RETRIEVAL)
+        m_tradeData(tradeData)
 {
-    m_bt = new BackTester (m_instr->bars, reportPath, logPath);
+    m_bt = new BackTester (m_instr->bars, 
+                (bt_report_dir + strategy_code + file_ext).c_str(), 
+                (bt_log_dir    + strategy_code + file_ext).c_str());
+
     trade2open  = (MTrade_t*) malloc (sizeof(MTrade_t));
-    trade2close = (MTrade_t*) malloc (sizeof(MTrade_t));
-    // TO BE INITIALIZED above with const pointers!
-    m_LocalMin = input_LocalMin;
-    m_LocalMax = input_LocalMax;
-    m_RSI      = input_RSI;
-    m_BollingerBands = input_BollingerBands;
-    m_Divergence     = input_Divergence;
-    m_LongDivergence = input_LongDivergence;
+    trade2close = (MTrade_t*) malloc (sizeof(MTrade_t));    
+
     // Copying arrays
     for (int i = 0; i < MAXENTRYCONDS; i++) {
         EntryConditions cond = input_entry_conditions[i];
@@ -108,14 +108,39 @@ void Strategy::compute_indicators()
     m_BollingerBands->computeIndicator();
 }
 
-void Strategy::print_indicators()
+/*** DATA OUTPUT ***/
+
+void Strategy::print_indicators(const std::string outputDir, const std::string outputExt)
 {
-    m_LocalMin->printIndicator();
-    m_LocalMax->printIndicator();
-    m_RSI->printIndicator();
-    m_Divergence->printIndicator();
-    m_LongDivergence->printIndicator();
-    m_BollingerBands->printIndicator();
+    const std::string name = std::string(this->strategy_code + "-");
+
+    m_LocalMin->printIndicator(outputDir, name, outputExt);
+    m_LocalMax->printIndicator(outputDir, name, outputExt);
+    m_RSI->printIndicator(outputDir, name, outputExt);
+    m_Divergence->printIndicator(outputDir, name, outputExt);
+    m_LongDivergence->printIndicator(outputDir, name, outputExt);
+    m_BollingerBands->printIndicator(outputDir, name, outputExt);
+}
+
+void Strategy::print_bars(const std::string outputDir, const std::string outputExt)
+{
+    const std::string name = std::string(this->strategy_code + "-");
+
+    this->m_instr->bars->printBars(outputDir, name, outputExt);
+}
+
+void Strategy::print_PL_data(const std::string outputDir, const std::string outputExt)
+{
+    m_bt->print_PL_data(outputDir, std::string(this->strategy_code + "-" + "PL"), outputExt);
+}
+
+void Strategy::print_backtest_results()
+{
+    m_bt->printResults();
+}
+
+void Strategy::set_trading_state(TradingState t_state) {
+    this->t_state = t_state;
 }
 
 //** TRADE OPERATIONS **//
@@ -183,11 +208,6 @@ void Strategy::handle_realTimeBar(const double close)
             continue;
         stop_loss_take_profit(curr_trade, close);
     }
-}
-
-void Strategy::print_backtest()
-{
-    m_bt->printResults();
 }
 
 //** Indicator selection fucntions **//

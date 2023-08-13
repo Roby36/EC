@@ -2,10 +2,12 @@
 #include "BackTester.h"
 
 BackTester::BackTester(Bars* barsRef, const char* reportPath, const char* logPath)  
-    : barsRef(barsRef),
-      reportPath(reportPath), 
-      logPath(logPath)
+    : barsRef(barsRef)
 {
+    this->reportPath = (char *) malloc (OUTDIRCHAR);
+    this->logPath    = (char *) malloc (OUTDIRCHAR);
+    strncpy(this->reportPath, reportPath, OUTDIRCHAR);
+    strncpy(this->logPath,    logPath,    OUTDIRCHAR);
 }
 
 BackTester::~BackTester()
@@ -13,13 +15,14 @@ BackTester::~BackTester()
     for(int i = 0; i < this->currTradeNo; i++) {
         delete(this->execTrades[i]);
     }
+    free(this->reportPath);
+    free(this->logPath);
 }
 
 int BackTester::openTrade(int direction, int entryPos, std::string reason, double units)
 {
     // Verify validity of direction:
-    if (direction != -1 && direction != 1)
-        return -1; 
+    if (direction != -1 && direction != 1) return -1; 
     // First attempt to close any trades in opposite direction:
     for (int i = 0; i < this->currTradeNo; i++) {
         if (this->execTrades[i]->getdir() != direction)
@@ -67,24 +70,18 @@ void BackTester::closeTrades(int dir, int exitPos, std::string reason, bool take
 {
     Trade* currTrade;
     bool expired; // protects trade from closing until expiration 
-    for (int i = 0; i < this->currTradeNo; i++) { // Iterate through all active and inactive trades
+    for (int i = 0; i < this->currTradeNo; i++) /* Iterate through all active and inactive trades */ { 
         currTrade = this->execTrades[i];
-        // RESET EXPIRED to false for each trade!
-        expired = (exitPos - currTrade->getEntryPos() > barLim);
+        expired = ((exitPos - currTrade->getEntryPos()) > barLim); // RESET EXPIRED to false for each trade!
         // If current Trade is in the desired direction and EXPIRED attempt to close it at current position:
         if (currTrade->getdir() == dir && expired) {
-            // If taking profits, close ONLY positive trades
-            if (takeProfits) {
-                if (currTrade->currBal(exitPos) > 0) {
-                    this->closeTrade(i, exitPos, reason + " (take profit)");
-                }
-            } else if (stopLosses) { // If stopping losses, close ONLY negative trades
-                if (currTrade->currBal(exitPos) < 0) {
-                    this->closeTrade(i, exitPos, reason + " (stop loss)");
-                }
-            } else {
+            // Verify take profits & stop losses conditions
+            if (takeProfits     && currTrade->currBal(exitPos) > 0) 
+                this->closeTrade(i, exitPos, reason + " (take profit)");
+            else if (stopLosses && currTrade->currBal(exitPos) < 0 ) 
+                this->closeTrade(i, exitPos, reason + " (stop loss)");
+            else 
                 this->closeTrade(i, exitPos, reason);
-            }
         }
     }
 }
@@ -93,11 +90,10 @@ void BackTester::updateTrades(int currPos, double takeProfThresh, double stopLos
 {
     double currPl = 0.0;
     for (int i = 0; i < this->currTradeNo; i++) {
-        // First update total balance with current active or not active trade:
-        currPl += this->execTrades[i]->currBal(currPos);
-        // Then check if trade needs to be closed
-        if ((takeProfThresh > 0.1f &&  100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh)
-        ||  (stopLossThresh > 0.1f && -100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh))
+        currPl += this->execTrades[i]->currBal(currPos); // First update total balance with all active & inactive trades
+        // Enforce stop loss & take profit
+        if ((takeProfThresh > 0.1f &&  100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh) ||
+            (stopLossThresh > 0.1f && -100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh))
         {
             this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 
@@ -108,6 +104,18 @@ void BackTester::updateTrades(int currPos, double takeProfThresh, double stopLos
 
 void BackTester::logTrade(std::string action, int tradeNo, std::string reason) {
     this->tradeLog += action + " " + std::to_string(tradeNo) + ": " + reason + "\n";
+}
+
+bool BackTester::open_path_or_stdout(FILE * &fp, const char * path) {
+    if (path != NULL) {
+        Bars::clear_file(path);
+        fp = fopen(path, "a");
+        if (fp == NULL) {
+            fprintf(stderr, "Error opening %s for appending\n", path);
+            return false;
+        }
+    } else fp = stdout;
+    return true;
 }
 
 void BackTester::printResults()
@@ -127,44 +135,25 @@ void BackTester::printResults()
         }
     }
     FILE* fp;
-    // Print strategy report:
-    if (this->reportPath != NULL) {
-        fp = fopen(this->reportPath, "w");
-        if (fp != NULL) { fclose(fp); }
-        fp = fopen(this->reportPath, "a");
-        if (fp == NULL) {
-            fprintf(stderr, "Error opening reportPath for appending\n");
-            return;
-        }
-    } else {
-        fp = stdout;
-    }
+    if (!open_path_or_stdout(fp, this->reportPath)) goto LOG;
     fprintf(fp, "\n STRATEGY REPORT:\nTotal positive trades: %d (%f points); Total negative trades: %d (%f points);\n Net loss/profit: %f\n\n", 
-            posTrades, posBalance, negTrades, negBalance, this->pl);
+        posTrades, posBalance, negTrades, negBalance, this->pl);
     for (int i = 0; i < this->currTradeNo; i++) {
         fprintf(fp, "%s Current p&l: %f\n", this->execTrades[i]->print().c_str(), plArray[execTrades[i]->getExitPos()]);
     }
-    if (this->reportPath != NULL) 
-        fclose(fp); 
-    // Print log:
-    if (this->logPath != NULL) {
-        fp = fopen(this->logPath, "a"); // append (usually to previous file)
-        if (fp == NULL) {
-            fprintf(stderr, "Error opening logPath for appending\n");
-            return;
-        }
-    } else {
-        fp = stdout;
-    }
+    if (this->reportPath != NULL) fclose(fp); 
+    LOG:
+    if (!open_path_or_stdout(fp, this->logPath)) return;
     fprintf(fp, "\n TRADE LOG:\n%s\n END OF LOG\n\n", this->tradeLog.c_str());
-    if (this->logPath != NULL) 
-        fclose(fp);
-    // Finally print P&L data to bar's data output file:
-#ifdef PL
-    fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "w");
-    if (fp != NULL)  
-        fclose(fp); 
-    fp = fopen((this->barsRef->getoutputDir() + "PL" + this->barsRef->getoutputExt()).c_str(), "a");
+    if (this->logPath != NULL) fclose(fp);
+}
+
+void BackTester::print_PL_data(const std::string outputDir, const std::string str, const std::string outputExt)
+{
+    char * path = (char *) malloc (OUTDIRCHAR);
+    strncpy(path, (outputDir + str + outputExt).c_str(), OUTDIRCHAR);
+    Bars::clear_file(path);
+    FILE * fp = fopen(path, "a");
     if (fp == NULL) {
         fprintf(stderr, "Error opening PL output file for appending\n");
         return;
@@ -173,6 +162,5 @@ void BackTester::printResults()
         fprintf(fp, "%s", (std::to_string(this->plArray[i]) + "\n").c_str());
     }
     fclose(fp);
-#endif //PL
+    free(path);
 }
-

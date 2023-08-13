@@ -4,12 +4,17 @@
 /******* INDICATOR STANDARD TEMPLATE ********/
 
 template <class T> Indicator<T>::Indicator(Bars* dp, const int starting_bar, const std::string name, const std::string logDirectory)
-    : dp(dp), starting_bar(starting_bar)
+    : dp(dp), starting_bar(starting_bar), name(name), logDirectory(logDirectory)
 {
-    this->outputDirectory = dp->getoutputDir() + name + dp->getoutputExt();
-    this->logDirectory    = logDirectory + name + dp->getoutputExt();
     for (int i = 0; i < MAXBARS; i++) {
         indicatorArray[i] = new T();
+    }
+}
+
+template <class T> Indicator<T>::~Indicator() 
+{
+    for (int i = 0; i < MAXBARS; i++) {
+        delete(this->indicatorArray[i]);
     }
 }
 
@@ -23,23 +28,16 @@ template <class T> void Indicator<T>::computeIndicator()
     }
 }
 
-template <class T> Indicator<T>::~Indicator() 
+template <class T> void Indicator<T>::printIndicator(const std::string outputDir, const std::string str, const std::string outputExt)
 {
-    for (int i = 0; i < MAXBARS; i++) {
-        delete(this->indicatorArray[i]);
-    }
-}
-
-template <class T> void Indicator<T>::printIndicator()
-{
-    //First ensure old file is clear:
-    FILE* fp0 = fopen(outputDirectory.c_str(), "w");
-    FILE* lp0 = fopen(logDirectory.c_str(), "w");
-    if (fp0 != NULL) fclose(fp0);
-    if (lp0 != NULL) fclose(lp0);
-    //Open file for appending:
-    FILE* fp = fopen(outputDirectory.c_str(), "a");
-    FILE* lp = fopen(logDirectory.c_str(), "a");
+    char * path    = (char *) malloc (OUTDIRCHAR);
+    char * logpath = (char *) malloc (OUTDIRCHAR);
+    strncpy(path, (outputDir + str + this->name + outputExt).c_str(), OUTDIRCHAR);
+    strncpy(logpath, (this->logDirectory + str + this->name + outputExt).c_str(), OUTDIRCHAR);
+    Bars::clear_file(path);
+    Bars::clear_file(logpath);
+    FILE* fp = fopen(path, "a");
+    FILE* lp = fopen(logpath, "a");
     if (fp == NULL || lp == NULL) {
         fprintf(stderr, "Error opening outputDirectory or logDirectory for appending.\n");
         return;
@@ -52,4 +50,6 @@ template <class T> void Indicator<T>::printIndicator()
     }
     fclose(fp);
     fclose(lp);
+    free(path);
+    free(logpath);
 }

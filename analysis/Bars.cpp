@@ -23,6 +23,44 @@ Bars::~Bars()
     }
 }
 
+void Bars::clear_file(const char* filename)
+{
+    FILE* fp = fopen(filename, "w"); 
+    if (fp != NULL) fclose(fp);
+}
+
+void Bars::printBars(const std::string outputDir, const std::string name, const std::string outputExt)
+{    
+    FILE* fpArray[NUM_DATA]; 
+    int i = 0;
+    // Open files for appending data
+    for (std::string str : DataStr) {
+        char * output_path = (char *) malloc (OUTDIRCHAR);
+        strncpy(output_path, (outputDir + name + str + outputExt).c_str(), OUTDIRCHAR);
+        clear_file(output_path);
+        FILE * fp = fopen(output_path, "a");
+        if (fp == NULL)
+            fprintf(stderr, "Error opening some bar data directory %s for appending.\n", output_path);
+        fpArray[i++] = fp; 
+        free(output_path);
+    }
+    // Append data to the files
+    for (int i = 0; i < numBars; i++) {
+        if (barArray[i]->date_time_str != NULL && fpArray[DATE_TIME] != NULL)
+            fprintf(fpArray[DATE_TIME], "%s\n", barArray[i]->date_time_str);
+        if (fpArray[OPEN]  != NULL) fprintf(fpArray[OPEN],  "%f\n", barArray[i]->open());
+        if (fpArray[CLOSE] != NULL) fprintf(fpArray[CLOSE], "%f\n", barArray[i]->close());
+        if (fpArray[HIGH]  != NULL) fprintf(fpArray[HIGH],  "%f\n", barArray[i]->high());
+        if (fpArray[LOW]   != NULL) fprintf(fpArray[LOW],   "%f\n", barArray[i]->low());
+        if (fpArray[VOL]   != NULL) fprintf(fpArray[VOL],   "%f\n", barArray[i]->vol());
+        if (fpArray[LOC_DATE_TIME] != NULL) fprintf(fpArray[LOC_DATE_TIME], "%s\n", asctime(barArray[i]->date_time()));
+    }
+    // Close files after appending data
+    for (int i = 0; i < NUM_DATA; i++) { 
+        if (fpArray[i] != NULL) fclose(fpArray[i]);
+    }
+}
+
 int Bars::parseFile(const char* inputFileDir, const char* startDate, const char* endDate)
 {
     MBar *tempArray[MAXBARS];
@@ -45,13 +83,10 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
                 while ((c = fgetc(fp)) != '\n' && c != EOF) 
                     {}
                 break;
-            } else if (c == ',') {
-                continue;
-            } else if (c == '"') {
-                line[i] = ' ';
-            } else {
-                line[i] = c;
-            }
+            } 
+            else if (c == ',') continue;
+            else if (c == '"') line[i] = ' ';
+            else line[i] = c;
             i++;
         }
         if (c == EOF) break; 
@@ -64,7 +99,7 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
         while (!isspace(*p)) {
             dateTime[j++] = *(p++);
         }
-        double close, open, high, low, vol;
+        double close = 0.0, open = 0.0, high = 0.0, low = 0.0, vol = 0.0;
         sscanf(line, "%s %f %f %f %f %f", dateTime, &close, &open, &high, &low, &vol);
         // Set record to true when we hit the end date:
         if (endDate != NULL && strcmp(dateTime, endDate) == 0) 
@@ -88,7 +123,7 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
         char date[10];
         char time[9];
         char dateTime[20];
-        double open, high, low, close;
+        double open = 0.0, high = 0.0, low = 0.0, close = 0.0;
     #ifdef HOURLY
         sscanf(line, "%s %s %f %f %f %f ",
         date, time, &open, &high, &low, &close);
@@ -114,38 +149,3 @@ int Bars::parseFile(const char* inputFileDir, const char* startDate, const char*
     // Return days recorded:
     return d;
 }
-
-void Bars::printBars()
-{
-    const int params = 7;
-    std::string arr[] = {"dateTime", "open", "close", "high", "low", "vol", "locDateTime"};
-    FILE* fpArray[params]; 
-    int i = 0;
-    for (std::string str : arr) {
-        //First ensure file clear:
-        FILE* fp = fopen((this->outputDir + str + this->outputExt).c_str(), "w"); 
-        if (fp != NULL) fclose(fp);
-        // Append data to file
-        fp = fopen((this->outputDir + str + this->outputExt).c_str(), "a"); 
-        if (fp == NULL) {
-            fprintf(stderr, "Error opening some bar data directory for appending.\n");
-            return;
-        }
-        fpArray[i] = fp; 
-        i++;
-    }
-    for (int i = 0; i<numBars; i++) {
-        if (barArray[i]->date_time_str != NULL)
-            fprintf(fpArray[0], "%s\n", barArray[i]->date_time_str);
-        fprintf(fpArray[1], "%f\n", barArray[i]->open());
-        fprintf(fpArray[2], "%f\n", barArray[i]->close());
-        fprintf(fpArray[3], "%f\n", barArray[i]->high());
-        fprintf(fpArray[4], "%f\n", barArray[i]->low());
-        fprintf(fpArray[5], "%f\n", barArray[i]->vol());
-        fprintf(fpArray[6], "%s\n", asctime(barArray[i]->date_time()));
-    }
-    for (int i=0; i < params; i++) { 
-        fclose(fpArray[i]);
-    }
-}
-
