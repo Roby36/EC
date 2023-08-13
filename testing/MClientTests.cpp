@@ -65,30 +65,36 @@ void run_backtests(MClient * client) {
     Indicators::LongDivergence * S2_daily_LongDivergence = new Indicators::LongDivergence(dax_daily_instr->bars, S2_daily_LocalMax, S2_daily_LocalMin, S2_daily_RSI, min_div_period, max_div_period);
 /* Utilizzando gli strumenti, le condizioni, e gli indicatori definiti qua sopra,
    inizializziamo le varie strategie (S1 e S2 daily e hourly) */
-    Strategy * S1_daily = new Strategy(dax_daily_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S1_Dax_daily.txt", "../backtesting/S1_Dax_daily.txt",
+    Strategy * S1_daily = new Strategy(dax_daily_instr, client->m_tradeData, 
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S1_daily", S1_daily_LocalMin, S1_daily_LocalMax, S1_daily_RSI, S1_daily_BollingerBands, S1_daily_Divergence, S1_daily_LongDivergence, S1_entry_conditions, S1a2_exit_conditions,
+                                    "S1_daily", S1_entry_conditions, S1a2_exit_conditions,
+                                    S1_daily_LocalMin, S1_daily_LocalMax, S1_daily_RSI, S1_daily_BollingerBands, S1_daily_Divergence, S1_daily_LongDivergence, 
                                     SHORT, max_neg_period, true /* parametri per divergenza negata */
                                     );
-    Strategy * S1_hourly_shortDiv = new Strategy(dax_hourly_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S1_Dax_hourly_shortDiv.txt", "../backtesting/S1_Dax_hourly_shortDiv.txt",
+    Strategy * S1_hourly_shortDiv = new Strategy(dax_hourly_instr, client->m_tradeData,
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S1_hourly_shortDiv", S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence0, S1_hourly_LongDivergence0, S1_entry_conditions, S1a2_exit_conditions,
+                                    "S1_hourly_shortDiv", S1_entry_conditions, S1a2_exit_conditions,
+                                    S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence0, S1_hourly_LongDivergence0, 
                                     SHORT, max_neg_period, true /* parametri per divergenza negata */
                                     );
-    Strategy * S1_hourly_longDiv = new Strategy(dax_hourly_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S1_Dax_hourly_longDiv.txt", "../backtesting/S1_Dax_hourly_longDiv.txt",
+    Strategy * S1_hourly_longDiv = new Strategy(dax_hourly_instr, client->m_tradeData, 
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S1_hourly_longDiv", S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence1, S1_hourly_LongDivergence1, S1_entry_conditions, S1a2_exit_conditions,
+                                    "S1_hourly_longDiv", S1_entry_conditions, S1a2_exit_conditions,
+                                    S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence1, S1_hourly_LongDivergence1,
                                     LONG, max_neg_period, true /* parametri per divergenza negata */
                                     );
 
-    Strategy * S2_hourly = new Strategy(dax_hourly_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S2_Dax_hourly.txt", "../backtesting/S2_Dax_hourly.txt",
+    Strategy * S2_hourly = new Strategy(dax_hourly_instr, client->m_tradeData,
                                     3.5, 3.5, 63, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S2_hourly", S2_hourly_LocalMin, S2_hourly_LocalMax, S2_hourly_RSI, S2_hourly_BollingerBands, S2_hourly_Divergence, S2_hourly_LongDivergence, S2_entry_conditions, S1a2_exit_conditions
+                                    "S2_hourly", S2_entry_conditions, S1a2_exit_conditions,
+                                    S2_hourly_LocalMin, S2_hourly_LocalMax, S2_hourly_RSI, S2_hourly_BollingerBands, S2_hourly_Divergence, S2_hourly_LongDivergence
                                     );
-    Strategy * S2_daily = new Strategy(dax_daily_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S2_Dax_daily.txt", "../backtesting/S2_Dax_daily.txt",
+    Strategy * S2_daily = new Strategy(dax_daily_instr, client->m_tradeData, 
                                     3.5, 3.5, 63, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S2_daily", S2_daily_LocalMin, S2_daily_LocalMax, S2_daily_RSI, S2_daily_BollingerBands, S2_daily_Divergence, S2_daily_LongDivergence, S2_entry_conditions, S1a2_exit_conditions
+                                    "S2_daily", S2_entry_conditions, S1a2_exit_conditions,
+                                    S2_daily_LocalMin, S2_daily_LocalMax, S2_daily_RSI, S2_daily_BollingerBands, S2_daily_Divergence, S2_daily_LongDivergence
                                     );
+    
 /* Aggiungiamo le strategie */
     client->add_Strategy(dax_hourly_id, S1_hourly_shortDiv);
     client->add_Strategy(dax_hourly_id, S1_hourly_longDiv);
@@ -96,18 +102,19 @@ void run_backtests(MClient * client) {
     //client->add_Strategy(dax_daily_id, S1_daily);
     //client->add_Strategy(dax_daily_id, S2_daily);
 /* Esegui backtesting utilizzando i dati degli ultimi 3 anni */
-    client->setTradingState(BACKTESTING);
+    client->set_trading_state(BACKTESTING);
     /* aggiorna dati contratti */
     client->update_contracts(); 
     /* Determina il numero di barre da includere nei backtest */
     client->update_instr_bars(dax_hourly_id, 32000, true);
     // client->update_instr_bars(dax_daily_id, 4096, true);
     /* stampa risultati backtests */
-    client->print_backtests(); 
+    const std::string outputDir = "../graphs/data/";
+    client->print_indicators(outputDir);
+    client->print_bars(outputDir);
+    client->print_PL_data(outputDir);
+    client->print_backtest_results();
 /* Elimina strategie */
-#ifdef INDDBG
-    S1_hourly_shortDiv->print_indicators();
-#endif
     delete (S1_hourly_shortDiv); /* Can only delete one strategy if same Inidcator pointers held by two different strategies! */
     delete (S1_daily);
     delete (S2_hourly);
@@ -143,21 +150,23 @@ void run_livetrades(MClient * client) {
     Indicators::Divergence *     S2_short_Divergence     = new Indicators::Divergence    (dax_short_instr->bars, S2_short_LocalMax, S2_short_LocalMin, S2_short_RSI, min_div_period, max_div_period);
     Indicators::LongDivergence * S2_short_LongDivergence = new Indicators::LongDivergence(dax_short_instr->bars, S2_short_LocalMax, S2_short_LocalMin, S2_short_RSI, min_div_period, max_div_period);
     /* Strategies */
-    Strategy * S1_short = new Strategy(dax_short_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S1_Dax_short.txt", "../backtesting/S1_Dax_short.txt",
+    Strategy * S1_short = new Strategy(dax_short_instr, client->m_tradeData,
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S1_short", S1_short_LocalMin, S1_short_LocalMax, S1_short_RSI, S1_short_BollingerBands, S1_short_Divergence, S1_short_LongDivergence, S1_entry_conditions, S1a2_exit_conditions
+                                    "S1_short", S1_entry_conditions, S1a2_exit_conditions,
+                                    S1_short_LocalMin, S1_short_LocalMax, S1_short_RSI, S1_short_BollingerBands, S1_short_Divergence, S1_short_LongDivergence
                                     );
-    Strategy * S2_short = new Strategy(dax_short_instr, client->m_tradeData, doubleToDecimal(1.0), "../backtesting/S2_Dax_short.txt", "../backtesting/S2_Dax_short.txt",
+    Strategy * S2_short = new Strategy(dax_short_instr, client->m_tradeData, 
                                     3.5, 3.5, 63, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
-                                    "S2_short", S2_short_LocalMin, S2_short_LocalMax, S2_short_RSI, S2_short_BollingerBands, S2_short_Divergence, S2_short_LongDivergence, S2_entry_conditions, S1a2_exit_conditions
+                                    "S2_short", S2_entry_conditions, S1a2_exit_conditions,
+                                    S2_short_LocalMin, S2_short_LocalMax, S2_short_RSI, S2_short_BollingerBands, S2_short_Divergence, S2_short_LongDivergence
                                     );
     client->add_Strategy(dax_short_id, S1_short);
     client->add_Strategy(dax_short_id, S2_short);
     client->update_contracts(); 
     // To test live trading on bar retrieval data:
-    client->setTradingState(LIVE);
+    client->set_trading_state(LIVE);
     client->update_bars(4096, true); 
-    client->setTradingState(LIVE); // SET LIVE TRADING STATE AFTER ADDING STRATEGY AND AFTER INITIALIZING BARS!
+    client->set_trading_state(LIVE); // SET LIVE TRADING STATE AFTER ADDING STRATEGY AND AFTER INITIALIZING BARS!
     client->reqRealTimeBars(dax_short_instr->m_reqIds.realTimeBars,
                             dax_short_instr->dataContract.contract,
                             -1, // "currently ignored", realtimebars at 5 second-intervals

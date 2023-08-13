@@ -8,8 +8,8 @@ template <class T> class Indicator
     protected:
     Bars* const dp; 
     const int starting_bar;
-    std::string outputDirectory;
-    std::string logDirectory;
+    const std::string name;
+    const std::string logDirectory;
     T* indicatorArray [MAXBARS];
     
     public:
@@ -22,5 +22,5 @@ template <class T> class Indicator
     T* getIndicatorBar(int i) { return this->indicatorArray[i]; }
     virtual void computeIndicatorBar(int& d) = 0;
     virtual void computeIndicator();
-    void printIndicator(); 
+    void printIndicator(const std::string outputDir, const std::string str = "", const std::string outputExt = ".txt"); 
 };

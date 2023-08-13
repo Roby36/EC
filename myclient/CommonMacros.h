@@ -6,6 +6,17 @@
 // #define DURSTRTEST
 // #define TEST_CONTRACT_DETAILS
 
+/*** Bars.h macros ***/
+#define OUTDIRCHAR 64
+#define MAXBARS 65536   //2^16
+
+/*** BackTester.h macros ***/
+// YOU MUST ALLOCATE THE ARRAY STATICALLY
+// ELSE COMPILER WON'T KNOW SIZE OF OBJECT
+// HENCE HOW MUCH MEMORY TO ALLOCATE ON THE HEAP
+// --> BUS ERROR!
+#define MAXBTTRADES 1024
+
 /*** Instrument.h macros  ***/
 #define MAX_BARSIZE_STRING_LENGTH 16
 #define MAX_TOTAL_SECONDS 86400

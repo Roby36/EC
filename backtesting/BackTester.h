@@ -2,18 +2,13 @@
 #pragma once
 #include "Trade.h"
 #include "../utils/memdbg.h"
-
-// YOU MUST ALLOCATE THE ARRAY STATICALLY
-// ELSE COMPILER WON'T KNOW SIZE OF OBJECT
-// HENCE HOW MUCH MEMORY TO ALLOCATE ON THE HEAP
-// --> BUS ERROR!
-#define MAXBTTRADES 1024
+#include "../myclient/CommonMacros.h"
 
 class BackTester
 {
     Bars* const barsRef;
-    const char* reportPath;
-    const char* logPath;
+    char* reportPath;
+    char* logPath;
 
     double pl = 0.0;
     double plArray [MAXBARS];
@@ -25,6 +20,7 @@ class BackTester
     Trade * execTrades [MAXBTTRADES];
 
     void logTrade(std::string, int, std::string);
+    static bool open_path_or_stdout(FILE * &fp, const char * path);
    
     public:
 
@@ -39,4 +35,5 @@ class BackTester
     void closeTrades(int, int, std::string, bool = false, bool = false, int = 0);
     void updateTrades(int, double, double);
     void printResults();
+    void print_PL_data(const std::string outputDir, const std::string str = "PL", const std::string outputExt = ".txt");
 };

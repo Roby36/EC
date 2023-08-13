@@ -289,17 +289,6 @@ void MClient::handle_orderStatus(OrderId orderId, const std::string& status, Dec
 	}
 }
 
-void MClient::setTradingState(TradingState tstate)
-{
-	// Set EACH strategy for EACH instrument to the given state
-	for (int i = 0; i < m_instr_Id; i++) {
-		for (int s = 0; s < m_stratCount[i]; s++) {
-			Strategy * curr_strat = m_stratArray[i][s];
-			curr_strat->t_state = tstate;
-		}
-	}
-}
-
 int MClient::openTrade(Strategy * strategy)
 {
 	MTrade_t * currTrade = strategy->trade2open;
@@ -412,18 +401,61 @@ void MClient::handle_realtimeBar(TickerId reqId, long time, double open, double 
 	}
 }
 
-//** BACKTESTS **//
-void MClient::print_backtests()
+//** DATA OUTPUT **//
+
+void MClient::print_indicators(Strategy * const strat, const std::string outputDir, const std::string outputExt) {
+	strat->print_indicators(outputDir, outputExt);
+}
+
+void MClient::print_bars(Strategy * const strat, const std::string outputDir, const std::string outputExt) {
+	strat->print_bars(outputDir, outputExt);
+}
+
+void MClient::print_PL_data(Strategy * const strat, const std::string outputDir, const std::string outputExt) {
+	strat->print_PL_data(outputDir, outputExt);
+}
+
+void MClient::print_backtest_results(Strategy * const strat) {
+	strat->print_backtest_results();
+}
+
+void MClient::set_trading_state(Strategy * const strat, TradingState t_state) {
+	strat->set_trading_state(t_state);
+}
+
+void MClient::strategy_iterate( void (MClient::* data_out_func)( Strategy * const, const std::string, const std::string), 
+													  const std::string outputDir, const std::string outputExt,
+								void (MClient::* t_state_func)( Strategy * const, const TradingState), const TradingState t_state,
+								void (MClient::* no_arg_func) ( Strategy * const))
 {
 	for (int i = 0; i < m_instr_Id; i++) {
-		Instrument* instr = m_instrArray[i];
-		int instr_id = instr->inst_id;
-		for (int s = 0; s < m_stratCount[instr_id]; s++) {
-			Strategy * curr_strat = m_stratArray[instr_id][s];
-			m_logger->str("Printing backtests for instr " + std::to_string(instr_id) + " strategy " + curr_strat->strategy_code + "\n");
-			curr_strat->print_backtest();
+		for (int s = 0; s < m_stratCount[i]; s++) {
+			Strategy * curr_strat = m_stratArray[i][s];
+			if (data_out_func != NULL) ((*this).*data_out_func)(curr_strat, outputDir, outputExt);
+			if (t_state_func  != NULL) ((*this).*t_state_func) (curr_strat, t_state);
+			if (no_arg_func   != NULL) ((*this).*no_arg_func)  (curr_strat);
 		}
-    }
+	}
+}
+
+void MClient::print_indicators(const std::string outputDir, const std::string outputExt) {
+	strategy_iterate( &MClient::print_indicators, outputDir, outputExt);
+}
+
+void MClient::print_bars(const std::string outputDir, const std::string outputExt) {
+	strategy_iterate( &MClient::print_bars, outputDir, outputExt);
+}
+
+void MClient::print_PL_data(const std::string outputDir, const std::string outputExt) {
+	strategy_iterate( &MClient::print_PL_data, outputDir, outputExt);
+}
+
+void MClient::print_backtest_results() {
+	strategy_iterate(NULL, "", "", NULL, RETRIEVAL, &MClient::print_backtest_results);
+}
+
+void MClient::set_trading_state(TradingState t_state) {
+	strategy_iterate(NULL, "", "", &MClient::set_trading_state, t_state, NULL);
 }
 
 /*** HANDLING INSTRUMENTS ***/

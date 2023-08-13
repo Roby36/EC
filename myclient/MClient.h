@@ -159,13 +159,29 @@ class MClient : public EWrapper
     void add_Strategy(const int instr_id, Strategy * strategy);
     int placeOrder(int inst_id, Order order);
     bool cancelOrder(int orderId);
-    void setTradingState(TradingState tstate);
     int openTrade  (Strategy * strategy);
     bool closeTrade(Strategy * strategy);
 
-    //** BACKTESTING **//
-    void print_backtests();
-   
+    //** DATA OUTPUT **//
+    private:
+    void print_indicators(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
+    void print_bars(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
+    void print_PL_data(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
+    void print_backtest_results(Strategy * const strat);
+    void set_trading_state(Strategy * const strat, TradingState t_state);
+
+    void strategy_iterate( void (MClient::* data_out_func)(Strategy * const, const std::string, const std::string) = NULL, 
+										const std::string outputDir = "", const std::string outputExt = ".txt",
+							void (MClient::* t_state_func)(Strategy * const, const TradingState) = NULL, const TradingState t_state = RETRIEVAL,
+							void (MClient::* no_arg_func) (Strategy * const) = NULL);
+
+    public:
+    void print_indicators(const std::string outputDir, const std::string outputExt = ".txt");
+    void print_bars(const std::string outputDir, const std::string outputExt = ".txt");
+    void print_PL_data(const std::string outputDir, const std::string outputExt = ".txt");
+    void print_backtest_results();
+    void set_trading_state(TradingState t_state);
+
     /*** EWRAPPER CALLBACK HANDLERS ***/
     private:
 
