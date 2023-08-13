@@ -40,7 +40,8 @@
 06/02/2020 17:00:00 CET: Divergence of degree 1 between 06/02/2020 14:00:00 CET and 06/02/2020 17:00:00 CET with absolute % change per bar 0.018033
 07/02/2020 14:00:00 CET: Divergence of degree 1 between 07/02/2020 12:00:00 CET and 07/02/2020 14:00:00 CET with absolute % change per bar 0.002925
 07/02/2020 17:00:00 CET: Divergence of degree 2 between 07/02/2020 14:00:00 CET and 07/02/2020 17:00:00 CET with absolute % change per bar 0.023029
-17/02/2020 17:00:00 CET: Divergence of degree 1 between 14/02/2020 13:00:00 CET and 17/02/2020 17:00:00 CET with absolute % change per bar 0.000179
+14/02/2020 13:00:00 CET: Divergence of degree 1 between 12/02/2020 17:00:00 CET and 14/02/2020 13:00:00 CET with absolute % change per bar 0.017554
+17/02/2020 17:00:00 CET: Divergence of degree 2 between 14/02/2020 13:00:00 CET and 17/02/2020 17:00:00 CET with absolute % change per bar 0.000179
 20/02/2020 16:00:00 CET: Divergence of degree 1 between 20/02/2020 11:00:00 CET and 20/02/2020 16:00:00 CET with absolute % change per bar 0.003732
 24/02/2020 14:00:00 CET: Divergence of degree 1 between 24/02/2020 11:00:00 CET and 24/02/2020 14:00:00 CET with absolute % change per bar 0.108591
 26/02/2020 11:00:00 CET: Divergence of degree 1 between 26/02/2020 09:00:00 CET and 26/02/2020 11:00:00 CET with absolute % change per bar 0.012181
@@ -60,8 +61,8 @@
 09/04/2020 15:00:00 CEST: Divergence of degree 2 between 09/04/2020 09:00:00 CEST and 09/04/2020 15:00:00 CEST with absolute % change per bar 0.117066
 14/04/2020 09:00:00 CEST: Divergence of degree 3 between 09/04/2020 15:00:00 CEST and 14/04/2020 09:00:00 CEST with absolute % change per bar 0.087152
 16/04/2020 15:00:00 CEST: Divergence of degree 1 between 15/04/2020 17:00:00 CEST and 16/04/2020 15:00:00 CEST with absolute % change per bar 0.005920
-27/04/2020 09:00:00 CEST: Divergence of degree 1 between 23/04/2020 16:00:00 CEST and 27/04/2020 09:00:00 CEST with absolute % change per bar 0.021230
-27/04/2020 13:00:00 CEST: Divergence of degree 2 between 27/04/2020 09:00:00 CEST and 27/04/2020 13:00:00 CEST with absolute % change per bar 0.032330
+24/04/2020 10:00:00 CEST: Divergence of degree 1 between 22/04/2020 12:00:00 CEST and 24/04/2020 10:00:00 CEST with absolute % change per bar 0.000622
+27/04/2020 13:00:00 CEST: Divergence of degree 1 between 27/04/2020 09:00:00 CEST and 27/04/2020 13:00:00 CEST with absolute % change per bar 0.032330
 28/04/2020 14:00:00 CEST: Divergence of degree 1 between 28/04/2020 11:00:00 CEST and 28/04/2020 14:00:00 CEST with absolute % change per bar 0.002115
 30/04/2020 11:00:00 CEST: Divergence of degree 1 between 29/04/2020 17:00:00 CEST and 30/04/2020 11:00:00 CEST with absolute % change per bar 0.059628
 04/05/2020 17:00:00 CEST: Divergence of degree 1 between 04/05/2020 14:00:00 CEST and 04/05/2020 17:00:00 CEST with absolute % change per bar 0.008405
@@ -89,6 +90,8 @@
 20/08/2020 14:00:00 CEST: Divergence of degree 1 between 20/08/2020 10:00:00 CEST and 20/08/2020 14:00:00 CEST with absolute % change per bar 0.014042
 25/08/2020 09:00:00 CEST: Divergence of degree 1 between 24/08/2020 13:00:00 CEST and 25/08/2020 09:00:00 CEST with absolute % change per bar 0.077076
 26/08/2020 12:00:00 CEST: Divergence of degree 1 between 26/08/2020 10:00:00 CEST and 26/08/2020 12:00:00 CEST with absolute % change per bar 0.011650
+31/08/2020 15:00:00 CEST: Divergence of degree 1 between 28/08/2020 09:00:00 CEST and 31/08/2020 15:00:00 CEST with absolute % change per bar 0.007041
+15/09/2020 14:00:00 CEST: Divergence of degree 1 between 14/09/2020 09:00:00 CEST and 15/09/2020 14:00:00 CEST with absolute % change per bar 0.001121
 21/09/2020 17:00:00 CEST: Divergence of degree 1 between 21/09/2020 12:00:00 CEST and 21/09/2020 17:00:00 CEST with absolute % change per bar 0.228074
 22/09/2020 13:00:00 CEST: Divergence of degree 1 between 22/09/2020 10:00:00 CEST and 22/09/2020 13:00:00 CEST with absolute % change per bar 0.027527
 24/09/2020 10:00:00 CEST: Divergence of degree 1 between 22/09/2020 17:00:00 CEST and 24/09/2020 10:00:00 CEST with absolute % change per bar 0.007918
@@ -171,6 +174,7 @@
 24/08/2021 16:00:00 CEST: Divergence of degree 2 between 24/08/2021 13:00:00 CEST and 24/08/2021 16:00:00 CEST with absolute % change per bar 0.016662
 27/08/2021 14:00:00 CEST: Divergence of degree 1 between 26/08/2021 16:00:00 CEST and 27/08/2021 14:00:00 CEST with absolute % change per bar 0.004725
 09/09/2021 10:00:00 CEST: Divergence of degree 1 between 08/09/2021 10:00:00 CEST and 09/09/2021 10:00:00 CEST with absolute % change per bar 0.045350
+17/09/2021 13:00:00 CEST: Divergence of degree 1 between 15/09/2021 17:00:00 CEST and 17/09/2021 13:00:00 CEST with absolute % change per bar 0.020926
 27/09/2021 09:00:00 CEST: Divergence of degree 1 between 23/09/2021 15:00:00 CEST and 27/09/2021 09:00:00 CEST with absolute % change per bar 0.009459
 27/09/2021 15:00:00 CEST: Divergence of degree 1 between 27/09/2021 13:00:00 CEST and 27/09/2021 15:00:00 CEST with absolute % change per bar 0.007823
 30/09/2021 12:00:00 CEST: Divergence of degree 1 between 29/09/2021 15:00:00 CEST and 30/09/2021 12:00:00 CEST with absolute % change per bar 0.024519
@@ -182,8 +186,9 @@
 04/11/2021 14:00:00 CET: Divergence of degree 1 between 04/11/2021 11:00:00 CET and 04/11/2021 14:00:00 CET with absolute % change per bar 0.004258
 05/11/2021 11:00:00 CET: Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET with absolute % change per bar 0.005046
 08/11/2021 15:00:00 CET: Divergence of degree 1 between 05/11/2021 17:00:00 CET and 08/11/2021 15:00:00 CET with absolute % change per bar 0.004511
-11/11/2021 14:00:00 CET: Divergence of degree 1 between 11/11/2021 10:00:00 CET and 11/11/2021 14:00:00 CET with absolute % change per bar 0.007146
-12/11/2021 09:00:00 CET: Divergence of degree 2 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET with absolute % change per bar 0.003277
+11/11/2021 10:00:00 CET: Divergence of degree 1 between 09/11/2021 14:00:00 CET and 11/11/2021 10:00:00 CET with absolute % change per bar 0.004366
+11/11/2021 14:00:00 CET: Divergence of degree 2 between 11/11/2021 10:00:00 CET and 11/11/2021 14:00:00 CET with absolute % change per bar 0.007146
+12/11/2021 09:00:00 CET: Divergence of degree 3 between 11/11/2021 14:00:00 CET and 12/11/2021 09:00:00 CET with absolute % change per bar 0.003277
 17/11/2021 09:00:00 CET: Divergence of degree 1 between 16/11/2021 15:00:00 CET and 17/11/2021 09:00:00 CET with absolute % change per bar 0.047760
 17/11/2021 16:00:00 CET: Divergence of degree 1 between 17/11/2021 12:00:00 CET and 17/11/2021 16:00:00 CET with absolute % change per bar 0.001429
 18/11/2021 09:00:00 CET: Divergence of degree 2 between 17/11/2021 16:00:00 CET and 18/11/2021 09:00:00 CET with absolute % change per bar 0.043523
@@ -193,6 +198,7 @@
 29/11/2021 16:00:00 CET: Divergence of degree 1 between 29/11/2021 10:00:00 CET and 29/11/2021 16:00:00 CET with absolute % change per bar 0.032396
 10/12/2021 14:00:00 CET: Divergence of degree 1 between 10/12/2021 12:00:00 CET and 10/12/2021 14:00:00 CET with absolute % change per bar 0.010530
 13/12/2021 12:00:00 CET: Divergence of degree 1 between 13/12/2021 10:00:00 CET and 13/12/2021 12:00:00 CET with absolute % change per bar 0.018284
+17/12/2021 13:00:00 CET: Divergence of degree 1 between 15/12/2021 15:00:00 CET and 17/12/2021 13:00:00 CET with absolute % change per bar 0.002258
 27/12/2021 16:00:00 CET: Divergence of degree 1 between 27/12/2021 14:00:00 CET and 27/12/2021 16:00:00 CET with absolute % change per bar 0.070577
 28/12/2021 13:00:00 CET: Divergence of degree 1 between 28/12/2021 10:00:00 CET and 28/12/2021 13:00:00 CET with absolute % change per bar 0.026731
 28/12/2021 17:00:00 CET: Divergence of degree 1 between 28/12/2021 15:00:00 CET and 28/12/2021 17:00:00 CET with absolute % change per bar 0.018706
@@ -216,7 +222,8 @@
 05/04/2022 16:00:00 CEST: Divergence of degree 1 between 05/04/2022 14:00:00 CEST and 05/04/2022 16:00:00 CEST with absolute % change per bar 0.008122
 11/04/2022 14:00:00 CEST: Divergence of degree 1 between 11/04/2022 10:00:00 CEST and 11/04/2022 14:00:00 CEST with absolute % change per bar 0.015200
 13/04/2022 14:00:00 CEST: Divergence of degree 1 between 13/04/2022 11:00:00 CEST and 13/04/2022 14:00:00 CEST with absolute % change per bar 0.019384
-27/04/2022 16:00:00 CEST: Divergence of degree 1 between 26/04/2022 17:00:00 CEST and 27/04/2022 16:00:00 CEST with absolute % change per bar 0.017219
+26/04/2022 17:00:00 CEST: Divergence of degree 1 between 25/04/2022 12:00:00 CEST and 26/04/2022 17:00:00 CEST with absolute % change per bar 0.072750
+27/04/2022 16:00:00 CEST: Divergence of degree 2 between 26/04/2022 17:00:00 CEST and 27/04/2022 16:00:00 CEST with absolute % change per bar 0.017219
 29/04/2022 15:00:00 CEST: Divergence of degree 1 between 29/04/2022 10:00:00 CEST and 29/04/2022 15:00:00 CEST with absolute % change per bar 0.025856
 09/05/2022 17:00:00 CEST: Divergence of degree 1 between 09/05/2022 12:00:00 CEST and 09/05/2022 17:00:00 CEST with absolute % change per bar 0.061229
 10/05/2022 17:00:00 CEST: Divergence of degree 1 between 10/05/2022 11:00:00 CEST and 10/05/2022 17:00:00 CEST with absolute % change per bar 0.024678
@@ -243,6 +250,7 @@
 21/07/2022 14:00:00 CEST: Divergence of degree 1 between 21/07/2022 11:00:00 CEST and 21/07/2022 14:00:00 CEST with absolute % change per bar 0.023538
 25/07/2022 12:00:00 CEST: Divergence of degree 1 between 22/07/2022 16:00:00 CEST and 25/07/2022 12:00:00 CEST with absolute % change per bar 0.026689
 26/07/2022 17:00:00 CEST: Divergence of degree 1 between 26/07/2022 15:00:00 CEST and 26/07/2022 17:00:00 CEST with absolute % change per bar 0.015075
+08/08/2022 15:00:00 CEST: Divergence of degree 1 between 05/08/2022 09:00:00 CEST and 08/08/2022 15:00:00 CEST with absolute % change per bar 0.020542
 12/08/2022 11:00:00 CEST: Divergence of degree 1 between 12/08/2022 09:00:00 CEST and 12/08/2022 11:00:00 CEST with absolute % change per bar 0.058198
 15/08/2022 11:00:00 CEST: Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST with absolute % change per bar 0.001449
 15/08/2022 15:00:00 CEST: Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST with absolute % change per bar 0.009198
@@ -252,6 +260,7 @@
 06/09/2022 16:00:00 CEST: Divergence of degree 1 between 06/09/2022 14:00:00 CEST and 06/09/2022 16:00:00 CEST with absolute % change per bar 0.032333
 15/09/2022 14:00:00 CEST: Divergence of degree 1 between 14/09/2022 13:00:00 CEST and 15/09/2022 14:00:00 CEST with absolute % change per bar 0.022685
 19/09/2022 11:00:00 CEST: Divergence of degree 1 between 16/09/2022 10:00:00 CEST and 19/09/2022 11:00:00 CEST with absolute % change per bar 0.065354
+21/09/2022 09:00:00 CEST: Divergence of degree 2 between 19/09/2022 11:00:00 CEST and 21/09/2022 09:00:00 CEST with absolute % change per bar 0.009184
 22/09/2022 13:00:00 CEST: Divergence of degree 1 between 21/09/2022 13:00:00 CEST and 22/09/2022 13:00:00 CEST with absolute % change per bar 0.004307
 26/09/2022 11:00:00 CEST: Divergence of degree 1 between 23/09/2022 15:00:00 CEST and 26/09/2022 11:00:00 CEST with absolute % change per bar 0.059535
 27/09/2022 15:00:00 CEST: Divergence of degree 1 between 27/09/2022 11:00:00 CEST and 27/09/2022 15:00:00 CEST with absolute % change per bar 0.024413
@@ -267,13 +276,17 @@
 11/11/2022 16:00:00 CET: Divergence of degree 1 between 11/11/2022 12:00:00 CET and 11/11/2022 16:00:00 CET with absolute % change per bar 0.026346
 14/11/2022 15:00:00 CET: Divergence of degree 1 between 14/11/2022 09:00:00 CET and 14/11/2022 15:00:00 CET with absolute % change per bar 0.076574
 15/11/2022 14:00:00 CET: Divergence of degree 2 between 14/11/2022 15:00:00 CET and 15/11/2022 14:00:00 CET with absolute % change per bar 0.040231
+22/11/2022 10:00:00 CET: Divergence of degree 1 between 18/11/2022 14:00:00 CET and 22/11/2022 10:00:00 CET with absolute % change per bar 0.017930
 25/11/2022 11:00:00 CET: Divergence of degree 1 between 24/11/2022 17:00:00 CET and 25/11/2022 11:00:00 CET with absolute % change per bar 0.036659
 28/11/2022 14:00:00 CET: Divergence of degree 1 between 28/11/2022 12:00:00 CET and 28/11/2022 14:00:00 CET with absolute % change per bar 0.001527
 07/12/2022 17:00:00 CET: Divergence of degree 1 between 07/12/2022 15:00:00 CET and 07/12/2022 17:00:00 CET with absolute % change per bar 0.041407
 16/12/2022 16:00:00 CET: Divergence of degree 1 between 16/12/2022 14:00:00 CET and 16/12/2022 16:00:00 CET with absolute % change per bar 0.047823
+20/12/2022 15:00:00 CET: Divergence of degree 2 between 16/12/2022 16:00:00 CET and 20/12/2022 15:00:00 CET with absolute % change per bar 0.002191
 23/12/2022 15:00:00 CET: Divergence of degree 1 between 22/12/2022 16:00:00 CET and 23/12/2022 15:00:00 CET with absolute % change per bar 0.010555
+30/12/2022 14:00:00 CET: Divergence of degree 1 between 28/12/2022 17:00:00 CET and 30/12/2022 14:00:00 CET with absolute % change per bar 0.000962
 03/01/2023 16:00:00 CET: Divergence of degree 1 between 03/01/2023 14:00:00 CET and 03/01/2023 16:00:00 CET with absolute % change per bar 0.047288
 06/01/2023 14:00:00 CET: Divergence of degree 1 between 05/01/2023 12:00:00 CET and 06/01/2023 14:00:00 CET with absolute % change per bar 0.020878
+11/01/2023 15:00:00 CET: Divergence of degree 1 between 09/01/2023 16:00:00 CET and 11/01/2023 15:00:00 CET with absolute % change per bar 0.048537
 12/01/2023 14:00:00 CET: Divergence of degree 1 between 12/01/2023 10:00:00 CET and 12/01/2023 14:00:00 CET with absolute % change per bar 0.060557
 13/01/2023 10:00:00 CET: Divergence of degree 2 between 12/01/2023 14:00:00 CET and 13/01/2023 10:00:00 CET with absolute % change per bar 0.041326
 16/01/2023 12:00:00 CET: Divergence of degree 3 between 13/01/2023 10:00:00 CET and 16/01/2023 12:00:00 CET with absolute % change per bar 0.013770
@@ -294,6 +307,7 @@
 15/03/2023 11:00:00 CET: Divergence of degree 3 between 13/03/2023 17:00:00 CET and 15/03/2023 11:00:00 CET with absolute % change per bar 0.103597
 15/03/2023 13:00:00 CET: Divergence of degree 4 between 15/03/2023 11:00:00 CET and 15/03/2023 13:00:00 CET with absolute % change per bar 0.005686
 15/03/2023 17:00:00 CET: Divergence of degree 5 between 15/03/2023 13:00:00 CET and 15/03/2023 17:00:00 CET with absolute % change per bar 0.061875
+17/03/2023 15:00:00 CET: Divergence of degree 6 between 15/03/2023 17:00:00 CET and 17/03/2023 15:00:00 CET with absolute % change per bar 0.005476
 22/03/2023 13:00:00 CET: Divergence of degree 1 between 22/03/2023 11:00:00 CET and 22/03/2023 13:00:00 CET with absolute % change per bar 0.017213
 23/03/2023 16:00:00 CET: Divergence of degree 1 between 23/03/2023 09:00:00 CET and 23/03/2023 16:00:00 CET with absolute % change per bar 0.014007
 30/03/2023 16:00:00 CEST: Divergence of degree 1 between 30/03/2023 12:00:00 CEST and 30/03/2023 16:00:00 CEST with absolute % change per bar 0.002963
@@ -308,6 +322,7 @@
 26/05/2023 11:00:00 CEST: Divergence of degree 1 between 25/05/2023 09:00:00 CEST and 26/05/2023 11:00:00 CEST with absolute % change per bar 0.007024
 13/06/2023 14:00:00 CEST: Divergence of degree 1 between 13/06/2023 09:00:00 CEST and 13/06/2023 14:00:00 CEST with absolute % change per bar 0.029348
 16/06/2023 10:00:00 CEST: Divergence of degree 1 between 14/06/2023 16:00:00 CEST and 16/06/2023 10:00:00 CEST with absolute % change per bar 0.020619
+21/06/2023 15:00:00 CEST: Divergence of degree 1 between 20/06/2023 10:00:00 CEST and 21/06/2023 15:00:00 CEST with absolute % change per bar 0.021730
 23/06/2023 09:00:00 CEST: Divergence of degree 1 between 22/06/2023 12:00:00 CEST and 23/06/2023 09:00:00 CEST with absolute % change per bar 0.034789
 26/06/2023 10:00:00 CEST: Divergence of degree 1 between 23/06/2023 14:00:00 CEST and 26/06/2023 10:00:00 CEST with absolute % change per bar 0.005767
 27/06/2023 13:00:00 CEST: Divergence of degree 1 between 26/06/2023 12:00:00 CEST and 27/06/2023 13:00:00 CEST with absolute % change per bar 0.006093
@@ -323,3 +338,4 @@
 31/07/2023 14:00:00 CEST: Divergence of degree 1 between 31/07/2023 10:00:00 CEST and 31/07/2023 14:00:00 CEST with absolute % change per bar 0.019834
 03/08/2023 09:00:00 CEST: Divergence of degree 1 between 02/08/2023 10:00:00 CEST and 03/08/2023 09:00:00 CEST with absolute % change per bar 0.135806
 04/08/2023 13:00:00 CEST: Divergence of degree 1 between 03/08/2023 16:00:00 CEST and 04/08/2023 13:00:00 CEST with absolute % change per bar 0.043186
+08/08/2023 12:00:00 CEST: Divergence of degree 2 between 04/08/2023 13:00:00 CEST and 08/08/2023 12:00:00 CEST with absolute % change per bar 0.026064

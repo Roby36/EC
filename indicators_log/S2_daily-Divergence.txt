@@ -2,7 +2,6 @@
 18/08/2006 00:00:00 CEST: Divergence of degree 1 between 16/08/2006 00:00:00 CEST and 18/08/2006 00:00:00 CEST with absolute % change per bar 0.018512
 24/08/2006 00:00:00 CEST: Divergence of degree 1 between 22/08/2006 00:00:00 CEST and 24/08/2006 00:00:00 CEST with absolute % change per bar 0.096288
 30/08/2006 00:00:00 CEST: Divergence of degree 1 between 28/08/2006 00:00:00 CEST and 30/08/2006 00:00:00 CEST with absolute % change per bar 0.067533
-13/09/2006 00:00:00 CEST: Divergence of degree 1 between 04/09/2006 00:00:00 CEST and 13/09/2006 00:00:00 CEST with absolute % change per bar 0.013925
 20/09/2006 00:00:00 CEST: Divergence of degree 1 between 15/09/2006 00:00:00 CEST and 20/09/2006 00:00:00 CEST with absolute % change per bar 0.180144
 22/11/2006 00:00:00 CET: Divergence of degree 1 between 16/11/2006 00:00:00 CET and 22/11/2006 00:00:00 CET with absolute % change per bar 0.121583
 19/01/2007 00:00:00 CET: Divergence of degree 1 between 15/01/2007 00:00:00 CET and 19/01/2007 00:00:00 CET with absolute % change per bar 0.062299
@@ -10,9 +9,8 @@
 20/02/2007 00:00:00 CET: Divergence of degree 1 between 14/02/2007 00:00:00 CET and 20/02/2007 00:00:00 CET with absolute % change per bar 0.056369
 26/02/2007 00:00:00 CET: Divergence of degree 2 between 20/02/2007 00:00:00 CET and 26/02/2007 00:00:00 CET with absolute % change per bar 0.104374
 26/04/2007 00:00:00 CEST: Divergence of degree 1 between 20/04/2007 00:00:00 CEST and 26/04/2007 00:00:00 CEST with absolute % change per bar 0.163541
-04/07/2007 00:00:00 CEST: Divergence of degree 1 between 19/06/2007 00:00:00 CEST and 04/07/2007 00:00:00 CEST with absolute % change per bar 0.026567
-09/07/2007 00:00:00 CEST: Divergence of degree 2 between 04/07/2007 00:00:00 CEST and 09/07/2007 00:00:00 CEST with absolute % change per bar 0.078091
-13/07/2007 00:00:00 CEST: Divergence of degree 3 between 09/07/2007 00:00:00 CEST and 13/07/2007 00:00:00 CEST with absolute % change per bar 0.017211
+09/07/2007 00:00:00 CEST: Divergence of degree 1 between 04/07/2007 00:00:00 CEST and 09/07/2007 00:00:00 CEST with absolute % change per bar 0.078091
+13/07/2007 00:00:00 CEST: Divergence of degree 2 between 09/07/2007 00:00:00 CEST and 13/07/2007 00:00:00 CEST with absolute % change per bar 0.017211
 03/08/2007 00:00:00 CEST: Divergence of degree 1 between 27/07/2007 00:00:00 CEST and 03/08/2007 00:00:00 CEST with absolute % change per bar 0.092971
 12/10/2007 00:00:00 CEST: Divergence of degree 1 between 09/10/2007 00:00:00 CEST and 12/10/2007 00:00:00 CEST with absolute % change per bar 0.129891
 26/11/2007 00:00:00 CET: Divergence of degree 1 between 21/11/2007 00:00:00 CET and 26/11/2007 00:00:00 CET with absolute % change per bar 0.065941
@@ -41,7 +39,6 @@
 09/08/2010 00:00:00 CEST: Divergence of degree 1 between 05/08/2010 00:00:00 CEST and 09/08/2010 00:00:00 CEST with absolute % change per bar 0.142258
 20/09/2010 00:00:00 CEST: Divergence of degree 1 between 14/09/2010 00:00:00 CEST and 20/09/2010 00:00:00 CEST with absolute % change per bar 0.076250
 24/09/2010 00:00:00 CEST: Divergence of degree 2 between 20/09/2010 00:00:00 CEST and 24/09/2010 00:00:00 CEST with absolute % change per bar 0.014894
-11/10/2010 00:00:00 CEST: Divergence of degree 3 between 24/09/2010 00:00:00 CEST and 11/10/2010 00:00:00 CEST with absolute % change per bar 0.016152
 02/11/2010 00:00:00 CET: Divergence of degree 1 between 25/10/2010 00:00:00 CEST and 02/11/2010 00:00:00 CET with absolute % change per bar 0.037831
 15/11/2010 00:00:00 CET: Divergence of degree 1 between 09/11/2010 00:00:00 CET and 15/11/2010 00:00:00 CET with absolute % change per bar 0.008508
 19/11/2010 00:00:00 CET: Divergence of degree 2 between 15/11/2010 00:00:00 CET and 19/11/2010 00:00:00 CET with absolute % change per bar 0.196424
@@ -53,15 +50,12 @@
 15/04/2011 00:00:00 CEST: Divergence of degree 1 between 13/04/2011 00:00:00 CEST and 15/04/2011 00:00:00 CEST with absolute % change per bar 0.002229
 10/05/2011 00:00:00 CEST: Divergence of degree 1 between 06/05/2011 00:00:00 CEST and 10/05/2011 00:00:00 CEST with absolute % change per bar 0.061397
 26/05/2011 00:00:00 CEST: Divergence of degree 1 between 23/05/2011 00:00:00 CEST and 26/05/2011 00:00:00 CEST with absolute % change per bar 0.034824
-22/08/2011 00:00:00 CEST: Divergence of degree 1 between 10/08/2011 00:00:00 CEST and 22/08/2011 00:00:00 CEST with absolute % change per bar 0.310951
 12/09/2011 00:00:00 CEST: Divergence of degree 1 between 06/09/2011 00:00:00 CEST and 12/09/2011 00:00:00 CEST with absolute % change per bar 0.585487
 05/12/2011 00:00:00 CET: Divergence of degree 1 between 30/11/2011 00:00:00 CET and 05/12/2011 00:00:00 CET with absolute % change per bar 0.094435
 19/12/2011 00:00:00 CET: Divergence of degree 1 between 14/12/2011 00:00:00 CET and 19/12/2011 00:00:00 CET with absolute % change per bar 0.026020
 09/02/2012 00:00:00 CET: Divergence of degree 1 between 03/02/2012 00:00:00 CET and 09/02/2012 00:00:00 CET with absolute % change per bar 0.081761
 26/03/2012 00:00:00 CEST: Divergence of degree 1 between 21/03/2012 00:00:00 CET and 26/03/2012 00:00:00 CEST with absolute % change per bar 0.037287
 13/04/2012 00:00:00 CEST: Divergence of degree 1 between 10/04/2012 00:00:00 CEST and 13/04/2012 00:00:00 CEST with absolute % change per bar 0.113677
-25/06/2012 00:00:00 CEST: Divergence of degree 1 between 14/06/2012 00:00:00 CEST and 25/06/2012 00:00:00 CEST with absolute % change per bar 0.014475
-30/07/2012 00:00:00 CEST: Divergence of degree 1 between 19/07/2012 00:00:00 CEST and 30/07/2012 00:00:00 CEST with absolute % change per bar 0.033123
 14/08/2012 00:00:00 CEST: Divergence of degree 1 between 07/08/2012 00:00:00 CEST and 14/08/2012 00:00:00 CEST with absolute % change per bar 0.018485
 03/09/2012 00:00:00 CEST: Divergence of degree 1 between 29/08/2012 00:00:00 CEST and 03/09/2012 00:00:00 CEST with absolute % change per bar 0.020445
 29/01/2013 00:00:00 CET: Divergence of degree 1 between 25/01/2013 00:00:00 CET and 29/01/2013 00:00:00 CET with absolute % change per bar 0.024967
@@ -69,7 +63,6 @@
 13/06/2013 00:00:00 CEST: Divergence of degree 1 between 06/06/2013 00:00:00 CEST and 13/06/2013 00:00:00 CEST with absolute % change per bar 0.008446
 05/07/2013 00:00:00 CEST: Divergence of degree 1 between 03/07/2013 00:00:00 CEST and 05/07/2013 00:00:00 CEST with absolute % change per bar 0.148927
 01/08/2013 00:00:00 CEST: Divergence of degree 1 between 24/07/2013 00:00:00 CEST and 01/08/2013 00:00:00 CEST with absolute % change per bar 0.062895
-14/08/2013 00:00:00 CEST: Divergence of degree 2 between 01/08/2013 00:00:00 CEST and 14/08/2013 00:00:00 CEST with absolute % change per bar 0.036184
 01/10/2013 00:00:00 CEST: Divergence of degree 1 between 25/09/2013 00:00:00 CEST and 01/10/2013 00:00:00 CEST with absolute % change per bar 0.067825
 31/10/2013 00:00:00 CET: Divergence of degree 1 between 29/10/2013 00:00:00 CET and 31/10/2013 00:00:00 CET with absolute % change per bar 0.065839
 04/11/2013 00:00:00 CET: Divergence of degree 2 between 31/10/2013 00:00:00 CET and 04/11/2013 00:00:00 CET with absolute % change per bar 0.018320
@@ -89,7 +82,6 @@
 20/01/2016 00:00:00 CET: Divergence of degree 1 between 18/01/2016 00:00:00 CET and 20/01/2016 00:00:00 CET with absolute % change per bar 0.683743
 11/02/2016 00:00:00 CET: Divergence of degree 1 between 09/02/2016 00:00:00 CET and 11/02/2016 00:00:00 CET with absolute % change per bar 0.712492
 30/03/2016 00:00:00 CEST: Divergence of degree 1 between 23/03/2016 00:00:00 CET and 30/03/2016 00:00:00 CEST with absolute % change per bar 0.078753
-27/06/2016 00:00:00 CEST: Divergence of degree 1 between 16/06/2016 00:00:00 CEST and 27/06/2016 00:00:00 CEST with absolute % change per bar 0.421535
 29/07/2016 00:00:00 CEST: Divergence of degree 1 between 27/07/2016 00:00:00 CEST and 29/07/2016 00:00:00 CEST with absolute % change per bar 0.086971
 11/08/2016 00:00:00 CEST: Divergence of degree 1 between 09/08/2016 00:00:00 CEST and 11/08/2016 00:00:00 CEST with absolute % change per bar 0.233519
 24/08/2016 00:00:00 CEST: Divergence of degree 1 between 18/08/2016 00:00:00 CEST and 24/08/2016 00:00:00 CEST with absolute % change per bar 0.047015

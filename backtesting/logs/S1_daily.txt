@@ -1,117 +1,83 @@
 
  TRADE LOG:
-Opened  0: Denied divergence on new local maximum on 28/07/2006 00:00:00 CEST; short divergence between most_left_bar06/07/2006 00:00:00 CEST and most_right_bar10/07/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.039478. Currently open trades: 1
-Closed 0: reached stop loss / take profit point
-Opened  1: Denied divergence on new local maximum on 28/08/2006 00:00:00 CEST; short divergence between most_left_bar22/08/2006 00:00:00 CEST and most_right_bar24/08/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.096288. Currently open trades: 1
-Opened  2: Denied divergence on new local maximum on 04/09/2006 00:00:00 CEST; short divergence between most_left_bar28/08/2006 00:00:00 CEST and most_right_bar30/08/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.067533. Currently open trades: 2
+Opened  0: Denied divergence on new local maximum on 28/08/2006 00:00:00 CEST; short divergence between most_left_bar22/08/2006 00:00:00 CEST and most_right_bar24/08/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.096288. Currently open trades: 1
+Opened  1: Denied divergence on new local maximum on 04/09/2006 00:00:00 CEST; short divergence between most_left_bar28/08/2006 00:00:00 CEST and most_right_bar30/08/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.067533. Currently open trades: 2
+Closed 0: Negative after expiration time
 Closed 1: Negative after expiration time (stop loss)
-Opened  3: Denied divergence on new local maximum on 29/09/2006 00:00:00 CEST; short divergence between most_left_bar15/09/2006 00:00:00 CEST and most_right_bar20/09/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.180144. Currently open trades: 2
+Opened  2: Denied divergence on new local maximum on 29/09/2006 00:00:00 CEST; short divergence between most_left_bar15/09/2006 00:00:00 CEST and most_right_bar20/09/2006 00:00:00 CEST of entity 2 with absolute % change per bar 0.180144. Currently open trades: 1
 Closed 2: Negative after expiration time (stop loss)
-Closed 3: reached stop loss / take profit point
-Opened  4: Denied divergence on new local maximum on 02/02/2007 00:00:00 CET; short divergence between most_left_bar15/01/2007 00:00:00 CET and most_right_bar24/01/2007 00:00:00 CET of entity 3 with absolute % change per bar 0.078711. Currently open trades: 1
-Closed 4: reached stop loss / take profit point
-Opened  5: Denied divergence on new local maximum on 02/05/2007 00:00:00 CEST; short divergence between most_left_bar20/04/2007 00:00:00 CEST and most_right_bar26/04/2007 00:00:00 CEST of entity 2 with absolute % change per bar 0.163541. Currently open trades: 1
+Opened  3: Denied divergence on new local maximum on 02/02/2007 00:00:00 CET; short divergence between most_left_bar15/01/2007 00:00:00 CET and most_right_bar24/01/2007 00:00:00 CET of entity 3 with absolute % change per bar 0.078711. Currently open trades: 1
+Closed 3: Negative after expiration time (stop loss)
+Opened  4: Denied divergence on new local maximum on 02/05/2007 00:00:00 CEST; short divergence between most_left_bar20/04/2007 00:00:00 CEST and most_right_bar26/04/2007 00:00:00 CEST of entity 2 with absolute % change per bar 0.163541. Currently open trades: 1
+Closed 4: Negative after expiration time (stop loss)
+Opened  5: Denied divergence on new local minimum on 20/06/2008 00:00:00 CEST; short divergence between most_left_bar16/06/2008 00:00:00 CEST and most_right_bar18/06/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.163437. Currently open trades: 1
 Closed 5: reached stop loss / take profit point
-Opened  6: Denied divergence on new local minimum on 20/06/2008 00:00:00 CEST; short divergence between most_left_bar16/06/2008 00:00:00 CEST and most_right_bar18/06/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.163437. Currently open trades: 1
-Closed 6: reached stop loss / take profit point
-Opened  7: Denied divergence on new local minimum on 27/06/2008 00:00:00 CEST; short divergence between most_left_bar20/06/2008 00:00:00 CEST and most_right_bar24/06/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.089039. Currently open trades: 1
-Closed 7: reached stop loss / take profit point
-Opened  8: Denied divergence on new local minimum on 15/09/2008 00:00:00 CEST; short divergence between most_left_bar05/09/2008 00:00:00 CEST and most_right_bar11/09/2008 00:00:00 CEST of entity 3 with absolute % change per bar 0.029536. Currently open trades: 1
+Opened  6: Denied divergence on new local minimum on 27/06/2008 00:00:00 CEST; short divergence between most_left_bar20/06/2008 00:00:00 CEST and most_right_bar24/06/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.089039. Currently open trades: 1
+Closed 6: Negative after expiration time (stop loss)
+Opened  7: Denied divergence on new local minimum on 15/09/2008 00:00:00 CEST; short divergence between most_left_bar05/09/2008 00:00:00 CEST and most_right_bar11/09/2008 00:00:00 CEST of entity 3 with absolute % change per bar 0.029536. Currently open trades: 1
+Closed 7: Negative after expiration time
+Opened  8: Denied divergence on new local minimum on 10/10/2008 00:00:00 CEST; short divergence between most_left_bar29/09/2008 00:00:00 CEST and most_right_bar02/10/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.456560. Currently open trades: 1
 Closed 8: reached stop loss / take profit point
-Opened  9: Denied divergence on new local minimum on 10/10/2008 00:00:00 CEST; short divergence between most_left_bar29/09/2008 00:00:00 CEST and most_right_bar02/10/2008 00:00:00 CEST of entity 2 with absolute % change per bar 0.456560. Currently open trades: 1
+Opened  9: Denied divergence on new local minimum on 02/03/2009 00:00:00 CET; short divergence between most_left_bar23/02/2009 00:00:00 CET and most_right_bar25/02/2009 00:00:00 CET of entity 2 with absolute % change per bar 0.252502. Currently open trades: 1
 Closed 9: reached stop loss / take profit point
-Opened  10: Denied divergence on new local minimum on 23/02/2009 00:00:00 CET; short divergence between most_left_bar20/01/2009 00:00:00 CET and most_right_bar23/01/2009 00:00:00 CET of entity 2 with absolute % change per bar 0.047272. Currently open trades: 1
-Closed 10: reached stop loss / take profit point
-Opened  11: Denied divergence on new local minimum on 02/03/2009 00:00:00 CET; short divergence between most_left_bar23/02/2009 00:00:00 CET and most_right_bar25/02/2009 00:00:00 CET of entity 2 with absolute % change per bar 0.252502. Currently open trades: 1
-Closed 11: reached stop loss / take profit point
-Opened  12: Denied divergence on new local maximum on 04/05/2009 00:00:00 CEST; short divergence between most_left_bar24/04/2009 00:00:00 CEST and most_right_bar29/04/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.164062. Currently open trades: 1
-Closed 12: reached stop loss / take profit point
-Opened  13: Denied divergence on new local maximum on 02/06/2009 00:00:00 CEST; short divergence between most_left_bar20/05/2009 00:00:00 CEST and most_right_bar26/05/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.062800. Currently open trades: 1
-Closed 13: reached stop loss / take profit point
-Opened  14: Denied divergence on new local maximum on 30/07/2009 00:00:00 CEST; short divergence between most_left_bar23/07/2009 00:00:00 CEST and most_right_bar27/07/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.040688. Currently open trades: 1
-Closed 14: reached stop loss / take profit point
-Opened  15: Denied divergence on new local maximum on 16/12/2009 00:00:00 CET; short divergence between most_left_bar18/11/2009 00:00:00 CET and most_right_bar25/11/2009 00:00:00 CET of entity 3 with absolute % change per bar 0.013272. Currently open trades: 1
-Closed 15: reached stop loss / take profit point
-Opened  16: Denied divergence on new local maximum on 18/10/2010 00:00:00 CEST; short divergence between most_left_bar14/09/2010 00:00:00 CEST and most_right_bar11/10/2010 00:00:00 CEST of entity 4 with absolute % change per bar 0.016152. Currently open trades: 1
-Closed 16: reached stop loss / take profit point
-Opened  17: Denied divergence on new local maximum on 08/02/2011 00:00:00 CET; short divergence between most_left_bar27/01/2011 00:00:00 CET and most_right_bar01/02/2011 00:00:00 CET of entity 2 with absolute % change per bar 0.133649. Currently open trades: 1
-Closed 17: reached stop loss / take profit point
-Opened  18: Denied divergence on new local maximum on 02/05/2011 00:00:00 CEST; short divergence between most_left_bar13/04/2011 00:00:00 CEST and most_right_bar15/04/2011 00:00:00 CEST of entity 2 with absolute % change per bar 0.002229. Currently open trades: 1
-Closed 18: reached stop loss / take profit point
-Opened  19: Denied divergence on new local maximum on 03/01/2012 00:00:00 CET; short divergence between most_left_bar30/11/2011 00:00:00 CET and most_right_bar05/12/2011 00:00:00 CET of entity 2 with absolute % change per bar 0.094435. Currently open trades: 1
-Closed 19: reached stop loss / take profit point
-Opened  20: Denied divergence on new local maximum on 20/02/2012 00:00:00 CET; short divergence between most_left_bar03/02/2012 00:00:00 CET and most_right_bar09/02/2012 00:00:00 CET of entity 2 with absolute % change per bar 0.081761. Currently open trades: 1
-Closed 20: reached stop loss / take profit point
-Opened  21: Denied divergence on new local minimum on 18/05/2012 00:00:00 CEST; short divergence between most_left_bar10/04/2012 00:00:00 CEST and most_right_bar13/04/2012 00:00:00 CEST of entity 2 with absolute % change per bar 0.113677. Currently open trades: 1
-Closed 21: reached stop loss / take profit point
-Opened  22: Denied divergence on new local maximum on 17/08/2012 00:00:00 CEST; short divergence between most_left_bar07/08/2012 00:00:00 CEST and most_right_bar14/08/2012 00:00:00 CEST of entity 2 with absolute % change per bar 0.018485. Currently open trades: 1
+Opened  10: Denied divergence on new local maximum on 04/05/2009 00:00:00 CEST; short divergence between most_left_bar24/04/2009 00:00:00 CEST and most_right_bar29/04/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.164062. Currently open trades: 1
+Closed 10: Negative after expiration time
+Opened  11: Denied divergence on new local maximum on 02/06/2009 00:00:00 CEST; short divergence between most_left_bar20/05/2009 00:00:00 CEST and most_right_bar26/05/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.062800. Currently open trades: 1
+Closed 11: Negative after expiration time
+Opened  12: Denied divergence on new local maximum on 30/07/2009 00:00:00 CEST; short divergence between most_left_bar23/07/2009 00:00:00 CEST and most_right_bar27/07/2009 00:00:00 CEST of entity 2 with absolute % change per bar 0.040688. Currently open trades: 1
+Closed 12: Negative after expiration time (stop loss)
+Opened  13: Denied divergence on new local maximum on 08/02/2011 00:00:00 CET; short divergence between most_left_bar27/01/2011 00:00:00 CET and most_right_bar01/02/2011 00:00:00 CET of entity 2 with absolute % change per bar 0.133649. Currently open trades: 1
+Closed 13: Negative after expiration time (stop loss)
+Opened  14: Denied divergence on new local maximum on 20/02/2012 00:00:00 CET; short divergence between most_left_bar03/02/2012 00:00:00 CET and most_right_bar09/02/2012 00:00:00 CET of entity 2 with absolute % change per bar 0.081761. Currently open trades: 1
+Closed 14: Negative after expiration time (stop loss)
+Opened  15: Denied divergence on new local maximum on 17/08/2012 00:00:00 CEST; short divergence between most_left_bar07/08/2012 00:00:00 CEST and most_right_bar14/08/2012 00:00:00 CEST of entity 2 with absolute % change per bar 0.018485. Currently open trades: 1
+Closed 15: Negative after expiration time
+Opened  16: Denied divergence on new local maximum on 07/09/2012 00:00:00 CEST; short divergence between most_left_bar29/08/2012 00:00:00 CEST and most_right_bar03/09/2012 00:00:00 CEST of entity 2 with absolute % change per bar 0.020445. Currently open trades: 1
+Closed 16: Negative after expiration time (stop loss)
+Opened  17: Denied divergence on new local minimum on 24/06/2013 00:00:00 CEST; short divergence between most_left_bar06/06/2013 00:00:00 CEST and most_right_bar13/06/2013 00:00:00 CEST of entity 2 with absolute % change per bar 0.008446. Currently open trades: 1
+Closed 17: Negative after expiration time (stop loss)
+Opened  18: Denied divergence on new local minimum on 05/02/2014 00:00:00 CET; short divergence between most_left_bar27/01/2014 00:00:00 CET and most_right_bar29/01/2014 00:00:00 CET of entity 2 with absolute % change per bar 0.066797. Currently open trades: 1
+Closed 18: Negative after expiration time
+Opened  19: Denied divergence on new local maximum on 13/05/2014 00:00:00 CEST; short divergence between most_left_bar30/04/2014 00:00:00 CEST and most_right_bar08/05/2014 00:00:00 CEST of entity 2 with absolute % change per bar 0.008685. Currently open trades: 1
+Closed 19: Negative after expiration time (stop loss)
+Opened  20: Denied divergence on new local minimum on 04/08/2014 00:00:00 CEST; short divergence between most_left_bar21/07/2014 00:00:00 CEST and most_right_bar28/07/2014 00:00:00 CEST of entity 2 with absolute % change per bar 0.028880. Currently open trades: 1
+Closed 20: Negative after expiration time (stop loss)
+Opened  21: Denied divergence on new local maximum on 16/03/2015 00:00:00 CET; short divergence between most_left_bar02/03/2015 00:00:00 CET and most_right_bar09/03/2015 00:00:00 CET of entity 2 with absolute % change per bar 0.301042. Currently open trades: 1
+Closed 21: Negative after expiration time
+Opened  22: Denied divergence on new local maximum on 10/04/2015 00:00:00 CEST; short divergence between most_left_bar24/03/2015 00:00:00 CET and most_right_bar30/03/2015 00:00:00 CEST of entity 2 with absolute % change per bar 0.167254. Currently open trades: 1
 Closed 22: reached stop loss / take profit point
-Opened  23: Denied divergence on new local maximum on 07/09/2012 00:00:00 CEST; short divergence between most_left_bar29/08/2012 00:00:00 CEST and most_right_bar03/09/2012 00:00:00 CEST of entity 2 with absolute % change per bar 0.020445. Currently open trades: 1
-Closed 23: reached stop loss / take profit point
-Opened  24: Denied divergence on new local minimum on 24/06/2013 00:00:00 CEST; short divergence between most_left_bar06/06/2013 00:00:00 CEST and most_right_bar13/06/2013 00:00:00 CEST of entity 2 with absolute % change per bar 0.008446. Currently open trades: 1
-Closed 24: reached stop loss / take profit point
-Opened  25: Denied divergence on new local maximum on 16/09/2013 00:00:00 CEST; short divergence between most_left_bar24/07/2013 00:00:00 CEST and most_right_bar14/08/2013 00:00:00 CEST of entity 3 with absolute % change per bar 0.036184. Currently open trades: 1
-Closed 25: Negative after expiration time (stop loss)
-Opened  26: Denied divergence on new local maximum on 16/10/2013 00:00:00 CEST; short divergence between most_left_bar25/09/2013 00:00:00 CEST and most_right_bar01/10/2013 00:00:00 CEST of entity 2 with absolute % change per bar 0.067825. Currently open trades: 1
-Closed 26: reached stop loss / take profit point
-Opened  27: Denied divergence on new local maximum on 18/11/2013 00:00:00 CET; short divergence between most_left_bar29/10/2013 00:00:00 CET and most_right_bar04/11/2013 00:00:00 CET of entity 3 with absolute % change per bar 0.018320. Currently open trades: 1
+Opened  23: Denied divergence on new local maximum on 20/11/2015 00:00:00 CET; short divergence between most_left_bar11/11/2015 00:00:00 CET and most_right_bar17/11/2015 00:00:00 CET of entity 2 with absolute % change per bar 0.144781. Currently open trades: 1
+Closed 23: Negative after expiration time
+Opened  24: Denied divergence on new local maximum on 09/08/2016 00:00:00 CEST; short divergence between most_left_bar27/07/2016 00:00:00 CEST and most_right_bar29/07/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.086971. Currently open trades: 1
+Closed 24: Negative after expiration time
+Opened  25: Denied divergence on new local maximum on 07/09/2016 00:00:00 CEST; short divergence between most_left_bar30/08/2016 00:00:00 CEST and most_right_bar02/09/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.081882. Currently open trades: 1
+Closed 25: Crossed lower Bollinger Bands from below (take profit)
+Opened  26: Denied divergence on new local maximum on 02/01/2017 00:00:00 CET; short divergence between most_left_bar21/12/2016 00:00:00 CET and most_right_bar28/12/2016 00:00:00 CET of entity 2 with absolute % change per bar 0.013842. Currently open trades: 1
+Closed 26: Negative after expiration time (stop loss)
+Opened  27: Denied divergence on new local minimum on 24/07/2017 00:00:00 CEST; short divergence between most_left_bar11/07/2017 00:00:00 CEST and most_right_bar18/07/2017 00:00:00 CEST of entity 2 with absolute % change per bar 0.010662. Currently open trades: 1
 Closed 27: Negative after expiration time
-Opened  28: Denied divergence on new local minimum on 05/02/2014 00:00:00 CET; short divergence between most_left_bar27/01/2014 00:00:00 CET and most_right_bar29/01/2014 00:00:00 CET of entity 2 with absolute % change per bar 0.066797. Currently open trades: 1
-Closed 28: reached stop loss / take profit point
-Opened  29: Denied divergence on new local maximum on 13/05/2014 00:00:00 CEST; short divergence between most_left_bar30/04/2014 00:00:00 CEST and most_right_bar08/05/2014 00:00:00 CEST of entity 2 with absolute % change per bar 0.008685. Currently open trades: 1
-Closed 29: reached stop loss / take profit point
-Opened  30: Denied divergence on new local minimum on 04/08/2014 00:00:00 CEST; short divergence between most_left_bar21/07/2014 00:00:00 CEST and most_right_bar28/07/2014 00:00:00 CEST of entity 2 with absolute % change per bar 0.028880. Currently open trades: 1
-Closed 30: reached stop loss / take profit point
-Opened  31: Denied divergence on new local maximum on 16/03/2015 00:00:00 CET; short divergence between most_left_bar02/03/2015 00:00:00 CET and most_right_bar09/03/2015 00:00:00 CET of entity 2 with absolute % change per bar 0.301042. Currently open trades: 1
-Closed 31: reached stop loss / take profit point
-Opened  32: Denied divergence on new local maximum on 10/04/2015 00:00:00 CEST; short divergence between most_left_bar24/03/2015 00:00:00 CET and most_right_bar30/03/2015 00:00:00 CEST of entity 2 with absolute % change per bar 0.167254. Currently open trades: 1
-Closed 32: reached stop loss / take profit point
-Opened  33: Denied divergence on new local maximum on 20/11/2015 00:00:00 CET; short divergence between most_left_bar11/11/2015 00:00:00 CET and most_right_bar17/11/2015 00:00:00 CET of entity 2 with absolute % change per bar 0.144781. Currently open trades: 1
-Closed 33: reached stop loss / take profit point
-Opened  34: Denied divergence on new local minimum on 09/02/2016 00:00:00 CET; short divergence between most_left_bar18/01/2016 00:00:00 CET and most_right_bar20/01/2016 00:00:00 CET of entity 2 with absolute % change per bar 0.683743. Currently open trades: 1
-Closed 34: reached stop loss / take profit point
-Opened  35: Denied divergence on new local maximum on 14/04/2016 00:00:00 CEST; short divergence between most_left_bar23/03/2016 00:00:00 CET and most_right_bar30/03/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.078753. Currently open trades: 1
-Closed 35: reached stop loss / take profit point
-Opened  36: Denied divergence on new local maximum on 09/08/2016 00:00:00 CEST; short divergence between most_left_bar27/07/2016 00:00:00 CEST and most_right_bar29/07/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.086971. Currently open trades: 1
+Opened  28: Denied divergence on new local maximum on 23/01/2018 00:00:00 CET; short divergence between most_left_bar12/01/2018 00:00:00 CET and most_right_bar16/01/2018 00:00:00 CET of entity 2 with absolute % change per bar 0.004908. Currently open trades: 1
+Closed 28: Negative after expiration time
+Opened  29: Denied divergence on new local minimum on 26/03/2018 00:00:00 CEST; short divergence between most_left_bar13/03/2018 00:00:00 CET and most_right_bar19/03/2018 00:00:00 CET of entity 2 with absolute % change per bar 0.008203. Currently open trades: 1
+Closed 29: Negative after expiration time
+Opened  30: Denied divergence on new local maximum on 27/11/2019 00:00:00 CET; short divergence between most_left_bar19/11/2019 00:00:00 CET and most_right_bar25/11/2019 00:00:00 CET of entity 2 with absolute % change per bar 0.047897. Currently open trades: 1
+Closed 30: Crossed lower Bollinger Bands from below (take profit)
+Opened  31: Denied divergence on new local maximum on 15/07/2020 00:00:00 CEST; short divergence between most_left_bar06/07/2020 00:00:00 CEST and most_right_bar13/07/2020 00:00:00 CEST of entity 2 with absolute % change per bar 0.104481. Currently open trades: 1
+Closed 31: Negative after expiration time
+Opened  32: Denied divergence on new local maximum on 08/01/2021 00:00:00 CET; short divergence between most_left_bar17/12/2020 00:00:00 CET and most_right_bar28/12/2020 00:00:00 CET of entity 2 with absolute % change per bar 0.180051. Currently open trades: 1
+Closed 32: Negative after expiration time
+Opened  33: Denied divergence on new local maximum on 16/04/2021 00:00:00 CEST; short divergence between most_left_bar06/04/2021 00:00:00 CEST and most_right_bar13/04/2021 00:00:00 CEST of entity 3 with absolute % change per bar 0.000656. Currently open trades: 1
+Closed 33: Negative after expiration time
+Opened  34: Denied divergence on new local minimum on 20/09/2021 00:00:00 CEST; short divergence between most_left_bar08/09/2021 00:00:00 CEST and most_right_bar10/09/2021 00:00:00 CEST of entity 2 with absolute % change per bar 0.001505. Currently open trades: 1
+Closed 34: Negative after expiration time (stop loss)
+Opened  35: Denied divergence on new local minimum on 08/03/2022 00:00:00 CET; short divergence between most_left_bar24/02/2022 00:00:00 CET and most_right_bar01/03/2022 00:00:00 CET of entity 2 with absolute % change per bar 0.349295. Currently open trades: 1
+Closed 35: Negative after expiration time
+Opened  36: Denied divergence on new local minimum on 26/04/2022 00:00:00 CEST; short divergence between most_left_bar07/04/2022 00:00:00 CEST and most_right_bar13/04/2022 00:00:00 CEST of entity 2 with absolute % change per bar 0.003037. Currently open trades: 1
 Closed 36: Negative after expiration time (stop loss)
-Opened  37: Denied divergence on new local maximum on 07/09/2016 00:00:00 CEST; short divergence between most_left_bar30/08/2016 00:00:00 CEST and most_right_bar02/09/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.081882. Currently open trades: 1
-Closed 37: reached stop loss / take profit point
-Opened  38: Denied divergence on new local maximum on 24/10/2016 00:00:00 CEST; short divergence between most_left_bar04/10/2016 00:00:00 CEST and most_right_bar10/10/2016 00:00:00 CEST of entity 2 with absolute % change per bar 0.010523. Currently open trades: 1
+Opened  37: Denied divergence on new local minimum on 05/07/2022 00:00:00 CEST; short divergence between most_left_bar16/06/2022 00:00:00 CEST and most_right_bar30/06/2022 00:00:00 CEST of entity 3 with absolute % change per bar 0.199526. Currently open trades: 1
+Closed 37: Negative after expiration time
+Opened  38: Denied divergence on new local maximum on 16/08/2022 00:00:00 CEST; short divergence between most_left_bar04/08/2022 00:00:00 CEST and most_right_bar10/08/2022 00:00:00 CEST of entity 3 with absolute % change per bar 0.048365. Currently open trades: 1
 Closed 38: reached stop loss / take profit point
-Opened  39: Denied divergence on new local maximum on 02/01/2017 00:00:00 CET; short divergence between most_left_bar21/12/2016 00:00:00 CET and most_right_bar28/12/2016 00:00:00 CET of entity 2 with absolute % change per bar 0.013842. Currently open trades: 1
-Closed 39: Negative after expiration time (stop loss)
-Opened  40: Denied divergence on new local minimum on 24/07/2017 00:00:00 CEST; short divergence between most_left_bar11/07/2017 00:00:00 CEST and most_right_bar18/07/2017 00:00:00 CEST of entity 2 with absolute % change per bar 0.010662. Currently open trades: 1
-Closed 40: Negative after expiration time (stop loss)
-Opened  41: Denied divergence on new local maximum on 01/11/2017 00:00:00 CET; short divergence between most_left_bar04/10/2017 00:00:00 CEST and most_right_bar16/10/2017 00:00:00 CEST of entity 3 with absolute % change per bar 0.042076. Currently open trades: 1
-Closed 41: reached stop loss / take profit point
-Opened  42: Denied divergence on new local maximum on 23/01/2018 00:00:00 CET; short divergence between most_left_bar12/01/2018 00:00:00 CET and most_right_bar16/01/2018 00:00:00 CET of entity 2 with absolute % change per bar 0.004908. Currently open trades: 1
-Closed 42: reached stop loss / take profit point
-Opened  43: Denied divergence on new local minimum on 26/03/2018 00:00:00 CEST; short divergence between most_left_bar13/03/2018 00:00:00 CET and most_right_bar19/03/2018 00:00:00 CET of entity 2 with absolute % change per bar 0.008203. Currently open trades: 1
-Closed 43: reached stop loss / take profit point
-Opened  44: Denied divergence on new local maximum on 27/11/2019 00:00:00 CET; short divergence between most_left_bar19/11/2019 00:00:00 CET and most_right_bar25/11/2019 00:00:00 CET of entity 2 with absolute % change per bar 0.047897. Currently open trades: 1
-Closed 44: Crossed lower Bollinger Bands from below (take profit)
-Opened  45: Denied divergence on new local maximum on 17/02/2020 00:00:00 CET; short divergence between most_left_bar21/01/2020 00:00:00 CET and most_right_bar24/01/2020 00:00:00 CET of entity 2 with absolute % change per bar 0.051171. Currently open trades: 1
-Closed 45: reached stop loss / take profit point
-Opened  46: Denied divergence on new local maximum on 15/07/2020 00:00:00 CEST; short divergence between most_left_bar06/07/2020 00:00:00 CEST and most_right_bar13/07/2020 00:00:00 CEST of entity 2 with absolute % change per bar 0.104481. Currently open trades: 1
-Closed 46: reached stop loss / take profit point
-Opened  47: Denied divergence on new local maximum on 08/01/2021 00:00:00 CET; short divergence between most_left_bar17/12/2020 00:00:00 CET and most_right_bar28/12/2020 00:00:00 CET of entity 2 with absolute % change per bar 0.180051. Currently open trades: 1
-Closed 47: reached stop loss / take profit point
-Opened  48: Denied divergence on new local maximum on 16/04/2021 00:00:00 CEST; short divergence between most_left_bar06/04/2021 00:00:00 CEST and most_right_bar13/04/2021 00:00:00 CEST of entity 3 with absolute % change per bar 0.000656. Currently open trades: 1
-Closed 48: reached stop loss / take profit point
-Opened  49: Denied divergence on new local maximum on 04/06/2021 00:00:00 CEST; short divergence between most_left_bar10/05/2021 00:00:00 CEST and most_right_bar25/05/2021 00:00:00 CEST of entity 3 with absolute % change per bar 0.052378. Currently open trades: 1
-Closed 49: Negative after expiration time
-Opened  50: Denied divergence on new local minimum on 20/09/2021 00:00:00 CEST; short divergence between most_left_bar08/09/2021 00:00:00 CEST and most_right_bar10/09/2021 00:00:00 CEST of entity 2 with absolute % change per bar 0.001505. Currently open trades: 1
-Closed 50: reached stop loss / take profit point
-Opened  51: Denied divergence on new local minimum on 08/03/2022 00:00:00 CET; short divergence between most_left_bar24/02/2022 00:00:00 CET and most_right_bar01/03/2022 00:00:00 CET of entity 2 with absolute % change per bar 0.349295. Currently open trades: 1
-Closed 51: reached stop loss / take profit point
-Opened  52: Denied divergence on new local minimum on 26/04/2022 00:00:00 CEST; short divergence between most_left_bar07/04/2022 00:00:00 CEST and most_right_bar13/04/2022 00:00:00 CEST of entity 2 with absolute % change per bar 0.003037. Currently open trades: 1
-Closed 52: reached stop loss / take profit point
-Opened  53: Denied divergence on new local minimum on 05/07/2022 00:00:00 CEST; short divergence between most_left_bar16/06/2022 00:00:00 CEST and most_right_bar30/06/2022 00:00:00 CEST of entity 3 with absolute % change per bar 0.199526. Currently open trades: 1
-Closed 53: reached stop loss / take profit point
-Opened  54: Denied divergence on new local maximum on 16/08/2022 00:00:00 CEST; short divergence between most_left_bar04/08/2022 00:00:00 CEST and most_right_bar10/08/2022 00:00:00 CEST of entity 3 with absolute % change per bar 0.048365. Currently open trades: 1
-Closed 54: reached stop loss / take profit point
-Opened  55: Denied divergence on new local maximum on 01/11/2022 00:00:00 CET; short divergence between most_left_bar18/10/2022 00:00:00 CEST and most_right_bar20/10/2022 00:00:00 CEST of entity 2 with absolute % change per bar 0.007050. Currently open trades: 1
-Closed 55: reached stop loss / take profit point
 
  END OF LOG
 
