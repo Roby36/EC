@@ -1,0 +1,28 @@
+
+ STRATEGY REPORT:
+Total positive trades: 11 (3429.960000 points); Total negative trades: 12 (-3306.100000 points);
+ Net loss/profit: 123.860000
+
+ Trade no: 0; Direction: short; Entry date: 25/01/2007 00:00:00 CET; Entry closing price: 6694.450000; Exit date: 14/02/2007 00:00:00 CET; Exit closing price: 6980.750000; Loss/profit: -286.300000; Current p&l: -286.300000
+ Trade no: 1; Direction: short; Entry date: 27/02/2007 00:00:00 CET; Entry closing price: 6646.550000; Exit date: 28/02/2007 00:00:00 CET; Exit closing price: 6714.880000; Loss/profit: -68.330000; Current p&l: -354.630000
+ Trade no: 2; Direction: short; Entry date: 10/07/2007 00:00:00 CEST; Entry closing price: 7900.660000; Exit date: 26/07/2007 00:00:00 CEST; Exit closing price: 7456.700000; Loss/profit: 443.960000; Current p&l: 415.130000
+ Trade no: 3; Direction: short; Entry date: 16/07/2007 00:00:00 CEST; Entry closing price: 8091.180000; Exit date: 24/07/2007 00:00:00 CEST; Exit closing price: 7765.380000; Loss/profit: 325.800000; Current p&l: 106.450000
+ Trade no: 4; Direction: long; Entry date: 12/09/2008 00:00:00 CEST; Entry closing price: 6232.270000; Exit date: 15/09/2008 00:00:00 CEST; Exit closing price: 6013.290000; Loss/profit: -218.980000; Current p&l: 196.150000
+ Trade no: 5; Direction: short; Entry date: 11/05/2009 00:00:00 CEST; Entry closing price: 4854.000000; Exit date: 01/06/2009 00:00:00 CEST; Exit closing price: 5132.350000; Loss/profit: -278.350000; Current p&l: -82.200000
+ Trade no: 6; Direction: short; Entry date: 26/11/2009 00:00:00 CET; Entry closing price: 5614.170000; Exit date: 16/12/2009 00:00:00 CET; Exit closing price: 5903.430000; Loss/profit: -289.260000; Current p&l: -371.460000
+ Trade no: 7; Direction: short; Entry date: 27/09/2010 00:00:00 CEST; Entry closing price: 6278.890000; Exit date: 18/10/2010 00:00:00 CEST; Exit closing price: 6516.690000; Loss/profit: -237.800000; Current p&l: -821.320000
+ Trade no: 8; Direction: short; Entry date: 12/10/2010 00:00:00 CEST; Entry closing price: 6304.630000; Exit date: 21/10/2010 00:00:00 CEST; Exit closing price: 6611.010000; Loss/profit: -306.380000; Current p&l: -915.640000
+ Trade no: 9; Direction: short; Entry date: 22/11/2010 00:00:00 CET; Entry closing price: 6822.110000; Exit date: 21/12/2010 00:00:00 CET; Exit closing price: 7077.920000; Loss/profit: -255.810000; Current p&l: -1530.620000
+ Trade no: 10; Direction: short; Entry date: 26/11/2010 00:00:00 CET; Entry closing price: 6848.950000; Exit date: 11/01/2011 00:00:00 CET; Exit closing price: 6941.570000; Loss/profit: -92.620000; Current p&l: -1257.920000
+ Trade no: 11; Direction: short; Entry date: 03/12/2010 00:00:00 CET; Entry closing price: 6947.720000; Exit date: 11/01/2011 00:00:00 CET; Exit closing price: 6941.570000; Loss/profit: 6.150000; Current p&l: -1257.920000
+ Trade no: 12; Direction: short; Entry date: 15/08/2013 00:00:00 CEST; Entry closing price: 8376.290000; Exit date: 29/08/2013 00:00:00 CEST; Exit closing price: 8194.550000; Loss/profit: 181.740000; Current p&l: -1076.180000
+ Trade no: 13; Direction: short; Entry date: 05/11/2013 00:00:00 CET; Entry closing price: 9009.110000; Exit date: 27/11/2013 00:00:00 CET; Exit closing price: 9351.130000; Loss/profit: -342.020000; Current p&l: -1418.200000
+ Trade no: 14; Direction: long; Entry date: 18/06/2015 00:00:00 CEST; Entry closing price: 11100.300000; Exit date: 23/06/2015 00:00:00 CEST; Exit closing price: 11542.540000; Loss/profit: 442.240000; Current p&l: -975.960000
+ Trade no: 15; Direction: short; Entry date: 12/01/2017 00:00:00 CET; Entry closing price: 11521.040000; Exit date: 21/02/2017 00:00:00 CET; Exit closing price: 11967.490000; Loss/profit: -446.450000; Current p&l: -1422.410000
+ Trade no: 16; Direction: short; Entry date: 16/05/2017 00:00:00 CEST; Entry closing price: 12804.530000; Exit date: 30/06/2017 00:00:00 CEST; Exit closing price: 12325.120000; Loss/profit: 479.410000; Current p&l: -943.000000
+ Trade no: 17; Direction: short; Entry date: 17/10/2017 00:00:00 CEST; Entry closing price: 12995.060000; Exit date: 03/11/2017 00:00:00 CET; Exit closing price: 13478.860000; Loss/profit: -483.800000; Current p&l: -1426.800000
+ Trade no: 18; Direction: long; Entry date: 19/03/2020 00:00:00 CET; Entry closing price: 8610.430000; Exit date: 20/03/2020 00:00:00 CET; Exit closing price: 8928.950000; Loss/profit: 318.520000; Current p&l: -1108.280000
+ Trade no: 19; Direction: short; Entry date: 14/04/2021 00:00:00 CEST; Entry closing price: 15209.150000; Exit date: 05/05/2021 00:00:00 CEST; Exit closing price: 15170.780000; Loss/profit: 38.370000; Current p&l: -1069.910000
+ Trade no: 20; Direction: short; Entry date: 26/05/2021 00:00:00 CEST; Entry closing price: 15450.720000; Exit date: 20/07/2021 00:00:00 CEST; Exit closing price: 15216.270000; Loss/profit: 234.450000; Current p&l: -835.460000
+ Trade no: 21; Direction: long; Entry date: 01/07/2022 00:00:00 CEST; Entry closing price: 12813.030000; Exit date: 19/07/2022 00:00:00 CEST; Exit closing price: 13308.410000; Loss/profit: 495.380000; Current p&l: -340.080000
+ Trade no: 22; Direction: short; Entry date: 11/08/2022 00:00:00 CEST; Entry closing price: 13694.510000; Exit date: 22/08/2022 00:00:00 CEST; Exit closing price: 13230.570000; Loss/profit: 463.940000; Current p&l: 123.860000

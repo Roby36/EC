@@ -37,7 +37,7 @@ MClient::~MClient()
 //*** SERIALIZATION ***//
 void MClient::archive_td_out()
 {
-	std::ofstream out(serFileName);
+	std::ofstream out (serFileName);
 	boost::archive::text_oarchive text_output_archive(out);
 	text_output_archive & (*this->m_tradeData);
 	out.close();
@@ -246,16 +246,15 @@ int MClient::placeOrder( int inst_id, Order order) {
 		return -1;
 	}
 	m_state = PLACEORDER;
-	m_Client->placeOrder( m_orderId, instr->orderContract.contract, order);
-	if ( !waitResponse( PLACEORDER_ACK, m_orderId, "placeOrder()"))
-		return -1;
+	m_Client->placeOrder(m_orderId, instr->orderContract.contract, order);
+	if (!waitResponse( PLACEORDER_ACK, m_orderId, "placeOrder()")) return -1;
 	return m_orderId;
 }
 
 void MClient::handle_openOrder( OrderId orderId, const Contract& contract, const Order& order, const OrderState& orderState) {
 	m_logger->openOrder( orderId, contract, order, orderState);
 	// Mark successful order execution only if orderId corresponds with the current one & order recently placed
-	if ( m_state == PLACEORDER && m_orderId == orderId) {
+	if (m_state == PLACEORDER && m_orderId == orderId) {
 		memcpy(rec_order, &order, sizeof(Order));
 		m_state = PLACEORDER_ACK;
 	}
@@ -276,8 +275,8 @@ bool MClient::cancelOrder( int orderId) {
 
 void MClient::handle_orderStatus(OrderId orderId, const std::string& status, Decimal filled,
 		Decimal remaining, double avgFillPrice, int permId, int parentId,
-		double lastFillPrice, int clientId, const std::string& whyHeld, double mktCapPrice) {
-	
+		double lastFillPrice, int clientId, const std::string& whyHeld, double mktCapPrice) 
+{
     m_logger->orderStatus(orderId, status, filled, remaining, avgFillPrice, permId, parentId, lastFillPrice, clientId, whyHeld, mktCapPrice);
 	// Confirm order cancellation
 	if ( m_state == CANCELORDER && m_cancel_orderId == orderId &&
@@ -289,12 +288,14 @@ void MClient::handle_orderStatus(OrderId orderId, const std::string& status, Dec
 	}
 }
 
-int MClient::openTrade(Strategy * strategy)
+int MClient::openTrade(Strategy * strategy, const int trade_arr_pos)
 {
-	MTrade_t * currTrade = strategy->trade2open;
-	// Place opening order (fetch execution details from callback later on)
+	/* Assume validity of array inputs already verified */
+	MTrade_t * currTrade = strategy->trades2open [trade_arr_pos];
+	// Place opening order (fetch execution details from callback later on!)
 	if (placeOrder(currTrade->instr_id, currTrade->openingOrder) == -1) {
-		m_logger->str("openTrade error: failed openingOrder.\n");
+		m_logger->str(std::string("openTrade error: failed openingOrder for strategy " +
+			strategy->strategy_code + std::string(" OrderRef: " + currTrade->openingOrder.orderRef + std::string("\n"))));
 		return -1;
 	}
 	m_logger->str(std::string("Successfully placed order to open trade ") 	            + 
@@ -304,17 +305,17 @@ int MClient::openTrade(Strategy * strategy)
 	memcpy(&currTrade->openingOrder, this->rec_order, sizeof(Order)); // save full opening order retrieved from callback
 	memcpy(m_tradeData->tradeArr[m_tradeData->numTrades++], currTrade, sizeof(MTrade_t) );
 	archive_td_out(); // update trade archive
-	strategy->openingTrade = false; // signal strategy
 	return (m_tradeData->numTrades - 1); // return previous trade Id
 }
 
-bool MClient::closeTrade(Strategy * strategy)
+bool MClient::closeTrade(Strategy * strategy, const int trade_arr_pos)
 {
-	// Save the trade to close
-	MTrade_t * currTrade = strategy->trade2close;
+	/* Assume validity of array inputs already verified */
+	MTrade_t * currTrade = strategy->trades2close [trade_arr_pos];
 	// Place closing order (& fetch execution details from callback!)
 	if (placeOrder(currTrade->instr_id, currTrade->closingOrder) == -1) {
-		m_logger->str("closeTrade error: failed closingOrder.\n");
+		m_logger->str(std::string("closeTrade error: failed closingOrder for strategy " +
+			strategy->strategy_code + std::string(" OrderRef: " + currTrade->closingOrder.orderRef + std::string("\n"))));
 		return false;
 	}
 	m_logger->str(std::string("Successfully placed order to close trade ")        + 
@@ -324,8 +325,23 @@ bool MClient::closeTrade(Strategy * strategy)
 	memcpy(&currTrade->closingOrder, this->rec_order, sizeof(Order)); // save full closing order retrieved from callback
 	memcpy(m_tradeData->tradeArr[currTrade->tradeId], currTrade, sizeof(MTrade_t)); // Update trade entry
 	archive_td_out(); // update trade archive 
-	strategy->closingTrade = false; // signal strategy
 	return true;
+}
+
+void MClient::close_strat_trades(Strategy * strategy)
+{
+	/** TODO: strategy order & execution exception handling! **/
+	while (strategy->closing_trades-- > 0) {
+		this->closeTrade(strategy, strategy->closing_trades);
+	}
+}
+
+void MClient::open_strat_trades(Strategy * strategy)
+{
+	/** TODO: strategy order & execution exception handling! **/
+	while (strategy->opening_trades-- > 0) {
+		this->openTrade(strategy, strategy->opening_trades);
+	}
 }
 
 void MClient::handle_execDetails(int reqId, const Contract& contract, const Execution& execution) {
@@ -368,13 +384,12 @@ void MClient::handle_historicalData(TickerId reqId, const Bar& bar)
 	}
 	// Try to update the instrument's Bars, and check if instrument requires bar update
 	if (!instr->addBar(reqId, bar)) return;
-	// Call each strategy on the instrument
+	/* Query each strategy attached to the instrument, and forward trades to open & close */
 	for (int s = 0; s < m_stratCount[instr->inst_id]; s++) {
 		Strategy * curr_strat = m_stratArray[instr->inst_id][s];
 		curr_strat->handle_barUpdate();
-		// Check if a trade needs to be opened or closed
-		if (curr_strat->openingTrade) openTrade(curr_strat);
-		else if (curr_strat->closingTrade) closeTrade(curr_strat);
+		open_strat_trades(curr_strat);
+		close_strat_trades(curr_strat);
 	}
 }
 
@@ -387,7 +402,7 @@ void MClient::handle_realtimeBar(TickerId reqId, long time, double open, double 
 		m_state =  REQREALTIMEBARS_ACK;
 	// Identify Instrument corresponding to given reqId
 	Instrument* instr = reqId_Instrument((int)reqId);
-	if ( instr == NULL) {
+	if (instr == NULL) {
 		m_logger->str("\n\t ERROR: realtimeBar reqId not found\n\n");
 		return;
 	}
@@ -396,8 +411,7 @@ void MClient::handle_realtimeBar(TickerId reqId, long time, double open, double 
 	for (int s = 0; s < m_stratCount[instr_id]; s++) {
 		Strategy * curr_strat = m_stratArray[instr_id][s];
 		curr_strat->handle_realTimeBar(close);
-		// Check if a trade needs to be closed (only option for real time bars)
-		if (curr_strat->closingTrade) closeTrade(curr_strat);
+		close_strat_trades(curr_strat); /* only option for real-time bars */
 	}
 }
 
@@ -466,20 +480,19 @@ int MClient::add_Instrument(const std::string barSize,
 							Instrument::ReqIds reqIds, 
 							std::string logPath) 
 {
-	if ( m_instr_Id < MAXINSTR) {
-		// First initialize new instrument & add to array
-		m_instrArray[m_instr_Id] = new Instrument( m_instr_Id, 
-												   barSize, 
-												   dataContract,
-												   orderContract, 
-												   reqIds, 
-												   logPath
-												 );
-		return m_instr_Id++; // return & increment current instrument Id
+	if (m_instr_Id >= MAXINSTR) {
+		m_logger->str("\t Cannot add instrument: maximum number of instruments reached.\n");
+		return -1;
 	}
-	// Handle failure
-	m_logger->str("\t Cannot add instrument: maximum number of instruments reached.\n");
-	return -1;
+	// First initialize new instrument & add to array
+	m_instrArray[m_instr_Id] = new Instrument( m_instr_Id, 
+												barSize, 
+												dataContract,
+												orderContract, 
+												reqIds, 
+												logPath
+												);
+	return m_instr_Id++; // return & increment current instrument Id
 }
 
 void MClient::add_Strategy(const int instr_id, Strategy * strategy)
@@ -494,7 +507,7 @@ void MClient::add_Strategy(const int instr_id, Strategy * strategy)
 }
 
 Instrument* MClient::get_Instrument(int instr_Id) {
-	if ( instr_Id >= 0 && instr_Id < m_instr_Id)
+	if (instr_Id >= 0 && instr_Id < m_instr_Id)
 		return m_instrArray[instr_Id];
 	m_logger->str("\n\t ERROR: Instrument " + std::to_string(instr_Id) + " out of range\n\n");
 	return NULL;

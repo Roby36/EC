@@ -28,10 +28,15 @@ void run_backtests(MClient * client) {
    che poi verranno prese in considerazione per dare i vari segnali di entrata e uscita */
     Instrument * dax_hourly_instr = client->get_Instrument(dax_hourly_id);
     Instrument * dax_daily_instr  = client->get_Instrument(dax_daily_id);
+    /* Determina barre hourly e daily da includere nei backtest */
+    const int hourly_bars = 40000;
+    const int daily_bars  = 10000;
+    const std::string outputDir = "../graphs/data/"; /* dove stampare risultati backtest */
     /* Setta periodi divergenze */
-    const int min_div_period = 1;  /* minimo peiodo tra i due massimi/minimi di una divergenza */
+    const int min_div_period =  1; /* minimo peiodo tra i due massimi/minimi di una divergenza */
     const int max_div_period = 14; /* massimo peiodo tra i due massimi/minimi di una divergenza */
     const int max_neg_period = 28; /* massimo peiodo (in barre) per la negazione */
+    const RSI_condition RSI_cond = LSTAT_LBAR; /* condizione RSI per definire divergenza negata (e.g. barra più a sinistra in assoluto)*/
     /* Indicatori per S1 hourly */
     Indicators::LocalMin *       S1_hourly_LocalMin       = new Indicators::LocalMin      (dax_hourly_instr->bars); 
     Indicators::LocalMax *       S1_hourly_LocalMax       = new Indicators::LocalMax      (dax_hourly_instr->bars);
@@ -69,53 +74,53 @@ void run_backtests(MClient * client) {
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_daily", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_daily_LocalMin, S1_daily_LocalMax, S1_daily_RSI, S1_daily_BollingerBands, S1_daily_Divergence, S1_daily_LongDivergence, 
-                                    SHORT, max_neg_period, true /* parametri per divergenza negata */
+                                    SHORT, max_neg_period, RSI_cond /* parametri per divergenza negata */
                                     );
     Strategy * S1_hourly_shortDiv = new Strategy(dax_hourly_instr, client->m_tradeData,
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_hourly_shortDiv", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence0, S1_hourly_LongDivergence0, 
-                                    SHORT, max_neg_period, true /* parametri per divergenza negata */
+                                    SHORT, max_neg_period, RSI_cond /* parametri per divergenza negata */
                                     );
     Strategy * S1_hourly_longDiv = new Strategy(dax_hourly_instr, client->m_tradeData, 
                                     2.5, 2.5, 18, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_hourly_longDiv", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence1, S1_hourly_LongDivergence1,
-                                    LONG, max_neg_period, true /* parametri per divergenza negata */
+                                    LONG, max_neg_period, RSI_cond /* parametri per divergenza negata */
                                     );
 
     Strategy * S2_hourly = new Strategy(dax_hourly_instr, client->m_tradeData,
                                     3.5, 3.5, 63, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S2_hourly", S2_entry_conditions, S1a2_exit_conditions,
-                                    S2_hourly_LocalMin, S2_hourly_LocalMax, S2_hourly_RSI, S2_hourly_BollingerBands, S2_hourly_Divergence, S2_hourly_LongDivergence
+                                    S2_hourly_LocalMin, S2_hourly_LocalMax, S2_hourly_RSI, S2_hourly_BollingerBands, S2_hourly_Divergence, S2_hourly_LongDivergence,
+                                    LONG /* Divergeze lunghe sembrano funzionare molto meglio su S2*/
                                     );
     Strategy * S2_daily = new Strategy(dax_daily_instr, client->m_tradeData, 
                                     3.5, 3.5, 63, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S2_daily", S2_entry_conditions, S1a2_exit_conditions,
-                                    S2_daily_LocalMin, S2_daily_LocalMax, S2_daily_RSI, S2_daily_BollingerBands, S2_daily_Divergence, S2_daily_LongDivergence
+                                    S2_daily_LocalMin, S2_daily_LocalMax, S2_daily_RSI, S2_daily_BollingerBands, S2_daily_Divergence, S2_daily_LongDivergence,
+                                    SHORT
                                     );
-    
 /* Aggiungiamo le strategie */
     client->add_Strategy(dax_hourly_id, S1_hourly_shortDiv);
     client->add_Strategy(dax_hourly_id, S1_hourly_longDiv);
-    //client->add_Strategy(dax_hourly_id, S2_hourly);
-    //client->add_Strategy(dax_daily_id, S1_daily);
-    //client->add_Strategy(dax_daily_id, S2_daily);
+    client->add_Strategy(dax_hourly_id, S2_hourly);
+    client->add_Strategy(dax_daily_id,  S1_daily);
+    client->add_Strategy(dax_daily_id,  S2_daily);
 /* Esegui backtesting utilizzando i dati degli ultimi 3 anni */
     client->set_trading_state(BACKTESTING);
     /* aggiorna dati contratti */
     client->update_contracts(); 
     /* Determina il numero di barre da includere nei backtest */
-    client->update_instr_bars(dax_hourly_id, 32000, true);
-    // client->update_instr_bars(dax_daily_id, 4096, true);
+    client->update_instr_bars(dax_hourly_id, hourly_bars, true);
+    client->update_instr_bars(dax_daily_id,  daily_bars,  true);
     /* stampa risultati backtests */
-    const std::string outputDir = "../graphs/data/";
     client->print_indicators(outputDir);
     client->print_bars(outputDir);
     client->print_PL_data(outputDir);
     client->print_backtest_results();
 /* Elimina strategie */
-    delete (S1_hourly_shortDiv); /* Can only delete one strategy if same Inidcator pointers held by two different strategies! */
+    delete (S1_hourly_shortDiv); /** MEMORYLEAK: Can only delete one strategy if same Inidcator pointers held by two different strategies! */
     delete (S1_daily);
     delete (S2_hourly);
     delete (S2_daily);

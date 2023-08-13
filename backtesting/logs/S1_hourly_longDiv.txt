@@ -1,0 +1,249 @@
+
+ TRADE LOG:
+Opened  0: Denied divergence on new local maximum on 11/09/2019 10:00:00 CEST; long & short divergence between most_left_bar09/09/2019 14:00:00 CEST and most_right_bar10/09/2019 14:00:00 CEST of entity 2 with absolute % change per bar 0.018379. Currently open trades: 1
+Opened  1: Denied divergence on new local maximum on 12/09/2019 14:00:00 CEST; long divergence between most_left_bar11/09/2019 13:00:00 CEST and most_right_bar12/09/2019 09:00:00 CEST of entity 2 with absolute % change per bar 0.020550. Currently open trades: 2
+Closed 0: Negative after expiration time (stop loss)
+Closed 1: Negative after expiration time (stop loss)
+Opened  2: Denied divergence on new local maximum on 01/10/2019 09:00:00 CEST; long divergence between most_left_bar27/09/2019 12:00:00 CEST and most_right_bar30/09/2019 11:00:00 CEST of entity 2 with absolute % change per bar 0.000948. Currently open trades: 1
+Closed 2: reached stop loss / take profit point
+Opened  3: Denied divergence on new local maximum on 15/10/2019 09:00:00 CEST; long & short divergence between most_left_bar14/10/2019 10:00:00 CEST and most_right_bar14/10/2019 16:00:00 CEST of entity 2 with absolute % change per bar 0.052177. Currently open trades: 1
+Opened  4: Denied divergence on new local maximum on 15/10/2019 16:00:00 CEST; long & short divergence between most_left_bar15/10/2019 09:00:00 CEST and most_right_bar15/10/2019 11:00:00 CEST of entity 2 with absolute % change per bar 0.058689. Currently open trades: 2
+Closed 3: Negative after expiration time (stop loss)
+Closed 4: Negative after expiration time (stop loss)
+Opened  5: Denied divergence on new local maximum on 21/10/2019 14:00:00 CEST; long divergence between most_left_bar17/10/2019 14:00:00 CEST and most_right_bar21/10/2019 09:00:00 CEST of entity 2 with absolute % change per bar 0.008258. Currently open trades: 1
+Opened  6: Denied divergence on new local maximum on 22/10/2019 11:00:00 CEST; long & short divergence between most_left_bar21/10/2019 14:00:00 CEST and most_right_bar21/10/2019 16:00:00 CEST of entity 2 with absolute % change per bar 0.008031. Currently open trades: 2
+Closed 5: Negative after expiration time (stop loss)
+Opened  7: Denied divergence on new local maximum on 24/10/2019 09:00:00 CEST; long & short divergence between most_left_bar22/10/2019 15:00:00 CEST and most_right_bar23/10/2019 11:00:00 CEST of entity 2 with absolute % change per bar 0.002554. Currently open trades: 2
+Closed 6: Negative after expiration time (stop loss)
+Closed 7: Negative after expiration time (stop loss)
+Opened  8: Denied divergence on new local maximum on 01/11/2019 14:00:00 CET; long & short divergence between most_left_bar01/11/2019 09:00:00 CET and most_right_bar01/11/2019 11:00:00 CET of entity 2 with absolute % change per bar 0.001626. Currently open trades: 1
+Closed 8: Negative after expiration time (stop loss)
+Opened  9: Denied divergence on new local maximum on 25/11/2019 17:00:00 CET; long divergence between most_left_bar22/11/2019 09:00:00 CET and most_right_bar25/11/2019 09:00:00 CET of entity 2 with absolute % change per bar 0.000915. Currently open trades: 1
+Closed 9: Negative after expiration time (stop loss)
+Opened  10: Denied divergence on new local maximum on 04/12/2019 16:00:00 CET; long & short divergence between most_left_bar04/12/2019 10:00:00 CET and most_right_bar04/12/2019 12:00:00 CET of entity 2 with absolute % change per bar 0.004489. Currently open trades: 1
+Opened  11: Denied divergence on new local maximum on 05/12/2019 11:00:00 CET; long & short divergence between most_left_bar04/12/2019 16:00:00 CET and most_right_bar05/12/2019 09:00:00 CET of entity 2 with absolute % change per bar 0.001978. Currently open trades: 2
+Closed 10: Negative after expiration time (stop loss)
+Closed 11: Negative after expiration time
+Opened  12: Denied divergence on new local maximum on 13/12/2019 09:00:00 CET; long divergence between most_left_bar12/12/2019 10:00:00 CET and most_right_bar12/12/2019 16:00:00 CET of entity 2 with absolute % change per bar 0.067023. Currently open trades: 1
+Opened  13: Denied divergence on new local maximum on 16/12/2019 16:00:00 CET; long & short divergence between most_left_bar16/12/2019 09:00:00 CET and most_right_bar16/12/2019 13:00:00 CET of entity 2 with absolute % change per bar 0.008935. Currently open trades: 2
+Closed 12: Negative after expiration time
+Closed 13: Negative after expiration time
+Opened  14: Denied divergence on new local maximum on 22/01/2020 09:00:00 CET; long & short divergence between most_left_bar20/01/2020 15:00:00 CET and most_right_bar20/01/2020 17:00:00 CET of entity 2 with absolute % change per bar 0.005499. Currently open trades: 1
+Closed 14: Crossed lower Bollinger Bands from below (take profit)
+Opened  15: Denied divergence on new local minimum on 31/01/2020 17:00:00 CET; long & short divergence between most_left_bar30/01/2020 16:00:00 CET and most_right_bar31/01/2020 12:00:00 CET of entity 2 with absolute % change per bar 0.029588. Currently open trades: 1
+Closed 15: Negative after expiration time
+Opened  16: Denied divergence on new local maximum on 11/02/2020 09:00:00 CET; long & short divergence between most_left_bar07/02/2020 12:00:00 CET and most_right_bar07/02/2020 17:00:00 CET of entity 3 with absolute % change per bar 0.023029. Currently open trades: 1
+Closed 16: Negative after expiration time (stop loss)
+Opened  17: Denied divergence on new local minimum on 25/02/2020 11:00:00 CET; long & short divergence between most_left_bar24/02/2020 11:00:00 CET and most_right_bar24/02/2020 14:00:00 CET of entity 2 with absolute % change per bar 0.108591. Currently open trades: 1
+Closed 17: reached stop loss / take profit point
+Opened  18: Denied divergence on new local minimum on 09/03/2020 09:00:00 CET; long & short divergence between most_left_bar06/03/2020 12:00:00 CET and most_right_bar06/03/2020 15:00:00 CET of entity 2 with absolute % change per bar 0.084339. Currently open trades: 1
+Closed 18: reached stop loss / take profit point
+Opened  19: Denied divergence on new local minimum on 12/03/2020 17:00:00 CET; long & short divergence between most_left_bar09/03/2020 15:00:00 CET and most_right_bar11/03/2020 13:00:00 CET of entity 4 with absolute % change per bar 0.041144. Currently open trades: 1
+Closed 19: reached stop loss / take profit point
+Opened  20: Denied divergence on new local minimum on 18/03/2020 13:00:00 CET; long & short divergence between most_left_bar17/03/2020 14:00:00 CET and most_right_bar18/03/2020 09:00:00 CET of entity 2 with absolute % change per bar 0.043182. Currently open trades: 1
+Opened  21: Denied divergence on new local minimum on 19/03/2020 12:00:00 CET; long divergence between most_left_bar18/03/2020 13:00:00 CET and most_right_bar18/03/2020 17:00:00 CET of entity 2 with absolute % change per bar 0.014503. Currently open trades: 2
+Closed 21: reached stop loss / take profit point
+Closed 20: reached stop loss / take profit point
+Opened  22: Denied divergence on new local maximum on 28/04/2020 09:00:00 CEST; long divergence between most_left_bar23/04/2020 16:00:00 CEST and most_right_bar27/04/2020 13:00:00 CEST of entity 3 with absolute % change per bar 0.032330. Currently open trades: 1
+Closed 22: reached stop loss / take profit point
+Opened  23: Denied divergence on new local maximum on 29/04/2020 17:00:00 CEST; long & short divergence between most_left_bar28/04/2020 11:00:00 CEST and most_right_bar28/04/2020 14:00:00 CEST of entity 2 with absolute % change per bar 0.002115. Currently open trades: 1
+Closed 23: reached stop loss / take profit point
+Opened  24: Denied divergence on new local maximum on 20/05/2020 17:00:00 CEST; long & short divergence between most_left_bar19/05/2020 14:00:00 CEST and most_right_bar20/05/2020 11:00:00 CEST of entity 3 with absolute % change per bar 0.134865. Currently open trades: 1
+Closed 24: Crossed lower Bollinger Bands from below (take profit)
+Opened  25: Denied divergence on new local maximum on 26/05/2020 16:00:00 CEST; long & short divergence between most_left_bar26/05/2020 10:00:00 CEST and most_right_bar26/05/2020 14:00:00 CEST of entity 2 with absolute % change per bar 0.028135. Currently open trades: 1
+Closed 25: Negative after expiration time (stop loss)
+Opened  26: Denied divergence on new local maximum on 03/06/2020 17:00:00 CEST; long divergence between most_left_bar27/05/2020 13:00:00 CEST and most_right_bar28/05/2020 17:00:00 CEST of entity 3 with absolute % change per bar 0.026422. Currently open trades: 1
+Closed 26: reached stop loss / take profit point
+Opened  27: Denied divergence on new local minimum on 11/06/2020 17:00:00 CEST; long & short divergence between most_left_bar11/06/2020 09:00:00 CEST and most_right_bar11/06/2020 14:00:00 CEST of entity 2 with absolute % change per bar 0.008542. Currently open trades: 1
+Closed 27: reached stop loss / take profit point
+Opened  28: Denied divergence on new local maximum on 15/07/2020 12:00:00 CEST; long & short divergence between most_left_bar13/07/2020 09:00:00 CEST and most_right_bar13/07/2020 17:00:00 CEST of entity 3 with absolute % change per bar 0.028227. Currently open trades: 1
+Closed 28: Negative after expiration time
+Opened  29: Denied divergence on new local minimum on 30/07/2020 12:00:00 CEST; long divergence between most_left_bar24/07/2020 15:00:00 CEST and most_right_bar28/07/2020 13:00:00 CEST of entity 4 with absolute % change per bar 0.050198. Currently open trades: 1
+Closed 29: Crossed upper Bollinger Bands from above (take profit)
+Opened  30: Denied divergence on new local maximum on 12/08/2020 16:00:00 CEST; long & short divergence between most_left_bar11/08/2020 17:00:00 CEST and most_right_bar12/08/2020 12:00:00 CEST of entity 2 with absolute % change per bar 0.000502. Currently open trades: 1
+Closed 30: Crossed lower Bollinger Bands from below (take profit)
+Opened  31: Denied divergence on new local minimum on 21/08/2020 14:00:00 CEST; long & short divergence between most_left_bar20/08/2020 10:00:00 CEST and most_right_bar20/08/2020 14:00:00 CEST of entity 2 with absolute % change per bar 0.014042. Currently open trades: 1
+Closed 31: Crossed upper Bollinger Bands from above (take profit)
+Opened  32: Denied divergence on new local maximum on 25/08/2020 12:00:00 CEST; long & short divergence between most_left_bar24/08/2020 13:00:00 CEST and most_right_bar25/08/2020 09:00:00 CEST of entity 2 with absolute % change per bar 0.077076. Currently open trades: 1
+Opened  33: Denied divergence on new local maximum on 26/08/2020 17:00:00 CEST; long & short divergence between most_left_bar26/08/2020 10:00:00 CEST and most_right_bar26/08/2020 12:00:00 CEST of entity 2 with absolute % change per bar 0.011650. Currently open trades: 2
+Closed 32: Negative after expiration time (stop loss)
+Closed 33: Crossed lower Bollinger Bands from below (take profit)
+Opened  34: Denied divergence on new local minimum on 22/09/2020 17:00:00 CEST; long & short divergence between most_left_bar22/09/2020 10:00:00 CEST and most_right_bar22/09/2020 13:00:00 CEST of entity 2 with absolute % change per bar 0.027527. Currently open trades: 1
+Closed 34: Negative after expiration time (stop loss)
+Opened  35: Denied divergence on new local minimum on 25/09/2020 12:00:00 CEST; long & short divergence between most_left_bar22/09/2020 17:00:00 CEST and most_right_bar24/09/2020 10:00:00 CEST of entity 2 with absolute % change per bar 0.007918. Currently open trades: 1
+Closed 35: reached stop loss / take profit point
+Opened  36: Denied divergence on new local maximum on 08/10/2020 15:00:00 CEST; long divergence between most_left_bar06/10/2020 14:00:00 CEST and most_right_bar08/10/2020 09:00:00 CEST of entity 2 with absolute % change per bar 0.034379. Currently open trades: 1
+Opened  37: Denied divergence on new local maximum on 12/10/2020 14:00:00 CEST; long divergence between most_left_bar09/10/2020 09:00:00 CEST and most_right_bar09/10/2020 14:00:00 CEST of entity 2 with absolute % change per bar 0.050354. Currently open trades: 2
+Closed 36: Negative after expiration time (stop loss)
+Closed 37: Crossed lower Bollinger Bands from below (take profit)
+Opened  38: Denied divergence on new local minimum on 26/10/2020 10:00:00 CET; long & short divergence between most_left_bar22/10/2020 14:00:00 CEST and most_right_bar22/10/2020 16:00:00 CEST of entity 2 with absolute % change per bar 0.035131. Currently open trades: 1
+Closed 38: reached stop loss / take profit point
+Opened  39: Denied divergence on new local minimum on 28/10/2020 13:00:00 CET; long divergence between most_left_bar27/10/2020 10:00:00 CET and most_right_bar27/10/2020 15:00:00 CET of entity 2 with absolute % change per bar 0.034552. Currently open trades: 1
+Closed 39: Negative after expiration time (stop loss)
+Opened  40: Denied divergence on new local maximum on 05/11/2020 12:00:00 CET; long & short divergence between most_left_bar03/11/2020 17:00:00 CET and most_right_bar04/11/2020 10:00:00 CET of entity 2 with absolute % change per bar 0.255315. Currently open trades: 1
+Closed 40: reached stop loss / take profit point
+Opened  41: Denied divergence on new local maximum on 09/11/2020 14:00:00 CET; long & short divergence between most_left_bar05/11/2020 12:00:00 CET and most_right_bar09/11/2020 09:00:00 CET of entity 3 with absolute % change per bar 0.089948. Currently open trades: 1
+Closed 41: Negative after expiration time (stop loss)
+Opened  42: Denied divergence on new local maximum on 27/11/2020 16:00:00 CET; long & short divergence between most_left_bar26/11/2020 15:00:00 CET and most_right_bar27/11/2020 09:00:00 CET of entity 2 with absolute % change per bar 0.033127. Currently open trades: 1
+Closed 42: Negative after expiration time
+Opened  43: Denied divergence on new local minimum on 07/12/2020 09:00:00 CET; long & short divergence between most_left_bar03/12/2020 15:00:00 CET and most_right_bar04/12/2020 12:00:00 CET of entity 3 with absolute % change per bar 0.027360. Currently open trades: 1
+Closed 43: Negative after expiration time
+Opened  44: Denied divergence on new local maximum on 29/12/2020 09:00:00 CET; long divergence between most_left_bar28/12/2020 09:00:00 CET and most_right_bar28/12/2020 15:00:00 CET of entity 2 with absolute % change per bar 0.003733. Currently open trades: 1
+Closed 44: Crossed lower Bollinger Bands from below (take profit)
+Opened  45: Denied divergence on new local maximum on 07/01/2021 10:00:00 CET; long & short divergence between most_left_bar04/01/2021 11:00:00 CET and most_right_bar04/01/2021 14:00:00 CET of entity 2 with absolute % change per bar 0.004897. Currently open trades: 1
+Opened  46: Denied divergence on new local maximum on 08/01/2021 09:00:00 CET; long divergence between most_left_bar07/01/2021 10:00:00 CET and most_right_bar07/01/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.041172. Currently open trades: 2
+Closed 45: Negative after expiration time (stop loss)
+Closed 46: Crossed lower Bollinger Bands from below (take profit)
+Opened  47: Denied divergence on new local maximum on 20/01/2021 11:00:00 CET; long & short divergence between most_left_bar19/01/2021 10:00:00 CET and most_right_bar19/01/2021 12:00:00 CET of entity 2 with absolute % change per bar 0.000504. Currently open trades: 1
+Closed 47: Crossed lower Bollinger Bands from below (take profit)
+Opened  48: Denied divergence on new local minimum on 27/01/2021 15:00:00 CET; long & short divergence between most_left_bar25/01/2021 13:00:00 CET and most_right_bar25/01/2021 17:00:00 CET of entity 2 with absolute % change per bar 0.021529. Currently open trades: 1
+Closed 48: Negative after expiration time (stop loss)
+Opened  49: Denied divergence on new local minimum on 29/01/2021 17:00:00 CET; long divergence between most_left_bar28/01/2021 13:00:00 CET and most_right_bar29/01/2021 15:00:00 CET of entity 2 with absolute % change per bar 0.003985. Currently open trades: 1
+Closed 49: Crossed upper Bollinger Bands from above (take profit)
+Opened  50: Denied divergence on new local maximum on 05/02/2021 10:00:00 CET; long divergence between most_left_bar04/02/2021 09:00:00 CET and most_right_bar04/02/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.054494. Currently open trades: 1
+Closed 50: Crossed lower Bollinger Bands from below (take profit)
+Opened  51: Denied divergence on new local maximum on 25/02/2021 11:00:00 CET; long & short divergence between most_left_bar24/02/2021 13:00:00 CET and most_right_bar24/02/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.016129. Currently open trades: 1
+Closed 51: Crossed lower Bollinger Bands from below (take profit)
+Opened  52: Denied divergence on new local maximum on 10/03/2021 10:00:00 CET; long & short divergence between most_left_bar09/03/2021 12:00:00 CET and most_right_bar09/03/2021 15:00:00 CET of entity 2 with absolute % change per bar 0.042107. Currently open trades: 1
+Closed 52: Negative after expiration time
+Opened  53: Denied divergence on new local maximum on 12/03/2021 15:00:00 CET; long & short divergence between most_left_bar12/03/2021 11:00:00 CET and most_right_bar12/03/2021 13:00:00 CET of entity 2 with absolute % change per bar 0.000483. Currently open trades: 1
+Opened  54: Denied divergence on new local maximum on 16/03/2021 14:00:00 CET; long divergence between most_left_bar15/03/2021 09:00:00 CET and most_right_bar16/03/2021 12:00:00 CET of entity 2 with absolute % change per bar 0.005123. Currently open trades: 2
+Closed 53: Negative after expiration time (stop loss)
+Closed 54: Negative after expiration time (stop loss)
+Opened  55: Denied divergence on new local maximum on 30/03/2021 09:00:00 CEST; long & short divergence between most_left_bar29/03/2021 13:00:00 CEST and most_right_bar29/03/2021 15:00:00 CEST of entity 2 with absolute % change per bar 0.036715. Currently open trades: 1
+Opened  56: Denied divergence on new local maximum on 01/04/2021 09:00:00 CEST; long & short divergence between most_left_bar30/03/2021 17:00:00 CEST and most_right_bar31/03/2021 12:00:00 CEST of entity 2 with absolute % change per bar 0.010461. Currently open trades: 2
+Closed 55: Negative after expiration time (stop loss)
+Closed 56: Negative after expiration time (stop loss)
+Opened  57: Denied divergence on new local maximum on 09/04/2021 13:00:00 CEST; long & short divergence between most_left_bar07/04/2021 16:00:00 CEST and most_right_bar08/04/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023287. Currently open trades: 1
+Closed 57: Negative after expiration time (stop loss)
+Opened  58: Denied divergence on new local maximum on 15/04/2021 16:00:00 CEST; long & short divergence between most_left_bar15/04/2021 10:00:00 CEST and most_right_bar15/04/2021 12:00:00 CEST of entity 2 with absolute % change per bar 0.000787. Currently open trades: 1
+Opened  59: Denied divergence on new local maximum on 19/04/2021 09:00:00 CEST; long & short divergence between most_left_bar16/04/2021 11:00:00 CEST and most_right_bar16/04/2021 14:00:00 CEST of entity 2 with absolute % change per bar 0.058752. Currently open trades: 2
+Closed 58: Negative after expiration time (stop loss)
+Closed 59: Crossed lower Bollinger Bands from below (take profit)
+Opened  60: Denied divergence on new local maximum on 03/06/2021 16:00:00 CEST; long divergence between most_left_bar02/06/2021 11:00:00 CEST and most_right_bar02/06/2021 17:00:00 CEST of entity 2 with absolute % change per bar 0.001421. Currently open trades: 1
+Closed 60: Negative after expiration time (stop loss)
+Opened  61: Denied divergence on new local minimum on 23/06/2021 17:00:00 CEST; long & short divergence between most_left_bar21/06/2021 15:00:00 CEST and most_right_bar22/06/2021 10:00:00 CEST of entity 2 with absolute % change per bar 0.014616. Currently open trades: 1
+Closed 61: Negative after expiration time
+Opened  62: Denied divergence on new local maximum on 29/06/2021 12:00:00 CEST; long & short divergence between most_left_bar28/06/2021 14:00:00 CEST and most_right_bar29/06/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023408. Currently open trades: 1
+Closed 62: Crossed lower Bollinger Bands from below (take profit)
+Opened  63: Denied divergence on new local minimum on 16/07/2021 16:00:00 CEST; long & short divergence between most_left_bar15/07/2021 16:00:00 CEST and most_right_bar16/07/2021 13:00:00 CEST of entity 2 with absolute % change per bar 0.025392. Currently open trades: 1
+Closed 63: reached stop loss / take profit point
+Opened  64: Denied divergence on new local maximum on 05/08/2021 10:00:00 CEST; long & short divergence between most_left_bar04/08/2021 12:00:00 CEST and most_right_bar04/08/2021 16:00:00 CEST of entity 2 with absolute % change per bar 0.024621. Currently open trades: 1
+Closed 64: Negative after expiration time (stop loss)
+Opened  65: Denied divergence on new local minimum on 19/08/2021 10:00:00 CEST; long & short divergence between most_left_bar16/08/2021 16:00:00 CEST and most_right_bar17/08/2021 09:00:00 CEST of entity 2 with absolute % change per bar 0.023283. Currently open trades: 1
+Closed 65: Negative after expiration time
+Opened  66: Denied divergence on new local minimum on 01/10/2021 10:00:00 CEST; long divergence between most_left_bar29/09/2021 15:00:00 CEST and most_right_bar30/09/2021 12:00:00 CEST of entity 2 with absolute % change per bar 0.024519. Currently open trades: 1
+Closed 66: Negative after expiration time (stop loss)
+Opened  67: Denied divergence on new local maximum on 14/10/2021 11:00:00 CEST; long & short divergence between most_left_bar13/10/2021 13:00:00 CEST and most_right_bar13/10/2021 15:00:00 CEST of entity 2 with absolute % change per bar 0.018639. Currently open trades: 1
+Closed 67: Negative after expiration time (stop loss)
+Opened  68: Denied divergence on new local maximum on 04/11/2021 11:00:00 CET; long & short divergence between most_left_bar02/11/2021 17:00:00 CET and most_right_bar03/11/2021 12:00:00 CET of entity 2 with absolute % change per bar 0.018412. Currently open trades: 1
+Closed 68: Negative after expiration time
+Opened  69: Denied divergence on new local maximum on 09/11/2021 10:00:00 CET; long & short divergence between most_left_bar05/11/2021 17:00:00 CET and most_right_bar08/11/2021 15:00:00 CET of entity 2 with absolute % change per bar 0.004511. Currently open trades: 1
+Closed 69: Negative after expiration time (stop loss)
+Opened  70: Denied divergence on new local maximum on 12/11/2021 12:00:00 CET; long & short divergence between most_left_bar11/11/2021 10:00:00 CET and most_right_bar12/11/2021 09:00:00 CET of entity 3 with absolute % change per bar 0.003277. Currently open trades: 1
+Closed 70: Negative after expiration time (stop loss)
+Opened  71: Denied divergence on new local minimum on 23/11/2021 09:00:00 CET; long divergence between most_left_bar19/11/2021 13:00:00 CET and most_right_bar22/11/2021 14:00:00 CET of entity 2 with absolute % change per bar 0.013635. Currently open trades: 1
+Closed 71: Negative after expiration time (stop loss)
+Opened  72: Denied divergence on new local minimum on 26/11/2021 11:00:00 CET; long divergence between most_left_bar23/11/2021 09:00:00 CET and most_right_bar24/11/2021 11:00:00 CET of entity 2 with absolute % change per bar 0.058797. Currently open trades: 1
+Closed 72: reached stop loss / take profit point
+Opened  73: Denied divergence on new local minimum on 30/11/2021 11:00:00 CET; long divergence between most_left_bar29/11/2021 10:00:00 CET and most_right_bar29/11/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.032396. Currently open trades: 1
+Closed 73: reached stop loss / take profit point
+Opened  74: Denied divergence on new local maximum on 13/12/2021 10:00:00 CET; long & short divergence between most_left_bar10/12/2021 12:00:00 CET and most_right_bar10/12/2021 14:00:00 CET of entity 2 with absolute % change per bar 0.010530. Currently open trades: 1
+Closed 74: Crossed lower Bollinger Bands from below (take profit)
+Opened  75: Denied divergence on new local maximum on 28/12/2021 10:00:00 CET; long & short divergence between most_left_bar27/12/2021 14:00:00 CET and most_right_bar27/12/2021 16:00:00 CET of entity 2 with absolute % change per bar 0.070577. Currently open trades: 1
+Closed 75: Negative after expiration time
+Opened  76: Denied divergence on new local maximum on 03/01/2022 13:00:00 CET; long & short divergence between most_left_bar03/01/2022 09:00:00 CET and most_right_bar03/01/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.054451. Currently open trades: 1
+Closed 76: Negative after expiration time (stop loss)
+Opened  77: Denied divergence on new local minimum on 10/01/2022 16:00:00 CET; long & short divergence between most_left_bar07/01/2022 16:00:00 CET and most_right_bar10/01/2022 09:00:00 CET of entity 2 with absolute % change per bar 0.017867. Currently open trades: 1
+Closed 77: Opposite (not necessarily denied) long & short divergence on previous bar
+Opened  78: Denied divergence on new local maximum on 13/01/2022 14:00:00 CET; long & short divergence between most_left_bar12/01/2022 10:00:00 CET and most_right_bar12/01/2022 15:00:00 CET of entity 2 with absolute % change per bar 0.005849. Currently open trades: 1
+Closed 78: Crossed lower Bollinger Bands from below (take profit)
+Opened  79: Denied divergence on new local maximum on 01/02/2022 09:00:00 CET; long divergence between most_left_bar26/01/2022 14:00:00 CET and most_right_bar27/01/2022 15:00:00 CET of entity 2 with absolute % change per bar 0.034976. Currently open trades: 1
+Closed 79: Crossed lower Bollinger Bands from below (take profit)
+Opened  80: Denied divergence on new local maximum on 10/02/2022 13:00:00 CET; long & short divergence between most_left_bar09/02/2022 16:00:00 CET and most_right_bar10/02/2022 09:00:00 CET of entity 2 with absolute % change per bar 0.060566. Currently open trades: 1
+Closed 80: Crossed lower Bollinger Bands from below (take profit)
+Opened  81: Denied divergence on new local minimum on 24/02/2022 11:00:00 CET; long & short divergence between most_left_bar22/02/2022 12:00:00 CET and most_right_bar23/02/2022 16:00:00 CET of entity 4 with absolute % change per bar 0.042622. Currently open trades: 1
+Closed 81: reached stop loss / take profit point
+Opened  82: Denied divergence on new local maximum on 22/03/2022 10:00:00 CET; long & short divergence between most_left_bar17/03/2022 17:00:00 CET and most_right_bar18/03/2022 17:00:00 CET of entity 2 with absolute % change per bar 0.019329. Currently open trades: 1
+Closed 82: Crossed lower Bollinger Bands from below (take profit)
+Opened  83: Denied divergence on new local minimum on 06/04/2022 15:00:00 CEST; long & short divergence between most_left_bar05/04/2022 14:00:00 CEST and most_right_bar05/04/2022 16:00:00 CEST of entity 2 with absolute % change per bar 0.008122. Currently open trades: 1
+Closed 83: Negative after expiration time
+Opened  84: Denied divergence on new local minimum on 12/04/2022 09:00:00 CEST; long & short divergence between most_left_bar11/04/2022 10:00:00 CEST and most_right_bar11/04/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.015200. Currently open trades: 1
+Closed 84: Negative after expiration time
+Opened  85: Denied divergence on new local maximum on 17/05/2022 11:00:00 CEST; long & short divergence between most_left_bar13/05/2022 17:00:00 CEST and most_right_bar16/05/2022 10:00:00 CEST of entity 2 with absolute % change per bar 0.039279. Currently open trades: 1
+Closed 85: reached stop loss / take profit point
+Opened  86: Denied divergence on new local maximum on 28/06/2022 15:00:00 CEST; long & short divergence between most_left_bar28/06/2022 10:00:00 CEST and most_right_bar28/06/2022 12:00:00 CEST of entity 2 with absolute % change per bar 0.051202. Currently open trades: 1
+Closed 86: Crossed lower Bollinger Bands from below (take profit)
+Opened  87: Denied divergence on new local minimum on 05/07/2022 10:00:00 CEST; long & short divergence between most_left_bar01/07/2022 09:00:00 CEST and most_right_bar01/07/2022 13:00:00 CEST of entity 2 with absolute % change per bar 0.040712. Currently open trades: 1
+Closed 87: Negative after expiration time
+Opened  88: Denied divergence on new local minimum on 14/07/2022 16:00:00 CEST; long & short divergence between most_left_bar12/07/2022 09:00:00 CEST and most_right_bar13/07/2022 15:00:00 CEST of entity 3 with absolute % change per bar 0.001908. Currently open trades: 1
+Closed 88: reached stop loss / take profit point
+Opened  89: Denied divergence on new local maximum on 21/07/2022 17:00:00 CEST; long & short divergence between most_left_bar21/07/2022 11:00:00 CEST and most_right_bar21/07/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.023538. Currently open trades: 1
+Closed 89: Crossed lower Bollinger Bands from below (take profit)
+Opened  90: Denied divergence on new local maximum on 16/08/2022 10:00:00 CEST; long & short divergence between most_left_bar12/08/2022 09:00:00 CEST and most_right_bar15/08/2022 15:00:00 CEST of entity 4 with absolute % change per bar 0.009198. Currently open trades: 1
+Closed 90: Crossed lower Bollinger Bands from below (take profit)
+Opened  91: Denied divergence on new local minimum on 19/08/2022 10:00:00 CEST; long divergence between most_left_bar18/08/2022 10:00:00 CEST and most_right_bar18/08/2022 15:00:00 CEST of entity 2 with absolute % change per bar 0.014052. Currently open trades: 1
+Closed 91: reached stop loss / take profit point
+Opened  92: Denied divergence on new local minimum on 23/08/2022 14:00:00 CEST; long & short divergence between most_left_bar23/08/2022 10:00:00 CEST and most_right_bar23/08/2022 12:00:00 CEST of entity 2 with absolute % change per bar 0.089702. Currently open trades: 1
+Closed 92: Crossed upper Bollinger Bands from above (take profit)
+Opened  93: Denied divergence on new local maximum on 08/09/2022 10:00:00 CEST; long & short divergence between most_left_bar06/09/2022 14:00:00 CEST and most_right_bar06/09/2022 16:00:00 CEST of entity 2 with absolute % change per bar 0.032333. Currently open trades: 1
+Closed 93: Crossed lower Bollinger Bands from below (take profit)
+Opened  94: Denied divergence on new local minimum on 15/09/2022 16:00:00 CEST; long divergence between most_left_bar14/09/2022 13:00:00 CEST and most_right_bar15/09/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.022685. Currently open trades: 1
+Closed 94: reached stop loss / take profit point
+Opened  95: Denied divergence on new local minimum on 23/09/2022 13:00:00 CEST; long divergence between most_left_bar21/09/2022 13:00:00 CEST and most_right_bar22/09/2022 13:00:00 CEST of entity 2 with absolute % change per bar 0.004307. Currently open trades: 1
+Closed 95: Negative after expiration time (stop loss)
+Opened  96: Denied divergence on new local minimum on 28/09/2022 11:00:00 CEST; long & short divergence between most_left_bar27/09/2022 11:00:00 CEST and most_right_bar27/09/2022 15:00:00 CEST of entity 2 with absolute % change per bar 0.024413. Currently open trades: 1
+Closed 96: Negative after expiration time (stop loss)
+Opened  97: Denied divergence on new local minimum on 13/10/2022 14:00:00 CEST; long & short divergence between most_left_bar12/10/2022 14:00:00 CEST and most_right_bar12/10/2022 17:00:00 CEST of entity 2 with absolute % change per bar 0.006352. Currently open trades: 1
+Closed 97: reached stop loss / take profit point
+Opened  98: Denied divergence on new local maximum on 27/10/2022 16:00:00 CEST; long & short divergence between most_left_bar27/10/2022 10:00:00 CEST and most_right_bar27/10/2022 14:00:00 CEST of entity 2 with absolute % change per bar 0.021702. Currently open trades: 1
+Opened  99: Denied divergence on new local maximum on 31/10/2022 12:00:00 CET; long divergence between most_left_bar27/10/2022 16:00:00 CEST and most_right_bar28/10/2022 17:00:00 CEST of entity 2 with absolute % change per bar 0.020596. Currently open trades: 2
+Closed 98: Negative after expiration time (stop loss)
+Opened  100: Denied divergence on new local maximum on 01/11/2022 11:00:00 CET; long & short divergence between most_left_bar31/10/2022 12:00:00 CET and most_right_bar31/10/2022 15:00:00 CET of entity 2 with absolute % change per bar 0.028081. Currently open trades: 2
+Closed 99: Negative after expiration time (stop loss)
+Closed 100: reached stop loss / take profit point
+Opened  101: Denied divergence on new local maximum on 08/11/2022 17:00:00 CET; long & short divergence between most_left_bar04/11/2022 15:00:00 CET and most_right_bar07/11/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.136509. Currently open trades: 1
+Closed 101: reached stop loss / take profit point
+Opened  102: Denied divergence on new local maximum on 11/11/2022 09:00:00 CET; long & short divergence between most_left_bar09/11/2022 17:00:00 CET and most_right_bar10/11/2022 11:00:00 CET of entity 2 with absolute % change per bar 0.011854. Currently open trades: 1
+Closed 102: Negative after expiration time (stop loss)
+Opened  103: Denied divergence on new local minimum on 29/11/2022 10:00:00 CET; long & short divergence between most_left_bar28/11/2022 12:00:00 CET and most_right_bar28/11/2022 14:00:00 CET of entity 2 with absolute % change per bar 0.001527. Currently open trades: 1
+Closed 103: Crossed upper Bollinger Bands from above (take profit)
+Opened  104: Denied divergence on new local maximum on 04/01/2023 09:00:00 CET; long & short divergence between most_left_bar03/01/2023 14:00:00 CET and most_right_bar03/01/2023 16:00:00 CET of entity 2 with absolute % change per bar 0.047288. Currently open trades: 1
+Closed 104: Negative after expiration time (stop loss)
+Opened  105: Denied divergence on new local maximum on 09/01/2023 09:00:00 CET; long divergence between most_left_bar05/01/2023 12:00:00 CET and most_right_bar06/01/2023 14:00:00 CET of entity 2 with absolute % change per bar 0.020878. Currently open trades: 1
+Closed 105: Negative after expiration time (stop loss)
+Opened  106: Denied divergence on new local maximum on 27/01/2023 11:00:00 CET; long divergence between most_left_bar26/01/2023 11:00:00 CET and most_right_bar27/01/2023 09:00:00 CET of entity 2 with absolute % change per bar 0.016674. Currently open trades: 1
+Closed 106: Crossed lower Bollinger Bands from below (take profit)
+Opened  107: Denied divergence on new local maximum on 09/02/2023 11:00:00 CET; long & short divergence between most_left_bar08/02/2023 11:00:00 CET and most_right_bar08/02/2023 15:00:00 CET of entity 2 with absolute % change per bar 0.023023. Currently open trades: 1
+Closed 107: Crossed lower Bollinger Bands from below (take profit)
+Opened  108: Denied divergence on new local minimum on 10/02/2023 13:00:00 CET; long & short divergence between most_left_bar07/02/2023 14:00:00 CET and most_right_bar07/02/2023 16:00:00 CET of entity 2 with absolute % change per bar 0.004414. Currently open trades: 1
+Closed 108: Negative after expiration time
+Opened  109: Denied divergence on new local minimum on 24/02/2023 17:00:00 CET; long & short divergence between most_left_bar21/02/2023 09:00:00 CET and most_right_bar22/02/2023 11:00:00 CET of entity 3 with absolute % change per bar 0.002779. Currently open trades: 1
+Closed 109: Negative after expiration time
+Opened  110: Denied divergence on new local maximum on 07/03/2023 11:00:00 CET; long & short divergence between most_left_bar06/03/2023 11:00:00 CET and most_right_bar06/03/2023 14:00:00 CET of entity 2 with absolute % change per bar 0.078783. Currently open trades: 1
+Closed 110: Negative after expiration time
+Opened  111: Denied divergence on new local minimum on 13/03/2023 10:00:00 CET; long divergence between most_left_bar10/03/2023 11:00:00 CET and most_right_bar10/03/2023 15:00:00 CET of entity 2 with absolute % change per bar 0.007385. Currently open trades: 1
+Closed 111: Negative after expiration time (stop loss)
+Opened  112: Denied divergence on new local maximum on 31/03/2023 16:00:00 CEST; long & short divergence between most_left_bar30/03/2023 12:00:00 CEST and most_right_bar30/03/2023 16:00:00 CEST of entity 2 with absolute % change per bar 0.002963. Currently open trades: 1
+Closed 112: Negative after expiration time
+Opened  113: Denied divergence on new local maximum on 12/04/2023 14:00:00 CEST; long & short divergence between most_left_bar11/04/2023 10:00:00 CEST and most_right_bar12/04/2023 09:00:00 CEST of entity 2 with absolute % change per bar 0.002166. Currently open trades: 1
+Closed 113: Negative after expiration time (stop loss)
+Opened  114: Denied divergence on new local maximum on 18/04/2023 14:00:00 CEST; long divergence between most_left_bar14/04/2023 09:00:00 CEST and most_right_bar14/04/2023 15:00:00 CEST of entity 2 with absolute % change per bar 0.025302. Currently open trades: 1
+Closed 114: Crossed lower Bollinger Bands from below (take profit)
+Opened  115: Denied divergence on new local maximum on 14/06/2023 12:00:00 CEST; long & short divergence between most_left_bar13/06/2023 09:00:00 CEST and most_right_bar13/06/2023 14:00:00 CEST of entity 2 with absolute % change per bar 0.029348. Currently open trades: 1
+Closed 115: Negative after expiration time (stop loss)
+Opened  116: Denied divergence on new local maximum on 16/06/2023 14:00:00 CEST; long & short divergence between most_left_bar14/06/2023 16:00:00 CEST and most_right_bar16/06/2023 10:00:00 CEST of entity 2 with absolute % change per bar 0.020619. Currently open trades: 1
+Closed 116: Crossed lower Bollinger Bands from below (take profit)
+Opened  117: Denied divergence on new local minimum on 23/06/2023 14:00:00 CEST; long divergence between most_left_bar22/06/2023 12:00:00 CEST and most_right_bar23/06/2023 09:00:00 CEST of entity 2 with absolute % change per bar 0.034789. Currently open trades: 1
+Closed 117: Negative after expiration time
+Opened  118: Denied divergence on new local maximum on 30/06/2023 12:00:00 CEST; long & short divergence between most_left_bar28/06/2023 15:00:00 CEST and most_right_bar29/06/2023 13:00:00 CEST of entity 2 with absolute % change per bar 0.011401. Currently open trades: 1
+Closed 118: Negative after expiration time
+Opened  119: Denied divergence on new local minimum on 06/07/2023 16:00:00 CEST; long divergence between most_left_bar05/07/2023 09:00:00 CEST and most_right_bar05/07/2023 16:00:00 CEST of entity 2 with absolute % change per bar 0.024940. Currently open trades: 1
+Closed 119: Negative after expiration time
+Opened  120: Denied divergence on new local maximum on 20/07/2023 15:00:00 CEST; long divergence between most_left_bar19/07/2023 12:00:00 CEST and most_right_bar20/07/2023 10:00:00 CEST of entity 2 with absolute % change per bar 0.001830. Currently open trades: 1
+Closed 120: Negative after expiration time (stop loss)
+Opened  121: Denied divergence on new local maximum on 28/07/2023 17:00:00 CEST; long & short divergence between most_left_bar27/07/2023 15:00:00 CEST and most_right_bar27/07/2023 17:00:00 CEST of entity 2 with absolute % change per bar 0.016829. Currently open trades: 1
+Closed 121: Crossed lower Bollinger Bands from below (take profit)
+
+ END OF LOG
+

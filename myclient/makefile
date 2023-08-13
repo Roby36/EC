@@ -29,3 +29,4 @@ clean:
 	rm -f $(TARGET)Static
 	rm -f ./*.txt
 	rm -f ../instruments_log/*.txt
+	rm -rf *.dSYM

@@ -38,6 +38,12 @@ enum StatType {
 	MIN = 1
 };
 
+enum RSI_condition {
+	LSTAT_LBAR,
+	LSTAT_RBAR,
+	NONE
+};
+
 class Strategy
 {
 	/** INSTRUMENT: */
@@ -64,28 +70,27 @@ class Strategy
 	/** CONDITIONS: */
 	EntryConditions entry_conditions [MAXENTRYCONDS];
     ExitConditions  exit_conditions  [MAXEXITCONDS];
-	/* Conditions for denied divergence */
+	/* Conditions for denied divergence (for now stored as const instance variables) */
 	const DivergenceType divType;
 	const int max_neg_period;
-	const bool RSI_cond;
+	const RSI_condition RSI_cond;
 
 	/** ENTRY: */
-	bool denied_divergence_general(DivergenceType divType, StatType statType, const int max_neg_period, const bool RSI_cond = true, bool no_open = false);
-	bool denied_divergence(DivergenceType divType, const int max_neg_period, const bool RSI_cond);
+	bool denied_divergence_general(DivergenceType divType, StatType statType, const int max_neg_period, const RSI_condition RSI_cond = LSTAT_LBAR, bool no_open = false);
+	bool denied_divergence(DivergenceType divType, const int max_neg_period, const RSI_condition RSI_cond);
 	bool double_divergence(DivergenceType divType, /* StatType statType, */ bool no_open = false);
 	/** EXIT: */
 	void opposite_divergence(DivergenceType divType, MTrade_t* curr_trade = NULL);
 	void bollinger_crossing(MTrade_t* curr_trade  = NULL);
 	void negative_trade_expiration(MTrade_t* curr_trade = NULL);
 	void stop_loss_take_profit(MTrade_t* curr_trade = NULL, const double close = -DBL_MAX);
-	void check_entry_conditions(DivergenceType divType, const int max_neg_period, const bool RSI_cond);
+	void check_entry_conditions(DivergenceType divType, const int max_neg_period, const RSI_condition RSI_cond);
     void check_exit_conditions(DivergenceType divType, MTrade_t* curr_trade);
 	const double stop_loss;
 	const double take_profit;
 	const int    expirationBars;
 
 	/** TRADES: (live & backtesting) */
-	const Decimal orderQuant; //!! will vary!
 	BackTester* m_bt; // backtesting
 	bool check_trade(MTrade_t* curr_trade);
 	void openTrade(const std::string strategy,
@@ -95,9 +100,11 @@ class Strategy
 					const std::string orderRef = "");
 	void closeTrade(MTrade_t * curr_trade, 
 					const std::string orderRef = "");
+	void close_opposite_trades(const std::string direction_to_close);
 	void general_open(const int dir, 
-					  const int curr_bar_index, 
-					  std::string orderRef = "");
+					  const int bar_index, 
+					  std::string orderRef   = "",
+					  const double orderSize = 1.0);
 
 	public:
 
@@ -121,23 +128,21 @@ class Strategy
 			// Parameters for denied divergence
 				const DivergenceType divType = LONG, 
 				const int max_neg_period = 14, 
-				const bool RSI_cond = true,
-			// Will not be necessary (VARIABLE order sizes)
-				double orderQuant = 1.0,
+				const RSI_condition RSI_cond = LSTAT_LBAR,
 			// Backtesting results directories
-				const std::string bt_report_dir = "../backtesting", 
-				const std::string bt_log_dir = "../backtesting",
-				const std::string file_ext = ".txt"
+				const std::string bt_report_dir = "../backtesting/reports/", 
+				const std::string bt_log_dir    = "../backtesting/logs/",
+				const std::string file_ext      = ".txt"
 				);
 	~Strategy();
 
 	/* Interface to communicate with MClient */
 	const std::string strategy_code;
 	TradeData * m_tradeData;
-	MTrade_t  * trade2open;
-	MTrade_t  * trade2close;
-	bool openingTrade  = false;
-	bool closingTrade  = false;
+	MTrade_t  * trades2open  [MAXOPENTRADES];
+	MTrade_t  * trades2close [MAXCLOSETRADES];
+	int opening_trades = 0;
+	int closing_trades = 0;
 	
 	void set_trading_state(TradingState t_state);
 	void handle_realTimeBar(const double close);

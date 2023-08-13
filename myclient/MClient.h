@@ -159,8 +159,10 @@ class MClient : public EWrapper
     void add_Strategy(const int instr_id, Strategy * strategy);
     int placeOrder(int inst_id, Order order);
     bool cancelOrder(int orderId);
-    int openTrade  (Strategy * strategy);
-    bool closeTrade(Strategy * strategy);
+    int openTrade  (Strategy * strategy, const int trade_arr_pos);
+    bool closeTrade(Strategy * strategy, const int trade_arr_pos);
+    void close_strat_trades(Strategy * strategy);
+    void open_strat_trades(Strategy * strategy);
 
     //** DATA OUTPUT **//
     private:

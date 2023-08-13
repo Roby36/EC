@@ -1,0 +1,51 @@
+
+ TRADE LOG:
+Opened  0: short Divergence of degree 2 between 19/01/2007 00:00:00 CET and 24/01/2007 00:00:00 CET with absolute % change per bar 0.078711. Currently open trades: 1
+Closed 0: reached stop loss / take profit point
+Opened  1: short Divergence of degree 2 between 20/02/2007 00:00:00 CET and 26/02/2007 00:00:00 CET with absolute % change per bar 0.104374. Currently open trades: 1
+Closed 1: Crossed lower Bollinger Bands from below
+Opened  2: short Divergence of degree 2 between 04/07/2007 00:00:00 CEST and 09/07/2007 00:00:00 CEST with absolute % change per bar 0.078091. Currently open trades: 1
+Opened  3: short Divergence of degree 3 between 09/07/2007 00:00:00 CEST and 13/07/2007 00:00:00 CEST with absolute % change per bar 0.017211. Currently open trades: 2
+Closed 3: reached stop loss / take profit point
+Closed 2: reached stop loss / take profit point
+Opened  4: short Divergence of degree 2 between 09/09/2008 00:00:00 CEST and 11/09/2008 00:00:00 CEST with absolute % change per bar 0.029536. Currently open trades: 1
+Closed 4: reached stop loss / take profit point
+Opened  5: short Divergence of degree 2 between 06/05/2009 00:00:00 CEST and 08/05/2009 00:00:00 CEST with absolute % change per bar 0.229826. Currently open trades: 1
+Closed 5: reached stop loss / take profit point
+Opened  6: short Divergence of degree 2 between 23/11/2009 00:00:00 CET and 25/11/2009 00:00:00 CET with absolute % change per bar 0.013272. Currently open trades: 1
+Closed 6: reached stop loss / take profit point
+Opened  7: short Divergence of degree 2 between 20/09/2010 00:00:00 CEST and 24/09/2010 00:00:00 CEST with absolute % change per bar 0.014894. Currently open trades: 1
+Opened  8: short Divergence of degree 3 between 24/09/2010 00:00:00 CEST and 11/10/2010 00:00:00 CEST with absolute % change per bar 0.016152. Currently open trades: 2
+Closed 7: reached stop loss / take profit point
+Closed 8: reached stop loss / take profit point
+Opened  9: short Divergence of degree 2 between 15/11/2010 00:00:00 CET and 19/11/2010 00:00:00 CET with absolute % change per bar 0.196424. Currently open trades: 1
+Opened  10: short Divergence of degree 3 between 19/11/2010 00:00:00 CET and 25/11/2010 00:00:00 CET with absolute % change per bar 0.132132. Currently open trades: 2
+Opened  11: short Divergence of degree 4 between 25/11/2010 00:00:00 CET and 02/12/2010 00:00:00 CET with absolute % change per bar 0.226522. Currently open trades: 3
+Closed 9: reached stop loss / take profit point
+Closed 10: Crossed lower Bollinger Bands from below
+Closed 11: Crossed lower Bollinger Bands from below (take profit)
+Opened  12: short Divergence of degree 2 between 01/08/2013 00:00:00 CEST and 14/08/2013 00:00:00 CEST with absolute % change per bar 0.036184. Currently open trades: 1
+Closed 12: Crossed lower Bollinger Bands from below (take profit)
+Opened  13: short Divergence of degree 2 between 31/10/2013 00:00:00 CET and 04/11/2013 00:00:00 CET with absolute % change per bar 0.018320. Currently open trades: 1
+Closed 13: reached stop loss / take profit point
+Opened  14: short Divergence of degree 2 between 15/06/2015 00:00:00 CEST and 17/06/2015 00:00:00 CEST with absolute % change per bar 0.031680. Currently open trades: 1
+Closed 14: reached stop loss / take profit point
+Opened  15: short Divergence of degree 2 between 06/01/2017 00:00:00 CET and 11/01/2017 00:00:00 CET with absolute % change per bar 0.135529. Currently open trades: 1
+Closed 15: reached stop loss / take profit point
+Opened  16: short Divergence of degree 2 between 10/05/2017 00:00:00 CEST and 15/05/2017 00:00:00 CEST with absolute % change per bar 0.129545. Currently open trades: 1
+Closed 16: reached stop loss / take profit point
+Opened  17: short Divergence of degree 2 between 09/10/2017 00:00:00 CEST and 16/10/2017 00:00:00 CEST with absolute % change per bar 0.042076. Currently open trades: 1
+Closed 17: reached stop loss / take profit point
+Opened  18: short Divergence of degree 2 between 16/03/2020 00:00:00 CET and 18/03/2020 00:00:00 CET with absolute % change per bar 1.718894. Currently open trades: 1
+Closed 18: reached stop loss / take profit point
+Opened  19: short Divergence of degree 2 between 09/04/2021 00:00:00 CEST and 13/04/2021 00:00:00 CEST with absolute % change per bar 0.000656. Currently open trades: 1
+Closed 19: Crossed lower Bollinger Bands from below (take profit)
+Opened  20: short Divergence of degree 2 between 14/05/2021 00:00:00 CEST and 25/05/2021 00:00:00 CEST with absolute % change per bar 0.052378. Currently open trades: 1
+Closed 20: Crossed lower Bollinger Bands from below (take profit)
+Opened  21: short Divergence of degree 2 between 23/06/2022 00:00:00 CEST and 30/06/2022 00:00:00 CEST with absolute % change per bar 0.199526. Currently open trades: 1
+Closed 21: reached stop loss / take profit point
+Opened  22: short Divergence of degree 2 between 08/08/2022 00:00:00 CEST and 10/08/2022 00:00:00 CEST with absolute % change per bar 0.048365. Currently open trades: 1
+Closed 22: reached stop loss / take profit point
+
+ END OF LOG
+
