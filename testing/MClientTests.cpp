@@ -29,29 +29,32 @@ void run_backtests(MClient * client) {
     Instrument * dax_hourly_instr = client->get_Instrument(dax_hourly_id);
     Instrument * dax_daily_instr  = client->get_Instrument(dax_daily_id);
     /* Determina barre hourly e daily da includere nei backtest */
-    const int hourly_bars = 40000;
-    const int daily_bars  = 10000;
+    const int hourly_bars = 20000;
+    const int daily_bars  = 5000;
     const std::string outputDir = "../graphs/data/"; /* dove stampare risultati backtest */
     /* Setta periodi divergenze */
     const int min_div_period =  1; /* minimo peiodo tra i due massimi/minimi di una divergenza */
     const int max_hourly_div_period = 18; /* massimo peiodo tra i due massimi/minimi di una divergenza */
-    const int max_daily_div_period  = 7;
+    const int max_daily_div_period  =  7;
     const int max_hourly_neg_period = 18; /* massimo peiodo (in barre) per la negazione */
     const int max_daily_neg_period  = 7;
     const double S1_take_profit_daily  = 5.0;
     const double S2_take_profit_daily  = 5.0;
-    const double S1_take_profit_hourly = 3.0;
+    const double S1_take_profit_hourly = 4.0;
+    const double S1_stop_loss_hourly   = 3.0;
     const double S2_take_profit_hourly = 3.0;
+    const double S2_stop_loss_hourly   = 3.0;
     const int S1_exp_bars_hourly = 18;
     const int S2_exp_bars_hourly = 18;
     const int S1_exp_bars_daily  = 7;
     const int S2_exp_bars_daily  = 7;
     const RSI_condition RSI_cond = LSTAT_LBAR; /* condizione RSI per definire divergenza negata (e.g. barra più a sinistra in assoluto)*/
+    const BOLLINGER_CONDITION Boll_cond = MIDDLE_BAND;
     /* Indicatori per S1 hourly */
     Indicators::LocalMin *       S1_hourly_LocalMin       = new Indicators::LocalMin      (dax_hourly_instr->bars); 
     Indicators::LocalMax *       S1_hourly_LocalMax       = new Indicators::LocalMax      (dax_hourly_instr->bars);
     Indicators::RSI      *       S1_hourly_RSI            = new Indicators::RSI           (dax_hourly_instr->bars);
-    Indicators::BollingerBands * S1_hourly_BollingerBands = new Indicators::BollingerBands(dax_hourly_instr->bars, 2.0, 2.0, 20); // NOTA: S1 utilizza le Bollinger a 2.0
+    Indicators::BollingerBands * S1_hourly_BollingerBands = new Indicators::BollingerBands(dax_hourly_instr->bars, 2.0, 2.0, 14); // NOTA: S1 utilizza le Bollinger a 2.0
         //!! Separate indicators because these are the only indicators changed by each strategy (by marking denied divergences!)
     Indicators::Divergence *     S1_hourly_Divergence0     = new Indicators::Divergence    (dax_hourly_instr->bars, S1_hourly_LocalMax, S1_hourly_LocalMin, S1_hourly_RSI, min_div_period, max_hourly_div_period);
     Indicators::LongDivergence * S1_hourly_LongDivergence0 = new Indicators::LongDivergence(dax_hourly_instr->bars, S1_hourly_LocalMax, S1_hourly_LocalMin, S1_hourly_RSI, min_div_period, max_hourly_div_period);
@@ -61,7 +64,7 @@ void run_backtests(MClient * client) {
     Indicators::LocalMin *       S2_hourly_LocalMin       = new Indicators::LocalMin      (dax_hourly_instr->bars); 
     Indicators::LocalMax *       S2_hourly_LocalMax       = new Indicators::LocalMax      (dax_hourly_instr->bars);
     Indicators::RSI      *       S2_hourly_RSI            = new Indicators::RSI           (dax_hourly_instr->bars);
-    Indicators::BollingerBands * S2_hourly_BollingerBands = new Indicators::BollingerBands(dax_hourly_instr->bars, 2.5, 2.5, 20); // NOTA: S2 utilizza le Bollinger a 2.5
+    Indicators::BollingerBands * S2_hourly_BollingerBands = new Indicators::BollingerBands(dax_hourly_instr->bars, 2.5, 2.5, 14); // NOTA: S2 utilizza le Bollinger a 2.5
     Indicators::Divergence *     S2_hourly_Divergence     = new Indicators::Divergence    (dax_hourly_instr->bars, S2_hourly_LocalMax, S2_hourly_LocalMin, S2_hourly_RSI, min_div_period, max_hourly_div_period);
     Indicators::LongDivergence * S2_hourly_LongDivergence = new Indicators::LongDivergence(dax_hourly_instr->bars, S2_hourly_LocalMax, S2_hourly_LocalMin, S2_hourly_RSI, min_div_period, max_hourly_div_period);
     /* Indicatori per S1 daily */
@@ -84,26 +87,26 @@ void run_backtests(MClient * client) {
                                     S1_take_profit_daily, S1_take_profit_daily, S1_exp_bars_daily, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_daily", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_daily_LocalMin, S1_daily_LocalMax, S1_daily_RSI, S1_daily_BollingerBands, S1_daily_Divergence, S1_daily_LongDivergence, 
-                                    SHORT, max_daily_neg_period, RSI_cond /* parametri per divergenza negata */
+                                    LONG, max_daily_neg_period, NONE/* parametri per divergenza negata */
                                     );
     Strategy * S1_hourly_shortDiv = new Strategy(dax_hourly_instr, client->m_tradeData,
-                                    S1_take_profit_hourly, S1_take_profit_hourly, S1_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
+                                    S1_stop_loss_hourly, S1_take_profit_hourly, S1_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_hourly_shortDiv", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence0, S1_hourly_LongDivergence0, 
-                                    SHORT, max_hourly_neg_period, RSI_cond /* parametri per divergenza negata */
+                                    SHORT, max_hourly_neg_period, RSI_cond, Boll_cond /* parametri per divergenza negata */
                                     );
     Strategy * S1_hourly_longDiv = new Strategy(dax_hourly_instr, client->m_tradeData, 
-                                    S1_take_profit_hourly, S1_take_profit_hourly, S1_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
+                                    S1_stop_loss_hourly, S1_take_profit_hourly, S1_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S1_hourly_longDiv", S1_entry_conditions, S1a2_exit_conditions,
                                     S1_hourly_LocalMin, S1_hourly_LocalMax, S1_hourly_RSI, S1_hourly_BollingerBands, S1_hourly_Divergence1, S1_hourly_LongDivergence1,
-                                    LONG, max_hourly_neg_period, RSI_cond /* parametri per divergenza negata */
+                                    LONG, max_hourly_neg_period, RSI_cond, Boll_cond /* parametri per divergenza negata */
                                     );
 
     Strategy * S2_hourly = new Strategy(dax_hourly_instr, client->m_tradeData,
-                                    S2_take_profit_hourly, S2_take_profit_hourly, S2_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
+                                    S2_stop_loss_hourly, S2_take_profit_hourly, S2_exp_bars_hourly, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/
                                     "S2_hourly", S2_entry_conditions, S1a2_exit_conditions,
                                     S2_hourly_LocalMin, S2_hourly_LocalMax, S2_hourly_RSI, S2_hourly_BollingerBands, S2_hourly_Divergence, S2_hourly_LongDivergence,
-                                    LONG, max_hourly_neg_period /* Divergeze lunghe sembrano funzionare molto meglio su S2*/
+                                    LONG, max_hourly_neg_period, RSI_cond, Boll_cond  /* Divergeze lunghe sembrano funzionare molto meglio su S2*/
                                     );
     Strategy * S2_daily = new Strategy(dax_daily_instr, client->m_tradeData, 
                                     S2_take_profit_daily, S2_take_profit_daily, S2_exp_bars_daily, /* Settare qua stop loss, take profit, e massime barre prima della chiusura in negativo*/

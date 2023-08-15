@@ -34,6 +34,6 @@ class BackTester
     bool closeTrade(int, int, std::string);
     void closeTrades(int, int, std::string, bool = false, bool = false, int = 0);
     void updateTrades(int, double, double);
-    void printResults();
+    void printResults(const std::string& strat_info);
     void print_PL_data(const std::string outputDir, const std::string str = "PL", const std::string outputExt = ".txt");
 };

@@ -100,11 +100,11 @@ namespace Indicators
 
     class BollingerBands : public Indicator<IndicatorBars::BollingerBands>
     {
+        public:
+
         /*** Bollinger Bands parameters ***/
         const double stDevUp, stDevDown;
         const int timePeriod;
-
-        public:
 
         BollingerBands(Bars* dp, 
                        const double stDevUp = 2.0, 

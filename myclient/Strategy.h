@@ -44,6 +44,11 @@ enum RSI_condition {
 	NONE
 };
 
+enum BOLLINGER_CONDITION {
+	MIDDLE_BAND,
+	OUTER_BANDS
+};
+
 class Strategy
 {
 	/** INSTRUMENT: */
@@ -74,6 +79,7 @@ class Strategy
 	const DivergenceType divType;
 	const int max_neg_period;
 	const RSI_condition RSI_cond;
+	const BOLLINGER_CONDITION Bollinger_cond;
 
 	/** ENTRY: */
 	bool denied_divergence_general(DivergenceType divType, StatType statType, const int max_neg_period, const RSI_condition RSI_cond = LSTAT_LBAR, bool no_open = false);
@@ -81,11 +87,11 @@ class Strategy
 	bool double_divergence(DivergenceType divType, /* StatType statType, */ bool no_open = false);
 	/** EXIT: */
 	void opposite_divergence(DivergenceType divType, MTrade_t* curr_trade = NULL);
-	void bollinger_crossing(MTrade_t* curr_trade  = NULL);
+	void bollinger_crossing(MTrade_t* curr_trade = NULL, const BOLLINGER_CONDITION Bollinger_cond = OUTER_BANDS);
 	void negative_trade_expiration(MTrade_t* curr_trade = NULL);
 	void stop_loss_take_profit(MTrade_t* curr_trade = NULL, const double close = -DBL_MAX);
 	void check_entry_conditions(DivergenceType divType, const int max_neg_period, const RSI_condition RSI_cond);
-    void check_exit_conditions(DivergenceType divType, MTrade_t* curr_trade);
+    void check_exit_conditions(MTrade_t* curr_trade, DivergenceType divType, const BOLLINGER_CONDITION Bollinger_cond);
 	const double stop_loss;
 	const double take_profit;
 	const int    expirationBars;
@@ -129,6 +135,7 @@ class Strategy
 				const DivergenceType divType = LONG, 
 				const int max_neg_period = 14, 
 				const RSI_condition RSI_cond = LSTAT_LBAR,
+				const BOLLINGER_CONDITION Bollinger_cond = OUTER_BANDS,
 			// Backtesting results directories
 				const std::string bt_report_dir = "../backtesting/reports/", 
 				const std::string bt_log_dir    = "../backtesting/logs/",
@@ -147,6 +154,7 @@ class Strategy
 	void set_trading_state(TradingState t_state);
 	void handle_realTimeBar(const double close);
 	void handle_barUpdate();
+	std::string strat_info();
 
 	/*** Data output ***/
 	void print_indicators(const std::string outputDir, const std::string outputExt = ".txt");

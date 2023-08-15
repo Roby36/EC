@@ -118,7 +118,7 @@ bool BackTester::open_path_or_stdout(FILE * &fp, const char * path) {
     return true;
 }
 
-void BackTester::printResults()
+void BackTester::printResults(const std::string& strat_info)
 {
     // First compute positive and negative trades, at LAST BAR:
     int posTrades = 0; double posBalance = 0.0;
@@ -136,6 +136,7 @@ void BackTester::printResults()
     }
     FILE* fp;
     if (!open_path_or_stdout(fp, this->reportPath)) goto LOG;
+    fprintf(fp, "\n%s", strat_info.c_str()); /* print all the relevant startegy information first */
     fprintf(fp, "\n STRATEGY REPORT:\nTotal positive trades: %d (%f points); Total negative trades: %d (%f points);\n Net loss/profit: %f\n\n", 
         posTrades, posBalance, negTrades, negBalance, this->pl);
     for (int i = 0; i < this->currTradeNo; i++) {
