@@ -561,6 +561,7 @@ std::string Strategy::strat_info()
 
     return (std::string("Strategy code:\n\t" + this->strategy_code + "\n" +
                         "DataContract:\n\t"  + this->m_instr->dataContract.longName + "\n" +
+                            /** NOTE: segfault here when accessing getBar(0) if instrument bars were never loaded! */
                         "Backtesting dates:\n\t" + std::string(this->m_instr->bars->getBar(0)->date_time_str) + "- "
                                                  + std::string(this->m_instr->bars->getBar(curr_bar_index - 1)->date_time_str) + "\n" +  
                         "Indicator settings: " + "\n" + 

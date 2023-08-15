@@ -55,7 +55,7 @@ class MClient : public EWrapper
     public:
     //** States & requests **// 
     State m_state;
-    int   req_timeout = 180;  // maximum seconds waited before giving up on a request
+    int   req_timeout = 20;  // maximum seconds waited before giving up on a request
     
     //** Logger **//
     Mlogger* const m_logger;

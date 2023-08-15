@@ -106,5 +106,24 @@ ContractDetails MContractDetails::AMZNStockAtSmart() {
 	return contractDetails;
 }
 
+ContractDetails MContractDetails::ESTX50Index() {
+    ContractDetails contractDetails;
+    contractDetails.contract.symbol   = "ESTX50";
+	contractDetails.contract.secType  = "IND";
+	contractDetails.contract.currency = "EUR";
+	contractDetails.contract.exchange = "EUREX";
+	return contractDetails;
+}
+
+ContractDetails MContractDetails::ESTX50Future() {
+    ContractDetails contractDetails;
+    contractDetails.contract.symbol   = "ESTX50";
+	contractDetails.contract.secType  = "FUT";
+	contractDetails.contract.currency = "EUR";
+	contractDetails.contract.exchange = "EUREX";
+	contractDetails.contract.multiplier = "1";
+	return contractDetails;
+}
+
 
 
