@@ -33,20 +33,20 @@ ContractDetails MContractDetails::DAXFut() {
 
 ContractDetails MContractDetails::NIKInd() {
     ContractDetails contractDetails;
-    contractDetails.contract.symbol   = "NIKKEI";
+    contractDetails.contract.symbol   = "N225";
 	contractDetails.contract.secType  = "IND";
 	contractDetails.contract.currency = "JPY";
-	contractDetails.contract.exchange = "TSE";
+	contractDetails.contract.exchange = "OSE.JPN";
 	return contractDetails;
 }
 
 ContractDetails MContractDetails::NIKFut() {
     ContractDetails contractDetails;
-    contractDetails.contract.symbol 	= "NIKKEI";
+    contractDetails.contract.symbol 	= "N225";
 	contractDetails.contract.secType    = "FUT";
 	contractDetails.contract.currency   = "JPY";
-	contractDetails.contract.exchange   = "TSE";
-    contractDetails.contract.multiplier = "1";
+	contractDetails.contract.exchange   = "OSE.JPN";
+    contractDetails.contract.multiplier = "1000";
 	return contractDetails;
 }
 

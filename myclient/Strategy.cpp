@@ -320,7 +320,7 @@ bool Strategy::denied_divergence_general(DivergenceType divType, StatType statTy
         general_open((int)statType, curr_bar_index - 1, 
                 std::string("Denied divergence on new local " + stat_point_str +  " on " + 
                         std::string(m_instr->bars->getBar(startBar)->date_time_str) + "; " + div_point_str + "divergence between most_left_bar " + 
-                        std::string(m_instr->bars->getBar(most_left_bar)->date_time_str) + " and most_right_bar" + 
+                        std::string(m_instr->bars->getBar(most_left_bar)->date_time_str) + " and most_right_bar " + 
                         std::string(m_instr->bars->getBar(most_right_bar)->date_time_str) + " of entity " + 
                         std::to_string(DivIndicator->getIndicatorBar(most_right_bar)->divPoints)) + " with absolute % change per bar " +
                         std::to_string(DivIndicator->getIndicatorBar(most_right_bar)->abs_perc_change_per_bar));
@@ -557,6 +557,11 @@ std::string Strategy::strat_info()
             case BOLLINGER_CROSSING:  exit_cond_str += "\tBollinger crossing with condition: " + Boll_cond_str + "\n"; break;
             case NEGATIVE_TRADE_EXPIRATION: exit_cond_str += "\tTrades closed after " + std::to_string(this->expirationBars) + " bars if negative\n"; break;
         }
+    }
+
+    if (this->m_instr->bars->getnumBars() == 0) {
+        m_logger->str(" Cannot print backtests: no bar data found\n");
+        return "";
     }
 
     return (std::string("Strategy code:\n\t" + this->strategy_code + "\n" +
