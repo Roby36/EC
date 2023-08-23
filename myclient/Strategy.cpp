@@ -49,15 +49,13 @@ Strategy::Strategy(Instrument* const m_instr,
 {
     /* Initializing backtester */
     m_bt = new BackTester (m_instr->bars, 
-                (bt_report_dir + strategy_code + file_ext).c_str(), 
-                (bt_log_dir    + strategy_code + file_ext).c_str());
+                (bt_report_dir + strategy_code + std::string("_REPORT") + file_ext).c_str(), 
+                (bt_log_dir    + strategy_code + std::string("_LOG")    + file_ext).c_str());
     /* Initializing live trade structures */
-    for (int i = 0; i < MAXOPENTRADES; i++) {
+    for (int i = 0; i < MAXOPENTRADES; i++)
         trades2open[i] = (MTrade_t*) malloc (sizeof(MTrade_t));
-    }
-    for (int i = 0; i < MAXCLOSETRADES; i++) {
+    for (int i = 0; i < MAXCLOSETRADES; i++)
         trades2close[i] = (MTrade_t*) malloc (sizeof(MTrade_t));    
-    }
     /* Copying condition arrays */
     for (int i = 0; i < MAXENTRYCONDS; i++) {
         EntryConditions cond = input_entry_conditions[i];
@@ -79,12 +77,10 @@ Strategy::~Strategy()
     delete(m_logger);
     delete_indicators();
     /* Free'ing live trade structures */
-    for (int i = 0; i < MAXOPENTRADES; i++) {
+    for (int i = 0; i < MAXOPENTRADES; i++)
         free(trades2open[i]);
-    }
-    for (int i = 0; i < MAXCLOSETRADES; i++) {
+    for (int i = 0; i < MAXCLOSETRADES; i++)
         free(trades2close[i]);
-    }
 }
 
 void Strategy::delete_indicators()
@@ -373,14 +369,18 @@ void Strategy::opposite_divergence(DivergenceType divType, MTrade_t* curr_trade)
     if (divType == LONG && m_Divergence->getIndicatorBar(curr_bar_index - 2)->isPresent())
         div_point_str = "long & short ";
     // Check backtesting & livetrading cases
-    if (curr_trade == NULL && t_state == BACKTESTING) 
-        m_bt->closeTrades((-1) * DivIndicator->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1, 
-        std::string("Opposite (not necessarily denied) " + div_point_str + "divergence on previous bar"));
+    IndicatorBars::Divergence * div_bar = DivIndicator->getIndicatorBar(curr_bar_index - 2);
+    if (t_state == BACKTESTING && curr_trade == NULL) 
+        m_bt->close_all_trades ((-1) * div_bar->m, curr_bar_index - 1, 
+                    std::string("Opposite (not necessarily denied) " + div_point_str + "divergence on previous bar"));
+
     // live trading case
-    else if (DivIndicator->getIndicatorBar(curr_bar_index - 2)->isPresent() &&
-        ((DivIndicator->getIndicatorBar(curr_bar_index - 2)->m == 1 && curr_trade->openingOrder.action == "SELL") || 
-         (DivIndicator->getIndicatorBar(curr_bar_index - 2)->m == -1 && curr_trade->openingOrder.action == "BUY")))
+    else if (t_state == LIVE && div_bar->isPresent() &&
+        ((div_bar->m == 1 && curr_trade->openingOrder.action == "SELL") || 
+        (div_bar->m == -1 && curr_trade->openingOrder.action == "BUY")))
+    {
         closeTrade(curr_trade, std::string("Opposite (not necessarily denied) " + div_point_str + "divergence"));
+    }
 }
 
 void Strategy::bollinger_crossing(MTrade_t* curr_trade, BOLLINGER_CONDITION Bollinger_cond) 
@@ -399,18 +399,19 @@ void Strategy::bollinger_crossing(MTrade_t* curr_trade, BOLLINGER_CONDITION Boll
         }
     }
     /* bt case: already handles profit-checking */
-    if (curr_trade == NULL && t_state == BACKTESTING) {
+    if (t_state == BACKTESTING && curr_trade == NULL) {
         if (close_long_condition)
-            m_bt->closeTrades (1, curr_bar_index - 1, "Crossed upper Bollinger Bands from above", true, false);
+            m_bt->close_trades_conditionally(1, curr_bar_index - 1, "Crossed upper Bollinger Bands from above", true, false, 0);
         else if (close_short_condition)
-            m_bt->closeTrades(-1, curr_bar_index - 1, "Crossed lower Bollinger Bands from below", true, false);
+            m_bt->close_trades_conditionally(-1, curr_bar_index - 1, "Crossed lower Bollinger Bands from below", true, false, 0);
     }
+
     /* live trading cases: require profit-checking here */
-    else if (curr_trade->openingOrder.action == "BUY" &&
+    else if (t_state == LIVE && curr_trade->openingOrder.action == "BUY" &&
         curr_trade->openingExecution.price < m_instr->bars->getBar(curr_bar_index - 1)->close() && 
         close_long_condition)
             closeTrade(curr_trade, "Crossed upper Bollinger Bands from above in profit");
-    else if (curr_trade->openingOrder.action == "SELL" &&
+    else if (t_state == LIVE && curr_trade->openingOrder.action == "SELL" &&
         curr_trade->openingExecution.price > m_instr->bars->getBar(curr_bar_index - 1)->close() && 
         close_short_condition)
             closeTrade(curr_trade, "Crossed lower Bollinger Bands from below in profit");
@@ -419,12 +420,14 @@ void Strategy::bollinger_crossing(MTrade_t* curr_trade, BOLLINGER_CONDITION Boll
 void Strategy::negative_trade_expiration(MTrade_t* curr_trade)
 {
     // bt case
-    if (curr_trade == NULL && t_state == BACKTESTING) {
-        m_bt->closeTrades (1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
-        m_bt->closeTrades(-1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
+    if (t_state == BACKTESTING && curr_trade == NULL) {
+        m_bt->close_trades_conditionally (1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
+        m_bt->close_trades_conditionally(-1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
         return;
     }
-    // live trading: Ignore currently positive trades
+
+    /* live trading: */ 
+    // Ignore currently positive trades
     if (((curr_trade->openingOrder.action == "BUY" &&
           curr_trade->openingExecution.price < m_instr->bars->getBar(curr_bar_index - 1)->close()) ||
          (curr_trade->openingOrder.action == "SELL" &&
@@ -446,10 +449,11 @@ void Strategy::stop_loss_take_profit(MTrade_t* curr_trade, const double close)
         return;
     // bt case
     if (curr_trade == NULL && t_state == BACKTESTING) {
-        m_bt->updateTrades(curr_bar_index - 1, take_profit, stop_loss);
+        m_bt->check_sl_tp(curr_bar_index - 1, take_profit, stop_loss);
         return;
     }
-    // live trading case
+
+    /* live trading case */
     const double openPrice = curr_trade->openingExecution.price;
     const double currPrice = close;
     if ((curr_trade->openingOrder.action == "BUY" &&
@@ -506,10 +510,11 @@ void Strategy::handle_barUpdate() {
             MTrade_t* curr_trade = m_tradeData->tradeArr[i];
             if (check_trade(curr_trade))
                 check_exit_conditions(curr_trade, this->divType, this->Bollinger_cond);
-            }
+        }
     }
     if (t_state == BACKTESTING) {
-        check_exit_conditions( NULL, this->divType, this->Bollinger_cond);
+        check_exit_conditions(NULL, this->divType, this->Bollinger_cond);
+        m_bt->update_PnL(curr_bar_index - 1); /* update balance after each bar update */
     }
 }
 

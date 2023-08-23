@@ -1,14 +1,14 @@
 
 #include "Trade.h"
 
-Trade::Trade(Bars* barsRef,  int currTradeNo, int direction, int entryPos, int units)
+Trade::Trade(Bars* barsRef, int currTradeNo, int direction, int entryPos, int units)
     : barsRef(barsRef)
 {
     this->direction = direction;
-    this->entryPos = entryPos;
-    this->exitPos = entryPos;
-    this->units = units;
-    this->tradeNo = currTradeNo;
+    this->entryPos  = entryPos;
+    this->exitPos   = entryPos;
+    this->units     = units;
+    this->tradeNo   = currTradeNo;
 }
 
 bool Trade::close(int exitPos) 
@@ -22,13 +22,9 @@ bool Trade::close(int exitPos)
 
 double Trade::currBal(int currPos) 
 {
-    if (this->isActive()) {
-        return (this->units)*(this->multFactor)*(this->direction)*
-               (this->barsRef->getBar(currPos)->close() - this->barsRef->getBar(this->entryPos)->close());
-    } else {
-        return (this->units)*(this->multFactor)*(this->direction)*
-               (this->barsRef->getBar(this->exitPos)->close() - this->barsRef->getBar(this->entryPos)->close());
-    }
+    int closing_pos = this->isActive() ? currPos : this->exitPos;
+    return (this->units)*(this->multFactor)*(this->direction)*
+        (this->barsRef->getBar(closing_pos)->close() - this->barsRef->getBar(this->entryPos)->close());
 }
 
 bool Trade::isActive() {
@@ -37,9 +33,7 @@ bool Trade::isActive() {
 
 std::string Trade::print() 
 {
-    std::string dir;
-    if (this->direction == 1) dir = "long"; 
-    else dir = "short";    
+    std::string dir = this->direction == 1 ? "long" : "short";
     return(
           " Trade no: "            + std::to_string(this->tradeNo) + ";"
         + " Direction: "           + dir + ";"

@@ -29,8 +29,6 @@ clean:
 	rm -f $(TARGET)Static
 	rm -f ./*.txt
 	rm -rf *.dSYM
-	rm -f ../backtesting/logs/*.txt
-	rm -f ../backtesting/reports/*.txt
 	rm -f ../graphs/data/*.txt
 	rm -f ../indicators_log/*.txt
 	rm -f ../instruments_log/*.txt
