@@ -49,37 +49,20 @@ int main() {
 
     /** TRADING: */
 #ifdef LIVETRADE
-   run_livetrades(client);
+    run_livetrades(client);
+   // Was trading data stored correctly?
+    client->testSerFile();
 #endif
+
+    // Cancel all placed orders
+#ifdef GLOBALCANCEL
+    client->reqGlobalCancel();
+#endif
+
 
     // clean up
     delete(client);
     printf( "End of MClient Test\n");
     return 0;
-
-    // VARIOUS TESTS:
-    // Update bars a few times
-    /*
-    std::this_thread::sleep_for(std::chrono::seconds(60));
-    client->update_bars("TRADES", 1, 2);
-    std::this_thread::sleep_for(std::chrono::seconds(60));
-    client->update_bars("TRADES", 1, 2);
-    std::this_thread::sleep_for(std::chrono::seconds(60));
-    client->update_bars("TRADES", 1, 2);
-    std::this_thread::sleep_for(std::chrono::seconds(60));
-    client->update_bars("TRADES", 1, 2);
-    */
-    // Print out bar data from the first instrument
-    // client->get_Instrument(1)->bars->printBars();
-    
-    /* TRADES TEST */
-    /*
-    client->openTrade("S1", 0, 
-                    MOrders::MarketOrder("BUY",  doubleToDecimal(1.0)),
-                    MOrders::MarketOrder("SELL", doubleToDecimal(1.0)));
-    client->closeTrade(0);
-    // Was trade information stored properly ??
-    client->testSerFile();
-    */
 
 }

@@ -5,49 +5,39 @@
 #include "Execution.h"
 #include "Order.h"
 #include "CommonMacros.h"
+#include "CommonEnums.h"
 
-typedef struct MTrade 
+struct MTrade 
 {
-    bool isOpen = false;
+    int tradeId = -1;
+    TradeDirection dir = TradeDirection::LONG;
+    std::string strategy_code = "";
+    std::string opening_reason = "";
+    std::string closing_reason = "";
 
-    /*const*/ int tradeId;
-    /*const*/ std::string strategy;
+    /** Backtesting parameters **/
+    int bt_entry_bar = 0;
+    int bt_exit_bar  = 0;
+    double bt_order_quant = 0.0;
 
-    /*const*/ int instr_id;  // Use instrument id to define standard constructor
-    /*const*/ Order      openingOrder;
-    /*const*/ Order      closingOrder;
-    Execution openingExecution = Execution(); // initialize empty execution values
-    Execution closingExecution = Execution();
+    /** Live trading parameters **/
+    Order *     openingOrder       = NULL;
+    Order *     closingOrder       = NULL;
+    bool waiting_opening_execution = false;
+    bool waiting_closing_execution = false;
+    Execution * openingExecution   = NULL; // initialize empty execution values
+    Execution * closingExecution   = NULL;
 
-    MTrade()  // default constructor for unserialization (other parameters consequently set)
-    :  tradeId(-1),
-        strategy(std::string("")),
-        instr_id(-1),
-        openingOrder(Order()),
-        closingOrder(Order())
-    {
-    }
-
-    MTrade(const int tradeId,
-           const int instr_id,
-           const std::string strategy,
-           const Order openingOrder,
-           const Order closingOrder)
-        : tradeId(tradeId), 
-          strategy(strategy),
-          instr_id(instr_id),
-          openingOrder(openingOrder),
-          closingOrder(closingOrder)
-    {
-    }
-
-} MTrade_t;
+    ~MTrade();
+};
 
 class TradeData
 {
     public:
 
     int numTrades = 0;
-    MTrade_t* tradeArr[MAXTRADES];
+    MTrade * tradeArr[MAXTRADES];
 
 };
+
+

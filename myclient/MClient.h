@@ -21,34 +21,9 @@
 #include "MTrade.h"
 #include "Strategy.h"
 #include "CommonMacros.h"
-
+#include "CommonEnums.h"
 #include "ser.h"
 #include "memdbg.h"
-
-enum State {
-    ST_CONNECT,
-    REQCONTRACTDETAILS,
-    REQCONTRACTDETAILS_ACK,
-    REQHISTORICALDATA,
-    REQHISTORICALDATA_ACK,
-    REQIDS,
-    REQIDS_ACK,
-    PLACEORDER,
-    PLACEORDER_ACK,
-    CANCELORDER,
-    CANCELORDER_ACK,
-    REQALLOPENORDERS,
-    REQALLOPENORDERS_ACK,
-    REQCOMPLETEDORDERS,
-    REQCOMPLETEDORDERS_ACK,
-    REQREALTIMEBARS,
-    REQREALTIMEBARS_ACK,
-    REQPOSITIONS,
-    REQPOSITIONS_ACK,
-    REQEXECUTIONS,
-    REQEXECUTIONS_ACK
-
-};
 
 class MClient : public EWrapper
 {
@@ -110,12 +85,13 @@ class MClient : public EWrapper
     bool reqAllOpenOrders();
     void reqAutoOpenOrders( bool autoBind = true);
     bool reqPositions();
+    void reqGlobalCancel();
     void testSerFile();
 
     //** STILL TO IMPLEMENT **///
     void cancelRealTimeBars	(int tickerId);		
 
-    //public:
+    // public:
 
     #include "EWrapper_prototypes.h"
 
@@ -164,13 +140,14 @@ class MClient : public EWrapper
     void close_strat_trades(Strategy * strategy);
     void open_strat_trades(Strategy * strategy);
 
-    //** DATA OUTPUT **//
+    /** DATAOUTPUT: **/
     private:
     void print_indicators(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
     void print_bars(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
     void print_PL_data(Strategy * const strat, const std::string outputDir, const std::string outputExt = ".txt");
     void print_backtest_results(Strategy * const strat);
     void set_trading_state(Strategy * const strat, TradingState t_state);
+    Strategy * find_strategy(std::string strategy_code);
 
     void strategy_iterate( void (MClient::* data_out_func)(Strategy * const, const std::string, const std::string) = NULL, 
 										const std::string outputDir = "", const std::string outputExt = ".txt",
