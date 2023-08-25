@@ -22,7 +22,8 @@ BackTester::~BackTester()
 int BackTester::openTrade(int direction, int entryPos, std::string reason, double units)
 {
     // Verify validity of direction:
-    if (direction != -1 && direction != 1) return -1; 
+    if (direction != -1 && direction != 1) 
+        return -1; 
     // First attempt to close any trades in opposite direction:
     for (int i = 0; i < this->currTradeNo; i++) {
         if (this->execTrades[i]->getdir() != direction)
@@ -66,31 +67,33 @@ bool BackTester::closeTrade(int tradeNo, int exitPos, std::string reason)
     return false;
 }
 
-void BackTester::closeTrades(int dir, int exitPos, std::string reason, bool takeProfits, bool stopLosses, int barLim)
+void BackTester::close_all_trades(int dir, int exitPos, std::string reason)
 {
-    Trade* currTrade;
-    bool expired; // protects trade from closing until expiration 
-    for (int i = 0; i < this->currTradeNo; i++) /* Iterate through all active and inactive trades */ { 
-        currTrade = this->execTrades[i];
-        expired = ((exitPos - currTrade->getEntryPos()) > barLim); // RESET EXPIRED to false for each trade!
-        // If current Trade is in the desired direction and EXPIRED attempt to close it at current position:
-        if (currTrade->getdir() == dir && expired) {
-            // Verify take profits & stop losses conditions
-            if (takeProfits     && currTrade->currBal(exitPos) > 0) 
-                this->closeTrade(i, exitPos, reason + " (take profit)");
-            else if (stopLosses && currTrade->currBal(exitPos) < 0 ) 
-                this->closeTrade(i, exitPos, reason + " (stop loss)");
-            else 
-                this->closeTrade(i, exitPos, reason);
-        }
+    for (int i = 0; i < this->currTradeNo; i++) {
+        if (this->execTrades[i]->getdir() == dir)
+            this->closeTrade(i, exitPos, reason);
     }
 }
 
-void BackTester::updateTrades(int currPos, double takeProfThresh, double stopLossThresh)
+void BackTester::close_trades_conditionally(int dir, int exitPos, std::string reason, bool takeProfits, bool stopLosses, int barLim)
 {
-    double currPl = 0.0;
+    for (int i = 0; i < this->currTradeNo; i++)  { 
+        Trade* currTrade = this->execTrades[i];
+        bool expired = ((exitPos - currTrade->getEntryPos()) > barLim); 
+        // IGNORE trades that are not in the given direction, or not expired
+        if (currTrade->getdir() != dir || !expired)
+            continue;
+        // Verify take profits & stop losses conditions
+        else if (takeProfits && currTrade->currBal(exitPos) > 0) 
+            this->closeTrade(i, exitPos, reason + " (take profit)");
+        else if (stopLosses  && currTrade->currBal(exitPos) < 0 ) 
+            this->closeTrade(i, exitPos, reason + " (stop loss)");            
+    }
+}
+
+void BackTester::check_sl_tp(int currPos, double takeProfThresh, double stopLossThresh)
+{
     for (int i = 0; i < this->currTradeNo; i++) {
-        currPl += this->execTrades[i]->currBal(currPos); // First update total balance with all active & inactive trades
         // Enforce stop loss & take profit
         if ((takeProfThresh > 0.1f &&  100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > takeProfThresh) ||
             (stopLossThresh > 0.1f && -100.0 * this->execTrades[i]->currBal(currPos) / this->barsRef->getBar(currPos)->close() > stopLossThresh))
@@ -98,9 +101,18 @@ void BackTester::updateTrades(int currPos, double takeProfThresh, double stopLos
             this->closeTrade(i, currPos, "reached stop loss / take profit point");
         } 
     }
+}
+
+void BackTester::update_PnL(int currPos)
+{
+    double currPl = 0.0;
+    for (int i = 0; i < this->currTradeNo; i++)
+        currPl += this->execTrades[i]->currBal(currPos); // First update total balance with all active & inactive trades
     this->pl = currPl;
     this->plArray[currPos] = this->pl;
 }
+
+/* logging functions */
 
 void BackTester::logTrade(std::string action, int tradeNo, std::string reason) {
     this->tradeLog += action + " " + std::to_string(tradeNo) + ": " + reason + "\n";
@@ -118,7 +130,7 @@ bool BackTester::open_path_or_stdout(FILE * &fp, const char * path) {
     return true;
 }
 
-void BackTester::printResults()
+void BackTester::printResults(const std::string& strat_info)
 {
     // First compute positive and negative trades, at LAST BAR:
     int posTrades = 0; double posBalance = 0.0;
@@ -136,6 +148,7 @@ void BackTester::printResults()
     }
     FILE* fp;
     if (!open_path_or_stdout(fp, this->reportPath)) goto LOG;
+    fprintf(fp, "\n%s", strat_info.c_str()); /* print all the relevant startegy information first */
     fprintf(fp, "\n STRATEGY REPORT:\nTotal positive trades: %d (%f points); Total negative trades: %d (%f points);\n Net loss/profit: %f\n\n", 
         posTrades, posBalance, negTrades, negBalance, this->pl);
     for (int i = 0; i < this->currTradeNo; i++) {

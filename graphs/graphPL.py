@@ -3,9 +3,9 @@ import numpy as np
 from matplotlib import pyplot as plt, dates as mdates
 from datetime import datetime as dt
 
-strategy_code = "S1_hourly_shortDiv"
+strategy_code = "S2_hourly_longDiv"
 data_dir = "/Users/roby/Desktop/EC/graphs/data/"
-day_interval = 30
+day_interval = 60
 
 # Main graph options
 TITLE = "P&L" + "-" + strategy_code

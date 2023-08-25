@@ -10,6 +10,8 @@ class MContractDetails
     static ContractDetails DAXFut();
     static ContractDetails NIKInd();
     static ContractDetails NIKFut();
+    static ContractDetails ESTX50Index();
+    static ContractDetails ESTX50Future();
 
     // TEST
     static ContractDetails CryptoContract();

@@ -32,5 +32,7 @@
 #define MAXTRADES 1024 // MUST BE 1024 FOR CURRENTLY STORED SER FILE!!!
 
 /*** Strategy.h macros ***/
+#define MAXOPENTRADES 8
+#define MAXCLOSETRADES 8
 #define MAXENTRYCONDS 8
 #define MAXEXITCONDS  8

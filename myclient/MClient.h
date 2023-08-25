@@ -55,7 +55,7 @@ class MClient : public EWrapper
     public:
     //** States & requests **// 
     State m_state;
-    int   req_timeout = 180;  // maximum seconds waited before giving up on a request
+    int   req_timeout = 20;  // maximum seconds waited before giving up on a request
     
     //** Logger **//
     Mlogger* const m_logger;
@@ -159,8 +159,10 @@ class MClient : public EWrapper
     void add_Strategy(const int instr_id, Strategy * strategy);
     int placeOrder(int inst_id, Order order);
     bool cancelOrder(int orderId);
-    int openTrade  (Strategy * strategy);
-    bool closeTrade(Strategy * strategy);
+    int openTrade  (Strategy * strategy, const int trade_arr_pos);
+    bool closeTrade(Strategy * strategy, const int trade_arr_pos);
+    void close_strat_trades(Strategy * strategy);
+    void open_strat_trades(Strategy * strategy);
 
     //** DATA OUTPUT **//
     private:
