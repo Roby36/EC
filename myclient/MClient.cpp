@@ -59,10 +59,10 @@ void MClient::testSerFile()
 			(std::string("Closing order Id: ")       + std::to_string(currTrade->closingOrder->orderId)+ std::string("\n") +
 		    std::string("Closing order action: ")   + currTrade->closingOrder->action		          + std::string("\n"));
 		std::string opening_exec_str = (currTrade->openingExecution == NULL) ? " (null) " : 
-			(std::string("Opening execution Id:")    + currTrade->openingExecution->execId  		  + std::string("\n") + 
+			(std::string("Opening execution Id: ")    + currTrade->openingExecution->execId  		  + std::string("\n") + 
 			std::string("Opening execution time: ") + currTrade->openingExecution->time			      + std::string("\n"));
 		std::string closing_exec_str = (currTrade->closingExecution == NULL) ? " (null) " : 
-			(std::string("Closing execution Id:")    + currTrade->closingExecution->execId			  + std::string("\n") + 
+			(std::string("Closing execution Id: ")    + currTrade->closingExecution->execId			  + std::string("\n") + 
 			std::string("Closing execution time: ") + currTrade->closingExecution->time			      + std::string("\n"));
 
 		m_logger->str(
@@ -252,15 +252,25 @@ int MClient::placeOrder( int inst_id, Order order) {
 	}
 	m_state = PLACEORDER;
 	m_Client->placeOrder(m_orderId, instr->orderContract.contract, order);
-	if (!waitResponse( PLACEORDER_ACK, m_orderId, "placeOrder()")) return -1;
+	if (!waitResponse( PLACEORDER_ACK, m_orderId, "placeOrder()")) 
+		return -1;
 	return m_orderId;
+}
+
+void MClient::placeOrders(int inst_id, Order order, int num_orders) {
+	for (int i = 0; i < num_orders; i++)
+		placeOrder(inst_id, order);
 }
 
 void MClient::handle_openOrder( OrderId orderId, const Contract& contract, const Order& order, const OrderState& orderState) {
 	m_logger->openOrder( orderId, contract, order, orderState);
 	// Mark successful order execution only if orderId corresponds with the current one & order recently placed
 	if (m_state == PLACEORDER && m_orderId == orderId) {
-		memcpy(rec_order, &order, sizeof(Order));
+
+		//! Avoid copying directly order object!
+		// memcpy(rec_order, &order, sizeof(Order));
+		* (this->rec_order) = order;	// use Copy constructor
+
 		m_state = PLACEORDER_ACK;
 	}
 	// Handle open orders information receival
@@ -297,6 +307,10 @@ int MClient::openTrade(Strategy * strategy, const int trade_arr_pos)
 {
 	/* Assume validity of array inputs already verified */
 	MTrade * currTrade = strategy->trades2open [trade_arr_pos];
+	/* Assign tradeId */
+	currTrade->tradeId = m_tradeData->numTrades;
+	/* Insert (already malloc'd) trade into tradeData array */
+	m_tradeData->tradeArr[m_tradeData->numTrades] = currTrade;
 	/* Do not place orders when in backtesting state */
 	if (strategy->get_trading_state() == BACKTESTING) {
 		m_logger->str(std::string("openTrade called in BACKTESTING MODE with strategy_code " +
@@ -320,12 +334,10 @@ int MClient::openTrade(Strategy * strategy, const int trade_arr_pos)
 		memcpy(currTrade->openingOrder, this->rec_order, sizeof(Order));
 		currTrade->openingOrder->orderRef = orderRef;
 		*/
+		* (currTrade->openingOrder) = * (this->rec_order); // copy constructor
+		
 
 	}
-	/* Assign tradeId */
-	currTrade->tradeId = m_tradeData->numTrades;
-	/* Insert already malloc'd trade into tradeData array */
-	m_tradeData->tradeArr[m_tradeData->numTrades] = currTrade;
 	/* Update archive */
 	archive_td_out();
 	/* Return added trade's Id and increment count */
@@ -359,6 +371,7 @@ bool MClient::closeTrade(Strategy * strategy, const int trade_arr_pos)
 		memcpy(currTrade->closingOrder, this->rec_order, sizeof(Order)); 
 		currTrade->closingOrder->orderRef = orderRef;
 		*/
+		* (currTrade->closingOrder) = * (this->rec_order); // copy constructor
 
 	}
 	/* Update archive */
@@ -397,8 +410,7 @@ void MClient::handle_execDetails(int reqId, const Contract& contract, const Exec
 		if (currTrade->waiting_opening_execution && currTrade->openingOrder->permId == execution.permId) {
 			// Malloc space for execution details
 			currTrade->openingExecution = (Execution *) malloc (sizeof(Execution));
-			memcpy(currTrade->openingExecution, &execution, sizeof(Execution));
-			// * currTrade->openingExecution = execution;
+			* (currTrade->openingExecution) = execution;	// use copy constructor to save execution details			
 			currTrade->waiting_opening_execution = false;
 			// Log execution
 			m_logger->str(std::string("Successfully executed order to open trade ") + 
@@ -407,8 +419,7 @@ void MClient::handle_execDetails(int reqId, const Contract& contract, const Exec
 		// Check unexecuted trades to close
 		} else if (currTrade->waiting_closing_execution && currTrade->closingOrder->permId == execution.permId) {
 			currTrade->closingExecution = (Execution *) malloc (sizeof(Execution));
-			memcpy(currTrade->closingExecution, &execution, sizeof(Execution));
-			// * currTrade->closingExecution = execution;
+			* (currTrade->closingExecution) = execution; 	// use copy constructor to save execution details			
 			currTrade->waiting_closing_execution = false;
 			// Log execution
 			m_logger->str(std::string("Successfully executed order to close trade ") + 
@@ -559,7 +570,7 @@ void MClient::add_Strategy(const int instr_id, Strategy * strategy)
 		return;
 	}
 	m_stratArray[instr_id][(m_stratCount[instr_id])++] = strategy;
-	m_logger->str("Added Strategy " + m_stratArray[instr_id][(m_stratCount[instr_id]) - 1]->strategy_code);
+	m_logger->str("Added Strategy " + m_stratArray[instr_id][(m_stratCount[instr_id]) - 1]->strategy_code + "\n");
 }
 
 Instrument* MClient::get_Instrument(int instr_Id) {

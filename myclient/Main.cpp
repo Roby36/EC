@@ -9,7 +9,7 @@ int main() {
     // Attempt connection to localhost port 7497 with clientId of 0
     printf( "Start of MClient Test\n");
 
-    MClient* client = new MClient("./MClient_log.txt", 17001, true);
+    MClient * client = new MClient("./MClient_log.txt", 17001, false);
 
     client->connect( "", 7497);
 
@@ -58,6 +58,7 @@ int main() {
 #ifdef GLOBALCANCEL
     client->reqGlobalCancel();
 #endif
+
 
 
     // clean up

@@ -2,9 +2,10 @@
 /*** Main.cpp macros ***/
 /** Rimuovi il commento "//" per attivare i backtest (che verranno definiti nella funzione seguente) **/
 // #define BACKTEST
-#define LIVETRADE
+// #define LIVETRADE
 // #define DURSTRTEST
 // #define TEST_CONTRACT_DETAILS
+// #define ORDER_BALANCING
 #define GLOBALCANCEL
 
 /*** Bars.h macros ***/

@@ -9,6 +9,7 @@ void test_contract_details(MClient * client) {
 }
 
 void run_livetrades(MClient * client, int loop_dur) {
+    /** TODO: Add instrument & strategies from Backtest.cpp to repeat Backtest trades but with real orders! */
     int dax_short_id = client->add_Instrument( "5 secs", MContractDetails::DAXInd(), MContractDetails::DAXFut(),    
                                                Instrument::ReqIds(101, 201, 301, 401, 501), "../instruments_log/Dax_short.txt");
     Instrument * dax_short_instr = client->get_Instrument(dax_short_id);
@@ -50,9 +51,15 @@ void run_livetrades(MClient * client, int loop_dur) {
     client->add_Strategy(dax_short_id, S1_short);
     client->add_Strategy(dax_short_id, S2_short);
     client->update_contracts(); 
+    // Balance orders when too many are open in a given direction
+#ifdef ORDER_BALANCING
+    client->placeOrders(dax_short_id,  MOrders::MarketOrder("BUY", doubleToDecimal(1.0)), 30);
+#else
     // To test live trading on bar retrieval data:
     client->set_trading_state(LIVE); 
     client->update_bars(4096, true);
+    // give time for executions to come in
+    std::this_thread::sleep_for(std::chrono::seconds(30)); 
     client->set_trading_state(LIVE); // SET LIVE TRADING STATE AFTER ADDING STRATEGY AND AFTER INITIALIZING BARS!
     client->reqRealTimeBars(dax_short_instr->m_reqIds.realTimeBars,
                             dax_short_instr->dataContract.contract,
@@ -69,6 +76,7 @@ void run_livetrades(MClient * client, int loop_dur) {
         std::this_thread::sleep_for(std::chrono::seconds(update_frequency));
         dur_elapsed += update_frequency;
     }
+#endif
     delete(S1_short);
     delete(S2_short);
 }

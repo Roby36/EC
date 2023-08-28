@@ -134,6 +134,7 @@ class MClient : public EWrapper
     //** Orders & Trades **//
     void add_Strategy(const int instr_id, Strategy * strategy);
     int placeOrder(int inst_id, Order order);
+    void placeOrders(int inst_id, Order order, int num_orders); // debug
     bool cancelOrder(int orderId);
     int openTrade  (Strategy * strategy, const int trade_arr_pos);
     bool closeTrade(Strategy * strategy, const int trade_arr_pos);
