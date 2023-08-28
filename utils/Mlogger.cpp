@@ -72,10 +72,12 @@ void Mlogger::contractDetails(int reqId, const ContractDetails& contractDetails)
 }
 
 void Mlogger::historicalData(TickerId reqId, const Bar& bar) {
+#ifdef LHD
     fprintf( lfp, "HistoricalData. ReqId: %ld - Date: %s, Open: %s, High: %s, Low: %s, Close: %s, Volume: %s, Count: %s, WAP: %s\n", reqId, bar.time.c_str(), 
         Utils::doubleMaxString(bar.open).c_str(), Utils::doubleMaxString(bar.high).c_str(), Utils::doubleMaxString(bar.low).c_str(), Utils::doubleMaxString(bar.close).c_str(), 
         decimalStringToDisplay(bar.volume).c_str(), Utils::intMaxString(bar.count).c_str(), decimalStringToDisplay(bar.wap).c_str());
 	fflush(lfp);
+#endif
 }
 
 void Mlogger::realtimeBar(TickerId reqId, long time, double open, double high, double low, double close,

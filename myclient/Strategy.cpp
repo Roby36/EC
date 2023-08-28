@@ -1,10 +1,6 @@
 
 #include "Strategy.h"
 
-#ifdef MEMDBG
-    bool printed_mem_locs = false;
-#endif
-
 Strategy::Strategy(Instrument* const m_instr,
 				TradeData* tradeData,
 			// General strategy parameters
@@ -22,6 +18,8 @@ Strategy::Strategy(Instrument* const m_instr,
 				Indicators::BollingerBands * input_BollingerBands,
 				Indicators::Divergence     * input_Divergence,
 				Indicators::LongDivergence * input_LongDivergence,
+            // Order size
+                const double def_order_size,
             // Parameters for denied divergence
 				const DivergenceType divType, 
 				const int max_neg_period, 
@@ -44,18 +42,15 @@ Strategy::Strategy(Instrument* const m_instr,
         stop_loss(stop_loss),
         take_profit(take_profit),
         expirationBars(expirationBars),
+        default_order_size(def_order_size),
         strategy_code(strategy_code),
         m_tradeData(tradeData)
 {
-    /* Initializing backtester */
-    m_bt = new BackTester (m_instr->bars, 
-                (bt_report_dir + strategy_code + std::string("_REPORT") + file_ext).c_str(), 
-                (bt_log_dir    + strategy_code + std::string("_LOG")    + file_ext).c_str());
-    /* Initializing live trade structures */
-    for (int i = 0; i < MAXOPENTRADES; i++)
-        trades2open[i] = (MTrade_t*) malloc (sizeof(MTrade_t));
-    for (int i = 0; i < MAXCLOSETRADES; i++)
-        trades2close[i] = (MTrade_t*) malloc (sizeof(MTrade_t));    
+    /* Allocating space for report and log path strings */
+    this->reportPath = (char *) malloc (OUTDIRCHAR);
+    this->logPath    = (char *) malloc (OUTDIRCHAR);
+    strncpy(this->reportPath, (bt_report_dir + strategy_code + std::string("_REPORT") + file_ext).c_str(), OUTDIRCHAR);
+    strncpy(this->logPath,    (bt_log_dir    + strategy_code + std::string("_LOG")    + file_ext).c_str(), OUTDIRCHAR);  
     /* Copying condition arrays */
     for (int i = 0; i < MAXENTRYCONDS; i++) {
         EntryConditions cond = input_entry_conditions[i];
@@ -73,14 +68,11 @@ Strategy::Strategy(Instrument* const m_instr,
 
 Strategy::~Strategy()
 {
-    delete(m_bt);
     delete(m_logger);
     delete_indicators();
-    /* Free'ing live trade structures */
-    for (int i = 0; i < MAXOPENTRADES; i++)
-        free(trades2open[i]);
-    for (int i = 0; i < MAXCLOSETRADES; i++)
-        free(trades2close[i]);
+    /* Free'ing report and log path strings */
+    free(this->reportPath);
+    free(this->logPath);
 }
 
 void Strategy::delete_indicators()
@@ -95,15 +87,6 @@ void Strategy::delete_indicators()
 
 void Strategy::compute_indicators()
 {
-#ifdef MEMDBG
-    if (!printed_mem_locs) {
-        printf("Strategy::compute_indicators sp:"); get_sp();
-        printf("S1 location: %p\n",         (void*) this);
-        printf("m_LocalMin location: %p\n", (void*) m_LocalMin);
-        printf("m_LocalMax location: %p\n", (void*) m_LocalMax);
-        printed_mem_locs = true;
-    }
-#endif
     m_LocalMin->computeIndicator();
     m_LocalMax->computeIndicator();
     m_RSI->computeIndicator();
@@ -112,123 +95,232 @@ void Strategy::compute_indicators()
     m_BollingerBands->computeIndicator();
 }
 
-/*** DATA OUTPUT ***/
-
-void Strategy::print_indicators(const std::string outputDir, const std::string outputExt)
-{
-    const std::string name = std::string(this->strategy_code + "-");
-
-    m_LocalMin->printIndicator(outputDir, name, outputExt);
-    m_LocalMax->printIndicator(outputDir, name, outputExt);
-    m_RSI->printIndicator(outputDir, name, outputExt);
-    m_Divergence->printIndicator(outputDir, name, outputExt);
-    m_LongDivergence->printIndicator(outputDir, name, outputExt);
-    m_BollingerBands->printIndicator(outputDir, name, outputExt);
-}
-
-void Strategy::print_bars(const std::string outputDir, const std::string outputExt)
-{
-    const std::string name = std::string(this->strategy_code + "-");
-
-    this->m_instr->bars->printBars(outputDir, name, outputExt);
-}
-
-void Strategy::print_PL_data(const std::string outputDir, const std::string outputExt)
-{
-    m_bt->print_PL_data(outputDir, std::string(this->strategy_code + "-" + "PL"), outputExt);
-}
-
-void Strategy::print_backtest_results()
-{
-    m_bt->printResults(this->strat_info());
+int Strategy::get_instr_id() {
+    return this->m_instr->inst_id;
 }
 
 void Strategy::set_trading_state(TradingState t_state) {
     this->t_state = t_state;
 }
 
+TradingState Strategy::get_trading_state() {
+    return this->t_state;
+}
+
 //** TRADE OPERATIONS **//
 
-void Strategy::openTrade(const std::string strategy,
-                         const int instrId,
-                         const Order openingOrder,
-                         const Order closingOrder,
-                         const std::string orderRef)
+bool Strategy::is_trade_initialized(MTrade * trade)
 {
-    if (opening_trades == MAXOPENTRADES) {
-        m_logger->str(std::string("Strategy::openTrade: cannot open trade with orderRef " + orderRef +
-                                  "; maximum number of trades to open reached\n")); 
-        return;
-    }
-    MTrade_t * temp_trade = new MTrade_t(m_tradeData->numTrades, m_instr->inst_id,
-				this->strategy_code, openingOrder, closingOrder);
-    memcpy(trades2open[opening_trades], temp_trade, sizeof(MTrade_t));
-	trades2open[opening_trades]->openingOrder.orderRef = orderRef;
-    opening_trades++;
-    delete(temp_trade);
+    if (t_state == BACKTESTING)
+        return (trade->bt_entry_bar != 0);
+    else if (t_state == LIVE)
+        return (/* trade->waiting_opening_execution || */ trade->openingExecution != NULL);
+    
+    return false;
 }
 
-void Strategy::closeTrade(MTrade_t * curr_trade, const std::string orderRef)
+bool Strategy::is_trade_open(MTrade * trade)
 {
-    if (closing_trades == MAXCLOSETRADES) {
-        m_logger->str(std::string("Strategy::closeTrade: cannot close trade with tradeId " + std::to_string(curr_trade->tradeId) +
-                                  "; maximum number of trades to close reached\n")); 
-        return;
-    }
-    m_logger->str(std::string("Strategy::closeTrade: closing trade number " + std::to_string(curr_trade->tradeId) + " with orderRef: " + orderRef +  "\n")); 
-	trades2close[closing_trades] = curr_trade; /* no need to memcpy since curr_trade is already a malloc'd pointer */
-	trades2close[closing_trades]->closingOrder.orderRef = orderRef;
-    closing_trades++;
+    if (!is_trade_initialized(trade))
+        return false;
+    if (t_state == BACKTESTING)
+        return (trade->bt_exit_bar == trade->bt_entry_bar);
+    else if (t_state == LIVE)
+        return (!trade->waiting_closing_execution && trade->closingExecution == NULL);
+    
+    return false;
 }
 
-void Strategy::close_opposite_trades(const std::string direction_to_close)
+double Strategy::trade_opening_price(MTrade * trade)
+{
+    if (!is_trade_initialized(trade))
+        return 0;
+    if (t_state == BACKTESTING)
+        return m_instr->bars->getBar(trade->bt_entry_bar)->close();
+    else if (t_state == LIVE)
+        return trade->openingExecution->price;
+
+    return 0;
+}
+
+double Strategy::trade_closing_price(MTrade * trade)
+{
+    if (!is_trade_initialized(trade))
+        return 0;
+    if (t_state == BACKTESTING) {
+        int closing_bar = is_trade_open(trade) ? curr_bar_index : trade->bt_exit_bar;
+        return m_instr->bars->getBar(closing_bar)->close();
+    }
+    else if (t_state == LIVE)
+        return ((trade->closingExecution != NULL)
+                ? trade->closingExecution->price : m_instr->bars->getBar(curr_bar_index)->close());
+    
+    return 0;
+}
+
+int Strategy::get_trade_bars(MTrade * trade)
+{
+    if (!is_trade_initialized(trade))
+        return 0;
+    if (t_state == BACKTESTING)
+        return (curr_bar_index - trade->bt_entry_bar);
+    else if (t_state == LIVE) {
+        /* Fetch time of execution */
+        struct tm exec_time;
+        strptime(trade->openingExecution->time.c_str(), "%Y%m%d %H:%M:%S %Z", &exec_time);
+        /* Keep iterating back from the current time until we hit the time of execution */
+        int bars_back = 0;
+        while (difftime(mktime(m_instr->bars->getBar(curr_bar_index - bars_back)->date_time()), 
+                        mktime(&exec_time)) > 0) {
+            bars_back++;
+        }
+        return bars_back;
+    }
+    return 0;
+}
+
+double Strategy::trade_opening_order_size(MTrade * trade)
+{
+    if (!is_trade_initialized(trade))
+        return 0;
+    if (t_state == BACKTESTING)
+        return trade->bt_order_quant;
+    else if (t_state == LIVE)
+        return trade->openingOrder->totalQuantity;
+
+    return 0;
+}
+
+double Strategy::trade_balance(MTrade * trade)
+{
+    return (trade_opening_order_size(trade) * trade->dir * 
+            (trade_closing_price(trade) - trade_opening_price(trade)));
+}
+
+void Strategy::close_trades(const TradeDirection direction_to_close, std::string orderRef)
 {
     for (int i = 0; i < m_tradeData->numTrades; i++) {
-        MTrade_t* curr_trade = m_tradeData->tradeArr[i];
-        if (check_trade(curr_trade) && 
-            curr_trade->openingOrder.action == direction_to_close)
+        MTrade* curr_trade = m_tradeData->tradeArr[i];
+        if (curr_trade->strategy_code == this->strategy_code && 
+            is_trade_open(curr_trade) &&
+            curr_trade->dir == direction_to_close)
         {
-            this->closeTrade(curr_trade, "Opened trade in opposite direction");
+            this->general_close(curr_trade, orderRef);
         }   
     }
 }
 
-void Strategy::general_open(const int dir, 
+void Strategy::update_PnL()
+{
+    double currPl = 0.0;
+    for (int i = 0; i < m_tradeData->numTrades; i++) {
+        MTrade* curr_trade = m_tradeData->tradeArr[i];
+        if (curr_trade->strategy_code == this->strategy_code)
+            currPl += trade_balance(curr_trade);   
+    }
+    this->pl = currPl;
+    this->plArray[curr_bar_index] = this->pl;
+}
+
+void Strategy::general_open(const TradeDirection dir, 
                             const int bar_index, 
                             std::string orderRef,
                             const double orderSize)
 {
+    /* Log function call */
     m_logger->str(std::string("Strategy::general_open: opening trade in dir " + std::to_string(dir) + " at bar index " + std::to_string(bar_index) + " with orderRef: " + orderRef + "\n")); 
-    /* Determine trade direction */
-    if ((dir != 1) && (dir != -1)) {
-        m_logger->str("Strategy::general_open(): invalid trade direction\n");
+    /* Set default order size if needed */
+    const double order_size = (orderSize < 0.0) ? this->default_order_size : orderSize;
+    /* First mark to close any trade in opposite direction */
+    close_trades((TradeDirection)(- dir), "Opened trade in opposite direction");
+    /* Check that we haven't exceeded the maximum number of trades that we can open*/
+    if (opening_trades == MAXOPENTRADES) {
+    m_logger->str(std::string("Strategy::general_open: cannot open trade with orderRef " + orderRef +
+                                "; maximum number of trades to open reached\n")); 
         return;
     }
-    std::string opening_action = (dir == 1) ? "BUY" : "SELL";
-    std::string closing_action = (dir == 1) ? "SELL": "BUY" ;
-    /* Consider live trading & backtesting cases */
-    if (t_state == LIVE) {
-        /* First mark to close any trade in opposite direction */
-        close_opposite_trades(closing_action);
-        openTrade(strategy_code, m_instr->inst_id,
-                MOrders::MarketOrder(opening_action, orderSize),
-                MOrders::MarketOrder(closing_action, orderSize), orderRef);
-    } else if (t_state == BACKTESTING) {        
-        m_bt->openTrade(dir, bar_index, orderRef, orderSize);
+    /* Initialize and fill up new MTrade struct (general parameters) */
+    MTrade * new_trade        = new MTrade();
+    new_trade->dir            = dir;
+    new_trade->strategy_code  = this->strategy_code;
+    new_trade->opening_reason = orderRef;
+    /* Backetsting parameters */
+    if (t_state == BACKTESTING) {
+        new_trade->bt_entry_bar   = bar_index;
+        new_trade->bt_exit_bar    = bar_index;
+        new_trade->bt_order_quant = order_size;
     }
+    /* Live trading parameters */
+    if (t_state == LIVE) {
+        /* Determine trade direction */
+        std::string opening_action = (dir == LONG) ? "BUY" : "SELL";
+        std::string closing_action = (dir == LONG) ? "SELL": "BUY" ;
+        new_trade->openingOrder   = (Order *) malloc (sizeof(Order));
+        new_trade->closingOrder   = (Order *) malloc (sizeof(Order));
+        Order opening_order = MOrders::MarketOrder(opening_action, doubleToDecimal(order_size) 
+            /* Error. Id: 669, Code: 579, Msg: Invalid symbol in string - 
+            std::string(this->strategy_code + std::string(": ") + orderRef) 
+            */
+        );
+        Order closing_order = MOrders::MarketOrder(closing_action, doubleToDecimal(order_size));
+        memcpy(new_trade->openingOrder, &opening_order, sizeof(Order));
+        memcpy(new_trade->closingOrder, &closing_order, sizeof(Order));
+        /** BUSERROR:!!!
+        * new_trade->openingOrder = MOrders::MarketOrder(opening_action, doubleToDecimal(order_size), this->strategy_code + ": "+ orderRef);
+        * new_trade->closingOrder = MOrders::MarketOrder(closing_action, doubleToDecimal(order_size));
+        */ 
+        new_trade->waiting_opening_execution = true;
+    }
+    /* Add trade to array of trades to open*/
+    trades2open[opening_trades++] = new_trade;
+}
+
+void Strategy::general_close(MTrade * trade, const std::string orderRef)
+{
+    /* Check input trade */
+    if (trade->strategy_code != this->strategy_code) {
+        m_logger->str(std::string("Strategy::general_close: cannot close trade with tradeId " + std::to_string(trade->tradeId) +
+                                  "; trade has strategy code " + trade->strategy_code + " but this->strategy_code = " + this->strategy_code + "\n")); 
+        return;
+    }
+    if (!is_trade_open(trade)) {
+        m_logger->str(std::string("Strategy::general_close: cannot close trade with tradeId " + std::to_string(trade->tradeId) +
+                                  "; trade is already closed or waiting for closing execution\n")); 
+        return;
+    }
+    if (closing_trades == MAXCLOSETRADES) {
+        m_logger->str(std::string("Strategy::general_close: cannot close trade with tradeId " + std::to_string(trade->tradeId) +
+                                  "; maximum number of trades to close reached\n")); 
+        return;
+    }
+    m_logger->str(std::string("Strategy::closeTrade: closing trade number " + std::to_string(trade->tradeId) + " with orderRef: " + orderRef +  "\n")); 
+    /* fill up necessary parameters */
+    trade->closing_reason = orderRef;
+    if (t_state == BACKTESTING) {
+        trade->bt_exit_bar = curr_bar_index;
+    }
+    if (t_state == LIVE) {
+        /** NOTE: not adding orderRef's to avoid corrupting Order struct
+        trade->closingOrder->orderRef    = this->strategy_code + ": "+ orderRef;
+        */
+        trade->waiting_closing_execution = true;
+    }
+    /* Add trade to array of trades to close*/
+	trades2close[closing_trades++] = trade; /* no need to memcpy since curr_trade is already a malloc'd pointer */
 }
 
 void Strategy::handle_realTimeBar(const double close) 
 {
     // Live trading requires stop-loss & take-profit checking here
     for (int i = 0; i < m_tradeData->numTrades; i++) {
-        MTrade_t* curr_trade = m_tradeData->tradeArr[i];
-        if (check_trade(curr_trade)) 
+        MTrade* curr_trade = m_tradeData->tradeArr[i];
+        if (curr_trade->strategy_code == this->strategy_code && 
+            is_trade_open(curr_trade)) 
             stop_loss_take_profit(curr_trade, close);
     }
 }
 
-//** Indicator selection fucntions **//
+//** Indicator selection functions **//
 
 void Strategy::select_statType(StatType statType, Indicators::LocalMin * &StatIndicator, std::string &stat_point_str)
 {
@@ -239,12 +331,12 @@ void Strategy::select_statType(StatType statType, Indicators::LocalMin * &StatIn
 void Strategy::select_divType(DivergenceType divType, Indicators::Divergence * &DivIndicator, std::string &div_point_str)
 {
     switch (divType) {
-        case SHORT: {
+        case SHORT_DIV: {
             DivIndicator  = m_Divergence; 
             div_point_str = "short ";
             break;
         }
-        case LONG: {
+        case LONG_DIV: {
             DivIndicator  = m_LongDivergence; 
             div_point_str = "long ";
             break;
@@ -265,7 +357,7 @@ bool Strategy::denied_divergence_general(DivergenceType divType, StatType statTy
     select_divType(divType, DivIndicator, div_point_str);
     select_statType(statType, StatIndicator, stat_point_str);
     
-    const int startBar = curr_bar_index - 2; /* candidate new maximum/minimum denying divergence */ 
+    const int startBar = curr_bar_index - 1; /* candidate new maximum/minimum denying divergence */ 
     int barsBack = 0;
     int most_left_bar;  /* most left bar at the start of divergence sequence */
     int last_div_bar;   /* most left bar still marked with a divergence */
@@ -309,11 +401,11 @@ bool Strategy::denied_divergence_general(DivergenceType divType, StatType statTy
     /* Mark divergence as denied */
     DivIndicator->getIndicatorBar(most_right_bar)->isDenied = true;
     /* If we have a long divergence, use same function to check if trade would also have been open with short divergence */
-    if (divType == LONG && denied_divergence_general(SHORT, statType, max_neg_period, RSI_cond, true)) /* call function without executing any trade */
+    if (divType == LONG_DIV && denied_divergence_general(SHORT_DIV, statType, max_neg_period, RSI_cond, true)) /* call function without executing any trade */
         div_point_str = "long & short ";
     /* Check if we are testing divergence condition or if trade actually needs to be opened */
     if (!no_open)
-        general_open((int)statType, curr_bar_index - 1, 
+        general_open((TradeDirection) statType, curr_bar_index, 
                 std::string("Denied divergence on new local " + stat_point_str +  " on " + 
                         std::string(m_instr->bars->getBar(startBar)->date_time_str) + "; " + div_point_str + "divergence between most_left_bar " + 
                         std::string(m_instr->bars->getBar(most_left_bar)->date_time_str) + " and most_right_bar " + 
@@ -338,131 +430,85 @@ bool Strategy::double_divergence(DivergenceType divType, /* StatType statType, *
 
     /*** CONDITIONS: ***/
     /* (1) Check for at least double divergence on PREVIOUS bar */
-    if (DivIndicator->getIndicatorBar(curr_bar_index - 2)->divPoints < 3)
+    if (DivIndicator->getIndicatorBar(curr_bar_index - 1)->divPoints < 3)
         return false;
     /* Check if this also applies to short divergernce*/
-    if (divType == LONG && double_divergence(SHORT, true)) /* call without executing any trade */
+    if (divType == LONG_DIV && double_divergence(SHORT_DIV, true)) /* call without executing any trade */
         div_point_str = "long & short ";
     // Go long if we are on a minimum, short if we are on a maximum
     if (!no_open)
-        general_open(DivIndicator->getIndicatorBar(curr_bar_index - 2)->m, curr_bar_index - 1,
-                div_point_str + DivIndicator->getIndicatorBar(curr_bar_index - 2)->logString());
+        general_open((TradeDirection) DivIndicator->getIndicatorBar(curr_bar_index - 1)->m, curr_bar_index - 1,
+                div_point_str + DivIndicator->getIndicatorBar(curr_bar_index - 1)->logString());
     return true;
-}
-
-bool Strategy::check_trade(MTrade_t* curr_trade)
-{
-    return (curr_trade->instr_id == m_instr->inst_id    &&
-            curr_trade->strategy == this->strategy_code &&
-            curr_trade->isOpen);
 }
 
 /** EXIT CONDITIONS **/
 
-void Strategy::opposite_divergence(DivergenceType divType, MTrade_t* curr_trade)
+void Strategy::opposite_divergence(DivergenceType divType, MTrade* curr_trade)
 {
-    // Select appropriate divergence indicator
+    /* Select appropriate divergence indicator */
     Indicators::Divergence * DivIndicator;
     std::string div_point_str;
     select_divType(divType, DivIndicator, div_point_str);
-    // Check if we have a "long & short divergence"
-    if (divType == LONG && m_Divergence->getIndicatorBar(curr_bar_index - 2)->isPresent())
+    /* Check if we have a "long & short divergence" */
+    if (divType == LONG_DIV && m_Divergence->getIndicatorBar(curr_bar_index - 1)->isPresent())
         div_point_str = "long & short ";
-    // Check backtesting & livetrading cases
-    IndicatorBars::Divergence * div_bar = DivIndicator->getIndicatorBar(curr_bar_index - 2);
-    if (t_state == BACKTESTING && curr_trade == NULL) 
-        m_bt->close_all_trades ((-1) * div_bar->m, curr_bar_index - 1, 
-                    std::string("Opposite (not necessarily denied) " + div_point_str + "divergence on previous bar"));
-
-    // live trading case
-    else if (t_state == LIVE && div_bar->isPresent() &&
-        ((div_bar->m == 1 && curr_trade->openingOrder.action == "SELL") || 
-        (div_bar->m == -1 && curr_trade->openingOrder.action == "BUY")))
-    {
-        closeTrade(curr_trade, std::string("Opposite (not necessarily denied) " + div_point_str + "divergence"));
-    }
+    /* Close trade if divergence m-value corresponds with negative trade direction */
+    if (DivIndicator->getIndicatorBar(curr_bar_index - 1)->m == - curr_trade->dir)
+        general_close(curr_trade, std::string("Opposite (not necessarily denied) " + div_point_str + "divergence"));
 }
 
-void Strategy::bollinger_crossing(MTrade_t* curr_trade, BOLLINGER_CONDITION Bollinger_cond) 
+void Strategy::bollinger_crossing(MTrade* curr_trade, BOLLINGER_CONDITION Bollinger_cond) 
 {
+    /* Close trade only if positive balance */
+    if (trade_balance(curr_trade) < 0)
+        return;
+    /* Fill up conditions based on input Bollinger Condition */
     bool close_long_condition, close_short_condition;
     switch (Bollinger_cond) {
         case OUTER_BANDS: {
-            close_long_condition  = m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossUpperDown;
-            close_short_condition = m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossLowerUp;
+            close_long_condition  = m_BollingerBands->getIndicatorBar(curr_bar_index)->crossUpperDown;
+            close_short_condition = m_BollingerBands->getIndicatorBar(curr_bar_index)->crossLowerUp;
             break;
         }
         case MIDDLE_BAND: {
-            close_long_condition  = m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossMiddleDown;
-            close_short_condition = m_BollingerBands->getIndicatorBar(curr_bar_index - 1)->crossMiddleUp;
+            close_long_condition  = m_BollingerBands->getIndicatorBar(curr_bar_index)->crossMiddleDown;
+            close_short_condition = m_BollingerBands->getIndicatorBar(curr_bar_index)->crossMiddleUp;
             break;
         }
     }
-    /* bt case: already handles profit-checking */
-    if (t_state == BACKTESTING && curr_trade == NULL) {
-        if (close_long_condition)
-            m_bt->close_trades_conditionally(1, curr_bar_index - 1, "Crossed upper Bollinger Bands from above", true, false, 0);
-        else if (close_short_condition)
-            m_bt->close_trades_conditionally(-1, curr_bar_index - 1, "Crossed lower Bollinger Bands from below", true, false, 0);
-    }
-
-    /* live trading cases: require profit-checking here */
-    else if (t_state == LIVE && curr_trade->openingOrder.action == "BUY" &&
-        curr_trade->openingExecution.price < m_instr->bars->getBar(curr_bar_index - 1)->close() && 
-        close_long_condition)
-            closeTrade(curr_trade, "Crossed upper Bollinger Bands from above in profit");
-    else if (t_state == LIVE && curr_trade->openingOrder.action == "SELL" &&
-        curr_trade->openingExecution.price > m_instr->bars->getBar(curr_bar_index - 1)->close() && 
-        close_short_condition)
-            closeTrade(curr_trade, "Crossed lower Bollinger Bands from below in profit");
+    /* Check if we met any Bollinger condition */
+    if (close_long_condition)
+        close_trades(LONG, "Crossed upper Bollinger Bands from above in profit");
+    else if (close_short_condition)
+        close_trades(SHORT, "Crossed lower Bollinger Bands from below in profit");
 }
 
-void Strategy::negative_trade_expiration(MTrade_t* curr_trade)
+void Strategy::negative_trade_expiration(MTrade* curr_trade)
 {
-    // bt case
-    if (t_state == BACKTESTING && curr_trade == NULL) {
-        m_bt->close_trades_conditionally (1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
-        m_bt->close_trades_conditionally(-1, curr_bar_index - 1, "Negative after expiration time", false, true, expirationBars);
+    /* Close trade only if negative balance */
+    if (trade_balance(curr_trade) > 0)
         return;
+    /* Check bars elapsed since trade was opened */
+    if (get_trade_bars(curr_trade) > this->expirationBars) 
+    {
+        general_close(curr_trade, "Negative after expiration time");
     }
-
-    /* live trading: */ 
-    // Ignore currently positive trades
-    if (((curr_trade->openingOrder.action == "BUY" &&
-          curr_trade->openingExecution.price < m_instr->bars->getBar(curr_bar_index - 1)->close()) ||
-         (curr_trade->openingOrder.action == "SELL" &&
-          curr_trade->openingExecution.price > m_instr->bars->getBar(curr_bar_index - 1)->close())))
-        return;
-    //! Better to use time to check time expiration since bar numbers will change
-    int tot_seconds = expirationBars * m_instr->sec_barSize;
-    //! Extract time of execution, assuming the following format
-    struct tm exec_time;
-    strptime(curr_trade->openingExecution.time.c_str(), "%Y%m%d %H:%M:%S %Z", &exec_time);
-    if (difftime(mktime(m_instr->bars->getBar(curr_bar_index - 1)->date_time()), mktime(&exec_time)) > tot_seconds)
-        closeTrade(curr_trade, "Negative after expiration");
 }
 
-void Strategy::stop_loss_take_profit(MTrade_t* curr_trade, const double close) 
+void Strategy::stop_loss_take_profit(MTrade* curr_trade, const double close) 
 {
-    // Ignore if not called from within handle_relatimeBar (where close != -DBL_MAX)
-    if (close == -DBL_MAX && t_state == LIVE)
-        return;
-    // bt case
-    if (curr_trade == NULL && t_state == BACKTESTING) {
-        m_bt->check_sl_tp(curr_bar_index - 1, take_profit, stop_loss);
-        return;
+    /* If not called with realtime bar data (where close != -DBL_MAX) 
+       then set close price to current bar index */
+    double closing_price = (close == - DBL_MAX) ? trade_closing_price(curr_trade) : close;
+    double opening_price = trade_opening_price(curr_trade);
+    double rel_balance   = curr_trade->dir * (closing_price - opening_price);
+    
+    if ( 100 * rel_balance / opening_price > take_profit ||
+        -100 * rel_balance / opening_price > stop_loss) 
+    {
+        general_close(curr_trade, "Reached take profit / stop loss");
     }
-
-    /* live trading case */
-    const double openPrice = curr_trade->openingExecution.price;
-    const double currPrice = close;
-    if ((curr_trade->openingOrder.action == "BUY" &&
-            (100 * (currPrice - openPrice) / openPrice > take_profit ||
-             100 * (currPrice - openPrice) / openPrice < - stop_loss)) ||
-        (curr_trade->openingOrder.action == "SELL" &&
-           (-100 * (currPrice - openPrice) / openPrice > take_profit ||
-            -100 * (currPrice - openPrice) / openPrice < - stop_loss)))
-        closeTrade(curr_trade, "Reached take profit / stop loss");
 }
 
 //** CONDITION CHECKS **//
@@ -479,7 +525,7 @@ void Strategy::check_entry_conditions(DivergenceType divType, const int max_neg_
     }
 }
 
-void Strategy::check_exit_conditions(MTrade_t* curr_trade, DivergenceType divType, const BOLLINGER_CONDITION Bollinger_cond) {
+void Strategy::check_exit_conditions(MTrade* curr_trade, DivergenceType divType, const BOLLINGER_CONDITION Bollinger_cond) {
     for (int i = 0; i < MAXEXITCONDS; i++) {
         ExitConditions cond = exit_conditions[i];
         // check if we ran out of conditions
@@ -488,99 +534,30 @@ void Strategy::check_exit_conditions(MTrade_t* curr_trade, DivergenceType divTyp
         else if (cond == OPPOSITE_DIVERGENCE)       opposite_divergence(divType, curr_trade);
         else if (cond == BOLLINGER_CROSSING)        bollinger_crossing(curr_trade, Bollinger_cond);
         else if (cond == NEGATIVE_TRADE_EXPIRATION) negative_trade_expiration(curr_trade);
-        else if (cond == STOP_LOSS_TAKE_PROFIT)     stop_loss_take_profit(curr_trade);
+        else if (cond == STOP_LOSS_TAKE_PROFIT)     stop_loss_take_profit(curr_trade, - DBL_MAX);
         /** Other possible exit conditions  ... */
     }
 }
-
 
 /*** Only function with hard-coded (DivergenceType divType, const int max_neg_period, const bool RSI_cond) parameters ***/
 
 void Strategy::handle_barUpdate() {
     // Update & verify bar position (including 1 bar iterating back)
-    if ((curr_bar_index = m_instr->bars->getnumBars()) < 3) return;
+    if ((curr_bar_index = m_instr->bars->getnumBars() - 1) < 2) return;
     // First update indicators to account for new bar
     compute_indicators();
     //** ENTRY CONDITIONS (live & backtesting) **//
     check_entry_conditions(this->divType, this->max_neg_period, this->RSI_cond);
     //** EXIT CONDITIONS **//
-    if (t_state == LIVE) {
-    /* Iterate through every trade of MClient and check if it belongs to this strategy, with this instrument */
-        for (int i = 0; i < m_tradeData->numTrades; i++) {
-            MTrade_t* curr_trade = m_tradeData->tradeArr[i];
-            if (check_trade(curr_trade))
-                check_exit_conditions(curr_trade, this->divType, this->Bollinger_cond);
-        }
+    for (int i = 0; i < m_tradeData->numTrades; i++) {
+        MTrade* curr_trade = m_tradeData->tradeArr[i];
+        if (curr_trade->strategy_code == this->strategy_code && 
+            is_trade_open(curr_trade)) 
+        {
+            check_exit_conditions(curr_trade, this->divType, this->Bollinger_cond);
+        }  
     }
-    if (t_state == BACKTESTING) {
-        check_exit_conditions(NULL, this->divType, this->Bollinger_cond);
-        m_bt->update_PnL(curr_bar_index - 1); /* update balance after each bar update */
-    }
+    /* update PnL balance */
+    this->update_PnL(); /* update balance after each bar update */
 }
 
-/** LOGGING: **/
-
-std::string Strategy::strat_info()
-{
-    std::string entry_cond_str = "";
-    std::string exit_cond_str  = "";
-    std::string div_type_str   = "";
-    std::string rsi_cond_str   = "";
-    std::string Boll_cond_str  = "";
-
-    switch (divType) {
-        case SHORT: div_type_str = "Short"; break;
-        case LONG:  div_type_str = "Long";  break;
-    }
-    switch (RSI_cond) {
-        case NONE:       rsi_cond_str = "Right bar of last divergence";  break;
-        case LSTAT_RBAR: rsi_cond_str = "Right bar of first divergence"; break;
-        case LSTAT_LBAR: rsi_cond_str = "Left bar of first divergence";  break;
-    }
-    switch (Bollinger_cond) {
-        case MIDDLE_BAND: Boll_cond_str = "Cross middle band in profit"; break;
-        case OUTER_BANDS: Boll_cond_str = "Cross outer (more extreme) band in profit"; break;
-    }
-    for (int i = 0; i < MAXENTRYCONDS; i++) {
-        EntryConditions cond = this->entry_conditions[i];
-        if (cond == ENTRY_CONDITIONS_END) 
-            break;
-        switch (cond) {
-            case DENIED_DIVERGENCE: entry_cond_str += ("\tDenied divergence with maximum negation period " + std::to_string(this->max_neg_period) + 
-                                                       " and RSI condition: " + rsi_cond_str + "\n"); break;
-            case DOUBLE_DIVERGENCE: entry_cond_str += "\tDouble divergence\n"; break;
-        }
-    }
-    for (int i = 0; i < MAXEXITCONDS; i++) {
-        ExitConditions cond = this->exit_conditions[i];
-        if (cond == EXIT_CONDITIONS_END)
-            break;
-        switch (cond) {
-            case STOP_LOSS_TAKE_PROFIT: exit_cond_str += ("\tFixed Take profit, stop loss: " + std::to_string(this->take_profit) + ", "
-                                                                                             + std::to_string(this->stop_loss) + "\n"); break;
-            case OPPOSITE_DIVERGENCE: exit_cond_str += "\tOpposite " + div_type_str + " divergence\n"; break;
-            case BOLLINGER_CROSSING:  exit_cond_str += "\tBollinger crossing with condition: " + Boll_cond_str + "\n"; break;
-            case NEGATIVE_TRADE_EXPIRATION: exit_cond_str += "\tTrades closed after " + std::to_string(this->expirationBars) + " bars if negative\n"; break;
-        }
-    }
-
-    if (this->m_instr->bars->getnumBars() == 0) {
-        m_logger->str(" Cannot print backtests: no bar data found\n");
-        return "";
-    }
-
-    return (std::string("Strategy code:\n\t" + this->strategy_code + "\n" +
-                        "DataContract:\n\t"  + this->m_instr->dataContract.longName + "\n" +
-                            /** NOTE: segfault here when accessing getBar(0) if instrument bars were never loaded! */
-                        "Backtesting dates:\n\t" + std::string(this->m_instr->bars->getBar(0)->date_time_str) + "- "
-                                                 + std::string(this->m_instr->bars->getBar(curr_bar_index - 1)->date_time_str) + "\n" +  
-                        "Indicator settings: " + "\n" + 
-                                               + "\t" + "RSI: time-period: " + std::to_string(this->m_RSI->timePeriod) + "\n"
-                                               + "\t" + div_type_str + " Divergence with minimum, maximum divergence periods: " + std::to_string(this->m_Divergence->minDivPeriod) + ", " + std::to_string(this->m_Divergence->maxDivPeriod) + "\n" +
-                                               + "\t" + "Bollinger Bands: stDevUp, stDevDown, moving average time-period: (" + 
-                                                            std::to_string(this->m_BollingerBands->stDevUp)    + ", " + 
-                                                            std::to_string(this->m_BollingerBands->stDevDown)  + ", " + 
-                                                            std::to_string(this->m_BollingerBands->timePeriod) + ")\n" +
-                        "Entry conditions: " + "\n" + entry_cond_str +
-                        "Exit conditions:"   + "\n" + exit_cond_str ));
-}

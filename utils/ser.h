@@ -26,12 +26,20 @@ template <class Archive>
 void serialize(Archive &archive, MTrade &t, const unsigned int version)
 {
     /** read/write from/to archive **/
-    archive & t.isOpen;
     archive & t.tradeId;
-    archive & t.strategy;
-    archive & t.instr_id;
+    archive & t.dir;
+    archive & t.strategy_code;
+    archive & t.opening_reason;
+    archive & t.closing_reason;
+
+    archive & t.bt_entry_bar;
+    archive & t.bt_exit_bar;
+    archive & t.bt_order_quant;
+
     archive & t.openingOrder;
     archive & t.closingOrder;
+    archive & t.waiting_opening_execution;
+    archive & t.waiting_closing_execution;
     archive & t.openingExecution;
     archive & t.closingExecution;
 }

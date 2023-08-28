@@ -1,53 +1,12 @@
 
 #pragma once 
 
-#include "BackTester.h"
 #include "Indicators.h"
 #include "MTrade.h"
 #include "MOrders.h"
 #include "memdbg.h"
 #include "CommonMacros.h"
-
-enum TradingState {
-	BACKTESTING,
-	LIVE,
-	RETRIEVAL
-};
-
-enum EntryConditions {
-	DENIED_DIVERGENCE,
-	DOUBLE_DIVERGENCE,
-	ENTRY_CONDITIONS_END
-};
-
-enum ExitConditions {
-	OPPOSITE_DIVERGENCE,
-	BOLLINGER_CROSSING,
-	NEGATIVE_TRADE_EXPIRATION,
-	STOP_LOSS_TAKE_PROFIT,
-	EXIT_CONDITIONS_END
-};
-
-enum DivergenceType {
-	SHORT,
-	LONG
-};
-
-enum StatType {
-	MAX = -1,
-	MIN = 1
-};
-
-enum RSI_condition {
-	LSTAT_LBAR,
-	LSTAT_RBAR,
-	NONE
-};
-
-enum BOLLINGER_CONDITION {
-	MIDDLE_BAND,
-	OUTER_BANDS
-};
+#include "CommonEnums.h"
 
 class Strategy
 {
@@ -71,7 +30,7 @@ class Strategy
 	void delete_indicators();
 	void select_statType(StatType statType, Indicators::LocalMin * &StatIndicator, std::string &stat_point_str);
 	void select_divType(DivergenceType divType, Indicators::Divergence * &DivIndicator, std::string &div_point_str);
-
+	
 	/** CONDITIONS: */
 	EntryConditions entry_conditions [MAXENTRYCONDS];
     ExitConditions  exit_conditions  [MAXEXITCONDS];
@@ -86,33 +45,50 @@ class Strategy
 	bool denied_divergence(DivergenceType divType, const int max_neg_period, const RSI_condition RSI_cond);
 	bool double_divergence(DivergenceType divType, /* StatType statType, */ bool no_open = false);
 	/** EXIT: */
-	void opposite_divergence(DivergenceType divType, MTrade_t* curr_trade = NULL);
-	void bollinger_crossing(MTrade_t* curr_trade = NULL, const BOLLINGER_CONDITION Bollinger_cond = OUTER_BANDS);
-	void negative_trade_expiration(MTrade_t* curr_trade = NULL);
-	void stop_loss_take_profit(MTrade_t* curr_trade = NULL, const double close = -DBL_MAX);
+	void opposite_divergence(DivergenceType divType, MTrade* curr_trade);
+	void bollinger_crossing(MTrade* curr_trade, const BOLLINGER_CONDITION Bollinger_cond = OUTER_BANDS);
+	void negative_trade_expiration(MTrade* curr_trade);
+	void stop_loss_take_profit(MTrade* curr_trade, const double close);
 	void check_entry_conditions(DivergenceType divType, const int max_neg_period, const RSI_condition RSI_cond);
-    void check_exit_conditions(MTrade_t* curr_trade, DivergenceType divType, const BOLLINGER_CONDITION Bollinger_cond);
+    void check_exit_conditions(MTrade* curr_trade, DivergenceType divType, const BOLLINGER_CONDITION Bollinger_cond);
 	const double stop_loss;
 	const double take_profit;
 	const int    expirationBars;
 
 	/** TRADES: (live & backtesting) */
-	BackTester* m_bt; // backtesting
-	bool check_trade(MTrade_t* curr_trade);
-	void openTrade(const std::string strategy,
-					const int instrId,
-					const Order openingOrder,
-					const Order closingOrder,
-					const std::string orderRef = "");
-	void closeTrade(MTrade_t * curr_trade, 
-					const std::string orderRef = "");
-	void close_opposite_trades(const std::string direction_to_close);
-	void general_open(const int dir, 
+	const double default_order_size;
+	double pl = 0.0;
+    double plArray [MAXBARS];
+	void update_PnL();
+
+	bool is_trade_initialized(MTrade * trade);
+	bool is_trade_open(MTrade * trade);
+	double trade_opening_price(MTrade * trade);
+	double trade_closing_price(MTrade * trade);
+	int get_trade_bars(MTrade * trade);
+	double trade_opening_order_size(MTrade * trade);
+	double trade_balance(MTrade * trade);
+
+	void general_open(const TradeDirection dir, 
 					  const int bar_index, 
 					  std::string orderRef   = "",
-					  const double orderSize = 1.0);
+					  const double orderSize = -1.0);
+	void general_close(MTrade * trade, const std::string orderRef = "");
+	void close_trades(const TradeDirection direction_to_close, std::string orderRef);
+
+	/** DATAOUTPUT: */ 
+
+	char* reportPath;
+    char* logPath;
+
+	static bool open_path_or_stdout(FILE * &fp, const char * path);
+	std::string print_trade(MTrade * trade, int trade_no);
 
 	public:
+	void print_indicators(const std::string outputDir, const std::string outputExt = ".txt");
+	void print_bars(const std::string outputDir, const std::string outputExt = ".txt");
+	void print_PL_data(const std::string outputDir, const std::string outputExt = ".txt");
+	void print_backtest_results();
 
 	Strategy(Instrument* const m_instr,
 				TradeData* tradeData,
@@ -131,8 +107,10 @@ class Strategy
 				Indicators::BollingerBands * input_BollingerBands,
 				Indicators::Divergence     * input_Divergence,
 				Indicators::LongDivergence * input_LongDivergence,
+			// Grandezza ordini
+				const double def_order_size = 1.0,
 			// Parameters for denied divergence
-				const DivergenceType divType = LONG, 
+				const DivergenceType divType = LONG_DIV, 
 				const int max_neg_period = 14, 
 				const RSI_condition RSI_cond = LSTAT_LBAR,
 				const BOLLINGER_CONDITION Bollinger_cond = OUTER_BANDS,
@@ -146,20 +124,18 @@ class Strategy
 	/* Interface to communicate with MClient */
 	const std::string strategy_code;
 	TradeData * m_tradeData;
-	MTrade_t  * trades2open  [MAXOPENTRADES];
-	MTrade_t  * trades2close [MAXCLOSETRADES];
+	MTrade * trades2open  [MAXOPENTRADES];
+	MTrade * trades2close [MAXCLOSETRADES];
 	int opening_trades = 0;
 	int closing_trades = 0;
 	
+	int get_instr_id();
 	void set_trading_state(TradingState t_state);
+	TradingState get_trading_state();
 	void handle_realTimeBar(const double close);
 	void handle_barUpdate();
 	std::string strat_info();
 
-	/*** Data output ***/
-	void print_indicators(const std::string outputDir, const std::string outputExt = ".txt");
-	void print_bars(const std::string outputDir, const std::string outputExt = ".txt");
-	void print_PL_data(const std::string outputDir, const std::string outputExt = ".txt");
-	void print_backtest_results();
+	
 };
 
