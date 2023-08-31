@@ -54,10 +54,12 @@ void MClient::testSerFile()
 		// Print trade details
 		std::string opening_order_str = (currTrade->openingOrder == NULL) ? " (null) " : 
 			(std::string("Opening order Id: ")      + std::to_string(currTrade->openingOrder->orderId)+ std::string("\n") +
-		    std::string("Opening order action: ")   + currTrade->openingOrder->action 		          + std::string("\n"));
+		    std::string("Opening order action: ")   + currTrade->openingOrder->action 		          + std::string("\n")) +
+			std::string("Opening order Ref: ")      + currTrade->openingOrder->orderRef				  + std::string("\n");
 		std::string closing_order_str = (currTrade->closingOrder == NULL) ? " (null) " : 
 			(std::string("Closing order Id: ")       + std::to_string(currTrade->closingOrder->orderId)+ std::string("\n") +
-		    std::string("Closing order action: ")   + currTrade->closingOrder->action		          + std::string("\n"));
+		    std::string("Closing order action: ")   + currTrade->closingOrder->action		          + std::string("\n")) +
+			std::string("Closing order Ref: ")      + currTrade->closingOrder->orderRef				  + std::string("\n");
 		std::string opening_exec_str = (currTrade->openingExecution == NULL) ? " (null) " : 
 			(std::string("Opening execution Id: ")    + currTrade->openingExecution->execId  		  + std::string("\n") + 
 			std::string("Opening execution time: ") + currTrade->openingExecution->time			      + std::string("\n"));
@@ -238,7 +240,7 @@ bool MClient::waitResponse( State target, int reqId, std::string caller) {
 
 /*** TRADES & ORDERS ***/
 
-int MClient::placeOrder( int inst_id, Order order) {
+int MClient::placeOrder(int inst_id, Order order) {
 	// Attemp to retrieve the given instrument
 	Instrument* instr = get_Instrument(inst_id);
 	if (instr == NULL) {
@@ -266,11 +268,7 @@ void MClient::handle_openOrder( OrderId orderId, const Contract& contract, const
 	m_logger->openOrder( orderId, contract, order, orderState);
 	// Mark successful order execution only if orderId corresponds with the current one & order recently placed
 	if (m_state == PLACEORDER && m_orderId == orderId) {
-
-		//! Avoid copying directly order object!
-		// memcpy(rec_order, &order, sizeof(Order));
 		* (this->rec_order) = order;	// use Copy constructor
-
 		m_state = PLACEORDER_ACK;
 	}
 	// Handle open orders information receival
@@ -285,7 +283,7 @@ bool MClient::cancelOrder( int orderId) {
 	// Make the request
 	m_Client->cancelOrder(orderId, "");
 	// Wait for response
-	return waitResponse( CANCELORDER_ACK, orderId, "cancelOrder()");
+	return waitResponse(CANCELORDER_ACK, orderId, "cancelOrder()");
 }
 
 void MClient::handle_orderStatus(OrderId orderId, const std::string& status, Decimal filled,
@@ -327,16 +325,8 @@ int MClient::openTrade(Strategy * strategy, const int trade_arr_pos)
 						std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
 						std::to_string(strategy->get_instr_id()) + std::string(" for strategy ")   + strategy->strategy_code +
 						std::string(" OrderRef: " + currTrade->openingOrder->orderRef + std::string("\n")));
-		/* Copy full opening order (retrieved from callback )*/
-
-		/** MALLOCERROR:!!!!!!
-		std::string orderRef = currTrade->openingOrder->orderRef; // save order reference string
-		memcpy(currTrade->openingOrder, this->rec_order, sizeof(Order));
-		currTrade->openingOrder->orderRef = orderRef;
-		*/
+		// Copy full opening order (retrieved from callback )
 		* (currTrade->openingOrder) = * (this->rec_order); // copy constructor
-		
-
 	}
 	/* Update archive */
 	archive_td_out();
@@ -364,13 +354,7 @@ bool MClient::closeTrade(Strategy * strategy, const int trade_arr_pos)
 						std::to_string(currTrade->tradeId)  + std::string(" for instrument ") +
 						std::to_string(strategy->get_instr_id()) + std::string(" for strategy ")  + strategy->strategy_code +
 						std::string(" OrderRef: " + currTrade->closingOrder->orderRef + std::string("\n")));
-		/* Copy full closing order (retrieved from callback )*/
-
-		/** MALLOCERROR:!!!!!!
-		std::string orderRef = currTrade->closingOrder->orderRef;
-		memcpy(currTrade->closingOrder, this->rec_order, sizeof(Order)); 
-		currTrade->closingOrder->orderRef = orderRef;
-		*/
+		// Copy full closing order (retrieved from callback ) 
 		* (currTrade->closingOrder) = * (this->rec_order); // copy constructor
 
 	}

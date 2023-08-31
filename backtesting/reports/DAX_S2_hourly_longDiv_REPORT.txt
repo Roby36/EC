@@ -1,0 +1,55 @@
+
+Strategy code:
+	DAX_S2_hourly_longDiv
+DataContract:
+	DAX 40 Index (Deutsche Aktien Xchange 40)
+Backtesting dates:
+	01/09/2021 09:00:00 CEST- 31/08/2023 17:00:00 CEST
+Indicator settings: 
+	RSI: time-period: 14
+	Long Divergence with minimum, maximum divergence periods: 1, 18
+	Bollinger Bands: stDevUp, stDevDown, moving average time-period: (2.000000, 2.000000, 14)
+Entry conditions: 
+	Double divergence
+Exit conditions:
+	Opposite Long divergence
+	Bollinger crossing with condition: Cross middle band in profit
+	Trades closed after 18 bars if negative
+	Fixed Take profit, stop loss: 4.000000, 3.000000
+
+ STRATEGY REPORT:
+Total positive trades: 22 (2242.920000 points); Total negative trades: 10 (-1581.390000 points);
+ Net loss/profit: 661.530000
+
+ Trade no: 0; Direction: short; Entry date: 05/11/2021 12:00:00 CET; Entry closing price: 16045.550000; Exit date: 10/11/2021 14:00:00 CET; Exit closing price: 16059.650000; Loss/profit: -14.100000; Current p&l: -14.100000
+ Trade no: 1; Direction: short; Entry date: 11/11/2021 14:00:00 CET; Entry closing price: 16076.120000; Exit date: 12/11/2021 16:00:00 CET; Exit closing price: 16094.070000; Loss/profit: -17.950000; Current p&l: -29.710000
+ Trade no: 2; Direction: short; Entry date: 12/11/2021 09:00:00 CET; Entry closing price: 16096.410000; Exit date: 12/11/2021 16:00:00 CET; Exit closing price: 16094.070000; Loss/profit: 2.340000; Current p&l: -29.710000
+ Trade no: 3; Direction: short; Entry date: 18/11/2021 09:00:00 CET; Entry closing price: 16243.560000; Exit date: 22/11/2021 14:00:00 CET; Exit closing price: 16145.080000; Loss/profit: 98.480000; Current p&l: 68.770000
+ Trade no: 4; Direction: long; Entry date: 04/02/2022 16:00:00 CET; Entry closing price: 15099.560000; Exit date: 08/02/2022 12:00:00 CET; Exit closing price: 15184.490000; Loss/profit: 84.930000; Current p&l: 153.700000
+ Trade no: 5; Direction: long; Entry date: 22/02/2022 16:00:00 CET; Entry closing price: 14693.000000; Exit date: 23/02/2022 14:00:00 CET; Exit closing price: 14733.480000; Loss/profit: 40.480000; Current p&l: 194.180000
+ Trade no: 6; Direction: long; Entry date: 23/02/2022 16:00:00 CET; Entry closing price: 14631.360000; Exit date: 24/02/2022 08:00:00 CET; Exit closing price: 14112.440000; Loss/profit: -518.920000; Current p&l: -324.740000
+ Trade no: 7; Direction: short; Entry date: 11/03/2022 14:00:00 CET; Entry closing price: 13732.270000; Exit date: 15/03/2022 15:00:00 CET; Exit closing price: 13843.720000; Loss/profit: -111.450000; Current p&l: -436.190000
+ Trade no: 8; Direction: long; Entry date: 27/04/2022 17:00:00 CEST; Entry closing price: 13793.940000; Exit date: 29/04/2022 16:00:00 CEST; Exit closing price: 14092.270000; Loss/profit: 298.330000; Current p&l: -137.860000
+ Trade no: 9; Direction: long; Entry date: 11/05/2022 15:00:00 CEST; Entry closing price: 13749.190000; Exit date: 16/05/2022 11:00:00 CEST; Exit closing price: 13950.900000; Loss/profit: 201.710000; Current p&l: 63.850000
+ Trade no: 10; Direction: long; Entry date: 14/06/2022 14:00:00 CEST; Entry closing price: 13429.670000; Exit date: 16/06/2022 15:00:00 CEST; Exit closing price: 13067.520000; Loss/profit: -362.150000; Current p&l: -632.640000
+ Trade no: 11; Direction: long; Entry date: 15/06/2022 09:00:00 CEST; Entry closing price: 13401.860000; Exit date: 17/06/2022 10:00:00 CEST; Exit closing price: 13174.530000; Loss/profit: -227.330000; Current p&l: -525.630000
+ Trade no: 12; Direction: long; Entry date: 24/06/2022 09:00:00 CEST; Entry closing price: 12954.210000; Exit date: 27/06/2022 15:00:00 CEST; Exit closing price: 13146.060000; Loss/profit: 191.850000; Current p&l: -333.780000
+ Trade no: 13; Direction: long; Entry date: 13/07/2022 16:00:00 CEST; Entry closing price: 12741.820000; Exit date: 19/07/2022 09:00:00 CEST; Exit closing price: 12843.710000; Loss/profit: 101.890000; Current p&l: -231.890000
+ Trade no: 14; Direction: short; Entry date: 15/08/2022 12:00:00 CEST; Entry closing price: 13804.260000; Exit date: 18/08/2022 16:00:00 CEST; Exit closing price: 13678.950000; Loss/profit: 125.310000; Current p&l: 8.660000
+ Trade no: 15; Direction: short; Entry date: 15/08/2022 16:00:00 CEST; Entry closing price: 13794.190000; Exit date: 18/08/2022 16:00:00 CEST; Exit closing price: 13678.950000; Loss/profit: 115.240000; Current p&l: 8.660000
+ Trade no: 16; Direction: long; Entry date: 21/09/2022 10:00:00 CEST; Entry closing price: 12645.220000; Exit date: 22/09/2022 13:00:00 CEST; Exit closing price: 12661.730000; Loss/profit: 16.510000; Current p&l: 25.170000
+ Trade no: 17; Direction: short; Entry date: 15/11/2022 14:00:00 CET; Entry closing price: 14365.870000; Exit date: 17/11/2022 08:00:00 CET; Exit closing price: 14308.090000; Loss/profit: 57.780000; Current p&l: 82.950000
+ Trade no: 18; Direction: long; Entry date: 20/12/2022 15:00:00 CET; Entry closing price: 13902.130000; Exit date: 22/12/2022 13:00:00 CET; Exit closing price: 14006.960000; Loss/profit: 104.830000; Current p&l: 187.780000
+ Trade no: 19; Direction: short; Entry date: 13/01/2023 10:00:00 CET; Entry closing price: 15104.410000; Exit date: 13/01/2023 14:00:00 CET; Exit closing price: 15100.180000; Loss/profit: 4.230000; Current p&l: 192.010000
+ Trade no: 20; Direction: short; Entry date: 16/01/2023 12:00:00 CET; Entry closing price: 15120.080000; Exit date: 17/01/2023 11:00:00 CET; Exit closing price: 15121.930000; Loss/profit: -1.850000; Current p&l: 199.650000
+ Trade no: 21; Direction: short; Entry date: 16/01/2023 14:00:00 CET; Entry closing price: 15131.420000; Exit date: 17/01/2023 11:00:00 CET; Exit closing price: 15121.930000; Loss/profit: 9.490000; Current p&l: 199.650000
+ Trade no: 22; Direction: short; Entry date: 03/02/2023 08:00:00 CET; Entry closing price: 15388.340000; Exit date: 07/02/2023 12:00:00 CET; Exit closing price: 15337.590000; Loss/profit: 50.750000; Current p&l: 250.400000
+ Trade no: 23; Direction: long; Entry date: 22/02/2023 11:00:00 CET; Entry closing price: 15295.140000; Exit date: 22/02/2023 14:00:00 CET; Exit closing price: 15358.530000; Loss/profit: 63.390000; Current p&l: 313.790000
+ Trade no: 24; Direction: long; Entry date: 14/03/2023 08:00:00 CET; Entry closing price: 15063.460000; Exit date: 16/03/2023 09:00:00 CET; Exit closing price: 14820.900000; Loss/profit: -242.560000; Current p&l: 60.670000
+ Trade no: 25; Direction: long; Entry date: 15/03/2023 11:00:00 CET; Entry closing price: 14824.500000; Exit date: 17/03/2023 12:00:00 CET; Exit closing price: 14797.000000; Loss/profit: -27.500000; Current p&l: -11.030000
+ Trade no: 26; Direction: long; Entry date: 15/03/2023 13:00:00 CET; Entry closing price: 14794.180000; Exit date: 17/03/2023 12:00:00 CET; Exit closing price: 14797.000000; Loss/profit: 2.820000; Current p&l: -11.030000
+ Trade no: 27; Direction: long; Entry date: 16/03/2023 08:00:00 CET; Entry closing price: 14854.580000; Exit date: 17/03/2023 12:00:00 CET; Exit closing price: 14797.000000; Loss/profit: -57.580000; Current p&l: -11.030000
+ Trade no: 28; Direction: long; Entry date: 17/03/2023 15:00:00 CET; Entry closing price: 14765.770000; Exit date: 20/03/2023 11:00:00 CET; Exit closing price: 14855.470000; Loss/profit: 89.700000; Current p&l: 78.670000
+ Trade no: 29; Direction: short; Entry date: 10/05/2023 15:00:00 CEST; Entry closing price: 15891.240000; Exit date: 12/05/2023 09:00:00 CEST; Exit closing price: 15880.700000; Loss/profit: 10.540000; Current p&l: 89.210000
+ Trade no: 30; Direction: short; Entry date: 19/05/2023 14:00:00 CEST; Entry closing price: 16277.270000; Exit date: 26/05/2023 12:00:00 CEST; Exit closing price: 15809.680000; Loss/profit: 467.590000; Current p&l: 556.800000
+ Trade no: 31; Direction: long; Entry date: 08/08/2023 13:00:00 CEST; Entry closing price: 15747.850000; Exit date: 09/08/2023 17:00:00 CEST; Exit closing price: 15852.580000; Loss/profit: 104.730000; Current p&l: 661.530000

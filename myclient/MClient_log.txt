@@ -1,2 +1,265 @@
-	LOG INITIATED AT: Mon Aug 28 09:57:05 2023
+	LOG INITIATED AT: Thu Aug 31 21:17:20 2023
 
+Added Strategy DAX_S1_5sec_fut_longDiv
+Next Valid Id: 1884
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:eufarmnj
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:usfarm
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:euhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:hkhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:ushmds
+Error. Id: -1, Code: 2158, Msg: Sec-def data farm connection is OK:secdefil
+ContractDetails begin. ReqId: 620
+	ConId: 604258925
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20230915
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20230915 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202309
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20230915
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 620
+ContractDetails begin. ReqId: 620
+	ConId: 621358845
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20231215
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20231215 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202312
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20231215
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 620
+ContractDetails begin. ReqId: 620
+	ConId: 638120377
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20240315
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20240315 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202403
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20240315
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 620
+ContractDetailsEnd: reqId: 620
+	 Id 620 from reqContractDetails() returned successfully
+ContractDetails begin. ReqId: 610
+	ConId: 604258925
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20230915
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20230915 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202309
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20230915
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetails begin. ReqId: 610
+	ConId: 621358845
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20231215
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20231215 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202312
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20231215
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetails begin. ReqId: 610
+	ConId: 638120377
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20240315
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20240315 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202403
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	LiquidHours: 20230831:0215-20230831:2205;20230901:0215-20230901:2205;20230902:CLOSED;20230903:CLOSED;20230904:0215-20230904:2205;20230905:0215-20230905:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20240315
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetailsEnd: reqId: 610
+	 Id 610 from reqContractDetails() returned successfully
+Error. Id: 640, Code: 162, Msg: Historical Market Data Service error message:No market data permissions for EUREX FUT
+	 Id 640 from reqHistoricalData() timed out
+	Error retrieving / updating historical data for instrument 0
+Error. Id: 630, Code: 354, Msg: Requested market data is not subscribed.
+	 Id 630 from reqRealTimeBars() timed out
+Error. Id: 650, Code: 162, Msg: Historical Market Data Service error message:No market data permissions for EUREX FUT
+	 Id 650 from reqHistoricalData() timed out
+	Error retrieving / updating historical data for instrument 0
+Error. Id: 650, Code: 162, Msg: Historical Market Data Service error message:No market data permissions for EUREX FUT
+	 Id 650 from reqHistoricalData() timed out
+	Error retrieving / updating historical data for instrument 0
