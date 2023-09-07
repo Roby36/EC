@@ -1,0 +1,75 @@
+
+ TRADE LOG:
+Opened 0: long & short Divergence of degree 2 between 13/12/2005 00:00:00 CET and 21/12/2005 00:00:00 CET with absolute % change per bar 0.284291
+Closed 0: Reached take profit / stop loss (handle_barUpdate)
+Opened 1: long & short Divergence of degree 3 between 21/12/2005 00:00:00 CET and 25/12/2005 23:00:00 CET with absolute % change per bar 0.267775
+Closed 1: Reached take profit / stop loss (handle_barUpdate)
+Opened 2: long & short Divergence of degree 2 between 05/01/2006 23:00:00 CET and 12/01/2006 23:00:00 CET with absolute % change per bar 0.003925
+Closed 2: Reached take profit / stop loss (handle_barUpdate)
+Opened 3: long Divergence of degree 3 between 12/01/2006 23:00:00 CET and 29/01/2006 23:00:00 CET with absolute % change per bar 0.170636
+Closed 3: Reached take profit / stop loss (handle_barUpdate)
+Opened 4: long & short Divergence of degree 2 between 18/08/2006 00:00:00 CEST and 22/08/2006 00:00:00 CEST with absolute % change per bar 0.233423
+Closed 4: Crossed lower Bollinger Bands from below in profit
+Opened 5: long Divergence of degree 2 between 23/10/2006 00:00:00 CEST and 26/10/2006 00:00:00 CEST with absolute % change per bar 0.045229
+Closed 5: Reached take profit / stop loss (handle_barUpdate)
+Opened 6: long & short Divergence of degree 2 between 18/11/2007 23:00:00 CET and 20/11/2007 23:00:00 CET with absolute % change per bar 0.681068
+Closed 6: Reached take profit / stop loss (handle_barUpdate)
+Opened 7: long Divergence of degree 2 between 07/02/2008 23:00:00 CET and 02/03/2008 23:00:00 CET with absolute % change per bar 0.012834
+Closed 7: Reached take profit / stop loss (handle_barUpdate)
+Opened 8: long & short Divergence of degree 2 between 15/05/2008 00:00:00 CEST and 19/05/2008 00:00:00 CEST with absolute % change per bar 0.062694
+Closed 8: Crossed lower Bollinger Bands from below in profit
+Opened 9: long Divergence of degree 3 between 19/05/2008 00:00:00 CEST and 02/06/2008 00:00:00 CEST with absolute % change per bar 0.119506
+Closed 9: Crossed lower Bollinger Bands from below in profit
+Opened 10: long Divergence of degree 4 between 02/06/2008 00:00:00 CEST and 06/06/2008 00:00:00 CEST with absolute % change per bar 0.085352
+Closed 10: Crossed lower Bollinger Bands from below in profit
+Opened 11: long & short Divergence of degree 2 between 18/09/2008 00:00:00 CEST and 30/09/2008 00:00:00 CEST with absolute % change per bar 0.285284
+Closed 11: Reached take profit / stop loss (handle_barUpdate)
+Opened 12: long & short Divergence of degree 2 between 06/04/2009 00:00:00 CEST and 10/04/2009 00:00:00 CEST with absolute % change per bar 0.299675
+Closed 12: Crossed lower Bollinger Bands from below in profit
+Opened 13: long & short Divergence of degree 2 between 20/05/2009 00:00:00 CEST and 25/05/2009 00:00:00 CEST with absolute % change per bar 0.008418
+Closed 13: Reached take profit / stop loss (handle_barUpdate)
+Opened 14: long Divergence of degree 2 between 14/08/2009 00:00:00 CEST and 26/08/2009 00:00:00 CEST with absolute % change per bar 0.049989
+Closed 14: Crossed lower Bollinger Bands from below in profit
+Opened 15: long Divergence of degree 2 between 22/07/2010 00:00:00 CEST and 12/08/2010 00:00:00 CEST with absolute % change per bar 0.005994
+Closed 15: Reached take profit / stop loss (handle_barUpdate)
+Opened 16: long Divergence of degree 2 between 28/11/2010 23:00:00 CET and 02/12/2010 23:00:00 CET with absolute % change per bar 0.129197
+Closed 16: Negative after expiration time
+Opened 17: long & short Divergence of degree 2 between 03/01/2013 23:00:00 CET and 14/01/2013 23:00:00 CET with absolute % change per bar 0.297792
+Closed 17: Reached take profit / stop loss (handle_barUpdate)
+Opened 18: long & short Divergence of degree 3 between 14/01/2013 23:00:00 CET and 17/01/2013 23:00:00 CET with absolute % change per bar 0.104850
+Closed 18: Reached take profit / stop loss (handle_barUpdate)
+Opened 19: long & short Divergence of degree 4 between 17/01/2013 23:00:00 CET and 24/01/2013 23:00:00 CET with absolute % change per bar 0.024466
+Closed 19: Reached take profit / stop loss (handle_barUpdate)
+Opened 20: long & short Divergence of degree 2 between 27/11/2013 23:00:00 CET and 02/12/2013 23:00:00 CET with absolute % change per bar 0.047773
+Closed 20: Reached take profit / stop loss (handle_barUpdate)
+Opened 21: long & short Divergence of degree 2 between 05/03/2015 23:00:00 CET and 12/03/2015 23:00:00 CET with absolute % change per bar 0.298614
+Closed 21: Reached take profit / stop loss (handle_barUpdate)
+Opened 22: long & short Divergence of degree 2 between 25/11/2015 23:00:00 CET and 30/11/2015 23:00:00 CET with absolute % change per bar 0.113633
+Closed 22: Reached take profit / stop loss (handle_barUpdate)
+Opened 23: long Divergence of degree 2 between 12/08/2016 00:00:00 CEST and 01/09/2016 00:00:00 CEST with absolute % change per bar 0.002921
+Closed 23: Crossed lower Bollinger Bands from below in profit
+Opened 24: long Divergence of degree 2 between 28/09/2016 00:00:00 CEST and 30/09/2016 00:00:00 CEST with absolute % change per bar 0.047251
+Closed 24: Reached take profit / stop loss (handle_barUpdate)
+Opened 25: long & short Divergence of degree 2 between 06/02/2017 23:00:00 CET and 08/02/2017 23:00:00 CET with absolute % change per bar 0.008223
+Closed 25: Negative after expiration time
+Opened 26: long Divergence of degree 2 between 10/12/2017 23:00:00 CET and 24/12/2017 23:00:00 CET with absolute % change per bar 0.000196
+Closed 26: Reached take profit / stop loss (handle_barUpdate)
+Opened 27: long & short Divergence of degree 2 between 15/01/2018 23:00:00 CET and 22/01/2018 23:00:00 CET with absolute % change per bar 0.143906
+Closed 27: Reached take profit / stop loss (handle_barUpdate)
+Opened 28: long & short Divergence of degree 2 between 13/08/2019 00:00:00 CEST and 15/08/2019 00:00:00 CEST with absolute % change per bar 0.121704
+Closed 28: Reached take profit / stop loss (handle_barUpdate)
+Opened 29: long Divergence of degree 3 between 15/08/2019 00:00:00 CEST and 26/08/2019 00:00:00 CEST with absolute % change per bar 0.101239
+Closed 29: Reached take profit / stop loss (handle_barUpdate)
+Opened 30: long Divergence of degree 2 between 06/07/2020 00:00:00 CEST and 13/07/2020 00:00:00 CEST with absolute % change per bar 0.061899
+Closed 30: Crossed lower Bollinger Bands from below in profit
+Opened 31: long & short Divergence of degree 2 between 26/11/2020 23:00:00 CET and 02/12/2020 23:00:00 CET with absolute % change per bar 0.154496
+Closed 31: Crossed lower Bollinger Bands from below in profit
+Opened 32: long & short Divergence of degree 3 between 02/12/2020 23:00:00 CET and 08/12/2020 23:00:00 CET with absolute % change per bar 0.007992
+Closed 32: Crossed lower Bollinger Bands from below in profit
+Opened 33: long & short Divergence of degree 2 between 20/01/2021 23:00:00 CET and 24/01/2021 23:00:00 CET with absolute % change per bar 0.113764
+Closed 33: Reached take profit / stop loss (handle_barUpdate)
+Opened 34: long Divergence of degree 2 between 24/02/2021 23:00:00 CET and 17/03/2021 23:00:00 CET with absolute % change per bar 0.010713
+Closed 34: Reached take profit / stop loss (handle_barUpdate)
+
+ END OF LOG
+

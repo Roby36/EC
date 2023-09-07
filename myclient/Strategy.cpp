@@ -186,7 +186,7 @@ double Strategy::trade_opening_order_size(MTrade * trade)
     if (t_state == BACKTESTING)
         return trade->bt_order_quant;
     else if (t_state == LIVE)
-        return trade->openingOrder->totalQuantity;
+        return decimalToDouble(trade->openingOrder->totalQuantity);
 
     return 0;
 }
@@ -244,12 +244,10 @@ void Strategy::general_open(const TradeDirection dir,
     new_trade->dir            = dir;
     new_trade->strategy_code  = this->strategy_code;
     new_trade->opening_reason = orderRef;
-    /* Backetsting parameters */
-    if (t_state == BACKTESTING) {
-        new_trade->bt_entry_bar   = bar_index;
-        new_trade->bt_exit_bar    = bar_index;
-        new_trade->bt_order_quant = order_size;
-    }
+    /** IMPORTANT: Set bar references in EVERY trading mode! */
+    new_trade->bt_entry_bar   = bar_index;
+    new_trade->bt_exit_bar    = bar_index;
+    new_trade->bt_order_quant = order_size;
     /* Live trading parameters */
     if (t_state == LIVE) {
         /* Determine trade direction */
@@ -257,10 +255,10 @@ void Strategy::general_open(const TradeDirection dir,
         std::string closing_action = (dir == LONG) ? "SELL": "BUY" ;
         new_trade->openingOrder   = (Order *) malloc (sizeof(Order));
         new_trade->closingOrder   = (Order *) malloc (sizeof(Order));
-        Order opening_order = MOrders::MarketOrder(opening_action, doubleToDecimal(order_size) 
-            /* Error. Id: 669, Code: 579, Msg: Invalid symbol in string - 
-            std::string(this->strategy_code + std::string(": ") + orderRef) 
-            */
+        Order opening_order = MOrders::MarketOrder(opening_action, doubleToDecimal(order_size)
+        /** CORRUPTION: Order struct corrupted --> Error. Id: 669, Code: 579, Msg: Invalid symbol in string - 
+            std::string(this->strategy_code + std::string(": ") + orderRef)  
+        */
         );
         Order closing_order = MOrders::MarketOrder(closing_action, doubleToDecimal(order_size));
         memcpy(new_trade->openingOrder, &opening_order, sizeof(Order));
@@ -296,12 +294,11 @@ void Strategy::general_close(MTrade * trade, const std::string orderRef)
     m_logger->str(std::string("Strategy::closeTrade: closing trade number " + std::to_string(trade->tradeId) + " with orderRef: " + orderRef +  "\n")); 
     /* fill up necessary parameters */
     trade->closing_reason = orderRef;
-    if (t_state == BACKTESTING) {
-        trade->bt_exit_bar = curr_bar_index;
-    }
+    /** IMPORTANT: Set bar references in EVERY trading mode! */
+    trade->bt_exit_bar = curr_bar_index;
     if (t_state == LIVE) {
         /** NOTE: not adding orderRef's to avoid corrupting Order struct
-        trade->closingOrder->orderRef    = this->strategy_code + ": "+ orderRef;
+          trade->closingOrder->orderRef    = std::string(this->strategy_code + ": "+ orderRef);
         */
         trade->waiting_closing_execution = true;
     }
@@ -436,8 +433,8 @@ bool Strategy::double_divergence(DivergenceType divType, /* StatType statType, *
     if (divType == LONG_DIV && double_divergence(SHORT_DIV, true)) /* call without executing any trade */
         div_point_str = "long & short ";
     // Go long if we are on a minimum, short if we are on a maximum
-    if (!no_open)
-        general_open((TradeDirection) DivIndicator->getIndicatorBar(curr_bar_index - 1)->m, curr_bar_index - 1,
+    if (!no_open) /** NOTE: use curr_bar_index as opening bar_index, 1 bar after bar index where divergence occurred! */
+        general_open((TradeDirection) DivIndicator->getIndicatorBar(curr_bar_index - 1)->m, curr_bar_index,
                 div_point_str + DivIndicator->getIndicatorBar(curr_bar_index - 1)->logString());
     return true;
 }
@@ -501,13 +498,14 @@ void Strategy::stop_loss_take_profit(MTrade* curr_trade, const double close)
     /* If not called with realtime bar data (where close != -DBL_MAX) 
        then set close price to current bar index */
     double closing_price = (close == - DBL_MAX) ? trade_closing_price(curr_trade) : close;
+    std::string reason   = (close == - DBL_MAX) ? "(handle_barUpdate)" : "(handle_realTimeBar)";
     double opening_price = trade_opening_price(curr_trade);
     double rel_balance   = curr_trade->dir * (closing_price - opening_price);
     
     if ( 100 * rel_balance / opening_price > take_profit ||
         -100 * rel_balance / opening_price > stop_loss) 
     {
-        general_close(curr_trade, "Reached take profit / stop loss");
+        general_close(curr_trade, std::string("Reached take profit / stop loss " + reason));
     }
 }
 

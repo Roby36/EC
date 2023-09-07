@@ -50,6 +50,24 @@ ContractDetails MContractDetails::NIKFut() {
 	return contractDetails;
 }
 
+ContractDetails MContractDetails::NDAQIndex() {
+    ContractDetails contractDetails;
+    contractDetails.contract.symbol   = "COMP";
+	contractDetails.contract.secType  = "IND";
+	contractDetails.contract.currency = "USD";
+	contractDetails.contract.exchange = "NASDAQ";
+	return contractDetails;
+}
+
+ContractDetails MContractDetails::NDAQStk() {
+    ContractDetails contractDetails;
+    contractDetails.contract.symbol   = "NDAQ";
+	contractDetails.contract.secType  = "STK";
+	contractDetails.contract.currency = "USD";
+	contractDetails.contract.exchange = "SMART";
+	return contractDetails;
+}
+
 // TEST
 
 ContractDetails MContractDetails::CryptoContract() {

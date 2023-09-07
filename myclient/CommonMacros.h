@@ -3,13 +3,17 @@
 /** Rimuovi il commento "//" per attivare i backtest (che verranno definiti nella funzione seguente) **/
 // #define BACKTEST
 // #define LIVETRADE
+#define TRADINGLOOP
 // #define DURSTRTEST
+// #define SS_TEST
 // #define TEST_CONTRACT_DETAILS
 // #define ORDER_BALANCING
 #define GLOBALCANCEL
 
+// #define LHD
+
 /*** Bars.h macros ***/
-#define OUTDIRCHAR 64
+#define OUTDIRCHAR 128
 #define MAXBARS 65536   //2^16
 
 /*** Instrument.h macros  ***/

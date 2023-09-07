@@ -1,15 +1,24 @@
 
 #include "MClient.h"
 #include "CommonMacros.h"
-#include <chrono>
-#include "MClientTests.h"
+#include "../testing/MClientTests.h"
 
 int main() {
 
     // Attempt connection to localhost port 7497 with clientId of 0
     printf( "Start of MClient Test\n");
 
-    MClient * client = new MClient("./MClient_log.txt", 17001, false);
+/** IMPORTANT: Trade data must always be initialized from scratch when backtesting !! 
+ *  TODO:   Handle this case to fix this backtesting limitation
+*/
+    bool init_trade_data;
+#ifdef BACKTEST
+    init_trade_data = true;
+#else 
+    init_trade_data = true;    // set trading data initialization manually here when not backtesting
+#endif
+
+    MClient * client = new MClient("./MClient_log.txt", 17001, init_trade_data);
 
     client->connect( "", 7497);
 
@@ -38,15 +47,6 @@ int main() {
     run_backtests(client);
 #endif
 
-    /** INSTRUMENTS: */
-    // Set up an instrument at low time interval for testing
-/*
-    int inst1_id = client->add_Instrument( "5 secs", MContractDetails::CryptoContract(), MContractDetails::CryptoContract(),    
-                                            Instrument::ReqIds(1101, 1201, 1301, 1401, 1501), "Btc.txt");
-    int inst2_id = client->add_Instrument( "5 secs", MContractDetails::EurGbpFx(), MContractDetails::EurGbpFx(),    
-                    Instrument::ReqIds(2101, 2201, 2301, 2401, 2501), "EurGbp.txt");
-*/
-
     /** TRADING: */
 #ifdef LIVETRADE
     run_livetrades(client);
@@ -54,12 +54,24 @@ int main() {
     client->testSerFile();
 #endif
 
+#ifdef TRADINGLOOP
+    trading_loop(client, 14400);
+    client->testSerFile();
+#endif
+
+// Balance orders when too many are open in a given direction
+#ifdef ORDER_BALANCING
+    client->placeOrders(inst_id[0],  MOrders::MarketOrder("BUY", doubleToDecimal(1.0)), 30);
+    #ifndef SS_TEST
+    client->placeOrders(inst_id[1],  MOrders::MarketOrder("BUY", doubleToDecimal(1.0)), 30);
+    client->placeOrders(inst_id[2],  MOrders::MarketOrder("BUY", doubleToDecimal(1.0)), 30);
+    #endif
+#endif
+
     // Cancel all placed orders
 #ifdef GLOBALCANCEL
     client->reqGlobalCancel();
 #endif
-
-
 
     // clean up
     delete(client);

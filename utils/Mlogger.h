@@ -12,6 +12,8 @@
 #include "bar.h"
 #include <string>
 
+#include "../myclient/CommonMacros.h"
+
 class Mlogger
 {
   FILE* lfp;
