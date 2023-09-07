@@ -28,11 +28,8 @@ void run_backtests(MClient * client) {
     client->update_contracts();
     // Determina il numero di barre da includere nei backtest 
     client->update_bars(num_bars, true);
-    // stampa risultati backtests 
-    client->print_indicators(outputDir);
-    client->print_bars(outputDir);
-    client->print_PL_data(outputDir);
-    client->print_backtest_results();
+    // stampa tutti i dati
+    print_data(client);
 
     del_strategies();
 }
@@ -48,11 +45,18 @@ void run_livetrades(MClient * client) {
     client->update_bars(num_bars, true);
     // give time for executions to come in
     std::this_thread::sleep_for(std::chrono::seconds(15));
+    // Print results
+    print_data(client);
 
     del_strategies();
 }
 
 void trading_loop(MClient * client, int loop_dur) {
+
+    /** CONSTANTS: to be set as function parameters? */
+    const int bar_size          = 15;
+    const int update_factor     = 8;
+    const int update_frequency  = 30; 
     
     init_strategies(client);
 
@@ -69,24 +73,23 @@ void trading_loop(MClient * client, int loop_dur) {
     client->reqRealTimeBars(instr[2]->m_reqIds.realTimeBars, instr[2]->dataContract.contract, -1, "TRADES", 1);
 #endif
 
-    /* Enter loop, trying to update bars every 5 seconds */
-    int dur_elapsed = 0;
-    const int update_frequency = 5; // = barSize (seconds)
     printf("Entering trading loop...\n");
+    int dur_elapsed = 0;
+    const int bars_per_update = update_frequency / bar_size;
+
     while (dur_elapsed < loop_dur) {
+        client->m_logger->str(std::string("\t Trading loop iteration. dur_elapsed = " +
+                                    std::to_string(dur_elapsed) + "\n"));
         /** 20S = invalid duration */
-        client->update_bars(12, false);
+        client->update_bars(update_factor * bars_per_update, false);    // increment bars requested significantly since often request fails
         std::this_thread::sleep_for(std::chrono::seconds(update_frequency));
         dur_elapsed += update_frequency;
     }
 
     printf("Exited trading loop. Printing logs...\n");
     /* Print all logs, as if we were in backtesting mode */
-    client->print_indicators(outputDir);
-    client->print_bars(outputDir);
-    client->print_PL_data(outputDir);
-    client->print_backtest_results();
-
+    print_data(client);
+    
     del_strategies();
 }
 
@@ -124,6 +127,14 @@ void init_strategies(MClient * client)
 #endif
 }
 
+void print_data(MClient * client) {
+
+    client->print_indicators(outputDir);
+    client->print_bars(outputDir);
+    client->print_PL_data(outputDir);
+    client->print_backtest_results();
+}
+
 void del_strategies() {
     /* Elimina strategie */
     delete (strat[0]);
@@ -132,4 +143,5 @@ void del_strategies() {
     delete (strat[2]);
 #endif
 }
+
 

@@ -1,8 +1,0 @@
-	LOG INITIATED AT: Thu Aug 31 21:17:30 2023
-
-	extend_dur(): snprintf() recorded 6 characters
-	extend_dur(5 secs) = 5120 S
-	extend_dur(): snprintf() recorded 4 characters
-	extend_dur(5 secs) = 60 S
-	extend_dur(): snprintf() recorded 4 characters
-	extend_dur(5 secs) = 60 S

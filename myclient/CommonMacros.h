@@ -5,10 +5,10 @@
 // #define LIVETRADE
 #define TRADINGLOOP
 // #define DURSTRTEST
-#define SS_TEST
+// #define SS_TEST
 // #define TEST_CONTRACT_DETAILS
 // #define ORDER_BALANCING
-// #define GLOBALCANCEL
+#define GLOBALCANCEL
 
 // #define LHD
 

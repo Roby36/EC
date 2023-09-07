@@ -1,0 +1,17 @@
+
+ TRADE LOG:
+Opened 0: Denied divergence on new local minimum on 01/09/2023 16:29:10 CEST; long & short divergence between most_left_bar 01/09/2023 16:27:15 CEST and most_right_bar 01/09/2023 16:27:40 CEST of entity 2 with absolute % change per bar 0.000340
+Closed 0: Reached take profit / stop loss (handle_barUpdate)
+Opened 1: Denied divergence on new local minimum on 01/09/2023 16:46:55 CEST; long & short divergence between most_left_bar 01/09/2023 16:46:10 CEST and most_right_bar 01/09/2023 16:46:25 CEST of entity 2 with absolute % change per bar 0.000692
+Closed 1: 
+Opened 2: Denied divergence on new local maximum on 01/09/2023 16:53:05 CEST; long & short divergence between most_left_bar 01/09/2023 16:52:25 CEST and most_right_bar 01/09/2023 16:52:35 CEST of entity 2 with absolute % change per bar 0.000189
+Closed 2: Reached take profit / stop loss (handle_barUpdate)
+Opened 3: Denied divergence on new local maximum on 01/09/2023 17:18:20 CEST; long & short divergence between most_left_bar 01/09/2023 17:17:55 CEST and most_right_bar 01/09/2023 17:18:05 CEST of entity 2 with absolute % change per bar 0.000378
+Closed 3: Reached take profit / stop loss (handle_barUpdate)
+Opened 4: Denied divergence on new local maximum on 01/09/2023 17:20:25 CEST; long & short divergence between most_left_bar 01/09/2023 17:19:45 CEST and most_right_bar 01/09/2023 17:19:55 CEST of entity 2 with absolute % change per bar 0.000095
+Closed 4: Reached take profit / stop loss (handle_barUpdate)
+Opened 5: Denied divergence on new local minimum on 01/09/2023 17:27:40 CEST; long & short divergence between most_left_bar 01/09/2023 17:26:10 CEST and most_right_bar 01/09/2023 17:26:20 CEST of entity 2 with absolute % change per bar 0.000126
+Closed 5: Reached take profit / stop loss (handle_barUpdate)
+
+ END OF LOG
+

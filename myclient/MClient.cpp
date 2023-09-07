@@ -423,7 +423,8 @@ void MClient::handle_historicalData(TickerId reqId, const Bar& bar)
 		return;
 	}
 	// Try to update the instrument's Bars, and check if instrument requires bar update
-	if (!instr->addBar(reqId, bar)) return;
+	if (!instr->addBar(reqId, bar)) 
+		return;
 	/* Query each strategy attached to the instrument, and forward trades to open & close */
 	for (int s = 0; s < m_stratCount[instr->inst_id]; s++) {
 		Strategy * curr_strat = m_stratArray[instr->inst_id][s];

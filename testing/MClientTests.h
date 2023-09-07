@@ -38,6 +38,7 @@ static Strategy *                      strat[3];
         longDivergence, 1.0, divType, max_neg_period, RSI_cond, Boll_cond /* parametri per divergenza negata */);
 
 static void init_strategies(MClient * client);
+static void print_data(MClient * client);
 static void del_strategies();
 
 void test_contract_details(MClient * client);

@@ -55,7 +55,7 @@ int main() {
 #endif
 
 #ifdef TRADINGLOOP
-    trading_loop(client, 60);
+    trading_loop(client, 14400);
     client->testSerFile();
 #endif
 

@@ -186,7 +186,7 @@ double Strategy::trade_opening_order_size(MTrade * trade)
     if (t_state == BACKTESTING)
         return trade->bt_order_quant;
     else if (t_state == LIVE)
-        return trade->openingOrder->totalQuantity;
+        return decimalToDouble(trade->openingOrder->totalQuantity);
 
     return 0;
 }
