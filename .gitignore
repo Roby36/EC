@@ -10,7 +10,7 @@ core
 
 # Object files and libraries
 *.o
-*.a
+# *.a
 a.out
 
 # Emacs backup and scratch files
@@ -36,5 +36,4 @@ Icon?
 /data/
 /indicatorslog/
 /input/
-/analysis/analysis.a
 
