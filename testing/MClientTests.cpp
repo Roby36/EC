@@ -67,10 +67,10 @@ void trading_loop(MClient * client, int loop_dur) {
     
     /* Subscribe to realTimeBars for live trading */
     client->set_trading_state(LIVE); // SET LIVE TRADING STATE AFTER ADDING STRATEGY AND AFTER INITIALIZING BARS!
-    client->reqRealTimeBars(instr[0]->m_reqIds.realTimeBars, instr[0]->dataContract.contract, -1, "TRADES", 1);
+    client->reqRealTimeBars(instr[0]->m_reqIds.realTimeBars, instr[0]->dataContract->contract, -1, "TRADES", 1);
 #ifndef SS_TEST
-    client->reqRealTimeBars(instr[1]->m_reqIds.realTimeBars, instr[1]->dataContract.contract, -1, "TRADES", 1);
-    client->reqRealTimeBars(instr[2]->m_reqIds.realTimeBars, instr[2]->dataContract.contract, -1, "TRADES", 1);
+    client->reqRealTimeBars(instr[1]->m_reqIds.realTimeBars, instr[1]->dataContract->contract, -1, "TRADES", 1);
+    client->reqRealTimeBars(instr[2]->m_reqIds.realTimeBars, instr[2]->dataContract->contract, -1, "TRADES", 1);
 #endif
 
     printf("Entering trading loop...\n");

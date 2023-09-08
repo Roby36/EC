@@ -4,7 +4,7 @@ Strategy code:
 DataContract:
 	Nikkei 225
 Backtesting dates:
-	12/03/2004 00:00:00 CEST- 31/08/2023 00:00:00 CEST
+	12/03/2004 00:00:00 CEST- 08/09/2023 00:00:00 CEST
 Indicator settings: 
 	RSI: time-period: 14
 	Long Divergence with minimum, maximum divergence periods: 1, 18

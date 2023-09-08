@@ -263,10 +263,6 @@ void Strategy::general_open(const TradeDirection dir,
         Order closing_order = MOrders::MarketOrder(closing_action, doubleToDecimal(order_size));
         memcpy(new_trade->openingOrder, &opening_order, sizeof(Order));
         memcpy(new_trade->closingOrder, &closing_order, sizeof(Order));
-        /** BUSERROR:!!!
-        * new_trade->openingOrder = MOrders::MarketOrder(opening_action, doubleToDecimal(order_size), this->strategy_code + ": "+ orderRef);
-        * new_trade->closingOrder = MOrders::MarketOrder(closing_action, doubleToDecimal(order_size));
-        */ 
         new_trade->waiting_opening_execution = true;
     }
     /* Add trade to array of trades to open*/
