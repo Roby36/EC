@@ -30,17 +30,17 @@ class Instrument
     char* extend_dur(int factor);
     bool requires_update();
 
-    Bars* bars;
-    ContractDetails dataContract;
-    ContractDetails orderContract;
+    Bars * bars;
+    ContractDetails * dataContract;
+    ContractDetails * orderContract;
 
     bool addBar(TickerId reqId, const Bar& bar, const double time_tol = 1.5, const int update_factor = 2);  // passed in historicalDataUpdate callback
-    static bool within_trading_hours(ContractDetails contract_details);
+    static bool within_trading_hours(ContractDetails * contract_details);
     void updateDataContract (int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
     void updateOrderContract(int reqId, const ContractDetails& contractDetails); // passed in contractDetails callback
 
     /*** Important: all reqIds must be different across Instruments ****/
-    typedef struct RI {
+    struct ReqIds {
 
         int orderContract;
         int dataContract;
@@ -48,7 +48,7 @@ class Instrument
         TickerId historicalBars;
         TickerId updatedBars;
 
-        RI(const int orderContract, 
+        ReqIds(const int orderContract, 
            const int dataContract, 
            const int realTimeBars, 
            const TickerId historicalBars, 
@@ -61,14 +61,14 @@ class Instrument
         {
         }
         
-    } ReqIds;
+    };
 
     ReqIds m_reqIds;
 
     Instrument(const int inst_id, 
                const std::string barSize, 
-               ContractDetails dataContract, 
-               ContractDetails orderContract, 
+               const ContractDetails& dataContract, 
+               const ContractDetails& orderContract, 
                ReqIds reqIds, 
                std::string logFilePath = "./Instrument_log.txt");
     ~Instrument();

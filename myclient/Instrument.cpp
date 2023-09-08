@@ -3,16 +3,16 @@
 
 Instrument::Instrument(const int inst_id, 
                        const std::string barSize, 
-                       ContractDetails dataContract, 
-                       ContractDetails orderContract, 
+                       const ContractDetails& dataContract, 
+                       const ContractDetails& orderContract, 
                        ReqIds reqIds, 
                        std::string logFilePath)
                         : m_logger(new Mlogger( logFilePath)),  
                           inst_id(inst_id), 
                           barSize(barSize), 
                           sec_barSize( parse_barSize( barSize)),
-                          dataContract(dataContract), 
-                          orderContract(orderContract),
+                          dataContract(new ContractDetails(dataContract)), 
+                          orderContract(new ContractDetails(orderContract)),
                           m_reqIds(reqIds)                   
 {
     // Check if bar size successfully parsed 
@@ -23,6 +23,7 @@ Instrument::Instrument(const int inst_id,
     }
     //Initialize instrument's Bars object:
     this->bars = new Bars();
+    
 }
 
 Instrument::~Instrument()
@@ -30,6 +31,9 @@ Instrument::~Instrument()
     //TO-DO: determine what to free
     delete(this->bars);
     delete m_logger;
+
+    delete dataContract;
+    delete orderContract;
 }
 
 int Instrument::parse_barSize( const std::string barSize)
@@ -176,7 +180,7 @@ bool Instrument::addBar(TickerId reqId, const Bar& bar, const double time_tol, c
     return true;
 }         
 
-bool Instrument::within_trading_hours(ContractDetails contract_details) 
+bool Instrument::within_trading_hours(ContractDetails * contract_details) 
 {
     /** EXAMPLES:
     20230806:CLOSED;20230807:0215-20230807:2205;20230808:0215-20230808:2205;20230809:0215-20230809:2205;20230810:0215-20230810:2205;20230811:0215-20230811:2205
@@ -184,7 +188,7 @@ bool Instrument::within_trading_hours(ContractDetails contract_details)
     20230807:0215 - 20230807:2205 ;
     */
     char th_string [MAX_TH_STRING_LENGTH]; // Copy constant date-time string into modifiable array
-    strncpy(th_string, contract_details.tradingHours.c_str(), MAX_TH_STRING_LENGTH);
+    strncpy(th_string, contract_details->tradingHours.c_str(), MAX_TH_STRING_LENGTH);
     char * th_string_it = th_string;
     while (*(++th_string_it) != ';') {} // iterate until the first ';' 
     *th_string_it = '\0'; // truncate string
@@ -212,12 +216,14 @@ void Instrument::updateDataContract (int reqId, const ContractDetails& contractD
     // Ignore call if reqId does not correspond
     if (this->m_reqIds.dataContract != reqId)
         return;
-    this->dataContract = contractDetails; // Update contract
+    // memcpy(this->dataContract, &contractDetails, sizeof(ContractDetails)); // Update contract
+    * this->dataContract = contractDetails;
 }
 
 void Instrument::updateOrderContract(int reqId, const ContractDetails& contractDetails) {
     // Ignore call if reqId does not correspond
     if (this->m_reqIds.orderContract != reqId) 
         return;
-    this->orderContract = contractDetails; // Update contract
+    // memcpy(this->orderContract, &contractDetails, sizeof(ContractDetails)) ; // Update contract
+    * this->orderContract = contractDetails;
 }

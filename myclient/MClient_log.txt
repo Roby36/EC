@@ -1,0 +1,242 @@
+	LOG INITIATED AT: Fri Sep  8 08:34:12 2023
+
+Added Strategy DAX_S2_hourly_longDiv
+Next Valid Id: 2107
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:eufarmnj
+Error. Id: -1, Code: 2104, Msg: Market data farm connection is OK:usfarm
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:euhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:hkhmds
+Error. Id: -1, Code: 2106, Msg: HMDS data farm connection is OK:ushmds
+Error. Id: -1, Code: 2158, Msg: Sec-def data farm connection is OK:secdefil
+ContractDetails begin. ReqId: 620
+	ConId: 825711
+	Symbol: DAX
+	SecType: IND
+	LastTradeDateOrContractMonth: 
+	Strike: 0
+	Right: 
+	Multiplier: 
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: DAX
+	TradingClass: 
+	MarketName: 
+	MinTick: 0.01
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALLOC,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,LMT,NONALGO,OCA,SCALE,SCALERST,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 0
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230908:0900-20230908:1740;20230909:CLOSED;20230910:CLOSED;20230911:0900-20230911:1740;20230912:0900-20230912:1740;20230913:0900-20230913:1740
+	LiquidHours: 20230908:0900-20230908:1740;20230909:CLOSED;20230910:CLOSED;20230911:0900-20230911:1740;20230912:0900-20230912:1740;20230913:0900-20230913:1740
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: 
+	UnderSecType: 
+	MarketRuleIds: 25
+	RealExpirationDate: 
+	LastTradeTime: 
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 620
+ContractDetailsEnd: reqId: 620
+	 Id 620 from reqContractDetails() returned successfully
+ContractDetails begin. ReqId: 610
+	ConId: 604258925
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20230915
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20230915 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202309
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	LiquidHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20230915
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetails begin. ReqId: 610
+	ConId: 621358845
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20231215
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20231215 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202312
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	LiquidHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20231215
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetails begin. ReqId: 610
+	ConId: 638120377
+	Symbol: DAX
+	SecType: FUT
+	LastTradeDateOrContractMonth: 20240315
+	Strike: 0
+	Right: 
+	Multiplier: 1
+	Exchange: EUREX
+	PrimaryExchange: 
+	Currency: EUR
+	LocalSymbol: FDXS 20240315 M
+	TradingClass: FDXS
+	MarketName: FDXS
+	MinTick: 1
+	PriceMagnifier: 1
+	OrderTypes: ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,MIT,MKT,MKTPROT,MTL,NGCOMB,NONALGO,OCA,OPENCLOSE,PEGBENCH,REL,RELPCTOFS,SCALE,SCALERST,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF
+	ValidExchanges: EUREX
+	UnderConId: 825711
+	LongName: DAX 40 Index (Deutsche Aktien Xchange 40)
+	ContractMonth: 202403
+	Indystry: 
+	Category: 
+	SubCategory: 
+	TimeZoneId: MET
+	TradingHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	LiquidHours: 20230908:0215-20230908:2205;20230909:CLOSED;20230910:CLOSED;20230911:0215-20230911:2205;20230912:0215-20230912:2205;20230913:0215-20230913:2205
+	EvRule: 
+	EvMultiplier: 0
+	AggGroup: 
+	UnderSymbol: DAX
+	UnderSecType: IND
+	MarketRuleIds: 33
+	RealExpirationDate: 20240315
+	LastTradeTime: 13:00:00
+	StockType: 
+	MinSize: 1
+	SizeIncrement: 1
+	SuggestedSizeIncrement: 1
+ContractDetails end. ReqId: 610
+ContractDetailsEnd: reqId: 610
+	 Id 610 from reqContractDetails() returned successfully
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 04/11/2021 14:00:00 CET and 05/11/2021 11:00:00 CET with absolute % change per bar 0.005046
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 11/11/2021 09:00:00 CET and 11/11/2021 13:00:00 CET with absolute % change per bar 0.007146
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 3 between 11/11/2021 13:00:00 CET and 12/11/2021 08:00:00 CET with absolute % change per bar 0.003277
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 17/11/2021 15:00:00 CET and 18/11/2021 08:00:00 CET with absolute % change per bar 0.043523
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long divergence
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 04/02/2022 13:00:00 CET and 04/02/2022 15:00:00 CET with absolute % change per bar 0.006229
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 22/02/2022 13:00:00 CET and 22/02/2022 15:00:00 CET with absolute % change per bar 0.072644
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 3 between 22/02/2022 15:00:00 CET and 23/02/2022 15:00:00 CET with absolute % change per bar 0.042622
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Reached take profit / stop loss (handle_barUpdate)
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 11/03/2022 11:00:00 CET and 11/03/2022 13:00:00 CET with absolute % change per bar 0.099534
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 26/04/2022 17:00:00 CEST and 27/04/2022 16:00:00 CEST with absolute % change per bar 0.017219
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long & short divergence
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 10/05/2022 17:00:00 CEST and 11/05/2022 14:00:00 CEST with absolute % change per bar 0.004396
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long & short divergence
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST with absolute % change per bar 0.082581
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 14/06/2022 17:00:00 CEST with absolute % change per bar 0.041646
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 23/06/2022 09:00:00 CEST and 23/06/2022 17:00:00 CEST with absolute % change per bar 0.033078
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 12/07/2022 12:00:00 CEST and 13/07/2022 15:00:00 CEST with absolute % change per bar 0.001908
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 11:00:00 CEST with absolute % change per bar 0.001449
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 3 between 15/08/2022 11:00:00 CEST and 15/08/2022 15:00:00 CEST with absolute % change per bar 0.009198
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long divergence
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long divergence
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 19/09/2022 11:00:00 CEST and 21/09/2022 09:00:00 CEST with absolute % change per bar 0.009184
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 14/11/2022 14:00:00 CET and 15/11/2022 13:00:00 CET with absolute % change per bar 0.040231
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 16/12/2022 15:00:00 CET and 20/12/2022 14:00:00 CET with absolute % change per bar 0.002191
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 12/01/2023 13:00:00 CET and 13/01/2023 09:00:00 CET with absolute % change per bar 0.041326
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 3 between 13/01/2023 09:00:00 CET and 16/01/2023 11:00:00 CET with absolute % change per bar 0.013770
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 4 between 16/01/2023 11:00:00 CET and 16/01/2023 13:00:00 CET with absolute % change per bar 0.044204
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 02/02/2023 13:00:00 CET and 02/02/2023 16:00:00 CET with absolute % change per bar 0.096523
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 22/02/2023 08:00:00 CET and 22/02/2023 10:00:00 CET with absolute % change per bar 0.002779
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 13/03/2023 12:00:00 CET and 13/03/2023 16:00:00 CET with absolute % change per bar 0.017902
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 3 between 13/03/2023 16:00:00 CET and 15/03/2023 10:00:00 CET with absolute % change per bar 0.103597
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 4 between 15/03/2023 10:00:00 CET and 15/03/2023 12:00:00 CET with absolute % change per bar 0.005686
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 5 between 15/03/2023 12:00:00 CET and 15/03/2023 16:00:00 CET with absolute % change per bar 0.061875
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Negative after expiration time
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 6 between 15/03/2023 16:00:00 CET and 17/03/2023 14:00:00 CET with absolute % change per bar 0.005476
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 09/05/2023 17:00:00 CEST and 10/05/2023 14:00:00 CEST with absolute % change per bar 0.006309
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed lower Bollinger Bands from below in profit
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long & short Divergence of degree 2 between 19/05/2023 10:00:00 CEST and 19/05/2023 13:00:00 CEST with absolute % change per bar 0.021675
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Opposite (not necessarily denied) long divergence
+openTrade called in BACKTESTING MODE with strategy_code DAX_S2_hourly_longDiv opening_reason: long Divergence of degree 2 between 04/08/2023 13:00:00 CEST and 08/08/2023 12:00:00 CEST with absolute % change per bar 0.026064
+closeTrade called in BACKTESTING MODE with strategy_code: DAX_S2_hourly_longDiv closing_reason: Crossed upper Bollinger Bands from above in profit
+HistoricalDataEnd. ReqId: 640 - Start Date: 20210908 08:34:22 MET, End Date: 20230908 08:34:22 MET
+	 Id 640 from reqHistoricalData() returned successfully
+	Requesting global cancel
+Error. Id: -1, Code: 509, Msg: Exception caught while reading socket - Bad file descriptor

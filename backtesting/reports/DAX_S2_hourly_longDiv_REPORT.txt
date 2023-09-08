@@ -4,7 +4,7 @@ Strategy code:
 DataContract:
 	DAX 40 Index (Deutsche Aktien Xchange 40)
 Backtesting dates:
-	01/09/2021 09:00:00 CEST- 31/08/2023 17:00:00 CEST
+	08/09/2021 09:00:00 CEST- 07/09/2023 17:00:00 CEST
 Indicator settings: 
 	RSI: time-period: 14
 	Long Divergence with minimum, maximum divergence periods: 1, 18

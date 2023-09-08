@@ -253,7 +253,7 @@ int MClient::placeOrder(int inst_id, Order order) {
 		return -1;
 	}
 	m_state = PLACEORDER;
-	m_Client->placeOrder(m_orderId, instr->orderContract.contract, order);
+	m_Client->placeOrder(m_orderId, instr->orderContract->contract, order);
 	if (!waitResponse( PLACEORDER_ACK, m_orderId, "placeOrder()")) 
 		return -1;
 	return m_orderId;
@@ -569,8 +569,8 @@ void MClient::update_contracts() {
 	for (int i = 0; i < m_instr_Id; i++) {
 		// For each instrument, request contract details and handle response
 		Instrument* instr = m_instrArray[i];
-		reqContractDetails( instr->m_reqIds.dataContract, instr->dataContract.contract);
-		reqContractDetails( instr->m_reqIds.orderContract, instr->orderContract.contract);
+		reqContractDetails( instr->m_reqIds.dataContract, instr->dataContract->contract);
+		reqContractDetails( instr->m_reqIds.orderContract, instr->orderContract->contract);
 	}
 }
 
@@ -618,7 +618,7 @@ void MClient::update_instr_bars(int instr_id, int numBars, bool initialization, 
 	// Fetch appropriate reqIds for instrument
 	int reqId = (initialization == true)  * ((int) instr->m_reqIds.historicalBars) +
 			    (initialization == false) * ((int) instr->m_reqIds.updatedBars);
-	if (!reqHistoricalData(reqId, instr->dataContract.contract, queryTime,
+	if (!reqHistoricalData(reqId, instr->dataContract->contract, queryTime,
 							durStr, instr->barSize, whatToShow, useRTH, 1, false))
 		m_logger->str("\tError retrieving / updating historical data for instrument " + std::to_string(instr_id) + "\n");
 	else instr->bars2update = 0; // reset bars to update for instrument only if data fetched successfully
