@@ -1,0 +1,81 @@
+
+ TRADE LOG:
+Opened 0: long & short Divergence of degree 2 between 22/10/2021 14:00:00 CEST and 22/10/2021 16:00:00 CEST with absolute % change per bar 0.048827
+Closed 0: Crossed lower Bollinger Bands from below in profit
+Opened 1: long Divergence of degree 2 between 26/10/2021 17:00:00 CEST and 28/10/2021 12:00:00 CEST with absolute % change per bar 0.000309
+Closed 1: Opposite (not necessarily denied) long & short divergence
+Opened 2: long & short Divergence of degree 2 between 02/11/2021 10:00:00 CET and 02/11/2021 13:00:00 CET with absolute % change per bar 0.025330
+Closed 2: Negative after expiration time
+Opened 3: long & short Divergence of degree 2 between 17/11/2021 13:00:00 CET and 17/11/2021 15:00:00 CET with absolute % change per bar 0.004314
+Closed 3: Crossed lower Bollinger Bands from below in profit
+Opened 4: long Divergence of degree 2 between 24/01/2022 16:00:00 CET and 25/01/2022 14:00:00 CET with absolute % change per bar 0.056310
+Closed 4: Opposite (not necessarily denied) long & short divergence
+Opened 5: long & short Divergence of degree 2 between 10/02/2022 08:00:00 CET and 10/02/2022 10:00:00 CET with absolute % change per bar 0.008190
+Closed 5: Reached take profit / stop loss (handle_barUpdate)
+Opened 6: long Divergence of degree 2 between 24/03/2022 10:00:00 CET and 24/03/2022 14:00:00 CET with absolute % change per bar 0.012581
+Closed 6: Crossed upper Bollinger Bands from above in profit
+Opened 7: long Divergence of degree 2 between 27/04/2022 09:00:00 CEST and 27/04/2022 16:00:00 CEST with absolute % change per bar 0.025636
+Closed 7: Crossed upper Bollinger Bands from above in profit
+Opened 8: long & short Divergence of degree 2 between 13/06/2022 16:00:00 CEST and 14/06/2022 13:00:00 CEST with absolute % change per bar 0.113364
+Closed 8: Negative after expiration time
+Opened 9: long Divergence of degree 3 between 14/06/2022 13:00:00 CEST and 16/06/2022 12:00:00 CEST with absolute % change per bar 0.074834
+Closed 9: Crossed upper Bollinger Bands from above in profit
+Opened 10: long Divergence of degree 4 between 16/06/2022 12:00:00 CEST and 16/06/2022 16:00:00 CEST with absolute % change per bar 0.047415
+Closed 10: Crossed upper Bollinger Bands from above in profit
+Opened 11: long & short Divergence of degree 2 between 28/06/2022 10:00:00 CEST and 28/06/2022 12:00:00 CEST with absolute % change per bar 0.016090
+Closed 11: Reached take profit / stop loss (handle_barUpdate)
+Opened 12: long & short Divergence of degree 3 between 28/06/2022 12:00:00 CEST and 28/06/2022 15:00:00 CEST with absolute % change per bar 0.019768
+Closed 12: Reached take profit / stop loss (handle_barUpdate)
+Opened 13: long & short Divergence of degree 2 between 07/07/2022 17:00:00 CEST and 08/07/2022 13:00:00 CEST with absolute % change per bar 0.008765
+Closed 13: Opposite (not necessarily denied) long & short divergence
+Opened 14: long & short Divergence of degree 2 between 26/07/2022 15:00:00 CEST and 26/07/2022 17:00:00 CEST with absolute % change per bar 0.019283
+Closed 14: Crossed upper Bollinger Bands from above in profit
+Opened 15: long Divergence of degree 2 between 05/08/2022 13:00:00 CEST and 08/08/2022 09:00:00 CEST with absolute % change per bar 0.026166
+Closed 15: Negative after expiration time
+Opened 16: long Divergence of degree 2 between 12/08/2022 11:00:00 CEST and 15/08/2022 12:00:00 CEST with absolute % change per bar 0.002538
+Closed 16: Crossed lower Bollinger Bands from below in profit
+Opened 17: long Divergence of degree 3 between 15/08/2022 12:00:00 CEST and 15/08/2022 15:00:00 CEST with absolute % change per bar 0.013391
+Closed 17: Crossed lower Bollinger Bands from below in profit
+Opened 18: long Divergence of degree 2 between 19/09/2022 11:00:00 CEST and 21/09/2022 09:00:00 CEST with absolute % change per bar 0.013828
+Closed 18: Crossed upper Bollinger Bands from above in profit
+Opened 19: long Divergence of degree 2 between 22/11/2022 09:00:00 CET and 22/11/2022 15:00:00 CET with absolute % change per bar 0.007462
+Closed 19: Negative after expiration time
+Opened 20: long Divergence of degree 2 between 12/12/2022 08:00:00 CET and 12/12/2022 13:00:00 CET with absolute % change per bar 0.007352
+Closed 20: Crossed upper Bollinger Bands from above in profit
+Opened 21: long & short Divergence of degree 2 between 20/12/2022 14:00:00 CET and 20/12/2022 16:00:00 CET with absolute % change per bar 0.056922
+Closed 21: Crossed upper Bollinger Bands from above in profit
+Opened 22: long & short Divergence of degree 2 between 16/01/2023 11:00:00 CET and 16/01/2023 13:00:00 CET with absolute % change per bar 0.034278
+Closed 22: Crossed lower Bollinger Bands from below in profit
+Opened 23: long & short Divergence of degree 3 between 16/01/2023 13:00:00 CET and 16/01/2023 16:00:00 CET with absolute % change per bar 0.005208
+Closed 23: Crossed lower Bollinger Bands from below in profit
+Opened 24: long & short Divergence of degree 2 between 26/01/2023 10:00:00 CET and 26/01/2023 13:00:00 CET with absolute % change per bar 0.028914
+Closed 24: Crossed lower Bollinger Bands from below in profit
+Opened 25: long & short Divergence of degree 2 between 02/02/2023 13:00:00 CET and 02/02/2023 16:00:00 CET with absolute % change per bar 0.039405
+Closed 25: Crossed lower Bollinger Bands from below in profit
+Opened 26: long & short Divergence of degree 2 between 14/02/2023 14:00:00 CET and 15/02/2023 09:00:00 CET with absolute % change per bar 0.022632
+Closed 26: Negative after expiration time
+Opened 27: long Divergence of degree 2 between 22/02/2023 08:00:00 CET and 22/02/2023 11:00:00 CET with absolute % change per bar 0.014225
+Closed 27: Crossed upper Bollinger Bands from above in profit
+Opened 28: long & short Divergence of degree 2 between 06/03/2023 13:00:00 CET and 06/03/2023 15:00:00 CET with absolute % change per bar 0.002434
+Closed 28: Crossed lower Bollinger Bands from below in profit
+Opened 29: long & short Divergence of degree 3 between 06/03/2023 15:00:00 CET and 07/03/2023 08:00:00 CET with absolute % change per bar 0.006375
+Closed 29: Crossed lower Bollinger Bands from below in profit
+Opened 30: long & short Divergence of degree 4 between 07/03/2023 08:00:00 CET and 07/03/2023 10:00:00 CET with absolute % change per bar 0.006490
+Closed 30: Crossed lower Bollinger Bands from below in profit
+Opened 31: long Divergence of degree 2 between 03/04/2023 09:00:00 CEST and 04/04/2023 12:00:00 CEST with absolute % change per bar 0.034871
+Closed 31: Crossed lower Bollinger Bands from below in profit
+Opened 32: long & short Divergence of degree 2 between 24/04/2023 13:00:00 CEST and 24/04/2023 15:00:00 CEST with absolute % change per bar 0.004424
+Closed 32: Opposite (not necessarily denied) long & short divergence
+Opened 33: long & short Divergence of degree 2 between 19/05/2023 11:00:00 CEST and 19/05/2023 15:00:00 CEST with absolute % change per bar 0.047695
+Closed 33: Opposite (not necessarily denied) long & short divergence
+Opened 34: long & short Divergence of degree 2 between 25/05/2023 15:00:00 CEST and 26/05/2023 09:00:00 CEST with absolute % change per bar 0.009287
+Closed 34: Crossed upper Bollinger Bands from above in profit
+Opened 35: long Divergence of degree 2 between 23/06/2023 14:00:00 CEST and 26/06/2023 10:00:00 CEST with absolute % change per bar 0.046621
+Closed 35: Crossed upper Bollinger Bands from above in profit
+Opened 36: long Divergence of degree 2 between 06/09/2023 09:00:00 CEST and 06/09/2023 13:00:00 CEST with absolute % change per bar 0.011980
+Closed 36: Negative after expiration time
+Opened 37: long Divergence of degree 3 between 06/09/2023 13:00:00 CEST and 07/09/2023 09:00:00 CEST with absolute % change per bar 0.011053
+Closed 37: Opposite (not necessarily denied) long divergence
+
+ END OF LOG
+

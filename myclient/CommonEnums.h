@@ -34,9 +34,9 @@ enum StatType {
 };
 
 enum RSI_condition {
-	LSTAT_LBAR,
-	LSTAT_RBAR,
-	NONE
+	LSTAT_LBAR, /* massimo / minimo SINISTRO della prima divergenza della serie di divergenze = PRIMO massimo della sequenza di divergenze */
+	LSTAT_RBAR, /* massimo / minimo DESTRO della prima divergenza della serie di divergenze   = SECONDO massimo della sequenza di divergenze */
+	NONE        /* Nessuna restrizione riguardo i valori RSI */
 };
 
 enum BOLLINGER_CONDITION {

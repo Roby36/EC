@@ -108,3 +108,4 @@
 25/08/2023 16:00:00 CEST: Divergence of degree 1 between 24/08/2023 17:00:00 CEST and 25/08/2023 16:00:00 CEST with absolute % change per bar 0.011643
 31/08/2023 15:00:00 CEST: Divergence of degree 1 between 31/08/2023 13:00:00 CEST and 31/08/2023 15:00:00 CEST with absolute % change per bar 0.022277
 06/09/2023 09:00:00 CEST: Divergence of degree 1 between 05/09/2023 09:00:00 CEST and 06/09/2023 09:00:00 CEST with absolute % change per bar 0.028690
+14/09/2023 13:00:00 CEST: Divergence of degree 1 between 14/09/2023 10:00:00 CEST and 14/09/2023 13:00:00 CEST with absolute % change per bar 0.003179
