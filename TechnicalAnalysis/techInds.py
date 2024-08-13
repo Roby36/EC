@@ -140,15 +140,14 @@ class RSI(TechInd):
                 tot_up   = sum(change for change in changes if change > 0)
                 tot_down = sum(-change for change in changes if change < 0)  # Ensure changes are positive
                 RSI_data[cls.fields.AVG_UP.value], RSI_data[cls.fields.AVG_DOWN.value] = avg_up, avg_down = tot_up/period, tot_down/period
-                RSI_data[cls.fields.VAL.value] = 100 - (100 / (1 + avg_up/avg_down))
             
             # Compute post-starting value recursively
             elif (d > period):
                 RSI_data[cls.fields.AVG_UP.value]   = avg_up   = ((period - 1) * RSI_pts[d - 1][cls.fields.AVG_UP.value]   + (change > 0) * change) / period
                 RSI_data[cls.fields.AVG_DOWN.value] = avg_down = ((period - 1) * RSI_pts[d - 1][cls.fields.AVG_DOWN.value] - (change < 0) * change) / period
-                RSI_data[cls.fields.VAL.value] = 100 - (100 / (1 + avg_up/avg_down))
             
-            # Record RSI point
+            # Safe division check
+            RSI_data[cls.fields.VAL.value] = 0 if (d < period) else 100 if avg_down == 0 else 100 - (100 / (1 + avg_up / avg_down))
             RSI_pts.append(RSI_data)
 
         return pd.DataFrame(RSI_pts).set_index(bars.index)
