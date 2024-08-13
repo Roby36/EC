@@ -1,0 +1,723 @@
+
+<section id="market-data-fields" class="api-block-3">
+				<div class="inner-col">
+						<h3 class="section-title-2">Market Data Fields			<div id="market-data-fields-copyBtn" class="copy-link" onclick="getLink('https://ibkrcampus.com/ibkr-api-page/cpapi-v1/#market-data-fields', 'market-data-fields-copyBtn')"><h6>Copy Location</h6><span></span></div>
+			</h3>
+									<div class="row">
+				<div class="col-12 entry-content">
+					<table>
+<tbody>
+<tr>
+<th>Field</th>
+<th>Return Type</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>31</td>
+<td>string</td>
+<td>Last Price</td>
+<td>The last price at which the contract traded. May contain one of the following prefixes: C – Previous day’s closing price. H – Trading has halted.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>string</td>
+<td>Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>string</td>
+<td>Text</td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td>string</td>
+<td>High</td>
+<td>Current day high price</td>
+</tr>
+<tr>
+<td>71</td>
+<td>string</td>
+<td>Low</td>
+<td>Current day low price</td>
+</tr>
+<tr>
+<td>73</td>
+<td>string</td>
+<td>Market Value</td>
+<td>The current market value of your position in the security. Market Value is calculated with real time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>74</td>
+<td>string</td>
+<td>Avg Price</td>
+<td>The average price of the position.</td>
+</tr>
+<tr>
+<td>75</td>
+<td>string</td>
+<td>Unrealized PnL</td>
+<td>Unrealized profit or loss. Unrealized PnL is calculated with real time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>76</td>
+<td>string</td>
+<td>Formatted position</td>
+<td></td>
+</tr>
+<tr>
+<td>77</td>
+<td>string</td>
+<td>Formatted Unrealized PnL</td>
+<td></td>
+</tr>
+<tr>
+<td>78</td>
+<td>string</td>
+<td>Daily PnL</td>
+<td>Your profit or loss of the day since prior close. Daily PnL is calculated with real time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>79</td>
+<td>string</td>
+<td>Realized PnL</td>
+<td>Realized profit or loss. Realized PnL is calculated with real time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>80</td>
+<td>string</td>
+<td>Unrealized PnL %</td>
+<td>Unrealized profit or loss expressed in percentage.</td>
+</tr>
+<tr>
+<td>82</td>
+<td>string</td>
+<td>Change</td>
+<td>The difference between the last price and the close on the previous trading day</td>
+</tr>
+<tr>
+<td>83</td>
+<td>string</td>
+<td>Change %</td>
+<td>The difference between the last price and the close on the previous trading day in percentage.</td>
+</tr>
+<tr>
+<td>84</td>
+<td>string</td>
+<td>Bid Price</td>
+<td>The highest-priced bid on the contract.</td>
+</tr>
+<tr>
+<td>85</td>
+<td>string</td>
+<td>Ask Size</td>
+<td>The number of contracts or shares offered at the ask price. For US stocks, the number displayed is divided by 100.</td>
+</tr>
+<tr>
+<td>86</td>
+<td>string</td>
+<td>Ask Price</td>
+<td>The lowest-priced offer on the contract.</td>
+</tr>
+<tr>
+<td>87</td>
+<td>string</td>
+<td>Volume</td>
+<td>Volume for the day, formatted with ‘K’ for thousands or ‘M’ for millions. For higher precision volume refer to field 7762.</td>
+</tr>
+<tr>
+<td>88</td>
+<td>string</td>
+<td>Bid Size</td>
+<td>The number of contracts or shares bid for at the bid price. For US stocks, the number displayed is divided by 100.</td>
+</tr>
+<tr>
+<td>6004</td>
+<td>string</td>
+<td>Exchange</td>
+<td></td>
+</tr>
+<tr>
+<td>6008</td>
+<td>integer</td>
+<td>Conid</td>
+<td>Contract identifier from IBKR’s database.</td>
+</tr>
+<tr>
+<td>6070</td>
+<td>string</td>
+<td>SecType</td>
+<td>The asset class of the instrument.</td>
+</tr>
+<tr>
+<td>6072</td>
+<td>string</td>
+<td>Months</td>
+<td></td>
+</tr>
+<tr>
+<td>6073</td>
+<td>string</td>
+<td>Regular Expiry</td>
+<td></td>
+</tr>
+<tr>
+<td>6119</td>
+<td>string</td>
+<td>Marker for market data delivery method (similar to request id)</td>
+<td></td>
+</tr>
+<tr>
+<td>6457</td>
+<td>integer</td>
+<td>Underlying Conid. Use /trsrv/secdef to get more information about the security</td>
+<td></td>
+</tr>
+<tr>
+<td>6508</td>
+<td>string</td>
+<td>Service Params.</td>
+<td></td>
+</tr>
+<tr>
+<td>6509</td>
+<td>string</td>
+<td>Market Data Availability. The field may contain three chars. First char defines: R = RealTime, D = Delayed, Z = Frozen, Y = Frozen Delayed, N = Not Subscribed, i – incomplete, v – VDR Exempt (Vendor Display Rule 603c). Second char defines: P = Snapshot, p = Consolidated. Third char defines: B = Book. RealTime</td>
+<td>Data is relayed back in real time without delay, market data subscription(s) are required. Delayed – Data is relayed back 15-20 min delayed. Frozen – Last recorded data at market close, relayed back in real time. Frozen Delayed – Last recorded data at market close, relayed back delayed. Not Subscribed – User does not have the required market data subscription(s) to relay back either real time or delayed data. Snapshot – Snapshot request is available for contract. Consolidated – Market data is aggregated across multiple exchanges or venues. Book – Top of the book data is available for contract.</td>
+</tr>
+<tr>
+<td>7051</td>
+<td>string</td>
+<td>Company name</td>
+<td></td>
+</tr>
+<tr>
+<td>7057</td>
+<td>string</td>
+<td>Ask Exch</td>
+<td>Displays the exchange(s) offering the SMART price. A=AMEX, C=CBOE, I=ISE, X=PHLX, N=PSE, B=BOX, Q=NASDAQOM, Z=BATS, W=CBOE2, T=NASDAQBX, M=MIAX, H=GEMINI, E=EDGX, J=MERCURY</td>
+</tr>
+<tr>
+<td>7058</td>
+<td>string</td>
+<td>Last Exch</td>
+<td>Displays the exchange(s) offering the SMART price. A=AMEX, C=CBOE, I=ISE, X=PHLX, N=PSE, B=BOX, Q=NASDAQOM, Z=BATS, W=CBOE2, T=NASDAQBX, M=MIAX, H=GEMINI, E=EDGX, J=MERCURY</td>
+</tr>
+<tr>
+<td>7059</td>
+<td>string</td>
+<td>Last Size</td>
+<td>The number of unites traded at the last price</td>
+</tr>
+<tr>
+<td>7068</td>
+<td>string</td>
+<td>Bid Exch</td>
+<td>Displays the exchange(s) offering the SMART price. A=AMEX, C=CBOE, I=ISE, X=PHLX, N=PSE, B=BOX, Q=NASDAQOM, Z=BATS, W=CBOE2, T=NASDAQBX, M=MIAX, H=GEMINI, E=EDGX, J=MERCURY</td>
+</tr>
+<tr>
+<td>7084</td>
+<td>string</td>
+<td>Implied Vol./Hist. Vol %</td>
+<td>The ratio of the implied volatility over the historical volatility, expressed as a percentage.</td>
+</tr>
+<tr>
+<td>7085</td>
+<td>string</td>
+<td>Put/Call Interest</td>
+<td>Put option open interest/call option open interest for the trading day.</td>
+</tr>
+<tr>
+<td>7086</td>
+<td>string</td>
+<td>Put/Call Volume</td>
+<td>Put option volume/call option volume for the trading day.</td>
+</tr>
+<tr>
+<td>7087</td>
+<td>string</td>
+<td>Hist. Vol. %</td>
+<td>30-day real-time historical volatility.</td>
+</tr>
+<tr>
+<td>7088</td>
+<td>string</td>
+<td>Hist. Vol. Close %</td>
+<td>Shows the historical volatility based on previous close price.</td>
+</tr>
+<tr>
+<td>7089</td>
+<td>string</td>
+<td>Opt. Volume</td>
+<td>Option Volume</td>
+</tr>
+<tr>
+<td>7094</td>
+<td>string</td>
+<td>Conid + Exchange</td>
+<td></td>
+</tr>
+<tr>
+<td>7184</td>
+<td>string</td>
+<td>canBeTraded</td>
+<td>If contract is a trade-able instrument. Returns 1(true) or 0(false).</td>
+</tr>
+<tr>
+<td>7219</td>
+<td>string</td>
+<td>Contract Description</td>
+<td></td>
+</tr>
+<tr>
+<td>7220</td>
+<td>string</td>
+<td>Contract Description</td>
+<td></td>
+</tr>
+<tr>
+<td>7221</td>
+<td>string</td>
+<td>Listing Exchange</td>
+<td></td>
+</tr>
+<tr>
+<td>7280</td>
+<td>string</td>
+<td>Industry</td>
+<td>Displays the type of industry under which the underlying company can be categorized.</td>
+</tr>
+<tr>
+<td>7281</td>
+<td>string</td>
+<td>Category</td>
+<td>Displays a more detailed level of description within the industry under which the underlying company can be categorized.</td>
+</tr>
+<tr>
+<td>7282</td>
+<td>string</td>
+<td>Average Volume</td>
+<td>The average daily trading volume over 90 days.</td>
+</tr>
+<tr>
+<td>7283</td>
+<td>string</td>
+<td>Option Implied Vol. %</td>
+<td>A prediction of how volatile an underlying will be in the future.At the market volatility estimated for a maturity thirty calendar days forward of the current trading day, and based on option prices from two consecutive expiration months. To query the Implied Vol. % of a specific strike refer to field 7633.</td>
+</tr>
+<tr>
+<td>7284</td>
+<td>string</td>
+<td>Historical volatility %</td>
+<td>Deprecated, see field 7087</td>
+</tr>
+<tr>
+<td>7285</td>
+<td>string</td>
+<td>Put/Call Ratio</td>
+<td></td>
+</tr>
+<tr>
+<td>7286</td>
+<td>string</td>
+<td>Dividend Amount</td>
+<td>Displays the amount of the next dividend.</td>
+</tr>
+<tr>
+<td>7287</td>
+<td>string</td>
+<td>Dividend Yield %</td>
+<td>This value is the toal of the expected dividend payments over the next twelve months per share divided by the Current Price and is expressed as a percentage. For derivatives, this displays the total of the expected dividend payments over the expiry date</td>
+</tr>
+<tr>
+<td>7288</td>
+<td>string</td>
+<td>Ex-date of the dividend</td>
+<td></td>
+</tr>
+<tr>
+<td>7289</td>
+<td>string</td>
+<td>Market Cap</td>
+<td></td>
+</tr>
+<tr>
+<td>7290</td>
+<td>string</td>
+<td>P/E</td>
+<td></td>
+</tr>
+<tr>
+<td>7291</td>
+<td>string</td>
+<td>EPS</td>
+<td></td>
+</tr>
+<tr>
+<td>7292</td>
+<td>string</td>
+<td>Cost Basis</td>
+<td>Your current position in this security multiplied by the average price and multiplier.</td>
+</tr>
+<tr>
+<td>7293</td>
+<td>string</td>
+<td>52 Week High</td>
+<td>The highest price for the past 52 weeks.</td>
+</tr>
+<tr>
+<td>7294</td>
+<td>string</td>
+<td>52 Week Low</td>
+<td>The lowest price for the past 52 weeks.</td>
+</tr>
+<tr>
+<td>7295</td>
+<td>string</td>
+<td>Open</td>
+<td>Today’s opening price.</td>
+</tr>
+<tr>
+<td>7296</td>
+<td>string</td>
+<td>Close</td>
+<td>Today’s closing price.</td>
+</tr>
+<tr>
+<td>7308</td>
+<td>string</td>
+<td>Delta</td>
+<td>The ratio of the change in the price of the option to the corresponding change in the price of the underlying.</td>
+</tr>
+<tr>
+<td>7309</td>
+<td>string</td>
+<td>Gamma</td>
+<td>The rate of change for the delta with respect to the underlying asset’s price.</td>
+</tr>
+<tr>
+<td>7310</td>
+<td>string</td>
+<td>Theta</td>
+<td>A measure of the rate of decline the value of an option due to the passage of time.</td>
+</tr>
+<tr>
+<td>7311</td>
+<td>string</td>
+<td>Vega</td>
+<td>The amount that the price of an option changes compared to a 1% change in the volatility.</td>
+</tr>
+<tr>
+<td>7607</td>
+<td>string</td>
+<td>Opt. Volume Change %</td>
+<td>Today’s option volume as a percentage of the average option volume.</td>
+</tr>
+<tr>
+<td>7633</td>
+<td>string</td>
+<td>Implied Vol. %</td>
+<td>The implied volatility for the specific strike of the option in percentage. To query the Option Implied Vol. % from the underlying refer to field 7283.</td>
+</tr>
+<tr>
+<td>7635</td>
+<td>string</td>
+<td>Mark</td>
+<td>The mark price is, the ask price if ask is less than last price, the bid price if bid is more than the last price, otherwise it’s equal to last price.</td>
+</tr>
+<tr>
+<td>7636</td>
+<td>string</td>
+<td>Shortable Shares</td>
+<td>Number of shares available for shorting.</td>
+</tr>
+<tr>
+<td>7637</td>
+<td>string</td>
+<td>Fee Rate</td>
+<td>Interest rate charged on borrowed shares.</td>
+</tr>
+<tr>
+<td>7638</td>
+<td>string</td>
+<td>Option Open Interest</td>
+<td></td>
+</tr>
+<tr>
+<td>7639</td>
+<td>string</td>
+<td>% of Mark Value</td>
+<td>Displays the market value of the contract as a percentage of the total market value of the account. Mark Value is calculated with real time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>7644</td>
+<td>string</td>
+<td>Shortable</td>
+<td>Describes the level of difficulty with which the security can be sold short.</td>
+</tr>
+<tr>
+<td>7655</td>
+<td>string</td>
+<td>Morningstar Rating</td>
+<td>Displays Morningstar Rating provided value. Requires Morningstar subscription.</td>
+</tr>
+<tr>
+<td>7671</td>
+<td>string</td>
+<td>Dividends</td>
+<td>This value is the total of the expected dividend payments over the next twelve months per share.</td>
+</tr>
+<tr>
+<td>7672</td>
+<td>string</td>
+<td>Dividends TTM</td>
+<td>This value is the total of the expected dividend payments over the last twelve months per share.</td>
+</tr>
+<tr>
+<td>7674</td>
+<td>string</td>
+<td>EMA(200)</td>
+<td>Exponential moving average (N=200).</td>
+</tr>
+<tr>
+<td>7675</td>
+<td>string</td>
+<td>EMA(100)</td>
+<td>Exponential moving average (N=100).</td>
+</tr>
+<tr>
+<td>7676</td>
+<td>string</td>
+<td>EMA(50)</td>
+<td>Exponential moving average (N=50).</td>
+</tr>
+<tr>
+<td>7677</td>
+<td>string</td>
+<td>EMA(20)</td>
+<td>Exponential moving average (N=20).</td>
+</tr>
+<tr>
+<td>7678</td>
+<td>string</td>
+<td>Price/EMA(200)</td>
+<td>Price to Exponential moving average (N=200) ratio -1, displayed in percents.</td>
+</tr>
+<tr>
+<td>7679</td>
+<td>string</td>
+<td>Price/EMA(100)</td>
+<td>Price to Exponential moving average (N=100) ratio -1, displayed in percents.</td>
+</tr>
+<tr>
+<td>7724</td>
+<td>string</td>
+<td>Price/EMA(50)</td>
+<td>Price to Exponential moving average (N=50) ratio -1, displayed in percents.</td>
+</tr>
+<tr>
+<td>7681</td>
+<td>string</td>
+<td>Price/EMA(20)</td>
+<td>Price to Exponential moving average (N=20) ratio -1, displayed in percents.</td>
+</tr>
+<tr>
+<td>7682</td>
+<td>string</td>
+<td>Change Since Open</td>
+<td>The difference between the last price and the open price.</td>
+</tr>
+<tr>
+<td>7683</td>
+<td>string</td>
+<td>Upcoming Event</td>
+<td>Shows the next major company event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7684</td>
+<td>string</td>
+<td>Upcoming Event Date</td>
+<td>The date of the next major company event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7685</td>
+<td>string</td>
+<td>Upcoming Analyst Meeting</td>
+<td>The date and time of the next scheduled analyst meeting. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7686</td>
+<td>string</td>
+<td>Upcoming Earnings</td>
+<td>The date and time of the next scheduled earnings/earnings call event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7687</td>
+<td>string</td>
+<td>Upcoming Misc Event</td>
+<td>The date and time of the next shareholder meeting, presentation or other event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7688</td>
+<td>string</td>
+<td>Recent Analyst Meeting</td>
+<td>The date and time of the most recent analyst meeting. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7689</td>
+<td>string</td>
+<td>Recent Earnings</td>
+<td>The date and time of the most recent earnings/earning call event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7690</td>
+<td>string</td>
+<td>Recent Misc Event</td>
+<td>The date and time of the most recent shareholder meeting, presentation or other event. Requires Wall Street Horizon subscription.</td>
+</tr>
+<tr>
+<td>7694</td>
+<td>string</td>
+<td>Probability of Max Return</td>
+<td>Customer implied probability of maximum potential gain.</td>
+</tr>
+<tr>
+<td>7695</td>
+<td>string</td>
+<td>Break Even</td>
+<td>Break even points</td>
+</tr>
+<tr>
+<td>7696</td>
+<td>string</td>
+<td>SPX Delta</td>
+<td>Beta Weighted Delta is calculated using the formula; Delta x dollar adjusted beta, where adjusted beta is adjusted by the ratio of the close price.</td>
+</tr>
+<tr>
+<td>7697</td>
+<td>string</td>
+<td>Futures Open Interest</td>
+<td>Total number of outstanding futures contracts</td>
+</tr>
+<tr>
+<td>7698</td>
+<td>string</td>
+<td>Last Yield</td>
+<td>Implied yield of the bond if it is purchased at the current last price. Last yield is calculated using the Last price on all possible call dates. It is assumed that prepayment occurs if the bond has call or put provisions and the issuer can offer a lower coupon rate based on current market rates. The yield to worst will be the lowest of the yield to maturity or yield to call (if the bond has prepayment provisions). Yield to worse may be the same as yield to maturity but never higher.</td>
+</tr>
+<tr>
+<td>7699</td>
+<td>string</td>
+<td>Bid Yield</td>
+<td>Implied yield of the bond if it is purchased at the current bid price. Bid yield is calculated using the Ask on all possible call dates. It is assumed that prepayment occurs if the bond has call or put provisions and the issuer can offer a lower coupon rate based on current market rates. The yield to worst will be the lowest of the yield to maturity or yield to call (if the bond has prepayment provisions). Yield to worse may be the same as yield to maturity but never higher.</td>
+</tr>
+<tr>
+<td>7700</td>
+<td>string</td>
+<td>Probability of Max Return</td>
+<td>Customer implied probability of maximum potential gain.</td>
+</tr>
+<tr>
+<td>7702</td>
+<td>string</td>
+<td>Probability of Max Loss</td>
+<td>Customer implied probability of maximum potential loss.</td>
+</tr>
+<tr>
+<td>7703</td>
+<td>string</td>
+<td>Profit Probability</td>
+<td>Customer implied probability of any gain.</td>
+</tr>
+<tr>
+<td>7704</td>
+<td>string</td>
+<td>Organization Type</td>
+<td></td>
+</tr>
+<tr>
+<td>7705</td>
+<td>string</td>
+<td>Debt Class</td>
+<td></td>
+</tr>
+<tr>
+<td>7706</td>
+<td>string</td>
+<td>Ratings</td>
+<td>Ratings issued for bond contract.</td>
+</tr>
+<tr>
+<td>7707</td>
+<td>string</td>
+<td>Bond State Code</td>
+<td></td>
+</tr>
+<tr>
+<td>7708</td>
+<td>string</td>
+<td>Bond Type</td>
+<td></td>
+</tr>
+<tr>
+<td>7714</td>
+<td>string</td>
+<td>Last Trading Date</td>
+<td></td>
+</tr>
+<tr>
+<td>7715</td>
+<td>string</td>
+<td>Issue Date</td>
+<td></td>
+</tr>
+<tr>
+<td>7718</td>
+<td>string</td>
+<td>Beta</td>
+<td>Beta is against standard index.</td>
+</tr>
+<tr>
+<td>7720</td>
+<td>string</td>
+<td>Ask Yield</td>
+<td>Implied yield of the bond if it is purchased at the current offer. Ask yield is calculated using the Bid on all possible call dates. It is assumed that prepayment occurs if the bond has call or put provisions and the issuer can offer a lower coupon rate based on current market rates. The yield to worst will be the lowest of the yield to maturity or yield to call (if the bond has prepayment provisions). Yield to worse may be the same as yield to maturity but never higher.</td>
+</tr>
+<tr>
+<td>7741</td>
+<td>string</td>
+<td>Prior Close</td>
+<td>Yesterday’s closing price</td>
+</tr>
+<tr>
+<td>7762</td>
+<td>string</td>
+<td>Volume Long</td>
+<td>High precision volume for the day. For formatted volume refer to field 87.</td>
+</tr>
+<tr>
+<td>7768</td>
+<td>string</td>
+<td>hasTradingPermissions</td>
+<td>if user has trading permissions for specified contract. Returns 1(true) or 0(false).</td>
+</tr>
+<tr>
+<td>7920</td>
+<td>string</td>
+<td>Daily PnL Raw</td>
+<td>Your profit or loss of the day since prior close. Daily PnL is calculated with real-time market data (even when not subscribed to market data).</td>
+</tr>
+<tr>
+<td>7921</td>
+<td>string</td>
+<td>Cost Basis Raw</td>
+<td>Your current position in this security multiplied by the average price and and multiplier.</td>
+</tr>
+</tbody>
+</table>
+				</div>
+			</div>
+							</div>
+			</section>

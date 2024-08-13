@@ -1,9 +1,0 @@
-
- TRADE LOG:
-Opened 0: Denied divergence on new local maximum on 05/09/2023 14:52:20 CEST; long divergence between most_left_bar 05/09/2023 14:51:10 CEST and most_right_bar 05/09/2023 14:51:35 CEST of entity 2 with absolute % change per bar 0.000012
-Closed 0: 
-Opened 1: Denied divergence on new local maximum on 05/09/2023 14:55:55 CEST; long & short divergence between most_left_bar 05/09/2023 14:55:05 CEST and most_right_bar 05/09/2023 14:55:25 CEST of entity 3 with absolute % change per bar 0.000651
-Closed 1: 
-
- END OF LOG
-
