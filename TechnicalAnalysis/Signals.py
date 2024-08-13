@@ -24,7 +24,9 @@ class Sigs:
     
     class Funcs(Enum):
         NEG_DIV = "neg divergence"
-        NEG_DIV_IN_LADDER = "neg divergence with ladder on neg max and R"
+        NEG_DIV_NEG_MAX_AND_RBP_IN_LADDER = "neg div AND neg max AND right max in ladder"
+        NEG_DIV_NEG_MAX_OR_RBP_IN_LADDER = "neg div AND neg max OR right max in ladder"
+
         OPP_DIV = "opposite divergence"
         BOLL_CROSSING = "bollinger bands crossing"
         NEG_TRADE_EXP = "negative trade expiration"
@@ -79,7 +81,8 @@ class Sigs:
         # Define accessor for signal functions
         self.open_sig_funcs: dict[Sigs.Funcs, Sigs.openSig] = {
             Sigs.Funcs.NEG_DIV:           self.neg_div,
-            Sigs.Funcs.NEG_DIV_IN_LADDER: self.neg_div_in_ladder
+            Sigs.Funcs.NEG_DIV_NEG_MAX_AND_RBP_IN_LADDER: self.neg_div_neg_max_and_rbp_in_ladder,
+            Sigs.Funcs.NEG_DIV_NEG_MAX_OR_RBP_IN_LADDER:  self.neg_div_neg_max_or_rbp_in_ladder,
         }
         self.close_sig_funcs: dict[Sigs.Funcs, Sigs.closeSig] = {
             Sigs.Funcs.OPP_DIV:         self.opposite_div,
@@ -137,7 +140,7 @@ class Sigs:
             return func(self, curr_index)
         wrapper.internal = func
         return wrapper
-
+    
     @opensignal
     def neg_div(self, curr_index: int) -> Tuple[Open, int]:
         """ NOTE: Signal issued at bar i iff neg divergence recorded at bar (i - 1) """
@@ -147,37 +150,51 @@ class Sigs:
         div_nat: int = sel_div[Indicators.Div.fields.M.value].sum()
         return ((Sigs.Open.BUY if div_nat > 0 else Sigs.Open.SELL_SHORT), len(sel_div))
     
-    @opensignal 
-    def neg_div_in_ladder(self, curr_index: int) -> Tuple[Open, int]:
-        """  NOTE: Signal issued at bar i iff 
+    """ NOTE: Undecorated methods: MUST be called INSIDE of decorated methods """
+    def in_ladder(self, index: int, req_dir: Indicators.Ladders.dir) -> bool:
+        """ Determine if some index is located in some ladder of given direction """
+        ladders_ind: pd.DataFrame = self.ind_data[Indicators.Ladders]
+        in_range = (index >= ladders_ind[Indicators.Ladders.fields.LEFT_STAT.value]) & \
+                   (index <= ladders_ind[Indicators.Ladders.fields.RIGHT_STAT.value])
+        direction_match = ladders_ind[Indicators.Ladders.fields.DIRECTION.value] == req_dir.value
+        is_contained: bool = (in_range & direction_match).any()
+        return is_contained
+    
+    def neg_div_in_ladder(self, curr_index: int) -> Tuple[Tuple[Open, int], bool, bool, bool]:
+        """  NOTE: Checks the following
             (1) neg divergence at bar (i - 1) 
             (2) (i - 1) contained in some ladder
             (3) for some neg div at (i - 1), we can find some R bar contained in some ladder
+            (4) for some neg div at (i - 1), we can find some L bar contained in some ladder
         """
-        def in_ladder(index: int, req_dir: Indicators.Ladders.dir) -> bool:
-            """ Determine if some index is located in some ladder of given direction """
-            ladders_ind: pd.DataFrame = self.ind_data[Indicators.Ladders]
-            in_range = (index >= ladders_ind[Indicators.Ladders.fields.LEFT_STAT.value]) & \
-                       (index <= ladders_ind[Indicators.Ladders.fields.RIGHT_STAT.value])
-            direction_match = ladders_ind[Indicators.Ladders.fields.DIRECTION.value] == req_dir.value
-            is_contained: bool = (in_range & direction_match).any()
-            return is_contained
-    
-        # Determine the requried ladder direction 
-        neg_div_sig: Tuple[Sigs.Open, int] = self.neg_div.internal(self, curr_index) # decorator bypass
-        neg_div_sig_dir = neg_div_sig[0]
-        if neg_div_sig_dir == Sigs.Open.HOLD: return neg_div_sig
-        req_dir = Indicators.Ladders.dir.UP if neg_div_sig_dir == Sigs.Open.SELL_SHORT else Indicators.Ladders.dir.DOWN
-
-        # Check if last potential local stat, AND any neg divergence's RBP are in ladder, and confirm neg_div sig
-        neg_stat_in_ladder: bool = in_ladder(curr_index - 1, req_dir)
-        neg_divs: pd.DataFrame   = self.ind_data[Indicators.Div][self.ind_data[Indicators.Div][Indicators.Div.fields.NEG.value] == (curr_index - 1)]
-        rbp_in_ladder: bool      = neg_divs[Indicators.Div.fields.RBP.value].apply(lambda rbp: in_ladder(rbp, req_dir)).sum()
-        return (
-            (neg_div_sig_dir, rbp_in_ladder) if neg_stat_in_ladder and rbp_in_ladder > 0 else 
-            (Sigs.Open.HOLD, 0)
+        # Helper
+        div_field_in_ladder = lambda field, div_df, req_dir: (
+            div_df[field.value].apply(lambda f: self.in_ladder(f, req_dir)).any() if not div_df.empty else False
         )
 
+        # (1) Check neg div elementary signal
+        sig_dir, sig_weight = self.neg_div.internal(self, curr_index) # decorator bypass     
+        if sig_dir == Sigs.Open.HOLD: return ((sig_dir, sig_weight), False, False, False) # No neg div found
+
+        # (2) (3) (4) Check if neg stat and some lbp, rbp in ladder, in required direction
+        req_dir = Indicators.Ladders.dir.UP if sig_dir == Sigs.Open.SELL_SHORT else Indicators.Ladders.dir.DOWN        
+        neg_divs: pd.DataFrame    = self.ind_data[Indicators.Div][self.ind_data[Indicators.Div][Indicators.Div.fields.NEG.value] == (curr_index - 1)]
+        neg_stat_in_ladder: bool  = self.in_ladder(curr_index - 1, req_dir)
+        rbp_in_ladder: bool       = div_field_in_ladder(Indicators.Div.fields.RBP, neg_divs, req_dir)
+        lbp_in_ladder: bool       = div_field_in_ladder(Indicators.Div.fields.LBP, neg_divs, req_dir)
+
+        return ((sig_dir, sig_weight), lbp_in_ladder, rbp_in_ladder, neg_stat_in_ladder)
+
+
+    @opensignal
+    def neg_div_neg_max_and_rbp_in_ladder(self, curr_index: int) ->  Tuple[Open, int]:
+        ((sig_dir, sig_weight), lbp_in_ladder, rbp_in_ladder, neg_stat_in_ladder) = self.neg_div_in_ladder(curr_index)
+        return (sig_dir, sig_weight) if rbp_in_ladder and neg_stat_in_ladder else (Sigs.Open.HOLD, 0)
+    
+    @opensignal
+    def neg_div_neg_max_or_rbp_in_ladder(self, curr_index: int) ->  Tuple[Open, int]:
+        ((sig_dir, sig_weight), lbp_in_ladder, rbp_in_ladder, neg_stat_in_ladder) = self.neg_div_in_ladder(curr_index)
+        return (sig_dir, sig_weight) if rbp_in_ladder or neg_stat_in_ladder else (Sigs.Open.HOLD, 0)
 
     """ Close signals functions definitions """
     closing_sig: dict[OrderSide, Close] = {

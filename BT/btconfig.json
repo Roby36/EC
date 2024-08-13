@@ -12,8 +12,9 @@
         "exp_bars": 30
     },
     "open_sigs": [
-        "neg divergence with ladder on neg max and R",     
-        "   neg divergence"
+        "#neg divergence",
+        "neg div AND neg max AND right max in ladder",
+        "#neg div AND neg max OR right max in ladder"
     ],
     "close_sigs": [
         "opposite divergence",
