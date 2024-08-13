@@ -4,6 +4,7 @@ import logging
 from enum import Enum 
 import json 
 import sys
+import os
 from typing import Tuple, List
 
 from TechnicalAnalysis.Signals import Sigs
@@ -17,7 +18,10 @@ from config import globals
 bar_close: BarAgg = lambda bar: bar[Bars.fields.CLOSE.value]
 bt: bool = True
 chunk_size: int = 200
-config_file: str = "/Users/roby/Desktop/EC/BT/btconfig.json" # Absolute directory ensures correct file is accessed
+
+# Get absolute directory to ensure correct file is accessed
+current_script_directory = os.path.dirname(os.path.abspath(__file__))
+config_file: str = os.path.join(current_script_directory, 'btconfig.json')
 
 class BtParamsKeys(Enum):
     SIGS_PARAMS = "sigs_params"
