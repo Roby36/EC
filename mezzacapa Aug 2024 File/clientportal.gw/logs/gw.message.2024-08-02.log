@@ -1,0 +1,483 @@
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /css/reg-am/login.min.css
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+-> POST /portal.proxy/v1/gstat/bulletins
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 200 POST /sso/Dispatcher
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+<- 304 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 304 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 304 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /css/reg-am/login.min.css
+-> POST /portal.proxy/v1/gstat/bulletins
+-> GET /images/web/favicons/home-screen-icon-128x128.png
+<- 200 GET /images/web/favicons/home-screen-icon-128x128.png
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,503|10115ms
+-> request: /v1/api/sso/validate?gw=1
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,500|108ms
+-> GET /v1/api/sso/validate?gw=1,500|140ms
+-> request: /v1/api/sso/validate?gw=1
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,500|56ms
+-> GET /v1/api/sso/validate?gw=1,500|277ms
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/reg-am/login.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> POST /portal.proxy/v1/gstat/bulletins
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 200 POST /sso/Dispatcher
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /sso/lib/js.cookie.min.js
+-> GET /sso/lib/reg2fa.bundle.min.js
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /sso/lib/reg2fa.bundle.min.js
+<- 304 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /sso/lib/js.cookie.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /sso/qr-codes?ACTION=GET_REG_OPTIONS
+<- 200 GET /sso/qr-codes?ACTION=GET_REG_OPTIONS
+-> GET /sso/qr-codes?ACTION=GENERATE
+<- 200 GET /sso/qr-codes?ACTION=GENERATE
+-> GET /sso/Dispatcher
+<- 302 GET /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,503|10121ms
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> request: /v1/api/sso/validate?gw=1
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/sso/validate?gw=1,500|93ms
+-> GET /v1/api/sso/validate?gw=1,500|140ms
+<- 500 GET /v1/api/iserver/auth/status
+-> request: /v1/api/sso/validate?gw=1
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,500|84ms
+-> GET /v1/api/sso/validate?gw=1,500|295ms
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/account
+<- 500 GET /v1/api/iserver/account
+-> GET /v1/api/iserver/accounts
+<- 503 GET /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts
+<- 500 GET /v1/api/iserver/accounts
+-> GET /v1/api/iserver/account
+<- 500 GET /v1/api/iserver/account
+-> GET /v1/api/iserver/accounts
+<- 500 GET /v1/api/iserver/accounts
+-> GET /v1/api/iserver/wdc
+<- 500 GET /v1/api/iserver/wdc
+-> GET /v1/api/iserver/wdc
+<- 500 GET /v1/api/iserver/wdc
+-> GET /v1/api/ierver/wdc
+<- 500 GET /v1/api/ierver/wdc
+-> GET /v1/api/iserver/wdc
+<- 500 GET /v1/api/iserver/wdc
+-> GET /v1/api/server/wdc
+<- 500 GET /v1/api/server/wdc
+-> GET /v1/api/server/wdc
+<- 500 GET /v1/api/server/wdc
+-> GET /v1/api/iserver/wdc
+<- 500 GET /v1/api/iserver/wdc
+-> GET /v1/api/iserver/wxdcfvgfbgfeadwaedc
+<- 500 GET /v1/api/iserver/wxdcfvgfbgfeadwaedc
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/
+<- 404 GET /v1/api/
+-> GET /v1/api/sdscfv
+<- 500 GET /v1/api/sdscfv
+-> GET /v1/api/tickle
+<- 500 GET /v1/api/tickle
+-> GET /v1/api/tickcfvle
+<- 500 GET /v1/api/tickcfvle
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api//tickle
+<- 500 GET /v1/api//tickle
+-> GET /v1/api/sssdfevrgate
+<- 500 GET /v1/api/sssdfevrgate
+-> GET /v1/api/sssdfevrgate
+<- 500 GET /v1/api/sssdfevrgate
+-> GET /v1/api/iserver
+<- 500 GET /v1/api/iserver
+-> GET /v1/api/validate
+<- 500 GET /v1/api/validate
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /sso/Dispatcher
+<- 302 GET /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,500|88ms
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /css/reg-am/login.min.css
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /sso/lib/xyz.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|255ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|533ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|202ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,200|1835ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|194ms
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+uri /v1/api/iserver/auth/status failed
+java.io.IOException: No route to host
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:47)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:340)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:294)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:269)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:417)
+	at io.netty.buffer.PooledUnsafeDirectByteBuf.setBytes(PooledUnsafeDirectByteBuf.java:288)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1106)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:373)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:645)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysPlain(NioEventLoop.java:545)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:499)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:459)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:858)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /sso/lib/xyz.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /css/reg-am/login.min.css
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+-> POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /sso/images/2fa-animated-once.gif
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 500 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/reg-am/login.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+-> POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|236ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|228ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+-> request: /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|176ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|183ms
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms

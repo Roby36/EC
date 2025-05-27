@@ -1,0 +1,4770 @@
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /sso/lib/xyz.bundle.min.js
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+-> POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+-> GET /images/web/favicons/home-screen-icon-128x128.png
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /images/web/favicons/home-screen-icon-128x128.png
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|266ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|605ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|197ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,200|1871ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|227ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/secdef/info?conid=825711&secType=FUT&month=JUN25&exchange=EUREX
+<- 500 GET /v1/api//iserver/secdef/info?conid=825711&secType=FUT&month=JUN25&exchange=EUREX
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//iserver/secdef/info?conid=825711&secType=FUT&month=JUN25&exchange=EUREX
+<- 200 GET /v1/api//iserver/secdef/info?conid=825711&secType=FUT&month=JUN25&exchange=EUREX
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /sso/ping
+-> GET /sso/ping,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//iserver/secdef/info?conid=825711&secType=STK
+<- 400 GET /v1/api//iserver/secdef/info?conid=825711&secType=STK
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//iserver/secdef/info?conid=346727821&secType=STK
+<- 400 GET /v1/api//iserver/secdef/info?conid=346727821&secType=STK
+-> GET /v1/api//iserver/secdef/info?conid=346727821&secType=STK
+<- 400 GET /v1/api//iserver/secdef/info?conid=346727821&secType=STK
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> POST /v1/api//iserver/questions/suppress
+<- 200 POST /v1/api//iserver/questions/suppress
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> POST /v1/api//iserver/account/DUA094996/orders
+<- 200 POST /v1/api//iserver/account/DUA094996/orders
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /sso/ping
+-> GET /sso/ping,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|255ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/orders
+<- 200 POST /v1/api//iserver/account/DUA094996/orders
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|263ms
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /sso/ping
+-> GET /sso/ping,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|305ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|266ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|296ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /sso/ping
+-> GET /sso/ping,200|218ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|245ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> request: /sso/ping
+-> GET /sso/ping,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|186ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /sso/ping
+-> GET /sso/ping,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|273ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /sso/ping
+-> GET /sso/ping,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|342ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|275ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /sso/ping
+-> GET /sso/ping,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|405ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|251ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|211ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api//tickle
+-> GET /v1/api/tickle,200|494ms
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|378ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|344ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|266ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|270ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|479ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|514ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|591ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|525ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|290ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|459ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|568ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|464ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|493ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|439ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|222ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|586ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|548ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|598ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|498ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|455ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|589ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|205ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//iserver/account/DUA094996/alert
+<- 405 GET /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//iserver/account/DUA094996/alert
+<- 405 GET /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|1083ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|260ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|236ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|281ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|277ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|459ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|619ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|763ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|354ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|568ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|238ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|463ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|526ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|289ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /sso/ping,200|876ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|303ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|244ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|340ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /sso/ping
+-> GET /sso/ping,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|286ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|261ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|269ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /sso/ping
+-> GET /sso/ping,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,401|192ms
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,401|902ms
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,401|194ms
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,401|276ms
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,401|229ms
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,401|326ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|266ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|197ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|452ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|217ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|236ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|235ms
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> GET /sso/images/2fa-animated-once.gif
+-> POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /images/2015/button_discover_apis.png
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> GET /v1/api//tickle
+<- 401 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 401 GET /v1/api/iserver/auth/status
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|279ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|517ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|196ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,200|1798ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|291ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|322ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|242ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> request: /v1/api/tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|211ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|269ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|245ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|223ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|267ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|1413ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 500 POST /v1/api//iserver/account/DUA094996/alert
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|621ms
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|283ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|250ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/account/DUA094996/alert
+<- 200 POST /v1/api//iserver/account/DUA094996/alert
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /sso/ping
+-> GET /sso/ping,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> GET /v1/api//iserver/account/DUA094996/alerts
+<- 200 GET /v1/api//iserver/account/DUA094996/alerts
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> GET /v1/api//tickle
+-> POST /v1/api//iserver/account/DUA094996/orders
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+<- 200 POST /v1/api//iserver/account/DUA094996/orders
+-> POST /v1/api//iserver/account/DUA094996/orders
+<- 200 POST /v1/api//iserver/account/DUA094996/orders
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|332ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/account//orders?&force=False
+<- 200 GET /v1/api//iserver/account//orders?&force=False
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|454ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|462ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|284ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|229ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|252ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|285ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|296ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|253ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /sso/ping
+-> GET /sso/ping,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|330ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|395ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|300ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|276ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /sso/ping
+-> GET /sso/ping,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|295ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|244ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|639ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /sso/ping
+-> GET /sso/ping,200|208ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|261ms
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|452ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|283ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|275ms
+-> request: /sso/ping
+-> GET /sso/ping,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|277ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|298ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|275ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|273ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> request: /sso/ping
+-> GET /sso/ping,200|380ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|342ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|274ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|290ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|304ms
+-> request: /sso/ping
+-> GET /sso/ping,200|245ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|464ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|261ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|214ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|1061ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|420ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|461ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|300ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|252ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|260ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|220ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|320ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=6y&bar=1d&outsideRth=False&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=6y&bar=1d&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=6y&bar=1d&outsideRth=False&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=6y&bar=1d&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|333ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|329ms
+-> GET /v1/api//tickle
+-> POST /v1/api//iserver/secdef/search
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 POST /v1/api//iserver/secdef/search
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=True&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=True&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|621ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False
+<- 500 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/reg-am/login.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+-> GET /images/2015/btn-app-apple.png
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> POST /portal.proxy/v1/gstat/bulletins
+-> GET /sso/images/2fa-animated-once.gif
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|404ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|318ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|203ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|434ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|529ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1m&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1m&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1hrs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1hrs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2m&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|248ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|342ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> request: /sso/ping
+-> GET /sso/ping,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|471ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|244ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|247ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|255ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|296ms
+-> request: /sso/ping
+-> GET /sso/ping,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|253ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|256ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|336ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|244ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|270ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|388ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|260ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|270ms
+-> request: /sso/ping
+-> GET /sso/ping,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|292ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|328ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2d&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3d&bar=1mins&outsideRth=False&&
+-> GET /v1/api/tickle,200|454ms
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3d&bar=1mins&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=5d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=5d&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|386ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|236ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|358ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /sso/ping
+-> GET /sso/ping,200|852ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//iserver/marketdata/history?conid=82571&period=5d&bar=1mins&outsideRth=False&&
+<- 500 GET /v1/api//iserver/marketdata/history?conid=82571&period=5d&bar=1mins&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|340ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=5d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=5d&bar=1mins&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|314ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1mins&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|243ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1d&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /sso/ping
+-> GET /sso/ping,200|187ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|503ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|266ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|315ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /sso/ping
+-> GET /sso/ping,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|243ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|577ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|263ms
+-> request: /sso/ping
+-> GET /sso/ping,200|201ms
+-> GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+<- 200 GET /sso/Login?forwardTo=22&RL=1&ip2loc=US
+-> GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /css/ibkr/theme-ibkr-portal.min.css
+-> GET /css/fontawesome-6.2.0/all.min.css
+-> GET /css/reg-am/login.min.css
+-> GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/bootstrap-5.2.2/bootstrap.min.css
+-> GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+<- 200 GET /css/fontawesome-6.2.0/all.min.css
+<- 200 GET /css/reg-am/login.min.css
+<- 200 GET /sso/lib/xyz.bundle.min.js
+<- 200 GET /css/ibkr/theme-ibkr-portal.min.css
+<- 200 GET /scripts/common/js/jquery-3.7.0/jquery.min.js
+-> GET /images/2015/btn-app-apple.png
+-> GET /images/2015/btn-app-google.png
+<- 200 GET /images/2015/btn-app-apple.png
+<- 200 GET /images/2015/btn-app-google.png
+-> GET /images/2015/btn-app-tws.png
+<- 200 GET /scripts/common/js/bootstrap-5.2.2/bootstrap.bundle.min.js
+-> GET /images/2015/button_discover_apis.png
+<- 200 GET /images/2015/btn-app-tws.png
+<- 200 GET /images/2015/button_discover_apis.png
+-> GET /images/common/logos/ibkr/interactive-brokers.svg
+-> POST /portal.proxy/v1/gstat/bulletins
+-> GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+<- 200 GET /images/common/logos/ibkr/interactive-brokers.svg
+<- 200 GET /fonts/fontawesome-6.4.2/webfonts/fa-solid-900.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Light.woff2
+-> GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> GET /sso/images/2fa-animated-once.gif
+<- 204 POST /portal.proxy/v1/gstat/bulletins
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Semibold.woff2
+<- 200 GET /sso/images/2fa-animated-once.gif
+<- 200 GET /fonts/proxima-nova/Proxima-Nova-Regular.woff2
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Authenticator
+<- 200 POST /sso/Authenticator
+-> POST /sso/Dispatcher
+<- 302 POST /sso/Dispatcher
+-> request: /v1/api/sso/validate?gw=1
+-> GET /v1/api/sso/validate?gw=1,200|236ms
+-> request: /v1/api/one/user
+-> request: /v1/api/ssodh/init
+-> sso GET https://api.ibkr.com/v1/api/ssodh/init
+-> GET /v1/api/one/user,200|469ms
+-> request: /v1/api/ssodh/st
+-> sso GET https://api.ibkr.com/v1/api/ssodh/st
+-> request: /v1/api/iserver/auth/status
+-> GET /v1/api/iserver/auth/status,200|201ms
+-> request: /v1/api/iserver/auth/ssodh/init
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> POST https://api.ibkr.com/v1/api/iserver/auth/ssodh/init,200|1696ms
+-> request: /v1/api/iserver/accounts
+-> GET /v1/api/iserver/accounts,200|227ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|339ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> request: /v1/api/tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|188ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|330ms
+-> request: /v1/api/tickle
+-> GET /v1/api//tickle
+-> GET /v1/api/tickle,200|311ms
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|252ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|268ms
+-> request: /sso/ping
+-> GET /sso/ping,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|410ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3600S&bar=1mins&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /sso/ping
+-> GET /sso/ping,200|245ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1y&bar=1d&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|246ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=2y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=2y&bar=1d&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=3y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=3y&bar=1d&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=4y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=4y&bar=1d&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|276ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /sso/ping
+-> GET /sso/ping,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|276ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|303ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|449ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|265ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /sso/ping
+-> GET /sso/ping,200|249ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|368ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|266ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|242ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|275ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|294ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|258ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> request: /sso/ping
+-> GET /sso/ping,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|294ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|248ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|322ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|244ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|341ms
+-> request: /sso/ping
+-> GET /sso/ping,200|217ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|348ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|411ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|267ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|365ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|278ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /sso/ping
+-> GET /sso/ping,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|323ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|339ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|390ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|253ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|306ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> request: /sso/ping
+-> GET /sso/ping,200|509ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|247ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|277ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|253ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|291ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> request: /sso/ping
+-> GET /sso/ping,200|216ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|296ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|187ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /sso/ping
+-> GET /sso/ping,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|263ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|311ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|377ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|271ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|422ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|203ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|252ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|278ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|331ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|280ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|284ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|560ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|245ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|251ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|249ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|246ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|300ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|220ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|512ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|405ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|274ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|342ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|440ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|332ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|298ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|282ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|306ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|226ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|316ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|288ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|270ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|273ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|252ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|275ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|233ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|231ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|317ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|214ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|264ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|257ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /sso/ping
+-> GET /sso/ping,200|227ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|289ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|297ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|332ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|263ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /sso/ping
+-> GET /sso/ping,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|362ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|253ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|246ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|267ms
+-> request: /sso/ping
+-> GET /sso/ping,200|229ms
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|202ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api//tickle
+-> GET /v1/api/tickle,200|491ms
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|413ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|419ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|367ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|361ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> request: /sso/ping
+-> GET /sso/ping,200|509ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|187ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|541ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|250ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|312ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|365ms
+-> request: /sso/ping
+-> GET /sso/ping,200|191ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|266ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|348ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|273ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|227ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /sso/ping
+-> GET /sso/ping,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|369ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|385ms
+-> request: /sso/ping
+-> GET /sso/ping,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|342ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|416ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|233ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|233ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|184ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> request: /sso/ping
+-> GET /sso/ping,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|377ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|413ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|250ms
+-> request: /sso/ping
+-> GET /sso/ping,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|191ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|245ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> request: /sso/ping
+-> GET /sso/ping,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|358ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|254ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|366ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|241ms
+-> request: /sso/ping
+-> GET /sso/ping,200|279ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|371ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|184ms
+-> request: /sso/ping
+-> GET /sso/ping,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|233ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /sso/ping
+-> GET /sso/ping,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|248ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|212ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|391ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|207ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|230ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|243ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|235ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|226ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|243ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|330ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|242ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|236ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|294ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|288ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|225ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|350ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|262ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|330ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|370ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|204ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|357ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|274ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|321ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|226ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|220ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|263ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|249ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|221ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|346ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|250ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|243ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|269ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /sso/ping
+-> GET /sso/ping,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|238ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|276ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|247ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|224ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|324ms
+-> request: /sso/ping
+-> GET /sso/ping,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|280ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|322ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|260ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|249ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|187ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|242ms
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> request: /sso/ping
+-> GET /sso/ping,200|228ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=4y&bar=1d&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=4y&bar=1d&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|211ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=4d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=4d&bar=1hrs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=5d&bar=1hrs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=5d&bar=1hrs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|187ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=3600S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=3600S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|294ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api/tickle,200|241ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|300ms
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> POST /v1/api//iserver/secdef/search
+<- 200 POST /v1/api//iserver/secdef/search
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> GET /v1/api//iserver/marketdata/history?conid=479624278&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=479624278&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=76792991&period=1800S&bar=1secs&outsideRth=False&&
+-> request: /sso/ping
+-> GET /sso/ping,200|250ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|288ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /v1/api/tickle
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|287ms
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|489ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|237ms
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+-> GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+<- 200 GET /v1/api//iserver/marketdata/history?conid=825711&period=1800S&bar=1secs&outsideRth=False&&
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|248ms
+-> request: /sso/ping
+-> GET /sso/ping,200|254ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|259ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|553ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|435ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|258ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /sso/ping
+-> GET /sso/ping,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|216ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|209ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|210ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|230ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /sso/ping
+-> GET /sso/ping,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|228ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|231ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|205ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> request: /sso/ping
+-> GET /sso/ping,200|324ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|264ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|190ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|246ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|296ms
+-> request: /sso/ping
+-> GET /sso/ping,200|206ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|195ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|286ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|281ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|223ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|239ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|293ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|206ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|246ms
+-> request: /sso/ping
+-> GET /sso/ping,200|211ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|297ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|208ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|229ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|330ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|289ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|222ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|196ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|202ms
+-> request: /sso/ping
+-> GET /sso/ping,200|233ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|232ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|288ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|213ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|269ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|272ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|192ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|217ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|333ms
+-> request: /sso/ping
+-> GET /sso/ping,200|197ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|308ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|198ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|200ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|185ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|214ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|245ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|199ms
+-> request: /sso/ping
+-> GET /sso/ping,200|189ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|188ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|250ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|234ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|186ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|201ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|218ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|203ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|194ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|193ms
+-> request: /sso/ping
+-> GET /sso/ping,200|233ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|240ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|215ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|189ms
+-> GET /v1/api//tickle
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+<- 200 GET /v1/api/iserver/auth/status
+-> GET /v1/api/tickle,200|252ms
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|352ms
+-> request: /v1/api/tickle
+-> GET /v1/api//tickle
+-> GET /v1/api/tickle,200|208ms
+<- 200 GET /v1/api//tickle
+-> GET /v1/api/iserver/auth/status
+<- 200 GET /v1/api/iserver/auth/status
+-> request: /v1/api/tickle
+-> GET /v1/api/tickle,200|219ms

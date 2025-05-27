@@ -1,0 +1,25 @@
+{
+    "sigs_params": {
+        "RSI_per": 14,
+        "boll_per": 20,
+        "boll_mult": 2,
+        "max_div_per": 14,
+        "max_neg_per": 14,
+        "ladd_min_stat_pts": 6,
+        "ladd_max_stat_pts": 2147483647,
+        "stop_loss": 0.04,
+        "take_profit": 0.05,
+        "exp_bars": 30
+    },
+    "open_sigs": [
+        "neg divergence",
+        "neg div AND neg max AND right max in ladder",
+        "neg div AND neg max OR right max in ladder"
+    ],
+    "close_sigs": [
+        "opposite divergence",
+        "negative trade expiration",
+        "Take profit or Stop loss",
+        "bollinger bands crossing"
+    ]
+}
